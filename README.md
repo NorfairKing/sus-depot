@@ -18,3 +18,10 @@ My personal SUS depot
 - Xmonad
 - Newsbeuter
 - Git
+
+## Not included (on purpose)
+
+- Wifi configurations
+- SSH configurations
+- GTK themes
+

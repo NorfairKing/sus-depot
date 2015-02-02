@@ -1,17 +1,34 @@
 [~]
+taskrc:                     .taskrc
+
 bash/bash_login:            .bash_login
 bash/bash_logout:           .bash_profile
 bash/bashrc:                .bashrc
 
-aliases/aliases:            .aliases/aliases
-aliases/bash_aliases:       .aliases/abash_aliases 
-aliases/color_aliases:      .aliases/color_aliases 
-aliases/dotfile_aliases:    .aliases/dotfile_aliases
-aliases/editor_aliases:     .aliases/editor_aliases
-aliases/git_aliases:        .aliases/git_aliases
-aliases/ls_aliases:         .aliases/ls_aliases
-aliases/navigation_aliases: .aliases/navigation_aliases
-aliases/network_aliases:    .aliases/network_aliases
-aliases/package_aliases:    .aliases/package_aliases
-aliases/workflow_aliases:   .aliases/workflow_aliases
-aliases/xmonad_aliases:     .aliases/xmonad_aliases
+zsh/zlogin:                 .zlogin
+zsh/zlogout:                .zlogout
+zsh/zprofile:               .zprofile
+zsh/zshenv:                 .zshenv
+zsh/zshrc:                  .zshrc
+
+xorg/xinitrc:               .xinitrc
+xorg/Xresources:            .Xresources
+
+
+[~/.aliases]
+aliases/aliases:            aliases
+aliases/bash_aliases:       abash_aliases 
+aliases/color_aliases:      color_aliases 
+aliases/dotfile_aliases:    dotfile_aliases
+aliases/editor_aliases:     editor_aliases
+aliases/git_aliases:        git_aliases
+aliases/ls_aliases:         ls_aliases
+aliases/navigation_aliases: navigation_aliases
+aliases/network_aliases:    network_aliases
+aliases/package_aliases:    package_aliases
+aliases/workflow_aliases:   workflow_aliases
+aliases/xmonad_aliases:     xmonad_aliases
+
+[~/.paths]
+paths/paths:                paths
+paths/specific_paths:       specific_paths

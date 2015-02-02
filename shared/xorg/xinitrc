@@ -1,0 +1,14 @@
+# set the cursor
+xsetroot -cursor_name left_ptr
+
+# set belgian keyboard layout
+setxkbmap -layout be -option ctrl:nocaps
+
+# set retype speed
+xset r rate 250 30
+
+# add resources
+xrdb -merge ~/.Xresources
+
+# start xmonad
+xmonad
