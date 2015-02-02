@@ -1,0 +1,9 @@
+alias vbr="vim $HOME/.bashrc"
+alias vbp="vim $HOME/.bash_profile"
+alias vp="vim $HOME/.profile"
+
+alias vzr="vim $HOME/.zshrc"
+alias vze="vim $HOME/.zshenv"
+alias vzp="vim $HOME/.zprofile"
+alias vzli="vim $HOME/.zlogin"
+alias vzlo="vim $HOME/.zlogout"
