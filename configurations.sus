@@ -1,0 +1,12 @@
+[~]
+bash_aliases:           .bash_aliases
+bash_login:             .bash_login
+bash_profile:           .bash_profile
+bashrc:                 .bashrc
+
+
+[~/.xmonad]
+
+[~/.aliases]
+
+
