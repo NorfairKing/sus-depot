@@ -32,3 +32,8 @@ aliases/xmonad_aliases:     xmonad_aliases
 [~/.paths]
 paths/paths:                paths
 paths/specific_paths:       specific_paths
+
+[~/.keyboards]
+keyboards/azerty:           azerty
+keyboards/qwerty:           qwerty
+keyboards/dvorak.kinesis:   dvorak.kinesis
