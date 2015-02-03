@@ -2,6 +2,27 @@
 !
 ! The keys in this file are in the order that you can find them on your keyboard
 ! You can only remap the right side of the config sensibly.
+!
+! This file will configure your keyboard to look like this:
+!
+!
+! Normal:
+!
+! &[{+(= *)!}]#
+! \;,.py fgcrl/
+!  aoeui dhtns
+!  'qjkx bmwvz
+!    $<    @
+! 
+!
+! With shift:
+! 
+! %75319 02468`
+! |:<>PY FGCRL?
+!  AOEUI DHTNS
+!  "QJKX BMWVZ
+!    ~>    ^
+!
 
 
 
@@ -30,15 +51,15 @@ keycode  127  =  Pause                  Break           Pause                 Br
 keycode  21   =  ampersand              percent         ampersand             percent
 keycode  10   =  bracketleft            7               bracketleft           7            currency         NoSymbol          currency
 keycode  11   =  braceleft              5               braceleft             5            cent             NoSymbol          cent
-keycode  12   =  braceright             3               braceright            3            yen              NoSymbol          yen
+keycode  12   =  plus                   3               plus                  3            yen              NoSymbol          yen
 keycode  13   =  parenleft              1               parenleft             1            EuroSign         NoSymbol          EuroSign
 keycode  14   =  equal                  9               equal                 9            sterling         dead_circumflex   sterling
 
 keycode  15   =  asterisk               0               asterisk              0
 keycode  16   =  parenright             2               parenright            2            onehalf          NoSymbol          onehalf
-keycode  17   =  plus                   4               plus                  4            dead_grave       NoSymbol          dead_grave
-keycode  18   =  bracketright           6               bracketright          6
-keycode  19   =  exclam                 8               exclam                8            exclamdown       U2E18             exclamdown
+keycode  17   =  exclam                 4               exclam                4            dead_grave       NoSymbol          dead_grave
+keycode  18   =  braceright             6               braceright            6
+keycode  19   =  bracketright           8               bracketright          8            bracketright     U2E18             bracketright
 keycode  20   =  numbersign             grave           numbersign            grave        dead_grave       NoSymbol          dead_grave
 
 !! second row
