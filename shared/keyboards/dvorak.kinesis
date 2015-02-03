@@ -7,21 +7,22 @@
 !
 !
 ! Normal:
-!
-! &[{+(= *)!}]#
-! \;,.py fgcrl/
-!  aoeui dhtns
-!  'qjkx bmwvz
-!    $<    @
+! 
+!        &[{+(= *)!}]#
+!        \;,.py fgcrl/
+!    <tab>aoeui dhtns-
+!  <shift>'qjkx bmwvz<shift>
+!          $<     @
 ! 
 !
 ! With shift:
+!
+!        %75319 02468`
+!        |:<>PY FGCRL?
+!    <tab>AOEUI DHTNS_
+!  <shift>"QJKX BMWVZ<shift>
+!           ~>    ^
 ! 
-! %75319 02468`
-! |:<>PY FGCRL?
-!  AOEUI DHTNS
-!  "QJKX BMWVZ
-!    ~>    ^
 !
 
 
@@ -78,7 +79,7 @@ keycode  33   =  l                      L               l                     L
 keycode  51  =  slash                  question        slash                 question     questiondown     U203D             questiondown
 
 !! third row
-keycode  66   =  Shift_L                NoSymbol        Shift_L
+keycode  66   =  Tab                    ISO_Left_Tab    Tab                   ISO_Left_Tab
 keycode  38   =  a                      A               a                     A            aring            Aring             aring
 keycode  39   =  o                      O               o                     O            oslash           Oslash            oslash
 keycode  40   =  e                      E               e                     E            ae               AE                ae
@@ -90,10 +91,10 @@ keycode  44   =  h                      H               h                     H 
 keycode  45   =  t                      T               t                     T            thorn            THORN             thorn
 keycode  46   =  n                      N               n                     N            ntilde           Ntilde            ntilde
 keycode  47   =  s                      S               s                     S            ssharp           NoSymbol          ssharp
-keycode  48   =  Shift_R                NoSymbol        Shift_R
+keycode  48   =  minus                  underscore      minus                 underscore   hyphen           endash            hyphen
 
 !! fourth row
-keycode  50   =  Control_L              Control_L       Control_L             Control_L
+keycode  50   =  Shift_L                NoSymbol        Shift_L
 keycode  52   =  apostrophe             quotedbl        apostrophe            quotedbl     dead_acute       dead_doubleacute  dead_acute
 keycode  53   =  q                      Q               q                     Q
 keycode  54   =  j                      J               j                     J
@@ -105,11 +106,7 @@ keycode  58   =  m                      M               m                     M 
 keycode  59   =  w                      W               w                     W
 keycode  60   =  v                      V               v                     V
 keycode  61   =  z                      Z               z                     Z
-keycode  62   =  Control_R              Control_R       Control_R             Control_R
-! put minus somewhere else!
-! =  minus                  underscore      minus                 underscore   hyphen           endash            hyphen
-
-! checked until here
+keycode  62   =  Shift_R                NoSymbol        Shift_R
 
 !! fifth row
 keycode  49   =  Left                   NoSymbol        Left
@@ -117,7 +114,8 @@ keycode  94   =  Right                  NoSymbol        Right
 keycode  113  =  dollar                 asciitilde      dollar                asciitilde   dead_tilde       dead_tilde        dead_tilde
 keycode  114  =  less                   greater         less                  greater      bar              brokenbar         bar
 
-keycode  111  =  Tab                    ISO_Left_Tab    Tab                   ISO_Left_Tab
+! One spare key!!
+keycode  111  =  
 keycode  116  =  at                     asciicircum     at                    asciicircum  dead_circumflex  dead_caron        dead_circumflex
 keycode  34   =  Up                     NoSymbol        Up
 keycode  35   =  Down                   NoSymbol        Down
