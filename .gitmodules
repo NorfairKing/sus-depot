@@ -1,0 +1,6 @@
+[submodule "shared/vim/bundle/vim-airline"]
+	path = shared/vim/bundle/vim-airline
+	url = git@github.com:bling/vim-airline.git
+[submodule "shared/vim/bundle/vim-fugitive"]
+	path = shared/vim/bundle/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive.git

@@ -19,6 +19,8 @@ xorg/Xresources:            .Xresources
 git/gitconfig:              .gitconfig
 git/gitignore:              .gitignore_global
 
+vim:                        .vim
+
 
 [~/.aliases]
 aliases/aliases:            aliases

@@ -43,6 +43,10 @@ set rtp+=$HOME/.local/lib/python3.3/site-packages/powerline/bindings/vim/
 let g:Powerline_symbols = "fancy"
 set laststatus=2
 
+
+" Powerline fonts in airline
+let g:airline_powerline_fonts = 1
+
 colorscheme wombat
 
 " Renaming
