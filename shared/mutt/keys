@@ -1,0 +1,38 @@
+## Sidebar Patch --------------------------------------------------------------
+
+bind index,pager  <left> sidebar-prev
+bind index,pager  <right> sidebar-next
+bind index,pager  <down> sidebar-open
+
+
+## Pager ----------------------------------------------------------------------
+# Pager Key Bindings
+bind pager k  previous-line
+bind pager j  next-line
+bind pager gg top
+bind pager G  bottom
+
+bind pager R  group-reply
+bind index <delete> delete-message
+
+# View attachments properly.
+bind attach <return> view-mailcap
+
+## Url ------------------------------------------------------------------------
+macro pager \Cu "|urlview<enter>" "call urlview to open links"
+
+## Compose --------------------------------------------------------------------
+bind compose p postpone-message
+bind index p recall-message
+
+## Macro's --------------------------------------------------------------------
+
+macro index,pager d "<clear-flag>N<enter><save-message>+skgmail/archive<enter><enter>" "Archive"
+macro index,pager <f1> "<copy-message>+skgmail/archive<enter><save-message>+organizing/rnr<enter><enter>" "Read and Review"
+macro index,pager <f2> "<copy-message>+skgmail/archive<enter><save-message>+organizing/reply<enter><enter>" "Reply to"
+macro index,pager <f3> "<copy-message>+skgmail/archive<enter><save-message>+organizing/wait<enter><enter>" "Waiting for"
+macro index,pager <f4> "<copy-message>+skgmail/archive<enter><save-message>+organizing/ref<enter><enter>" "Refference"
+
+
+## System-specific Keybindings ------------------------------------------------
+source "~/.mutt/specific"

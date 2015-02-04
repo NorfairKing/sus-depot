@@ -1,5 +1,7 @@
 [~]
 taskrc:                     .taskrc
+vimrc:                      .vimrc
+gcalclirc:                  .gcalclirc
 
 bash/bash_login:            .bash_login
 bash/bash_logout:           .bash_profile
@@ -13,6 +15,9 @@ zsh/zshrc:                  .zshrc
 
 xorg/xinitrc:               .xinitrc
 xorg/Xresources:            .Xresources
+
+git/gitconfig:              .gitconfig
+git/gitignore:              .gitignore_global
 
 
 [~/.aliases]
@@ -36,4 +41,27 @@ paths/specific_paths:       specific_paths
 [~/.keyboards]
 keyboards/azerty:           azerty
 keyboards/qwerty:           qwerty
+keyboards/dvorak:           dvorak
 keyboards/dvorak.kinesis:   dvorak.kinesis
+
+[~/.newsbeuter]
+newsbeuter/config:          config
+newsbeuter/urls:            urls
+
+[~/.config]
+redshift.conf:              redshift.conf
+
+[~/.xmonad]
+xmonad.hs:                  xmonad.hs
+
+
+[~/.mutt]
+mutt/sig:                   sig
+mutt/mailcap:               mailcap
+mutt/keys:                  keys
+mutt/colors:                colors
+mutt/alias:                 alias
+mutt/muttrc:                muttrc
+mutt/specific:              specific
+
+
