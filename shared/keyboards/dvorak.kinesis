@@ -10,18 +10,22 @@
 ! 
 !        &[{+(= *)!}]#
 !        \;,.py fgcrl/
-!    <tab>aoeui dhtns-
-!  <shift>'qjkx bmwvz<shift>
-!          $<     @
+!  <shift>aoeui dhtns<shift>
+!   <ctrl>'qjkx bmwvz<ctrl>
+!         <$       -@
+!
+!               <super>  <alt>  <alt>  <super>
+!                      <empty>  <empty>
+!   <backspace> <tab> <delete>  <esc>  <enter> <space>
 ! 
 !
 ! With shift:
 !
 !        %75319 02468`
 !        |:<>PY FGCRL?
-!    <tab>AOEUI DHTNS_
-!  <shift>"QJKX BMWVZ<shift>
-!           ~>    ^
+!  <shift>AOEUI DHTNS<shift>
+!   <ctrl>"QJKX BMWVZ<ctrl>
+!         >~       _^
 ! 
 !
 
@@ -88,7 +92,7 @@ keycode  33   =  l                      L               l                     L
 keycode  51  =  slash                  question        slash                 question     questiondown     U203D             questiondown
 
 !! third row
-keycode  66   =  Tab                    ISO_Left_Tab    Tab                   ISO_Left_Tab
+keycode  66   =  Shift_L                NoSymbol        Shift_L
 keycode  38   =  a                      A               a                     A            aring            Aring             aring
 keycode  39   =  o                      O               o                     O            oslash           Oslash            oslash
 keycode  40   =  e                      E               e                     E            ae               AE                ae
@@ -100,10 +104,10 @@ keycode  44   =  h                      H               h                     H 
 keycode  45   =  t                      T               t                     T            thorn            THORN             thorn
 keycode  46   =  n                      N               n                     N            ntilde           Ntilde            ntilde
 keycode  47   =  s                      S               s                     S            ssharp           NoSymbol          ssharp
-keycode  48   =  minus                  underscore      minus                 underscore   hyphen           endash            hyphen
+keycode  48   =  Shift_R                NoSymbol        Shift_R
 
 !! fourth row
-keycode  50   =  Shift_L                NoSymbol        Shift_L
+keycode  50   =  Control_L              NoSymbol        Control_L
 keycode  52   =  apostrophe             quotedbl        apostrophe            quotedbl     dead_acute       dead_doubleacute  dead_acute
 keycode  53   =  q                      Q               q                     Q
 keycode  54   =  j                      J               j                     J
@@ -115,42 +119,42 @@ keycode  58   =  m                      M               m                     M 
 keycode  59   =  w                      W               w                     W
 keycode  60   =  v                      V               v                     V
 keycode  61   =  z                      Z               z                     Z
-keycode  62   =  Shift_R                NoSymbol        Shift_R
+keycode  62   =  Control_R              NoSymbol        Control_R
 
 !! fifth row
-keycode  49   =  Left                   Home            Left
-keycode  94   =  Right                  End             Right
-keycode  113  =  dollar                 asciitilde      dollar                asciitilde   dead_tilde       dead_tilde        dead_tilde
-keycode  114  =  less                   greater         less                  greater      bar              brokenbar         bar
+keycode  94   =  dollar                 asciitilde      dollar                asciitilde   dead_tilde       dead_tilde        dead_tilde
+keycode  49   =  less                   greater         less                  greater      bar              brokenbar         bar
+keycode  113  =  Left                   Home            Left
+keycode  114  =  Right                  End             Right
 
 ! One spare key!!
-keycode  111  =  
-keycode  116  =  at                     asciicircum     at                    asciicircum  dead_circumflex  dead_caron        dead_circumflex
-keycode  34   =  Up                     Prior           Up
-keycode  35   =  Down                   Next            Down
+keycode  111  =  Up                     Prior           Up
+keycode  116  =  Down                   Next            Down
+keycode  34   =  minus                  underscore      minus                 underscore   hyphen           endash            hyphen
+keycode  35   =  at                     asciicircum     at                    asciicircum  dead_circumflex  dead_caron        dead_circumflex
 
 !! Left thumb keys
-keycode  37   =  Control_L              NoSymbol        Control_L
+keycode  37   =  Super_L                NoSymbol        Super_L
 keycode  64   =  Alt_L                  Meta_L          Alt_L                 Meta_L
 keycode  22   =  BackSpace              BackSpace       BackSpace             BackSpace
-keycode  119  =  Delete                 NoSymbol        Delete
+keycode  119  =  Tab                    ISO_Left_Tab    Tab                   ISO_Left_Tab
 keycode  110  =  
-keycode  115  =  Tab                    ISO_Left_Tab    Tab                   ISO_Left_Tab
+keycode  115  =  Delete                 NoSymbol        Delete
 
 !! Right thumb keys
-keycode  134  =  Control_R              NoSymbol        Control_R
+keycode  134  =  Alt_R                  Meta_R          Alt_R                 Meta_R
 keycode  105  =  Super_R                NoSymbol        Super_R
 
 keycode  112  =  
-keycode  117  =  Tab                    ISO_Left_Tab    Tab                   ISO_Left_Tab
+keycode  117  =  Escape                 NoSymbol        Escape
 keycode  36   =  Return                 NoSymbol        Return
 keycode  65   =  space                  NoSymbol        space
 
-
+! Set all modifier keys again
 add shift   = Shift_L Shift_R
-!add lock    =
+!add lock    = no lock, because i don't like it!
 add control = Control_L Control_R
-add mod1    = Alt_L  Meta_L
+add mod1    = Alt_L  Meta_L Alt_R Meta_R
 add mod2    = Num_Lock
 !add mod3    = 
 add mod4    = Super_L Super_R
