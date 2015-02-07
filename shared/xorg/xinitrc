@@ -1,3 +1,6 @@
+xset -dpms
+xset s off
+
 # set the cursor
 xsetroot -cursor_name left_ptr
 
