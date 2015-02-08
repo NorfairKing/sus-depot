@@ -1,1 +1,1 @@
-/home/syd/super-user-stone/sus/deploy.py -d sus-depot --replace
+/home/syd/super-user-stone/sus/deploy.py -d /home/syd/sus-depot --replace

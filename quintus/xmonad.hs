@@ -227,7 +227,7 @@ keyboardMap = M.fromList
         , ((0, xK_F2), spawn "setxkbmap be")
         , ((0, xK_F3), spawn "setxkbmap dvorak")
         , ((0, xK_F4), spawn "setxkbmap us -variant dvp")
-        , ((0, xK_F5), spawn "xmodmap ~/.keyboards/dvorak.quintus")
+        , ((0, xK_F5), spawn "xmodmap ~/.keyboards/dvorak.kinesis")
         , ((0, xK_F12), spawn "xset r rate 250 30")
     ]
 
