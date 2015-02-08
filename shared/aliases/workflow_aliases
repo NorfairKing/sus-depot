@@ -9,6 +9,13 @@ alias tg='t burndown.daily'
 alias tgm='t burndown'
 alias tgy='t burndown.monthly'
 
+task_info () {
+    task=$1
+    shift
+    t $task info $@
+}
+alias ti=task_info
+
 task_modify () {
     task=$1
     shift
