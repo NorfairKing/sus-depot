@@ -4,3 +4,6 @@
 [submodule "shared/vim/bundle/vim-fugitive"]
 	path = shared/vim/bundle/vim-fugitive
 	url = git@github.com:tpope/vim-fugitive.git
+[submodule "shared/vim/bundle/stylish-haskell"]
+	path = shared/vim/bundle/stylish-haskell
+	url = git@github.com:jaspervdj/stylish-haskell.git
