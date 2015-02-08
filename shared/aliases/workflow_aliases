@@ -41,13 +41,13 @@ task_make_next () {
 }
 alias tmn=task_make_next
 
-task_project () {
+task_project_add () {
     project=$1
     shift
     t add pro:$project $@
 }
 
-alias tp=task_project
+alias tp=task_project_add
 
 task_project_list() {
     t list pro:$@
