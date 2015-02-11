@@ -50,7 +50,7 @@ task_project_add () {
 alias tp=task_project_add
 
 task_project_list() {
-    t list pro:$@
+    t list limit:25 pro:$@ 
 }
 alias tpl=task_project_list
 
