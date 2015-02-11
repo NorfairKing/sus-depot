@@ -69,6 +69,13 @@ task_annotate () {
 alias tA=task_annotate
 alias tan=task_annotate
 
+task_start (){
+    task=$1
+    shift
+    t $task start $@ 
+}
+alias ts=task_start
+
 alias rnd='t add +next +rnd RND:'
 alias rndp='t add +next +rnd RND: New project:'
 alias think='t add +next +think wait:+1d Think about:'
