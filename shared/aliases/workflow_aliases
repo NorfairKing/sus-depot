@@ -121,7 +121,7 @@ work_blogpost () {
     project="blog_$post_abb"
     offset="$2"
     
-    task add project:$project Write first draft on $post_abb post due:friday$offset
+    task add project:$project Write first draft on $post_abb post due:friday$offset +next
     task add project:$project Find good tags on $post_abb post due:friday$offset
     task add project:$project Write final draft of $post_abb post due:friday$offset
     task add project:$project Put up the $post_abb post due:saturday$offset
