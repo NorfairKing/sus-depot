@@ -28,6 +28,7 @@ task_make_waiting () {
 }
 
 alias tmw=task_make_waiting
+alias tlw='task list +waiting_for'
 
 task_done () {
     t $1 done
@@ -80,6 +81,12 @@ alias rnd='t add +next +rnd RND:'
 alias rndp='t add +next +rnd RND: New project:'
 alias think='t add +next +think wait:+1d Think about:'
 alias repay='t add pro:repay'
+
+task_deadline (){
+    t add +deadline due:"$1" "$@"
+}
+
+alias deadline=task_deadline
 
 # specific project aliases
 alias tblog='tp blog'
