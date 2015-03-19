@@ -9,6 +9,8 @@ alias tg='t burndown.daily'
 alias tgm='t burndown'
 alias tgy='t burndown.monthly'
 
+alias in='ta +in +next'
+
 task_info () {
     task=$1
     shift
@@ -51,7 +53,7 @@ task_project_add () {
 alias tp=task_project_add
 
 task_project_list() {
-    t list limit:25 pro:$@ 
+    t list limit:53 pro:$@ 
 }
 alias tpl=task_project_list
 
