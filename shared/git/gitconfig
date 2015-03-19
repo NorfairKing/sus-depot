@@ -1,17 +1,13 @@
 [user]
 	name = Tom Sydney Kerckhove
 	email = syd.kerckhove@student.kuleuven.be
-
 [credential]
 	helper = cache
 	halper = cache --timeout=86400
-
 [merge]
     tool = meld
-
 [push]
 	default = simple
-
 [color]
 	ui = true
 [core]

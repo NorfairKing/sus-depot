@@ -13,3 +13,6 @@
 [submodule "shared/vim/bundle/nerdtree"]
 	path = shared/vim/bundle/nerdtree
 	url = git@github.com:scrooloose/nerdtree.git
+[submodule "shared/vim/bundle/YouCompleteMe"]
+	path = shared/vim/bundle/YouCompleteMe
+	url = git@github.com:Valloric/YouCompleteMe.git
