@@ -1,7 +1,9 @@
 # Taskwarrior
 
+DEFAULT_TAG='+kot'
+
 alias t='task'
-alias ta='t add'
+alias ta="t add $DEFAULT_TAG"
 alias tl='t list'
 alias tc='t calendar'
 
@@ -38,7 +40,7 @@ task_done () {
 }
 alias td=task_done
 
-alias tn='t add +next'
+alias tn='ta +next'
 
 task_make_next () {
     t $1 modify +next
@@ -48,13 +50,13 @@ alias tmn=task_make_next
 task_project_add () {
     project=$1
     shift
-    t add pro:$project $@
+    ta pro:$project $@
 }
 
 alias tp=task_project_add
 
 task_project_list() {
-    t list limit:53 pro:$@ 
+    tl limit:53 pro:$@ 
 }
 alias tpl=task_project_list
 
@@ -80,10 +82,10 @@ task_start (){
 }
 alias ts=task_start
 
-alias rnd='t add +next +rnd RND:'
-alias rndp='t add +next +rnd RND: New project:'
-alias think='t add +next +think wait:+1d Think about:'
-alias repay='t add pro:repay'
+alias rnd='tn +rnd RND:'
+alias rndp='tn +rnd RND: New project:'
+alias think='tn +think wait:+1d Think about:'
+alias repay='ta pro:repay'
 
 task_deadline (){
     t add +deadline due:"$1" "$@"
