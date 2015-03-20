@@ -125,7 +125,9 @@ alias tlpno='tpl pno'
 alias tas='tp auto_schedule'
 alias tlas='tpl auto_schedule'
 
-# Blog work aliases
+## Blog work aliases
+
+# A blogpost
 work_blogpost () {
     post_abb="$1"
     project="blog_$post_abb"
@@ -139,3 +141,8 @@ work_blogpost () {
 
 alias post=work_blogpost
 
+# Post idea
+post_idea () {
+    task add project:blog +in Post idea:$@
+}
+alias pi=post_idea
