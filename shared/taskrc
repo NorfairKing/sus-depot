@@ -22,13 +22,13 @@ data.location=~/.task
 #include /usr/share/doc/task/rc/dark-green-256.theme
 #include /usr/share/doc/task/rc/dark-blue-256.theme
 #include /usr/share/doc/task/rc/dark-violets-256.theme
-include /usr/share/doc/task/rc/dark-yellow-green.theme
+#include /usr/share/doc/task/rc/dark-yellow-green.theme
 #include /usr/share/doc/task/rc/dark-gray-256.theme
 #include /usr/share/doc/task/rc/dark-gray-blue-256.theme
 #include /usr/share/doc/task/rc/solarized-dark-256.theme
 #include /usr/share/doc/task/rc/solarized-light-256.theme
 #include /usr/share/doc/task/rc/no-color.theme
-
+include ~/.task_color.theme
 
 taskd.certificate=\/home\/syd\/.ssh\/tom_sydney_kerckhove.cert.pem
 taskd.key=\/home\/syd\/.ssh\/tom_sydney_kerckhove.key.pem
@@ -40,3 +40,10 @@ urgency.user.tag.health.coefficient=5.0
 urgency.user.tag.deadline.coefficient=10.0
 urgency.user.tag.in.coefficient=10.0
 urgency.blocking.coefficient=4.0
+
+context.kot=+kot or +next
+context.parents=+parents
+context.campus=+campus
+context.braindead=+braindead
+context.gf=+gf
+context=kot
