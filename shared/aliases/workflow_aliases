@@ -1,9 +1,7 @@
 # Taskwarrior
 
-DEFAULT_TAG='+kot'
-
 alias t='task'
-alias ta="t add $DEFAULT_TAG"
+alias ta='t add +kot'
 alias tl='t list'
 alias tc='t calendar'
 
