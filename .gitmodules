@@ -16,3 +16,6 @@
 [submodule "shared/vim/bundle/YouCompleteMe"]
 	path = shared/vim/bundle/YouCompleteMe
 	url = git@github.com:Valloric/YouCompleteMe.git
+[submodule "shared/vim/bundle/--force"]
+	path = shared/vim/bundle/--force
+	url = git@github.com:jaspervdj/stylish-haskell.git

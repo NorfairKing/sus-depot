@@ -30,11 +30,11 @@ data.location=~/.task
 #include /usr/share/doc/task/rc/no-color.theme
 include ~/.task_color.theme
 
-taskd.certificate=\/home\/syd\/.ssh\/tom_sydney_kerckhove.cert.pem
-taskd.key=\/home\/syd\/.ssh\/tom_sydney_kerckhove.key.pem
-taskd.ca=\/home\/syd\/.ssh\/ca.cert.pem
+taskd.certificate=\/home\/syd\/.task\/tom_sydney_kerckhove.cert.pem
+taskd.key=\/home\/syd\/.task\/tom_sydney_kerckhove.key.pem
+taskd.ca=\/home\/syd\/.task\/ca.cert.pem
 taskd.server=cs-syd.eu:53589
-taskd.credentials=Public\/Tom Sydney Kerckhove\/3cdc35ac-ed12-47d9-a5d8-3f6e7fe8d857
+taskd.credentials=cs-syd\/Tom Sydney Kerckhove\/e31803a9-6e1c-429b-be50-03aa17d663ec
 
 urgency.user.tag.in.coefficient=20.0
 urgency.user.tag.health.coefficient=5.0
@@ -44,11 +44,12 @@ urgency.blocking.coefficient=4.0
 
 default.priority=M
 
-context.kot=+kot or +in
+context.kot=-parents -campus -braindead -thalia
 context.parents=+parents or +next or +in
 context.campus=+campus or +in or +repay
 context.braindead=+braindead
 context.thalia=+thalia
+context.wr=+wr or +in
 
 report.next.filter=status:pending limit:page (+next or +in)
 context=kot

@@ -1,7 +1,7 @@
 # Taskwarrior
 
 alias t='task'
-alias ta='t add +kot'
+alias ta='t add'
 alias tl='t list'
 alias tc='t calendar'
 
@@ -11,6 +11,7 @@ alias tgy='t burndown.monthly'
 alias c='task context'
 
 alias in='ta +in +next'
+alias wr='ta +next +wr wait:saturday' # weekly review
 
 task_info () {
     task=$1
