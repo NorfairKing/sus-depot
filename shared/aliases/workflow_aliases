@@ -10,8 +10,18 @@ alias tgm='t burndown'
 alias tgy='t burndown.monthly'
 alias c='task context'
 
-alias in='ta +in +next'
+alias in='ta +in'
+alias rnd='ta +rnd estimate:5 bpower:A RND:'
+alias rndp='rnd RND: New project:'
+alias think='in +think wait:+1d Think about:'
+alias repay='ta pro:repay'
 alias wr='ta +next +wr wait:saturday' # weekly review
+tickle () {
+    day=$1
+    shift
+    in wait:$day $@
+}
+alias tickle=tickle
 
 task_info () {
     task=$1
@@ -26,6 +36,27 @@ task_modify () {
     t $task modify $@
 }
 alias tm=task_modify
+
+task_modify_estimate () {
+    task=$1
+    shift
+    estimate=$1
+    shift
+    t $task modify estimate:$estimate
+}
+alias tes=task_modify_estimate
+
+task_modify_brainpower() {
+    task=$1
+    shift
+    brainpower=$1
+    shift
+    t $task modify bpower:$brainpower
+}
+alias tbp=task_modify_brainpower
+alias tbpA='t bp:A'
+alias tbpB='t bp:B'
+alias tbpC='t bp:C'
 
 task_make_waiting () {
     t $1 modify +waiting_for -next
@@ -81,10 +112,6 @@ task_start (){
 }
 alias ts=task_start
 
-alias rnd='tn +rnd RND:'
-alias rndp='tn +rnd RND: New project:'
-alias think='tn +think wait:+1d Think about:'
-alias repay='ta pro:repay'
 
 task_deadline (){
     t add +deadline due:"$1" "$@"
@@ -147,3 +174,6 @@ post_idea () {
     task add project:blog +in Post idea:$@
 }
 alias pi=post_idea
+
+## Journaling
+alias j='chronicle enter'
