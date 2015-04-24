@@ -2,11 +2,12 @@ http://matt.might.net/articles/feed.rss
 http://xkcd.com/rss.xml
 http://feeds.feedburner.com/zenpencils?format=xml
 http://feeds.feedburner.com/oatmealfeed
-http://endlessparentheses.com/atom.xml
 http://tdeclercq.net/blog/rss
-http://blog.cs-syd.eu/rss.xml
+http://cs-syd.eu/rss.xml
 https://developer.github.com/changes.atom 
 http://blog.atom.io/feed.xml
 http://thaliaecuador.wordpress.com/
 http://thaliaecuador.wordpress.com/feed/
 http://dailyvim.blogspot.com/feeds/posts/default
+http://taskwarrior.org/feed.rss
+http://feeds.feedburner.com/zenhabits?format=xml

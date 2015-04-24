@@ -8,6 +8,27 @@ alias tc='t calendar'
 alias tg='t burndown.daily'
 alias tgm='t burndown'
 alias tgy='t burndown.monthly'
+alias c='task context'
+
+alias in='ta +in'
+alias rnd='ta +rnd estimate:5 bpower:A RND:'
+alias rndp='rnd RND: New project:'
+alias think='in +think wait:+1d Think about:'
+alias repay='ta pro:repay'
+alias wr='ta +next +wr wait:saturday' # weekly review
+tickle () {
+    day=$1
+    shift
+    in wait:$day $@
+}
+alias tickle=tickle
+
+task_info () {
+    task=$1
+    shift
+    t $task info $@
+}
+alias ti=task_info
 
 task_modify () {
     task=$1
@@ -16,34 +37,56 @@ task_modify () {
 }
 alias tm=task_modify
 
+task_modify_estimate () {
+    task=$1
+    shift
+    estimate=$1
+    shift
+    t $task modify estimate:$estimate
+}
+alias tes=task_modify_estimate
+
+task_modify_brainpower() {
+    task=$1
+    shift
+    brainpower=$1
+    shift
+    t $task modify bpower:$brainpower
+}
+alias tbp=task_modify_brainpower
+alias tbpA='t bp:A'
+alias tbpB='t bp:B'
+alias tbpC='t bp:C'
+
 task_make_waiting () {
     t $1 modify +waiting_for -next
 }
 
 alias tmw=task_make_waiting
+alias tlw='task list +waiting_for'
 
 task_done () {
     t $1 done
 }
 alias td=task_done
 
-alias tn='t add +next'
+alias tn='ta +next'
 
 task_make_next () {
     t $1 modify +next
 }
 alias tmn=task_make_next
 
-task_project () {
+task_project_add () {
     project=$1
     shift
-    t add pro:$project $@
+    ta pro:$project $@
 }
 
-alias tp=task_project
+alias tp=task_project_add
 
 task_project_list() {
-    t list pro:$@
+    tl limit:53 pro:$@ 
 }
 alias tpl=task_project_list
 
@@ -62,10 +105,19 @@ task_annotate () {
 alias tA=task_annotate
 alias tan=task_annotate
 
-alias rnd='t add +next +rnd RND:'
-alias rndp='t add +next +rnd RND: New project:'
-alias think='t add +next +think wait:+1d Think about:'
-alias repay='t add pro:repay'
+task_start (){
+    task=$1
+    shift
+    t $task start $@ 
+}
+alias ts=task_start
+
+
+task_deadline (){
+    t add +deadline due:"$1" "$@"
+}
+
+alias deadline=task_deadline
 
 # specific project aliases
 alias tblog='tp blog'
@@ -101,35 +153,27 @@ alias tlpno='tpl pno'
 alias tas='tp auto_schedule'
 alias tlas='tpl auto_schedule'
 
+## Blog work aliases
 
-## Agenda
-alias c='gcalcli'
-alias ct='gcalcli agenda 0am 12pm'
-alias cw='gcalcli agenda 0am "$(date -d "next week")"'
-alias cw1='gcalcli calw'
-alias cw2='gcalcli calw 2'
-alias cm='gcalcli calm'
-
-add_event () {
-    prompt () {
-        echo -n "$1> "
-        read $1
-    }
-    prompt title
-    prompt location
-    prompt datet
-    prompt duration
-    prompt description
-
-    gcalcli --calendar 'syd.kerckhove@gmail.com' \
-            --title "$title" \
-            --where "$location" \
-            --when "$datet" \
-            --duration "$duration" \
-            --description "$description" \
-            --reminder "5" \
-            add
-
+# A blogpost
+work_blogpost () {
+    post_abb="$1"
+    project="blog_$post_abb"
+    offset="$2"
+    
+    task add project:$project Write first draft on $post_abb post due:friday$offset +next
+    task add project:$project Find good tags on $post_abb post due:friday$offset
+    task add project:$project Write final draft of $post_abb post due:friday$offset
+    task add project:$project Put up the $post_abb post due:saturday$offset
 }
 
-alias ca=add_event
+alias post=work_blogpost
+
+# Post idea
+post_idea () {
+    task add project:blog +in Post idea:$@
+}
+alias pi=post_idea
+
+## Journaling
+alias j='chronicle enter'

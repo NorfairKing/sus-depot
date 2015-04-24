@@ -1,39 +1,55 @@
-# [Created by task 2.4.0 1/28/2015 17:51:15]
-# Taskwarrior program configuration file.
-# For more documentation, see http://taskwarrior.org or try 'man task', 'man task-color',
-# 'man task-sync' or 'man taskrc'
-
-# Here is an example of entries that use the default, override and blank values
-#   variable=foo   -- By specifying a value, this overrides the default
-#   variable=      -- By specifying no value, this means no default
-#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
-
-# Use the command 'task show' to see all defaults and overrides
-
 # Files
 data.location=~/.task
 
-# Color theme (uncomment one to use)
-#include /usr/share/doc/task/rc/light-16.theme
-#include /usr/share/doc/task/rc/light-256.theme
-#include /usr/share/doc/task/rc/dark-16.theme
-#include /usr/share/doc/task/rc/dark-256.theme
-#include /usr/share/doc/task/rc/dark-red-256.theme
-#include /usr/share/doc/task/rc/dark-green-256.theme
-#include /usr/share/doc/task/rc/dark-blue-256.theme
-#include /usr/share/doc/task/rc/dark-violets-256.theme
-include /usr/share/doc/task/rc/dark-yellow-green.theme
-#include /usr/share/doc/task/rc/dark-gray-256.theme
-#include /usr/share/doc/task/rc/dark-gray-blue-256.theme
-#include /usr/share/doc/task/rc/solarized-dark-256.theme
-#include /usr/share/doc/task/rc/solarized-light-256.theme
-#include /usr/share/doc/task/rc/no-color.theme
+# Theme
+include ~/.task_color.theme
 
-
-taskd.certificate=\/home\/syd\/.ssh\/tom_sydney_kerckhove.cert.pem
-taskd.key=\/home\/syd\/.ssh\/tom_sydney_kerckhove.key.pem
-taskd.ca=\/home\/syd\/.ssh\/ca.cert.pem
+# Task server
+taskd.certificate=\/home\/syd\/.task\/tom_sydney_kerckhove.cert.pem
+taskd.key=\/home\/syd\/.task\/tom_sydney_kerckhove.key.pem
+taskd.ca=\/home\/syd\/.task\/ca.cert.pem
 taskd.server=cs-syd.eu:53589
-taskd.credentials=Public\/Tom Sydney Kerckhove\/3cdc35ac-ed12-47d9-a5d8-3f6e7fe8d857
+taskd.credentials=cs-syd\/Tom Sydney Kerckhove\/e31803a9-6e1c-429b-be50-03aa17d663ec
 
+# Urgency modifications
+urgency.user.tag.in.coefficient=30.0
 urgency.user.tag.health.coefficient=5.0
+urgency.user.tag.deadline.coefficient=10.0
+urgency.user.tag.oef.coefficient=-1.0
+urgency.blocking.coefficient=4.0
+
+# UDA's
+uda.estimate.type=numeric
+uda.estimate.label=Estimate
+uda.estimate.default=10000
+
+uda.bpower.type=string
+uda.bpower.label=Brainpower
+uda.bpower.values=U,A,B,C # large medium small
+uda.bpower.default=U
+
+# Reports
+report.next.columns          = id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.remaining,until.remaining,description,estimate,bpower
+report.next.columns         = id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.remaining,until.remaining,description,estimate,bpower
+report.next.description     = Most urgent tasks
+report.next.filter          = status:pending and +next
+report.next.labels          = ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Est,Brainpower
+report.next.sort            = bpower-,estimate-,priority-,urgency-
+
+report.in.columns           = id,description,entry.age
+report.in.description       = Inbox
+report.in.filter            = status:pending and +in
+report.in.labels            = ID,Description,Age
+#report.in.sort              = entry.age-
+
+# Set priority to medium by default
+default.priority=M
+
+# Context settings
+context.kot=-parents -campus -braindead -thalia
+context.parents=+parents or +in
+context.campus=+campus or +in or +repay
+context.braindead=+braindead
+context.thalia=+thalia
+context.wr=+wr or +in
+

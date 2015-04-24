@@ -1,0 +1,17 @@
+xset -dpms
+xset s off
+
+# set the cursor
+xsetroot -cursor_name left_ptr
+
+# set dvorak layout
+xmodmap ".keyboards/dvorak.kinesis"
+
+# set retype speed
+xset r rate 250 30
+
+# add resources
+xrdb -merge ~/.Xresources
+
+# start xmonad
+xmonad

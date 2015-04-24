@@ -1,8 +1,14 @@
-alias l='clear ; ls -l -X --color=auto --group-directories-first --human-readable --time-style="+%d/%m/%y - %R"'
-alias la='clear ; ls -l -X --color=auto --group-directories-first --almost-all --human-readable --time-style="+%d/%m/%y - %R"'
+alias l='
+    clear ; 
+    ls  -l                              \
+        -X                              \
+        --color=auto                    \
+        --group-directories-first       \
+        --human-readable                \
+        --time-style="+%d/%m/%y - %R"   \
+    '
+alias la='l --almost-all'
 alias lr='l -R'
-alias lx='l -X'
-alias treehere="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
 
 # Perform 'ls' after 'cd' if successful.
 cdls() {

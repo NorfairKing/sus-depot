@@ -36,4 +36,3 @@ unsetopt correct_all
 
 # Makes sure the emacs server starts when needed
 export ALTERNATE_EDITOR=""
-
