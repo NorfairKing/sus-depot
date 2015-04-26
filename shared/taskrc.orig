@@ -50,7 +50,11 @@ context.kot=-parents -campus -braindead -thalia
 context.parents=+parents or +in
 context.campus=+campus or +in or +repay
 context.braindead=+braindead
+<<<<<<< HEAD
 context.thalia=+thalia
 context.wr=+wr or +in
 
+=======
+context.gf=+gf
 context=kot
+>>>>>>> wut
