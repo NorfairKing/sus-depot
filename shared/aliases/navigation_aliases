@@ -1,7 +1,4 @@
 alias hm='cd $HOME'
-alias m='cd /media/$USER'
-alias dr='cd $HOME/Dropbox'
-
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
