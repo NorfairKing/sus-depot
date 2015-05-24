@@ -24,13 +24,12 @@ uda.estimate.label=Estimate
 
 uda.bpower.type=string
 uda.bpower.label=Brainpower
-uda.bpower.values=U,A,B,C # large medium small
-uda.bpower.default=U
+uda.bpower.values=A,B,C # large medium small
 
 # Reports
 report.next.columns         = id,start.age,entry.age,urgency,depends,priority,project,tags,recur,scheduled.countdown,due.remaining,until.remaining,description,estimate,bpower
 report.next.description     = Most urgent tasks
-report.next.filter          = status:pending and estimate and (+next or +deadline or +rnd) 
+report.next.filter          = status:pending and bpower and estimate and (+next or +deadline or +rnd) 
 report.next.labels          = ID,Active,Age,Urgency,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Est,Brainpower
 report.next.sort            = bpower-,estimate-,priority-,urgency-
 
