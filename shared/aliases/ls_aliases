@@ -1,12 +1,4 @@
-alias l='
-    clear ; 
-    ls  -l                              \
-        -X                              \
-        --color=auto                    \
-        --group-directories-first       \
-        --human-readable                \
-        --time-style="+%d/%m/%y - %R"   \
-    '
+alias l=' clear ; ls  -l -X --color=auto --group-directories-first --human-readable --time-style="+%d/%m/%y - %R"'
 alias la='l --almost-all'
 alias lr='l -R'
 
