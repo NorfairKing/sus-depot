@@ -114,7 +114,7 @@ alias ts=task_start
 
 
 task_deadline (){
-    t add +deadline due:"$1" "$@"
+    t add +deadline due:"$1" estimate:"0" bpower:"C" "$@"
 }
 
 alias deadline=task_deadline
