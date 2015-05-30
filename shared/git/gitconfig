@@ -12,4 +12,4 @@
 	ui = true
 [core]
 	editor = vim
-	excludesfile = /home/syd/.gitignore_global
+    excludesfile = ~/.gitignore_global
