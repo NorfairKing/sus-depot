@@ -1,9 +1,14 @@
 # Editor files #
 ################
+
+# Vim
 *~
 .*.sw[op]
+
+# Emacs
 \#*\#
 .\#*
+
 
 # Compiled source #
 ###################
