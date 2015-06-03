@@ -35,7 +35,7 @@ report.next.sort            = bpower-,estimate-,priority-,urgency-
 
 report.in.columns           = id,description,entry.age,estimate,bpower
 report.in.description       = Inbox
-report.in.filter            = status:pending and (+in or ((+next or +rnd) and (bpower:"" or est:"")))
+report.in.filter            = status:pending and (+in or ((+next or +rnd) and (bpower:"" or est:"" )))
 report.in.labels            = ID,Description,Age,Est,BP
 #report.in.sort              = entry.age-
 
