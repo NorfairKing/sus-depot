@@ -3,32 +3,32 @@
   There are many like it, but this one is mine.
 -}
 
-import System.Exit
+import           System.Exit
 
-import XMonad
-import XMonad.Actions.Plane
-import XMonad.Config.Azerty
-import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.SetWMName
-import XMonad.Hooks.UrgencyHook
-import XMonad.Layout.Fullscreen
-import XMonad.Layout.Named
-import XMonad.Layout.NoBorders
-import XMonad.Layout.Spacing
-import XMonad.Util.Run
-import XMonad.Util.Scratchpad
+import           XMonad
+import           XMonad.Actions.Plane
+import           XMonad.Config.Azerty
+import           XMonad.Hooks.DynamicLog
+import           XMonad.Hooks.ManageDocks
+import           XMonad.Hooks.SetWMName
+import           XMonad.Hooks.UrgencyHook
+import           XMonad.Layout.Fullscreen
+import           XMonad.Layout.Named
+import           XMonad.Layout.NoBorders
+import           XMonad.Layout.Spacing
+import           XMonad.Util.Run
+import           XMonad.Util.Scratchpad
 
-import qualified XMonad.StackSet as W
-import qualified Data.Map as M
+import qualified Data.Map                 as M
+import qualified XMonad.StackSet          as W
 
-import XMonad.Prompt
-import XMonad.Prompt.Shell
-import XMonad.Prompt.AppendFile
+import           XMonad.Prompt
+import           XMonad.Prompt.AppendFile
+import           XMonad.Prompt.Shell
 
-import qualified XMonad.Prompt         as P
-import qualified XMonad.Actions.Submap as SM
-import qualified XMonad.Actions.Search as S
+import qualified XMonad.Actions.Search    as S
+import qualified XMonad.Actions.Submap    as SM
+import qualified XMonad.Prompt            as P
 
 {- APPEARANCE -}
 
@@ -156,14 +156,14 @@ mail                = "urxvt -e zsh -c \"mutt\""
 -- Files application
 files               :: X ()
 files               = spawn "nautilus --no-desktop"
-    
+
 -- Scanner
 scanner             :: X ()
 scanner             = spawn "scangearmp"
 
 -- Brightness
 lightDown, lightUp  :: X ()
-lightDown           = spawn "xbacklight -dec 10 -steps 1" 
+lightDown           = spawn "xbacklight -dec 10 -steps 1"
 lightUp             = spawn "xbacklight -inc 10 -steps 1"
 
 -- Volume
@@ -201,7 +201,7 @@ selectedSearch      = SM.submap (searchEngineMap S.selectSearch)
 -- Keys to perform searches
 searchEngineMap     :: (S.SearchEngine -> a) -> M.Map (KeyMask, KeySym) a
 searchEngineMap method = M.fromList
-       [ 
+       [
          ((0, xK_b), method $ S.intelligent S.google)
        , ((0, xK_g), method S.google)
        , ((0, xK_h), method S.hoogle)
@@ -290,32 +290,32 @@ myKeys conf = M.fromList $
         ((myModMask                                 , xK_y      ),  closeWindow                     ),
 
         -- [{+(= *)!}]
-        ((myModMask                                 , xK_bracketleft    ),  nothing                 ), 
-        ((myModMask                                 , xK_braceleft      ),  nothing                 ), 
-        ((myModMask                                 , xK_plus           ),  lessWindows             ), 
-        ((myModMask                                 , xK_parenleft      ),  focusWindowDown         ), 
-        ((myModMask .|. shiftMask                   , xK_parenleft      ),  swapWindowDown          ), 
-        ((myModMask                                 , xK_equal          ),  shrinkWindow            ), 
-        ((myModMask                                 , xK_Insert         ),  selectedSearch          ), 
-        ((myModMask                                 , xK_asterisk       ),  expandWindow            ), 
-        ((myModMask                                 , xK_parenright     ),  focusWindowUp           ), 
-        ((myModMask .|. shiftMask                   , xK_parenright     ),  swapWindowUp            ), 
-        ((myModMask                                 , xK_exclam         ),  moreWindows             ), 
-        ((myModMask                                 , xK_braceright     ),  nothing                 ), 
-        ((myModMask                                 , xK_bracketright   ),  nothing                 ), 
+        ((myModMask                                 , xK_bracketleft    ),  nothing                 ),
+        ((myModMask                                 , xK_braceleft      ),  nothing                 ),
+        ((myModMask                                 , xK_plus           ),  lessWindows             ),
+        ((myModMask                                 , xK_parenleft      ),  focusWindowDown         ),
+        ((myModMask .|. shiftMask                   , xK_parenleft      ),  swapWindowDown          ),
+        ((myModMask                                 , xK_equal          ),  shrinkWindow            ),
+        ((myModMask                                 , xK_Insert         ),  selectedSearch          ),
+        ((myModMask                                 , xK_asterisk       ),  expandWindow            ),
+        ((myModMask                                 , xK_parenright     ),  focusWindowUp           ),
+        ((myModMask .|. shiftMask                   , xK_parenright     ),  swapWindowUp            ),
+        ((myModMask                                 , xK_exclam         ),  moreWindows             ),
+        ((myModMask                                 , xK_braceright     ),  nothing                 ),
+        ((myModMask                                 , xK_bracketright   ),  nothing                 ),
 
 
-        ((myModMask                                 , xK_Return ),  promptedSearch                  ), 
+        ((myModMask                                 , xK_Return ),  promptedSearch                  ),
         ((myModMask .|. shiftMask                   , xK_Return ),  changeKeyboardLayout            ),
         ((myModMask .|. controlMask                 , xK_Return ),  logOut                          ),
         ((myModMask .|. controlMask .|. shiftMask   , xK_Return ),  nothing                         ),
 
         ((myModMask                                 , xK_space  ),  nextLayout                      ),
-        ((myModMask .|. shiftMask                   , xK_space  ),  nothing                         ), 
+        ((myModMask .|. shiftMask                   , xK_space  ),  nothing                         ),
         ((myModMask .|. controlMask                 , xK_space  ),  nothing                         ),
         ((myModMask .|. controlMask .|. shiftMask   , xK_space  ),  nothing                         ),
 
-        ((myModMask                                 , xK_Tab    ),  nextWindow                      ), 
+        ((myModMask                                 , xK_Tab    ),  nextWindow                      ),
         ((myModMask .|. shiftMask                   , xK_Tab    ),  previousWindow                  ),
         ((myModMask .|. controlMask                 , xK_Tab    ),  nothing                         ),
         ((myModMask .|. controlMask .|. shiftMask   , xK_Tab    ),  nothing                         ),
@@ -346,7 +346,7 @@ myKeys conf = M.fromList $
 
         ((myModMask .|. controlMask                 , xK_i      ),  nothing                         ),
         ((myModMask .|. controlMask .|. shiftMask   , xK_i      ),  nothing                         ),
-    				
+
         ((myModMask .|. controlMask                 , xK_j      ),  nothing                       ),
         ((myModMask .|. controlMask .|. shiftMask   , xK_j      ),  nothing                       ),
 
@@ -358,7 +358,7 @@ myKeys conf = M.fromList $
 
         ((myModMask .|. controlMask                 , xK_m      ),  nothing                       ),
         ((myModMask .|. controlMask .|. shiftMask   , xK_m      ),  nothing                       ),
-                
+
         ((myModMask .|. controlMask                 , xK_n      ),  nothing                       ),
         ((myModMask .|. controlMask .|. shiftMask   , xK_n      ),  nothing                       ),
 
@@ -367,7 +367,7 @@ myKeys conf = M.fromList $
 
         ((myModMask .|. controlMask                 , xK_p      ),  nothing                       ),
         ((myModMask .|. controlMask .|. shiftMask   , xK_p      ),  nothing                       ),
-                
+
         ((myModMask .|. controlMask                 , xK_q      ),  suspend                         ),
         ((myModMask .|. controlMask .|. shiftMask   , xK_q      ),  shutdown                        ),
 
@@ -427,17 +427,17 @@ myKeys conf = M.fromList $
         ((myModMask .|. shiftMask                   , xK_F4     ),  nothing                       ),
         ((myModMask .|. controlMask                 , xK_F4     ),  nothing                       ),
         ((myModMask .|. controlMask .|. shiftMask   , xK_F4     ),  nothing                       ),
-       
+
         ((myModMask                                 , xK_F5     ),  lightDown                     ),
-        ((myModMask .|. shiftMask                   , xK_F5     ),  nothing                       ),    
+        ((myModMask .|. shiftMask                   , xK_F5     ),  nothing                       ),
         ((myModMask .|. controlMask                 , xK_F5     ),  nothing                       ),
         ((myModMask .|. controlMask .|. shiftMask   , xK_F5     ),  nothing                       ),
 
         ((myModMask                                 , xK_F6     ),  lightUp                       ),
-        ((myModMask .|. shiftMask                   , xK_F6     ),  nothing                       ), 
+        ((myModMask .|. shiftMask                   , xK_F6     ),  nothing                       ),
         ((myModMask .|. controlMask                 , xK_F6     ),  nothing                       ),
         ((myModMask .|. controlMask .|. shiftMask   , xK_F6     ),  nothing                       ),
- 
+
         ((myModMask                                 , xK_F7     ),  nothing                       ),
         ((myModMask .|. shiftMask                   , xK_F7     ),  nothing                       ),
         ((myModMask .|. controlMask                 , xK_F7     ),  nothing                       ),
@@ -457,32 +457,32 @@ myKeys conf = M.fromList $
         ((myModMask .|. shiftMask                   , xK_F10    ),  nothing                       ),
         ((myModMask .|. controlMask                 , xK_F10    ),  nothing                       ),
         ((myModMask .|. controlMask .|. shiftMask   , xK_F10    ),  nothing                       ),
-       
+
         ((myModMask                                 , xK_F11    ),  volumeDown                    ),
         ((myModMask .|. shiftMask                   , xK_F11    ),  lightDown                     ),
         ((myModMask .|. controlMask                 , xK_F11    ),  nothing                       ),
         ((myModMask .|. controlMask .|. shiftMask   , xK_F11    ),  nothing                       ),
-        
+
         ((myModMask                                 , xK_F12    ),  volumeUp                      ),
         ((myModMask .|. shiftMask                   , xK_F12    ),  lightUp                       ),
         ((myModMask .|. controlMask                 , xK_F12    ),  nothing                       ),
         ((myModMask .|. controlMask .|. shiftMask   , xK_F12    ),  nothing                       ),
-       
+
         ((myModMask                                 , xK_plus   ),  nothing                       ),
         ((myModMask .|. shiftMask                   , xK_plus   ),  nothing                       ),
         ((myModMask .|. controlMask                 , xK_plus   ),  nothing                       ),
         ((myModMask .|. controlMask .|. shiftMask   , xK_plus   ),  nothing                       ),
-        
+
         ((myModMask                                 , xK_minus  ),  nothing                       ),
         ((myModMask .|. shiftMask                   , xK_minus  ),  nothing                       ),
         ((myModMask .|. controlMask                 , xK_minus  ),  nothing                       ),
         ((myModMask .|. controlMask .|. shiftMask   , xK_minus  ),  nothing                       ),
-        
+
         ((myModMask                                 , xK_Delete ),  nothing                       ),
         ((myModMask .|. shiftMask                   , xK_Delete ),  nothing                       ),
         ((myModMask .|. controlMask                 , xK_Delete ),  nothing                       ),
         ((myModMask .|. controlMask .|. shiftMask   , xK_Delete ),  nothing                       ),
-        
+
         ((myModMask                                 , xK_BackSpace  ),  tileAgain                 ),
         ((myModMask .|. shiftMask                   , xK_BackSpace  ),  nothing                   ),
         ((myModMask .|. controlMask                 , xK_BackSpace  ),  nothing                   ),
@@ -490,13 +490,19 @@ myKeys conf = M.fromList $
     ]
     ++
     navigationKeys
-    
+
 -- Switch to the letter of a workspace by pressing mod + letter
+navigationKeys :: [((KeyMask, KeySym), X ())]
 navigationKeys =
     [
-        ((mask .|. myModMask, key), windows $ switch workspace)
-        | (workspace, key) <- zip myWorkspaces workspaceKeys
-        , (switch, mask) <- [(W.greedyView, 0), (W.shift, shiftMask)]
+        (
+            (mask .|. myModMask, key)
+            ,
+            windows $ switch workspace
+        )
+        |
+        (workspace, key) <- zip myWorkspaces workspaceKeys,
+        (switch, mask) <- [(W.greedyView, 0), (W.shift, shiftMask)]
     ]
 
 
@@ -523,13 +529,13 @@ myMouse (XConfig {XMonad.modMask = myModMask}) = M.fromList
 
 {- STARTUP -}
 myStartupHook :: X ()
-myStartupHook = do 
+myStartupHook = do
 
     -- Make Java GUI's work
     setWMName "LG3D"
-   
+
     spawn "redshift -l 50:0"
-     
+
     -- Set the current workspace to the startup workspace
     windows $ W.greedyView startupWorkspace
 
@@ -552,7 +558,7 @@ manageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
     l = 1 - w   -- distance from left edge, 0%
 
 myManagementHooks :: [ManageHook]
-myManagementHooks = 
+myManagementHooks =
                     [   className   =?  m           -->     move_to_mail    |   m   <-  mailClasses         ]   ++
                     [   className   =?  i           -->     move_to_web     |   i   <-  internet_classes    ]   ++
                     [
