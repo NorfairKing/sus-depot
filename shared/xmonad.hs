@@ -160,6 +160,9 @@ mute               = spawn "amixer -q set Master 0%"
 volumeDown         = spawn "amixer -q set Master 4%-"
 volumeUp           = spawn "amixer -q set Master 4%+"
 
+screenshotEntire   = spawn "scrot"
+screenshotSelect   = spawn "scrot -s"
+
 
 myXPConfig :: XPConfig
 myXPConfig = defaultXPConfig {font="-*-lucida-medium-r-*-*-14-*-*-*-*-*-*-*", height=22}
@@ -229,6 +232,8 @@ myKeys conf = M.fromList $
     ,   ((myModMask .|. shiftMask                   , xK_s      ),  searchSelected                      )
     ,   ((myModMask                                 , xK_t      ),  withFocused $ windows . W.sink      ) -- Push selected window back into tiling
     ,   ((myModMask                                 , xK_u      ),  focusUrgent                         ) -- Select the most recently urgent window
+    ,   ((myModMask                                 , xK_w      ),  screenshotSelect                    ) -- Select the area and take a screenshot
+    ,   ((myModMask                                 , xK_x      ),  screenshotEntire                    ) -- Take a screenshot
     ,   ((myModMask .|. controlMask                 , xK_x      ),  shellPrompt myXPConfig              )
     ,   ((myModMask                                 , xK_comma  ),  sendMessage (IncMasterN 1)          ) -- Increment the number of windows in the master area.
     ,   ((myModMask .|. shiftMask                   , xK_comma  ),  sendMessage (IncMasterN (-1))       ) -- Decrement the number of windows in the master area.
