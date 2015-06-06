@@ -13,6 +13,3 @@
 [submodule "shared/vim/bundle/vim-stylish-haskell"]
 	path = shared/vim/bundle/vim-stylish-haskell
 	url = git@github.com:nbouscal/vim-stylish-haskell.git
-[submodule "shared/vim/bundle/vim-markdown"]
-	path = shared/vim/bundle/vim-markdown
-	url = git@github.com:plasticboy/vim-markdown.git
