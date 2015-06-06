@@ -304,189 +304,27 @@ myKeys conf = M.fromList $
         ((myModMask                                 , xK_braceright     ),  nothing                 ),
         ((myModMask                                 , xK_bracketright   ),  nothing                 ),
 
-
         ((myModMask                                 , xK_Return ),  promptedSearch                  ),
         ((myModMask .|. shiftMask                   , xK_Return ),  changeKeyboardLayout            ),
         ((myModMask .|. controlMask                 , xK_Return ),  logOut                          ),
         ((myModMask .|. controlMask .|. shiftMask   , xK_Return ),  nothing                         ),
-
         ((myModMask                                 , xK_space  ),  nextLayout                      ),
-        ((myModMask .|. shiftMask                   , xK_space  ),  nothing                         ),
-        ((myModMask .|. controlMask                 , xK_space  ),  nothing                         ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_space  ),  nothing                         ),
-
         ((myModMask                                 , xK_Tab    ),  nextWindow                      ),
         ((myModMask .|. shiftMask                   , xK_Tab    ),  previousWindow                  ),
-        ((myModMask .|. controlMask                 , xK_Tab    ),  nothing                         ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_Tab    ),  nothing                         ),
-
-        ((myModMask .|. controlMask                 , xK_a      ),  nothing                         ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_a      ),  nothing                         ),
-
-        ((myModMask .|. controlMask                 , xK_b      ),  nothing                         ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_b      ),  nothing                         ),
-
-        ((myModMask .|. controlMask                 , xK_c      ),  nothing                         ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_c      ),  nothing                         ),
-
-        ((myModMask .|. controlMask                 , xK_d      ),  nothing                         ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_d      ),  nothing                         ),
-
-        ((myModMask .|. controlMask                 , xK_e      ),  nothing                         ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_e      ),  nothing                         ),
-
-        ((myModMask .|. controlMask                 , xK_f      ),  nothing                         ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_f      ),  nothing                         ),
-
-        ((myModMask .|. controlMask                 , xK_g      ),  nothing                         ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_g      ),  nothing                         ),
-
-        ((myModMask .|. controlMask                 , xK_h      ),  nothing                         ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_h      ),  nothing                         ),
-
-        ((myModMask .|. controlMask                 , xK_i      ),  nothing                         ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_i      ),  nothing                         ),
-
-        ((myModMask .|. controlMask                 , xK_j      ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_j      ),  nothing                       ),
-
-        ((myModMask .|. controlMask                 , xK_k      ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_k      ),  nothing                       ),
-
-        ((myModMask .|. controlMask                 , xK_l      ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_l      ),  nothing                       ),
-
-        ((myModMask .|. controlMask                 , xK_m      ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_m      ),  nothing                       ),
-
-        ((myModMask .|. controlMask                 , xK_n      ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_n      ),  nothing                       ),
-
-        ((myModMask .|. controlMask                 , xK_o      ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_o      ),  nothing                       ),
-
-        ((myModMask .|. controlMask                 , xK_p      ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_p      ),  nothing                       ),
-
         ((myModMask .|. controlMask                 , xK_q      ),  suspend                         ),
         ((myModMask .|. controlMask .|. shiftMask   , xK_q      ),  shutdown                        ),
-
-        ((myModMask .|. controlMask                 , xK_r      ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_r      ),  nothing                       ),
-
-        ((myModMask .|. controlMask                 , xK_s      ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_s      ),  nothing                       ),
-
-        ((myModMask .|. controlMask                 , xK_t      ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_t      ),  nothing                       ),
-
-        ((myModMask .|. controlMask                 , xK_u      ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_u      ),  nothing                       ),
-
-        ((myModMask .|. controlMask                 , xK_v      ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_v      ),  nothing                       ),
-
-        ((myModMask .|. controlMask                 , xK_w      ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_w      ),  nothing                       ),
-
         ((myModMask .|. controlMask                 , xK_x      ),  shellPrompt myXPConfig        ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_x      ),  nothing                       ),
-
-        ((myModMask .|. controlMask                 , xK_y      ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_y      ),  nothing                       ),
-
-        ((myModMask .|. controlMask                 , xK_z      ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_z      ),  nothing                       ),
-
         ((myModMask                                 , xK_comma  ),  spawn workflow                ),
-        ((myModMask .|. shiftMask                   , xK_comma  ),  nothing                       ),
-        ((myModMask .|. controlMask                 , xK_comma  ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_comma  ),  nothing                       ),
-
         ((myModMask                                 , xK_period ),  internet                      ),
-        ((myModMask .|. shiftMask                   , xK_period ),  nothing                       ),
-        ((myModMask .|. controlMask                 , xK_period ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_period ),  nothing                       ),
-
-        ((myModMask                                 , xK_F1     ),  nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_F1     ),  nothing                       ),
-        ((myModMask .|. controlMask                 , xK_F1     ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_F1     ),  nothing                       ),
-
-        ((myModMask                                 , xK_F2     ),  nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_F2     ),  nothing                       ),
-        ((myModMask .|. controlMask                 , xK_F2     ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_F2     ),  nothing                       ),
-
-        ((myModMask                                 , xK_F3     ),  nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_F3     ),  nothing                       ),
-        ((myModMask .|. controlMask                 , xK_F3     ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_F3     ),  nothing                       ),
-
         ((myModMask                                 , xK_F4     ),  spawn mail                    ),
-        ((myModMask .|. shiftMask                   , xK_F4     ),  nothing                       ),
-        ((myModMask .|. controlMask                 , xK_F4     ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_F4     ),  nothing                       ),
-
         ((myModMask                                 , xK_F5     ),  lightDown                     ),
-        ((myModMask .|. shiftMask                   , xK_F5     ),  nothing                       ),
-        ((myModMask .|. controlMask                 , xK_F5     ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_F5     ),  nothing                       ),
-
         ((myModMask                                 , xK_F6     ),  lightUp                       ),
-        ((myModMask .|. shiftMask                   , xK_F6     ),  nothing                       ),
-        ((myModMask .|. controlMask                 , xK_F6     ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_F6     ),  nothing                       ),
-
-        ((myModMask                                 , xK_F7     ),  nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_F7     ),  nothing                       ),
-        ((myModMask .|. controlMask                 , xK_F7     ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_F7     ),  nothing                       ),
-
-        ((myModMask                                 , xK_F8     ),  nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_F8     ),  nothing                       ),
-        ((myModMask .|. controlMask                 , xK_F8     ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_F8     ),  nothing                       ),
-
-        ((myModMask                                 , xK_F9     ),  nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_F9     ),  nothing                       ),
-        ((myModMask .|. controlMask                 , xK_F9     ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_F9     ),  nothing                       ),
-
         ((myModMask                                 , xK_F10    ),  mute                          ),
-        ((myModMask .|. shiftMask                   , xK_F10    ),  nothing                       ),
-        ((myModMask .|. controlMask                 , xK_F10    ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_F10    ),  nothing                       ),
-
         ((myModMask                                 , xK_F11    ),  volumeDown                    ),
         ((myModMask .|. shiftMask                   , xK_F11    ),  lightDown                     ),
-        ((myModMask .|. controlMask                 , xK_F11    ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_F11    ),  nothing                       ),
-
         ((myModMask                                 , xK_F12    ),  volumeUp                      ),
         ((myModMask .|. shiftMask                   , xK_F12    ),  lightUp                       ),
-        ((myModMask .|. controlMask                 , xK_F12    ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_F12    ),  nothing                       ),
-
-        ((myModMask                                 , xK_plus   ),  nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_plus   ),  nothing                       ),
-        ((myModMask .|. controlMask                 , xK_plus   ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_plus   ),  nothing                       ),
-
-        ((myModMask                                 , xK_minus  ),  nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_minus  ),  nothing                       ),
-        ((myModMask .|. controlMask                 , xK_minus  ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_minus  ),  nothing                       ),
-
-        ((myModMask                                 , xK_Delete ),  nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_Delete ),  nothing                       ),
-        ((myModMask .|. controlMask                 , xK_Delete ),  nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_Delete ),  nothing                       ),
-
-        ((myModMask                                 , xK_BackSpace  ),  tileAgain                 ),
-        ((myModMask .|. shiftMask                   , xK_BackSpace  ),  nothing                   ),
-        ((myModMask .|. controlMask                 , xK_BackSpace  ),  nothing                   ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_BackSpace  ),  nothing                   )
+        ((myModMask                                 , xK_BackSpace  ),  tileAgain                 )
     ]
     ++
     navigationKeys
