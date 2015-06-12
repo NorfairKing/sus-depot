@@ -57,7 +57,8 @@ myTerminal              =   "urxvt"
 myBorderWidth           ::  Dimension
 myBorderWidth           =   1
 
-
+tileSpacing :: Int
+tileSpacing = 3
 
 
 {-
@@ -66,12 +67,12 @@ myBorderWidth           =   1
 -}
 
 bl  =   "1: Workflow"       -- Bottom   Left
-bm  =   "2: Chat"           -- Bottom   Middle
+bm  =   "2: Etc"            -- Bottom   Middle
 br  =   "3: Mail"           -- Bottom   Right
 ml  =   "4: Terminal"       -- Middle   Left
 mm  =   "5: Development"    -- Middle   Middle
 mr  =   "6: Internet"       -- Middle   Right
-tl  =   "7: Skype"          -- Top      Left
+tl  =   "7: Chat"           -- Top      Left
 tm  =   "8: Etc"            -- Top      Middle
 tr  =   "9: Clip"           -- Top      Right
 
@@ -93,87 +94,88 @@ myWorkspaces =
     bl, bm, br
   ]
 
--- | The workspace that will bee on screen after launch
-startupWorkspace = bm
+-- | The workspace that will be on screen after launch
+startupWorkspace = mr
 
 
 
 
 -- | Layouts
+-- You really don't want to see the type of this function!
 myLayoutHook = avoidStruts (full ||| tiled ||| mtiled )
     where
         -- Fullscreen (default)
-        full    = named "full" $ spacing 3 $ noBorders Full
+        full    = named "full" $ spacing tileSpacing $ noBorders Full
         -- Split vertically with phi as the ratio between the widths
-        tiled   = named "tiled" $ spacing 3 $ Tall 1 (5/100) (2/(1+(toRational(sqrt 5 ::Double))))
+        tiled   = named "tiled" $ spacing tileSpacing $ Tall 1 (5/100) (1/phi)
         -- Split horizonatlly in the same way
         mtiled  = named "mtiled" $ Mirror tiled
-
+        -- The golden ratio
+        phi = toRational $ (1 + sqrt 5) / 2
 
 
 {-
     I define my own applications
 -}
 
-restart_xmonad = spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi"
+restart_xmonad      = spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi"
 
 -- States
-suspend             = "pm-suspend"
-shutdown            = "shutdown now"
+suspend             = spawn "pm-suspend"
+shutdown            = spawn "shutdown now"
 
--- Terminals
-term                :: String
-term                = "urxvt"
+term :: X ()
+term                = spawn myTerminal
 
-terminalWTitle          :: String -> String
-terminalWTitle title    = term ++ "-title " ++ title ++ " "
+terminalWTitle       :: String -> X ()
+terminalWTitle title = spawn $ myTerminal ++ "-title " ++ title ++ " "
 
 -- Editors
 editor              = "emacsclient -c"
 editor2             = "vim"
 
 -- Workflow
-workflow            = editor ++ " /home/syd/workflow/workflow.txt"
+workflow            = spawn $ editor ++ " /home/syd/workflow/workflow.txt"
 
 -- Dmenu with custom settings
-dmenu               = "dmenu_run -b -i -l 5 -nb '" ++ "#000000" ++ "' -nf '" ++ colorSecondary ++ "' -sb '" ++ "#000000" ++ "' -sf '" ++ colorMain ++ "'"
+dmenu               = spawn $ "dmenu_run -b -i -l 5 -nb '" ++ "#000000" ++ "' -nf '" ++ colorSecondary ++ "' -sb '" ++ "#000000" ++ "' -sf '" ++ colorMain ++ "'"
 
 -- Internet application
-internet_classes    = ["Firefox"]
-internet            = "firefox"
+internet_classes   = ["Firefox"]
+internet           = spawn "firefox"
 
 -- Mail application
 mailClasses        = ["mutt"]
-mail                = "urxvt -e zsh -c \"mutt\""
+mail               = spawn "urxvt -e zsh -c \"mutt\""
 
 -- Files application
-files               = "nautilus --no-desktop"
-
--- Scanner
-scanner             = "scangearmp"
+files              = spawn "nautilus --no-desktop"
 
 -- Brightness
-lightDown          = "xbacklight -dec 10 -steps 1"
-lightUp            = "xbacklight -inc 10 -steps 1"
+lightDown          = spawn "xbacklight -dec 10 -steps 1"
+lightUp            = spawn "xbacklight -inc 10 -steps 1"
 
 -- Volume
-mute                = "amixer -q set Master 0%"
-volumeDown         = "amixer -q set Master 4%-"
-volumeUp           = "amixer -q set Master 4%+"
+mute               = spawn "amixer -q set Master 0%"
+volumeDown         = spawn "amixer -q set Master 4%-"
+volumeUp           = spawn "amixer -q set Master 4%+"
 
--- Latex
-texmaker            = "texmaker"
-
--- to define placeholders
-nothing             = "echo placeholder"
+screenshotEntire   = spawn "scrot"
+screenshotSelect   = spawn "scrot -s"
 
 
 myXPConfig :: XPConfig
-myXPConfig = defaultXPConfig {font="-*-lucida-medium-r-*-*-14-*-*-*-*-*-*-*"
-                             ,height=22}
+myXPConfig = defaultXPConfig {font="-*-lucida-medium-r-*-*-14-*-*-*-*-*-*-*", height=22}
 
 scratchPad :: X ()
 scratchPad = scratchpadSpawnActionTerminal myTerminal
+
+
+searchEntered :: X ()
+searchEntered = SM.submap (searchEngineMap $ S.promptSearch P.defaultXPConfig)
+
+searchSelected :: X ()
+searchSelected = SM.submap (searchEngineMap S.selectSearch)
 
 searchEngineMap :: (S.SearchEngine -> a) -> M.Map (KeyMask, KeySym) a
 searchEngineMap method = M.fromList
@@ -202,270 +204,79 @@ keyboardMap = M.fromList
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf = M.fromList $
     [
-        ((myModMask                                 , xK_Return ),  spawn nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_Return ),  spawn myTerminal                    ), -- Spawn my terminal.
-        ((myModMask .|. controlMask                 , xK_Return ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_Return ),  SM.submap keyboardMap               ),
-
-        ((myModMask                                 , xK_space  ),  sendMessage NextLayout              ), -- Select the next layout.
-        ((myModMask .|. shiftMask                   , xK_space  ),  setLayout $ XMonad.layoutHook conf  ), -- Select the first layout.
-        ((myModMask .|. controlMask                 , xK_space  ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_space  ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_Tab    ),  windows W.focusDown                 ), -- Select the next window.
-        ((myModMask .|. shiftMask                   , xK_Tab    ),  windows W.focusUp                   ), -- Select the previous window.
-        ((myModMask .|. controlMask                 , xK_Tab    ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_Tab    ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_a      ),  spawn nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_a      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_a      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_a      ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_b      ),  spawn nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_b      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_b      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_b      ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_c      ),  spawn nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_c      ),  kill                                ), -- Close the selected window.
-        ((myModMask .|. controlMask                 , xK_c      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_c      ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_d      ),  spawn dmenu                         ), -- Show my dmenu.
-        ((myModMask .|. shiftMask                   , xK_d      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_d      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_d      ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_e      ),  spawn nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_e      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_e      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_e      ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_f      ),  spawn files                         ), -- Open my file explorer.
-        ((myModMask .|. shiftMask                   , xK_f      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_f      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_f      ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_g      ),  spawn nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_g      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_g      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_g      ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_h      ),  sendMessage Shrink                  ), -- Shrink the master window.
-        ((myModMask .|. shiftMask                   , xK_h      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_h      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_h      ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_i      ),  spawn internet                      ), -- Open my internet browser.
-        ((myModMask .|. shiftMask                   , xK_i      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_i      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_i      ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_j      ),  windows W.focusDown                 ), -- Select the previous window.
-        ((myModMask .|. shiftMask                   , xK_j      ),  windows W.swapDown                  ), -- Swap the selected window with the previous window.
-        ((myModMask .|. controlMask                 , xK_j      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_j      ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_k      ),  windows W.focusUp                   ), -- Select the next window.
-        ((myModMask .|. shiftMask                   , xK_k      ),  windows W.swapUp                    ), -- Swap the selected window with the next window.
-        ((myModMask .|. controlMask                 , xK_k      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_k      ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_l      ),  sendMessage Expand                  ), -- Expand the master window.
-        ((myModMask .|. shiftMask                   , xK_l      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_l      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_l      ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_m      ),  windows W.focusMaster               ), -- Select the master window.
-        ((myModMask .|. shiftMask                   , xK_m      ),  windows W.swapMaster                ), -- Swap the selected window with the master window.
-        ((myModMask .|. controlMask                 , xK_m      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_m      ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_n      ),  refresh                             ), -- Resize viewed windows to the correct size
-        ((myModMask .|. shiftMask                   , xK_n      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_n      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_n      ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_o      ),  spawn nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_o      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_o      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_o      ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_p      ),  scratchPad                       ),
-        ((myModMask .|. shiftMask                   , xK_p      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_p      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_p      ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_q      ),  restart_xmonad                      ), -- Recompile and restart Xmonad.
-        ((myModMask .|. shiftMask                   , xK_q      ),  io exitSuccess           ), -- Log out.
-        ((myModMask .|. controlMask                 , xK_q      ),  spawn suspend                       ), -- Suspend.
-        ((myModMask .|. controlMask .|. shiftMask   , xK_q      ),  spawn shutdown                      ), -- Shut down
-
-        ((myModMask                                 , xK_r      ),  spawn nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_r      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_r      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_r      ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_s      ),  SM.submap (searchEngineMap $ S.promptSearch P.defaultXPConfig)),
-        ((myModMask .|. shiftMask                   , xK_s      ),  SM.submap (searchEngineMap S.selectSearch)),
-        ((myModMask .|. controlMask                 , xK_s      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_s      ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_t      ),  withFocused $ windows . W.sink      ), -- Push selected window back into tiling
-        ((myModMask .|. shiftMask                   , xK_t      ),  spawn texmaker                      ), -- Open texmaker
-        ((myModMask .|. controlMask                 , xK_t      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_t      ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_u      ),  focusUrgent                         ), -- Select the most recently urgent window
-        ((myModMask .|. shiftMask                   , xK_u      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_u      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_u      ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_v      ),  spawn nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_v      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_v      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_v      ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_w      ),  spawn nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_w      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_w      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_w      ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_x      ),  spawn nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_x      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_x      ),  shellPrompt myXPConfig              ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_x      ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_y      ),  spawn nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_y      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_y      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_y      ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_z      ),  spawn nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_z      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_z      ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_z      ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_comma  ),  sendMessage (IncMasterN 1)          ), -- Increment the number of windows in the master area.
-        ((myModMask .|. shiftMask                   , xK_comma  ),  sendMessage (IncMasterN (-1))       ), -- Decrement the number of windows in the master area.
-        ((myModMask .|. controlMask                 , xK_comma  ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_comma  ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_period ),  spawn nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_period ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_period ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_period ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_F1     ),  spawn nothing                       ), -- Open my journal with my editor.
-        ((myModMask .|. shiftMask                   , xK_F1     ),  spawn nothing                       ), -- Open my journal with my other editor.
-        ((myModMask .|. controlMask                 , xK_F1     ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_F1     ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_F2     ),  spawn nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_F2     ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_F2     ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_F2     ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_F3     ),  spawn workflow                      ), -- Open my workflow with my editor.
-        ((myModMask .|. shiftMask                   , xK_F3     ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_F3     ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_F3     ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_F4     ),  spawn mail                          ), -- Open my mail client.
-        ((myModMask .|. shiftMask                   , xK_F4     ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_F4     ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_F4     ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_F5     ),  spawn lightDown                     ), -- Decrease the brightness of the screen.
-        ((myModMask .|. shiftMask                   , xK_F5     ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_F5     ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_F5     ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_F6     ),  spawn lightUp                       ), -- Increase the brightness of the screen.
-        ((myModMask .|. shiftMask                   , xK_F6     ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_F6     ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_F6     ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_F7     ),  spawn nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_F7     ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_F7     ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_F7     ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_F8     ),  spawn nothing                       ), -- Open my chat client.
-        ((myModMask .|. shiftMask                   , xK_F8     ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_F8     ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_F8     ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_F9     ),  spawn nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_F9     ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_F9     ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_F9     ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_F10    ),  spawn mute                          ), -- Mute the volume.
-        ((myModMask .|. shiftMask                   , xK_F10    ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_F10    ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_F10    ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_F11    ),  spawn volumeDown                    ), -- Decrease the volume.
-        ((myModMask .|. shiftMask                   , xK_F11    ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_F11    ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_F11    ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_F12    ),  spawn volumeUp                      ), -- Increase the volume.
-        ((myModMask .|. shiftMask                   , xK_F12    ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_F12    ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_F12    ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_plus   ),  spawn nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_plus   ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_plus   ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_plus   ),  spawn nothing                       ),
-
-        ((myModMask                                 , xK_minus  ),  spawn nothing                       ),
-        ((myModMask .|. shiftMask                   , xK_minus  ),  spawn nothing                       ),
-        ((myModMask .|. controlMask                 , xK_minus  ),  spawn nothing                       ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_minus  ),  spawn nothing                       )
+        ((myModMask .|. shiftMask                   , xK_Return ),  term                                ) -- Spawn my terminal.
+    ,   ((myModMask .|. controlMask .|. shiftMask   , xK_Return ),  SM.submap keyboardMap               )
+    ,   ((myModMask                                 , xK_space  ),  sendMessage NextLayout              ) -- Select the next layout.
+    ,   ((myModMask .|. shiftMask                   , xK_space  ),  setLayout $ XMonad.layoutHook conf  ) -- Select the first layout.
+    ,   ((myModMask                                 , xK_Tab    ),  windows W.focusDown                 ) -- Select the next window.
+    ,   ((myModMask .|. shiftMask                   , xK_Tab    ),  windows W.focusUp                   ) -- Select the previous window.
+    ,   ((myModMask .|. shiftMask                   , xK_c      ),  kill                                ) -- Close the selected window.
+    ,   ((myModMask                                 , xK_d      ),  dmenu                               ) -- Show my dmenu.
+    ,   ((myModMask                                 , xK_f      ),  files                               ) -- Open my file explorer.
+    ,   ((myModMask                                 , xK_h      ),  sendMessage Shrink                  ) -- Shrink the master window.
+    ,   ((myModMask                                 , xK_i      ),  internet                            ) -- Open my internet browser.
+    ,   ((myModMask                                 , xK_j      ),  windows W.focusDown                 ) -- Select the previous window.
+    ,   ((myModMask .|. shiftMask                   , xK_j      ),  windows W.swapDown                  ) -- Swap the selected window with the previous window.
+    ,   ((myModMask                                 , xK_k      ),  windows W.focusUp                   ) -- Select the next window.
+    ,   ((myModMask .|. shiftMask                   , xK_k      ),  windows W.swapUp                    ) -- Swap the selected window with the next window.
+    ,   ((myModMask                                 , xK_l      ),  sendMessage Expand                  ) -- Expand the master window.
+    ,   ((myModMask                                 , xK_m      ),  windows W.focusMaster               ) -- Select the master window.
+    ,   ((myModMask .|. shiftMask                   , xK_m      ),  windows W.swapMaster                ) -- Swap the selected window with the master window.
+    ,   ((myModMask                                 , xK_n      ),  refresh                             ) -- Resize viewed windows to the correct size
+    ,   ((myModMask                                 , xK_p      ),  scratchPad                          )
+    ,   ((myModMask                                 , xK_q      ),  restart_xmonad                      ) -- Recompile and restart Xmonad.
+    ,   ((myModMask .|. shiftMask                   , xK_q      ),  io exitSuccess                      ) -- Log out.
+    ,   ((myModMask .|. controlMask                 , xK_q      ),  suspend                             ) -- Suspend.
+    ,   ((myModMask .|. controlMask .|. shiftMask   , xK_q      ),  shutdown                            ) -- Shut down
+    ,   ((myModMask                                 , xK_s      ),  searchEntered                       )
+    ,   ((myModMask .|. shiftMask                   , xK_s      ),  searchSelected                      )
+    ,   ((myModMask                                 , xK_t      ),  withFocused $ windows . W.sink      ) -- Push selected window back into tiling
+    ,   ((myModMask                                 , xK_u      ),  focusUrgent                         ) -- Select the most recently urgent window
+    ,   ((myModMask                                 , xK_w      ),  screenshotSelect                    ) -- Select the area and take a screenshot
+    ,   ((myModMask                                 , xK_x      ),  screenshotEntire                    ) -- Take a screenshot
+    ,   ((myModMask .|. controlMask                 , xK_x      ),  shellPrompt myXPConfig              )
+    ,   ((myModMask                                 , xK_comma  ),  sendMessage (IncMasterN 1)          ) -- Increment the number of windows in the master area.
+    ,   ((myModMask .|. shiftMask                   , xK_comma  ),  sendMessage (IncMasterN (-1))       ) -- Decrement the number of windows in the master area.
+    ,   ((myModMask                                 , xK_F3     ),  workflow                            ) -- Open my workflow with my editor.
+    ,   ((myModMask                                 , xK_F4     ),  mail                                ) -- Open my mail client.
+    ,   ((myModMask                                 , xK_F5     ),  lightDown                           ) -- Decrease the brightness of the screen.
+    ,   ((myModMask                                 , xK_F6     ),  lightUp                             ) -- Increase the brightness of the screen.
+    ,   ((myModMask                                 , xK_F10    ),  mute                                ) -- Mute the volume.
+    ,   ((myModMask                                 , xK_F11    ),  volumeDown                          ) -- Decrease the volume.
+    ,   ((myModMask                                 , xK_F12    ),  volumeUp                            ) -- Increase the volume.
     ]
-        ++ -- Shortcuts for navidating workspaces
+    ++ workspaceNavigation
+
+-- | Shortcuts for navigating workspaces
+workspaceNavigation :: [((KeyMask, KeySym), X ())]
+workspaceNavigation =
+    -- Navigate directly
     [
-        ((m .|. myModMask, k), windows $ f i)
-        | (i, k) <- zip myWorkspaces numPadKeys
-        , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]
+        (
+            (m .|. myModMask, k)
+            ,
+            windows $ f i
+        )
+        |
+        (i, k) <- zip myWorkspaces numPadKeys ++ zip myWorkspaces numKeys,
+        (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]
     ]
         ++
-    [
-        ((m .|. myModMask, k), windows $ f i)
-        | (i, k) <- zip myWorkspaces numKeys
-        , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]
-    ]
-        ++
+    -- Navigate with arrow keys
     M.toList (planeKeys myModMask (Lines 4) Finite)
-        ++
-    [
-        ((m .|. myModMask, key), screenWorkspace sc
-        >>= flip whenJust (windows . f))
-        | (key, sc) <- zip [xK_w, xK_e, xK_r] [1,0,2]
-        , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]
-    ]
 
 
--- | Mouse bindings: default actions bound to mouse events
+-- | Mouse bindings
 myMouse :: XConfig Layout -> M.Map (KeyMask, Button) (Window -> X ())
 myMouse (XConfig {XMonad.modMask = myModMask}) = M.fromList
     [
         -- Left_mouse_button    Set the window to floating mode and move by dragging
-        ((myModMask                                 , button1   ), \w -> focus w >> mouseMoveWindow w >> windows W.shiftMaster      ),
+        ((myModMask , button1   ), \w -> focus w >> mouseMoveWindow w >> windows W.shiftMaster      )
         -- Right_mouse_button   Raise the window to the top of the stack
-        ((myModMask                                 , button2   ), windows . (W.shiftMaster .) . W.focusWindow                      ),
+    ,   ((myModMask , button2   ), windows . (W.shiftMaster .) . W.focusWindow                      )
         -- Middle_mouse_button  Set the window to floating mode and resize by dragging
-        ((myModMask                                 , button3   ), \w -> focus w >> mouseResizeWindow w >> windows W.shiftMaster    )--,
-        ---- Scroll_down          Nothing
-        --((myModMask                                 , button4   ), spawn nothing                                                    ),
-        ---- Scroll_up            Nothing
-        --((myModMask                                 , button5   ), spawn nothing                                                    )
+    ,   ((myModMask , button3   ), \w -> focus w >> mouseResizeWindow w >> windows W.shiftMaster    )
     ]
-
 
 {-
     I define where xmonad should send certain applications

@@ -16,6 +16,13 @@ alias rndp='rnd RND: New project:'
 alias think='in +think wait:+1d Think about:'
 alias repay='ta pro:repay'
 alias wr='ta +next +wr wait:saturday' # weekly review
+
+webpage_title (){
+    link="$1"
+    wget -qO- "$link" | perl -l -0777 -ne 'print $1 if /<title.*?>\s*(.*?)\s*<\/title/si'
+}
+
+
 tickle () {
     day=$1
     shift
@@ -100,10 +107,21 @@ alias tdep=task_depends
 task_annotate () {
     task=$1
     shift
-    t $task annotate $@
+    t $task annotate $*
 }
 alias tA=task_annotate
 alias tan=task_annotate
+
+read_or_review (){
+    link="$1"
+    title=$(webpage_title $link)
+    descr="\"Read and review: $title\""
+    id=$(tn +rnr "$descr" bpower:B | sed -n 's/Created task \(.*\)./\1/p')
+    echo $id
+    echo "task \"$id\" annotate \"$link\""
+    task "$id" annotate "$link"
+}
+alias rnr=read_or_review
 
 task_start (){
     task=$1
@@ -114,7 +132,7 @@ alias ts=task_start
 
 
 task_deadline (){
-    t add +deadline due:"$1" "$@"
+    t add +deadline due:"$1" estimate:"0" bpower:"C" "$@"
 }
 
 alias deadline=task_deadline
