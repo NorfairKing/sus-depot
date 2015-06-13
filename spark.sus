@@ -1,0 +1,102 @@
+card spark {
+
+    into ~
+
+    vimrc -> .vimrc
+    vim -> .vim
+    fonts -> .fonts
+
+    {
+        outof bash
+        
+        bash_login -> .bash_login
+        bash_logout -> .bash_logout
+        bash_profile -> .bash_profile
+        bashrc -> .bashrc
+        profile -> .profile
+    }
+
+    {
+        outof zsh
+    
+        zlogin ->                .zlogin
+        zlogout ->               .zlogout
+        zprofile ->              .zprofile
+        zshenv ->                .zshenv
+        zshrc ->                 .zshrc
+    }
+
+    {
+        outof xorg
+
+        xinitrc -> .xinitrc
+        Xresources -> .Xresources
+    }
+
+    {
+        outof git
+        
+        gitconfig -> .gitconfig
+        gitignore -> .gitignore_global
+    }
+
+    {
+        into .aliases
+        outof aliases
+    
+        aliases ->           aliases
+        bash_aliases ->      abash_aliases 
+        color_aliases ->     color_aliases 
+        dotfile_aliases ->   dotfile_aliases
+        editor_aliases ->    editor_aliases
+        git_aliases ->       git_aliases
+        ls_aliases ->        ls_aliases
+        navigation_aliases -> navigation_aliases
+        network_aliases ->   network_aliases
+        package_aliases ->   package_aliases
+        workflow_aliases ->  workflow_aliases
+        xmonad_aliases ->    xmonad_aliases
+    }
+
+    {
+        into .keyboards
+        outof keyboards
+    
+        azerty -> azerty
+        qwerty -> qwerty
+        dvorak -> dvorak
+        dvorak.kinesis -> dvorak.kinesis
+    }
+
+    {
+        into .newsbeuter
+        outof newsbeuter
+        
+        config -> config
+        urls -> urls
+    }
+
+    {   
+        into .config
+
+        redshift.conf -> redshift.conf
+    }
+
+    {
+        into .xmonad
+
+        xmonad.hs -> xmonad.hs
+    }
+
+    {
+        into .mutt
+
+        sig -> sig
+        mailcap -> mailcap
+        keys -> keys
+        colors -> colors
+        alias -> alias
+        muttrc -> muttrc
+        specific -> specific
+    }
+}
