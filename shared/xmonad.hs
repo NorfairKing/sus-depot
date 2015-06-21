@@ -3,12 +3,14 @@
   There are many like it, but this one is mine.
 -}
 
+import qualified Data.Map                 as M
+import           Prelude                  hiding (mod)
 import           System.Exit
-
 import           XMonad
 import           XMonad.Actions.Plane
+import qualified XMonad.Actions.Search    as S
+import qualified XMonad.Actions.Submap    as SM
 import           XMonad.Config.Azerty
-import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.SetWMName
 import           XMonad.Hooks.UrgencyHook
@@ -16,56 +18,44 @@ import           XMonad.Layout.Fullscreen
 import           XMonad.Layout.Named
 import           XMonad.Layout.NoBorders
 import           XMonad.Layout.Spacing
-import           XMonad.Util.Run
-import           XMonad.Util.Scratchpad
-
-import qualified Data.Map                 as M
+import           XMonad.Prompt
+import qualified XMonad.Prompt            as P
+import           XMonad.Prompt.Shell
 import qualified XMonad.StackSet          as W
 
-import           XMonad.Prompt
-import           XMonad.Prompt.AppendFile
-import           XMonad.Prompt.Shell
 
-import qualified XMonad.Actions.Search    as S
-import qualified XMonad.Actions.Submap    as SM
-import qualified XMonad.Prompt            as P
-
-
--- Colors
+-- | Colors
 colorMain, colorSecondary   ::  String
 colorMain                   =   "#268BD2"
 colorSecondary              =   "#657b83"
 
 
--- Mod mask
-myModMask               ::  KeyMask
-myModMask               =   mod4Mask
+-- | Mod mask
+mod                         ::  KeyMask
+mod                         =   mod4Mask
 
--- Color of focussed border
-myFocusedBorderColor    ::  String
-myFocusedBorderColor    =   colorMain
+-- | Color of focussed border
+myFocusedBorderColor        ::  String
+myFocusedBorderColor        =   colorMain
 
--- Color of inactive border
-myNormalBorderColor     ::  String
-myNormalBorderColor     =   colorSecondary
+-- | Color of inactive border
+myNormalBorderColor         ::  String
+myNormalBorderColor         =   colorSecondary
 
--- Terminal emulator
-myTerminal              ::  String
-myTerminal              =   "urxvt"
+-- | Terminal emulator
+myTerminal                  ::  String
+myTerminal                  =   "urxvt"
 
--- The with of the borders between windows
-myBorderWidth           ::  Dimension
-myBorderWidth           =   1
+-- | The with of the borders between windows
+myBorderWidth               ::  Dimension
+myBorderWidth               =   1
 
-tileSpacing :: Int
-tileSpacing = 3
+-- | Space between tiles
+tileSpacing                 :: Int
+tileSpacing                 = 3
 
 
-{-
-    I define my workspaces,
-    They are a 3x3 grid of workspaces
--}
-
+-- | Workspaces, a 3x3 grid of workspaces
 bl  =   "1: Workflow"       -- Bottom   Left
 bm  =   "2: Etc"            -- Bottom   Middle
 br  =   "3: Mail"           -- Bottom   Right
@@ -76,16 +66,12 @@ tl  =   "7: Chat"           -- Top      Left
 tm  =   "8: Etc"            -- Top      Middle
 tr  =   "9: Clip"           -- Top      Right
 
--- define where to send applications
+-- | Where to send applications
 workflow_ws = bl
-paula_ws    = bm
 mail_ws     = br
 web_ws      = mr
-todo_ws     = tm
-journal_ws  = tl
-chat_ws     = tl
 
--- The workspaces list
+-- | The workspaces list
 myWorkspaces :: [WorkspaceId]
 myWorkspaces =
   [
@@ -97,9 +83,6 @@ myWorkspaces =
 -- | The workspace that will be on screen after launch
 startupWorkspace = mr
 
-
-
-
 -- | Layouts
 -- You really don't want to see the type of this function!
 myLayoutHook = avoidStruts (full ||| tiled ||| mtiled )
@@ -107,35 +90,30 @@ myLayoutHook = avoidStruts (full ||| tiled ||| mtiled )
         -- Fullscreen (default)
         full    = named "full" $ spacing tileSpacing $ noBorders Full
         -- Split vertically with phi as the ratio between the widths
-        tiled   = named "tiled" $ spacing tileSpacing $ Tall 1 (5/100) (1/phi)
+        tiled   = named "tiled" $ spacing tileSpacing $ Tall 1 (5/100) (1/(toRational phi))
         -- Split horizonatlly in the same way
         mtiled  = named "mtiled" $ Mirror tiled
         -- The golden ratio
-        phi = toRational $ (1 + sqrt 5) / 2
+        phi :: Double
+        phi = (1 + sqrt 5) / 2.0
 
 
-{-
-    I define my own applications
--}
-
+-- Restart xmonad after recompiling it.
 restart_xmonad      = spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi"
 
 -- States
 suspend             = spawn "pm-suspend"
 shutdown            = spawn "shutdown now"
 
+-- Spawn a terminal
 term :: X ()
 term                = spawn myTerminal
 
-terminalWTitle       :: String -> X ()
-terminalWTitle title = spawn $ myTerminal ++ "-title " ++ title ++ " "
-
 -- Editors
 editor              = "emacsclient -c"
-editor2             = "vim"
 
 -- Workflow
-workflow            = spawn $ editor ++ " /home/syd/workflow/workflow.txt"
+workflow            = spawn $ editor ++ " /home/syd/workflow/workflow.org"
 
 -- Dmenu with custom settings
 dmenu               = spawn $ "dmenu_run -b -i -l 5 -nb '" ++ "#000000" ++ "' -nf '" ++ colorSecondary ++ "' -sb '" ++ "#000000" ++ "' -sf '" ++ colorMain ++ "'"
@@ -160,16 +138,13 @@ mute               = spawn "amixer -q set Master 0%"
 volumeDown         = spawn "amixer -q set Master 4%-"
 volumeUp           = spawn "amixer -q set Master 4%+"
 
+
+-- Take a screenshot
 screenshotEntire   = spawn "scrot"
-screenshotSelect   = spawn "scrot -s"
 
 
 myXPConfig :: XPConfig
 myXPConfig = defaultXPConfig {font="-*-lucida-medium-r-*-*-14-*-*-*-*-*-*-*", height=22}
-
-scratchPad :: X ()
-scratchPad = scratchpadSpawnActionTerminal myTerminal
-
 
 searchEntered :: X ()
 searchEntered = SM.submap (searchEngineMap $ S.promptSearch P.defaultXPConfig)
@@ -204,46 +179,44 @@ keyboardMap = M.fromList
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf = M.fromList $
     [
-        ((myModMask .|. shiftMask                   , xK_Return ),  term                                ) -- Spawn my terminal.
-    ,   ((myModMask .|. controlMask .|. shiftMask   , xK_Return ),  SM.submap keyboardMap               )
-    ,   ((myModMask                                 , xK_space  ),  sendMessage NextLayout              ) -- Select the next layout.
-    ,   ((myModMask .|. shiftMask                   , xK_space  ),  setLayout $ XMonad.layoutHook conf  ) -- Select the first layout.
-    ,   ((myModMask                                 , xK_Tab    ),  windows W.focusDown                 ) -- Select the next window.
-    ,   ((myModMask .|. shiftMask                   , xK_Tab    ),  windows W.focusUp                   ) -- Select the previous window.
-    ,   ((myModMask .|. shiftMask                   , xK_c      ),  kill                                ) -- Close the selected window.
-    ,   ((myModMask                                 , xK_d      ),  dmenu                               ) -- Show my dmenu.
-    ,   ((myModMask                                 , xK_f      ),  files                               ) -- Open my file explorer.
-    ,   ((myModMask                                 , xK_h      ),  sendMessage Shrink                  ) -- Shrink the master window.
-    ,   ((myModMask                                 , xK_i      ),  internet                            ) -- Open my internet browser.
-    ,   ((myModMask                                 , xK_j      ),  windows W.focusDown                 ) -- Select the previous window.
-    ,   ((myModMask .|. shiftMask                   , xK_j      ),  windows W.swapDown                  ) -- Swap the selected window with the previous window.
-    ,   ((myModMask                                 , xK_k      ),  windows W.focusUp                   ) -- Select the next window.
-    ,   ((myModMask .|. shiftMask                   , xK_k      ),  windows W.swapUp                    ) -- Swap the selected window with the next window.
-    ,   ((myModMask                                 , xK_l      ),  sendMessage Expand                  ) -- Expand the master window.
-    ,   ((myModMask                                 , xK_m      ),  windows W.focusMaster               ) -- Select the master window.
-    ,   ((myModMask .|. shiftMask                   , xK_m      ),  windows W.swapMaster                ) -- Swap the selected window with the master window.
-    ,   ((myModMask                                 , xK_n      ),  refresh                             ) -- Resize viewed windows to the correct size
-    ,   ((myModMask                                 , xK_p      ),  scratchPad                          )
-    ,   ((myModMask                                 , xK_q      ),  restart_xmonad                      ) -- Recompile and restart Xmonad.
-    ,   ((myModMask .|. shiftMask                   , xK_q      ),  io exitSuccess                      ) -- Log out.
-    ,   ((myModMask .|. controlMask                 , xK_q      ),  suspend                             ) -- Suspend.
-    ,   ((myModMask .|. controlMask .|. shiftMask   , xK_q      ),  shutdown                            ) -- Shut down
-    ,   ((myModMask                                 , xK_s      ),  searchEntered                       )
-    ,   ((myModMask .|. shiftMask                   , xK_s      ),  searchSelected                      )
-    ,   ((myModMask                                 , xK_t      ),  withFocused $ windows . W.sink      ) -- Push selected window back into tiling
-    ,   ((myModMask                                 , xK_u      ),  focusUrgent                         ) -- Select the most recently urgent window
-    ,   ((myModMask                                 , xK_w      ),  screenshotSelect                    ) -- Select the area and take a screenshot
-    ,   ((myModMask                                 , xK_x      ),  screenshotEntire                    ) -- Take a screenshot
-    ,   ((myModMask .|. controlMask                 , xK_x      ),  shellPrompt myXPConfig              )
-    ,   ((myModMask                                 , xK_comma  ),  sendMessage (IncMasterN 1)          ) -- Increment the number of windows in the master area.
-    ,   ((myModMask .|. shiftMask                   , xK_comma  ),  sendMessage (IncMasterN (-1))       ) -- Decrement the number of windows in the master area.
-    ,   ((myModMask                                 , xK_F3     ),  workflow                            ) -- Open my workflow with my editor.
-    ,   ((myModMask                                 , xK_F4     ),  mail                                ) -- Open my mail client.
-    ,   ((myModMask                                 , xK_F5     ),  lightDown                           ) -- Decrease the brightness of the screen.
-    ,   ((myModMask                                 , xK_F6     ),  lightUp                             ) -- Increase the brightness of the screen.
-    ,   ((myModMask                                 , xK_F10    ),  mute                                ) -- Mute the volume.
-    ,   ((myModMask                                 , xK_F11    ),  volumeDown                          ) -- Decrease the volume.
-    ,   ((myModMask                                 , xK_F12    ),  volumeUp                            ) -- Increase the volume.
+        ((mod .|. shiftMask                   , xK_Return ),  term                                ) -- Spawn my terminal.
+    ,   ((mod .|. controlMask .|. shiftMask   , xK_Return ),  SM.submap keyboardMap               )
+    ,   ((mod                                 , xK_space  ),  sendMessage NextLayout              ) -- Select the next layout.
+    ,   ((mod .|. shiftMask                   , xK_space  ),  setLayout $ XMonad.layoutHook conf  ) -- Select the first layout.
+    ,   ((mod                                 , xK_Tab    ),  windows W.focusDown                 ) -- Select the next window.
+    ,   ((mod .|. shiftMask                   , xK_Tab    ),  windows W.focusUp                   ) -- Select the previous window.
+    ,   ((mod .|. shiftMask                   , xK_c      ),  kill                                ) -- Close the selected window.
+    ,   ((mod                                 , xK_d      ),  dmenu                               ) -- Show my dmenu.
+    ,   ((mod                                 , xK_f      ),  files                               ) -- Open my file explorer.
+    ,   ((mod                                 , xK_h      ),  sendMessage Shrink                  ) -- Shrink the master window.
+    ,   ((mod                                 , xK_i      ),  internet                            ) -- Open my internet browser.
+    ,   ((mod                                 , xK_j      ),  windows W.focusDown                 ) -- Select the previous window.
+    ,   ((mod .|. shiftMask                   , xK_j      ),  windows W.swapDown                  ) -- Swap the selected window with the previous window.
+    ,   ((mod                                 , xK_k      ),  windows W.focusUp                   ) -- Select the next window.
+    ,   ((mod .|. shiftMask                   , xK_k      ),  windows W.swapUp                    ) -- Swap the selected window with the next window.
+    ,   ((mod                                 , xK_l      ),  sendMessage Expand                  ) -- Expand the master window.
+    ,   ((mod                                 , xK_m      ),  windows W.focusMaster               ) -- Select the master window.
+    ,   ((mod .|. shiftMask                   , xK_m      ),  windows W.swapMaster                ) -- Swap the selected window with the master window.
+    ,   ((mod                                 , xK_n      ),  refresh                             ) -- Resize viewed windows to the correct size
+    ,   ((mod                                 , xK_q      ),  restart_xmonad                      ) -- Recompile and restart Xmonad.
+    ,   ((mod .|. shiftMask                   , xK_q      ),  io exitSuccess                      ) -- Log out.
+    ,   ((mod .|. controlMask                 , xK_q      ),  suspend                             ) -- Suspend.
+    ,   ((mod .|. controlMask .|. shiftMask   , xK_q      ),  shutdown                            ) -- Shut down
+    ,   ((mod                                 , xK_s      ),  searchEntered                       )
+    ,   ((mod .|. shiftMask                   , xK_s      ),  searchSelected                      )
+    ,   ((mod                                 , xK_t      ),  withFocused $ windows . W.sink      ) -- Push selected window back into tiling
+    ,   ((mod                                 , xK_u      ),  focusUrgent                         ) -- Select the most recently urgent window
+    ,   ((mod                                 , xK_x      ),  screenshotEntire                    ) -- Take a screenshot
+    ,   ((mod .|. controlMask                 , xK_x      ),  shellPrompt myXPConfig              )
+    ,   ((mod                                 , xK_comma  ),  sendMessage (IncMasterN 1)          ) -- Increment the number of windows in the master area.
+    ,   ((mod .|. shiftMask                   , xK_comma  ),  sendMessage (IncMasterN (-1))       ) -- Decrement the number of windows in the master area.
+    ,   ((mod                                 , xK_F3     ),  workflow                            ) -- Open my workflow with my editor.
+    ,   ((mod                                 , xK_F4     ),  mail                                ) -- Open my mail client.
+    ,   ((mod                                 , xK_F5     ),  lightDown                           ) -- Decrease the brightness of the screen.
+    ,   ((mod                                 , xK_F6     ),  lightUp                             ) -- Increase the brightness of the screen.
+    ,   ((mod                                 , xK_F10    ),  mute                                ) -- Mute the volume.
+    ,   ((mod                                 , xK_F11    ),  volumeDown                          ) -- Decrease the volume.
+    ,   ((mod                                 , xK_F12    ),  volumeUp                            ) -- Increase the volume.
     ]
     ++ workspaceNavigation
 
@@ -253,7 +226,7 @@ workspaceNavigation =
     -- Navigate directly
     [
         (
-            (m .|. myModMask, k)
+            (m .|. mod, k)
             ,
             windows $ f i
         )
@@ -263,19 +236,19 @@ workspaceNavigation =
     ]
         ++
     -- Navigate with arrow keys
-    M.toList (planeKeys myModMask (Lines 4) Finite)
+    M.toList (planeKeys mod (Lines 4) Finite)
 
 
 -- | Mouse bindings
 myMouse :: XConfig Layout -> M.Map (KeyMask, Button) (Window -> X ())
-myMouse (XConfig {XMonad.modMask = myModMask}) = M.fromList
+myMouse (XConfig {XMonad.modMask = m}) = M.fromList
     [
         -- Left_mouse_button    Set the window to floating mode and move by dragging
-        ((myModMask , button1   ), \w -> focus w >> mouseMoveWindow w >> windows W.shiftMaster      )
+        ((m , button1   ), \w -> focus w >> mouseMoveWindow w >> windows W.shiftMaster      )
         -- Right_mouse_button   Raise the window to the top of the stack
-    ,   ((myModMask , button2   ), windows . (W.shiftMaster .) . W.focusWindow                      )
+    ,   ((m , button2   ), windows . (W.shiftMaster .) . W.focusWindow                      )
         -- Middle_mouse_button  Set the window to floating mode and resize by dragging
-    ,   ((myModMask , button3   ), \w -> focus w >> mouseResizeWindow w >> windows W.shiftMaster    )
+    ,   ((m , button3   ), \w -> focus w >> mouseResizeWindow w >> windows W.shiftMaster    )
     ]
 
 {-
@@ -327,20 +300,12 @@ myStartupHook = do
     windows $ W.greedyView startupWorkspace
 
 myManageHook :: ManageHook
-myManageHook = manageHook azertyConfig <+> composeAll myManagementHooks <+> manageDocks <+> manageScratchPad
-
-manageScratchPad :: ManageHook
-manageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
-  where
-    h = 0.2     -- terminal height, 20%
-    w = 1       -- terminal width, 100%
-    t = 1 - h   -- distance from top edge, 80%
-    l = 1 - w   -- distance from left edge, 0%
+myManageHook = manageHook azertyConfig <+> composeAll myManagementHooks <+> manageDocks
 
 
 
 -- Stiching together all the settings
-main :: IO()
+main :: IO ()
 main =
   xmonad $ withUrgencyHook NoUrgencyHook $ azertyConfig {
     focusedBorderColor = myFocusedBorderColor
@@ -348,7 +313,7 @@ main =
   , borderWidth = myBorderWidth
   , terminal = myTerminal
   , workspaces = myWorkspaces
-  , modMask = myModMask
+  , modMask = mod
   , keys = myKeys
   , mouseBindings = myMouse
   , handleEventHook = fullscreenEventHook

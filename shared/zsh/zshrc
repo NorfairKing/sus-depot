@@ -24,11 +24,10 @@ precmd() { eval "$PROMPT_COMMAND" }
 
 source $ZSH/oh-my-zsh.sh
 
-if [ -f ~/.aliases/aliases ]; then
-    source ~/.aliases/aliases
-fi
-
+# TODO make safer source
+source ~/.aliases/aliases
 source ~/.paths/paths
+source ~/.variables/variables
 
 
 # TODO explain this?

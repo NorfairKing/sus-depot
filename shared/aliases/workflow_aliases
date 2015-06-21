@@ -10,7 +10,7 @@ alias tgm='t burndown'
 alias tgy='t burndown.monthly'
 alias c='task context'
 
-alias in='ta +in'
+#alias in='ta +in'
 alias rnd='ta +rnd estimate:5 bpower:A RND:'
 alias rndp='rnd RND: New project:'
 alias think='in +think wait:+1d Think about:'
@@ -146,30 +146,6 @@ alias tlsm='tpl blog_sm'
 
 alias ter='tp erasmus'
 alias tler='tpl erasmus'
-
-alias tan='tp analyse'
-alias tlan='tpl analyse'
-
-alias tswop='tp swop'
-alias tlswop='tpl swop'
-
-alias tcn='tp computer_networks'
-alias tlcn='tpl computer_networks'
-
-alias tkr='tp kansrekenen'
-alias tlkr='tpl kansrekenen'
-
-alias trl='tp religie'
-alias tlrl='tpl religie'
-
-alias trzl='tp religie'
-alias tlrzl='tpl religie'
-
-alias tpno='tp pno'
-alias tlpno='tpl pno'
-
-alias tas='tp auto_schedule'
-alias tlas='tpl auto_schedule'
 
 ## Blog work aliases
 
