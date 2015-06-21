@@ -12,9 +12,7 @@ card spark {
         
         bash_login -> .bash_login
         bash_logout -> .bash_logout
-        bash_profile -> .bash_profile
         bashrc -> .bashrc
-        profile -> .profile
     }
 
     {
@@ -91,6 +89,7 @@ card spark {
 
     {
         into .mutt
+        outof mutt
 
         sig -> sig
         mailcap -> mailcap
