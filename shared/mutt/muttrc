@@ -112,12 +112,13 @@ set forward_quote                       # include message in forwards
 # Default inbox.
 set spoolfile = "+kul/INBOX"
 mailboxes   +kul/INBOX \
+            +eth/INBOX \
             +skgmail/INBOX \
-            +skgmail/archive \
             +organizing/rnr \
             +organizing/reply \
             +organizing/wait \
-            +organizing/ref
+            +organizing/ref \
+            +skgmail/archive
 
 # Other special folders.
 set copy

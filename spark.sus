@@ -8,24 +8,6 @@ card spark {
     fonts -> .fonts
 
     {
-        outof bash
-        
-        bash_login -> .bash_login
-        bash_logout -> .bash_logout
-        bashrc -> .bashrc
-    }
-
-    {
-        outof zsh
-    
-        zlogin ->                .zlogin
-        zlogout ->               .zlogout
-        zprofile ->              .zprofile
-        zshenv ->                .zshenv
-        zshrc ->                 .zshrc
-    }
-
-    {
         outof xorg
 
         xinitrc -> .xinitrc
@@ -38,23 +20,48 @@ card spark {
         gitconfig -> .gitconfig
         gitignore -> .gitignore_global
     }
-
     {
-        into .aliases
-        outof aliases
-    
-        aliases ->           aliases
-        bash_aliases ->      abash_aliases 
-        color_aliases ->     color_aliases 
-        dotfile_aliases ->   dotfile_aliases
-        editor_aliases ->    editor_aliases
-        git_aliases ->       git_aliases
-        ls_aliases ->        ls_aliases
-        navigation_aliases -> navigation_aliases
-        network_aliases ->   network_aliases
-        package_aliases ->   package_aliases
-        workflow_aliases ->  workflow_aliases
-        xmonad_aliases ->    xmonad_aliases
+        outof shell
+        {
+            into .variables
+            outof variables
+
+            variables ->        variables
+            workflow_variables -> workflow_variables 
+        }
+        {
+            into .aliases
+            outof aliases
+
+            aliases ->           aliases
+            bash_aliases ->      bash_aliases 
+            color_aliases ->     color_aliases 
+            dotfile_aliases ->   dotfile_aliases
+            editor_aliases ->    editor_aliases
+            git_aliases ->       git_aliases
+            ls_aliases ->        ls_aliases
+            navigation_aliases -> navigation_aliases
+            network_aliases ->   network_aliases
+            package_aliases ->   package_aliases
+            workflow_aliases ->  workflow_aliases
+            xmonad_aliases ->    xmonad_aliases
+        }
+        {
+            outof bash
+            
+            bash_login -> .bash_login
+            bash_logout -> .bash_logout
+            bashrc -> .bashrc
+        }
+        {
+            outof zsh
+        
+            zlogin ->                .zlogin
+            zlogout ->               .zlogout
+            zprofile ->              .zprofile
+            zshenv ->                .zshenv
+            zshrc ->                 .zshrc
+        }
     }
 
     {
