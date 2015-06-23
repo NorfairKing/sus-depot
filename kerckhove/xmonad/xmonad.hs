@@ -117,6 +117,8 @@ internet            = spawn "google-chrome"
 mailClasses        = ["mutt"]
 mail                = "urxvt -e zsh -c \"mutt\""
 
+lock = spawn "cinnamon-screensaver-command -l"
+
 -- Files application
 files               :: X ()
 files               = spawn "nautilus --no-desktop"
@@ -275,10 +277,11 @@ myKeys conf = M.fromList $
         ((myModMask                                 , xK_space  ),  nextLayout                      ),
         ((myModMask                                 , xK_Tab    ),  nextWindow                      ),
         ((myModMask .|. shiftMask                   , xK_Tab    ),  previousWindow                  ),
+        ((myModMask .|. shiftMask                   , xK_l      ),  lock                            ),
         ((myModMask .|. controlMask                 , xK_q      ),  suspend                         ),
         ((myModMask .|. controlMask .|. shiftMask   , xK_q      ),  shutdown                        ),
-        ((myModMask .|. controlMask                 , xK_x      ),  shellPrompt myXPConfig        ),
-        ((myModMask                                 , xK_comma  ),  workflow                         ),
+        ((myModMask .|. controlMask                 , xK_x      ),  shellPrompt myXPConfig          ),
+        ((myModMask                                 , xK_comma  ),  workflow                        ),
         ((myModMask                                 , xK_period ),  internet                      ),
         ((myModMask                                 , xK_F4     ),  spawn mail                    ),
         ((myModMask                                 , xK_F5     ),  lightDown                     ),
