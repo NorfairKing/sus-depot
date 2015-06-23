@@ -1,6 +1,6 @@
 card spark {
 
-    alternatives primus shared
+    alternatives kerckhove shared
     into ~
 
     vimrc -> .vimrc
@@ -28,6 +28,13 @@ card spark {
 
             variables ->        variables
             workflow_variables -> workflow_variables 
+        }
+        {
+            into .paths
+            outof paths
+    
+            paths -> paths
+            specific -> specific
         }
         {
             into .aliases

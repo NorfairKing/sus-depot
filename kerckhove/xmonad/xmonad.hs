@@ -99,10 +99,9 @@ terminalWTitle title    = term ++ "-title " ++ title ++ " "
 
 -- Editors
 editor              = "emacsclient -c"
-editor2             = "vim"
 
 -- Workflow TODO
-workflow            = editor ++ " /home/syd/workflow/workflow.txt"
+workflow            = unsafeSpawn $ "emacsclient -c $HOME/workflow/work.org"
 
 -- Dmenu with custom settings
 dmenu               :: X ()
@@ -112,7 +111,7 @@ dmenu               = spawn $ "dmenu_run -b -i -l 5 -nb '" ++ "#000000" ++ "' -n
 internet_classes    = ["Firefox"]
 
 internet            :: X ()
-internet            = spawn "firefox"
+internet            = spawn "google-chrome"
 
 -- Mail application
 mailClasses        = ["mutt"]
@@ -279,7 +278,7 @@ myKeys conf = M.fromList $
         ((myModMask .|. controlMask                 , xK_q      ),  suspend                         ),
         ((myModMask .|. controlMask .|. shiftMask   , xK_q      ),  shutdown                        ),
         ((myModMask .|. controlMask                 , xK_x      ),  shellPrompt myXPConfig        ),
-        ((myModMask                                 , xK_comma  ),  spawn workflow                ),
+        ((myModMask                                 , xK_comma  ),  workflow                         ),
         ((myModMask                                 , xK_period ),  internet                      ),
         ((myModMask                                 , xK_F4     ),  spawn mail                    ),
         ((myModMask                                 , xK_F5     ),  lightDown                     ),
