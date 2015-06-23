@@ -116,10 +116,12 @@ card spark {
 
         {
             into lib
-            Constants.hs -> Constants.hs
-            Workspaces.hs -> Workspaces.hs
-            Keys.hs -> Keys.hs
-            Layout.hs -> Layout.hs
+
+            Constants.hs    -> Constants.hs
+            Workspaces.hs   -> Workspaces.hs
+            Keys.hs         -> Keys.hs
+            Layout.hs       -> Layout.hs
+            Actions.hs      -> Actions.hs
         }
     }
 

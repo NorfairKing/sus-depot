@@ -20,6 +20,7 @@ import qualified XMonad.Prompt            as P
 import           XMonad.Prompt.Shell
 import qualified XMonad.StackSet          as W
 
+import           Actions
 import           Constants
 import           Layout
 import           Workspaces
@@ -38,23 +39,8 @@ myNormalBorderColor         ::  String
 myNormalBorderColor         =   colorSecondary
 
 
-
--- Restart xmonad after recompiling it.
-restart_xmonad      = spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi"
-
--- States
-suspend             = spawn "pm-suspend"
-shutdown            = spawn "shutdown now"
-
--- Spawn a terminal
-term :: X ()
-term                = spawn myTerminal
-
 -- Editors
 editor              = "emacsclient -c"
-
--- Workflow
-workflow            = spawn $ editor ++ " /home/syd/workflow/workflow.org"
 
 -- Dmenu with custom settings
 dmenu               = spawn $ "dmenu_run -b -i -l 5 -nb '" ++ "#000000" ++ "' -nf '" ++ colorSecondary ++ "' -sb '" ++ "#000000" ++ "' -sf '" ++ colorMain ++ "'"
@@ -69,19 +55,6 @@ mail               = spawn "urxvt -e zsh -c \"mutt\""
 
 -- Files application
 files              = spawn "nautilus --no-desktop"
-
--- Brightness
-lightDown          = spawn "xbacklight -dec 10 -steps 1"
-lightUp            = spawn "xbacklight -inc 10 -steps 1"
-
--- Volume
-mute               = spawn "amixer -q set Master 0%"
-volumeDown         = spawn "amixer -q set Master 4%-"
-volumeUp           = spawn "amixer -q set Master 4%+"
-
-
--- Take a screenshot
-screenshotEntire   = spawn "scrot"
 
 
 myXPConfig :: XPConfig
@@ -147,7 +120,7 @@ myKeys conf = M.fromList $
     ,   ((mod .|. shiftMask                   , xK_s      ),  searchSelected                      )
     ,   ((mod                                 , xK_t      ),  withFocused $ windows . W.sink      ) -- Push selected window back into tiling
     ,   ((mod                                 , xK_u      ),  focusUrgent                         ) -- Select the most recently urgent window
-    ,   ((mod                                 , xK_x      ),  screenshotEntire                    ) -- Take a screenshot
+    ,   ((mod                                 , xK_x      ),  screenshot                          ) -- Take a screenshot
     ,   ((mod .|. controlMask                 , xK_x      ),  shellPrompt myXPConfig              )
     ,   ((mod                                 , xK_comma  ),  sendMessage (IncMasterN 1)          ) -- Increment the number of windows in the master area.
     ,   ((mod .|. shiftMask                   , xK_comma  ),  sendMessage (IncMasterN (-1))       ) -- Decrement the number of windows in the master area.
