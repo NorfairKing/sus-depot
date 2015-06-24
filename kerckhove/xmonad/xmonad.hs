@@ -114,10 +114,10 @@ internet            :: X ()
 internet            = spawn "google-chrome"
 
 -- Mail application
-mailClasses        = ["mutt"]
+mailClasses         = ["mutt"]
 mail                = "urxvt -e zsh -c \"mutt\""
 
-lock = spawn "cinnamon-screensaver-command -l"
+lock                = spawn "cinnamon-screensaver-command -l"
 
 -- Files application
 files               :: X ()
@@ -277,21 +277,21 @@ myKeys conf = M.fromList $
         ((myModMask                                 , xK_space  ),  nextLayout                      ),
         ((myModMask                                 , xK_Tab    ),  nextWindow                      ),
         ((myModMask .|. shiftMask                   , xK_Tab    ),  previousWindow                  ),
-        ((myModMask .|. shiftMask                   , xK_l      ),  lock                            ),
+        ((myModMask .|. controlMask .|. shiftMask   , xK_l      ),  lock                            ),
         ((myModMask .|. controlMask                 , xK_q      ),  suspend                         ),
         ((myModMask .|. controlMask .|. shiftMask   , xK_q      ),  shutdown                        ),
         ((myModMask .|. controlMask                 , xK_x      ),  shellPrompt myXPConfig          ),
         ((myModMask                                 , xK_comma  ),  workflow                        ),
-        ((myModMask                                 , xK_period ),  internet                      ),
-        ((myModMask                                 , xK_F4     ),  spawn mail                    ),
-        ((myModMask                                 , xK_F5     ),  lightDown                     ),
-        ((myModMask                                 , xK_F6     ),  lightUp                       ),
-        ((myModMask                                 , xK_F10    ),  mute                          ),
-        ((myModMask                                 , xK_F11    ),  volumeDown                    ),
-        ((myModMask .|. shiftMask                   , xK_F11    ),  lightDown                     ),
-        ((myModMask                                 , xK_F12    ),  volumeUp                      ),
-        ((myModMask .|. shiftMask                   , xK_F12    ),  lightUp                       ),
-        ((myModMask                                 , xK_BackSpace  ),  tileAgain                 )
+        ((myModMask                                 , xK_period ),  internet                        ),
+        ((myModMask                                 , xK_F4     ),  spawn mail                      ),
+        ((myModMask                                 , xK_F5     ),  lightDown                       ),
+        ((myModMask                                 , xK_F6     ),  lightUp                         ),
+        ((myModMask                                 , xK_F10    ),  mute                            ),
+        ((myModMask                                 , xK_F11    ),  volumeDown                      ),
+        ((myModMask .|. shiftMask                   , xK_F11    ),  lightDown                       ),
+        ((myModMask                                 , xK_F12    ),  volumeUp                        ),
+        ((myModMask .|. shiftMask                   , xK_F12    ),  lightUp                         ),
+        ((myModMask                                 , xK_BackSpace  ),  tileAgain                   )
     ]
     ++
     navigationKeys
