@@ -13,6 +13,7 @@
 (setq private-org-pre-extensions
       '(
         todo-keywords
+        agenda-commands
         ))
 
 (setq private-org-post-extensions
@@ -23,8 +24,7 @@
 ;; For each extension, define a function private-org/init-<extension-private-org>
 ;;
 (defun private-org/init-todo-keywords ()
-  "Initialize my extension"
-
+  ; The @ means that there's going to need to be a note attached to the change.
   (setq org-todo-keywords
         '((sequence "TODO(t)" "NEXT(n)" "WAITING(w@)" "|" "DONE(d)" "CANCELLED(c)")))
   (setq org-todo-keyword-faces
@@ -33,6 +33,11 @@
           ("WAITING" . "blue")
           ("DONE" . "green")
           ("CANCELLED" . "green")))
+  )
+
+(defun private-org/init-agenda-commands ()
+  ; Next action list
+  (setq org-agenda-custom-commands '(("n" todo "NEXT")))
   )
 ;;
 ;; Often the body of an initialize function uses `use-package'
