@@ -1,0 +1,7 @@
+add () {
+    export PATH="$PATH:$1"
+}
+
+GOPATH="$HOME/gopath"
+add "$GOPATH"
+add "$GOPATH/bin"
