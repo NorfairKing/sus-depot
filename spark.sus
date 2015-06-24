@@ -72,6 +72,18 @@ card spark {
     }
 
     {
+        outof spacemacs
+
+        spacemacs -> .spacemacs
+
+        {
+            into .emacs.d/private
+
+            private-org -> private-org
+        }
+    }
+
+    {
         into .keyboards
         outof keyboards
     
