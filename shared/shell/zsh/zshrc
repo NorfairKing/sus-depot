@@ -36,4 +36,8 @@ unsetopt correct_all
 # Makes sure the emacs server starts when needed
 export ALTERNATE_EDITOR=""
 
-source /etc/bash_completion.d/g4d
+c="/etc/bash_completion.d/g4d"
+if [ -f "$c" ]
+then
+    source $c
+fi

@@ -6,6 +6,7 @@ card spark {
     vimrc -> .vimrc
     vim -> .vim
     fonts -> .fonts
+    screen -> .screen
 
     {
         outof xorg
@@ -22,6 +23,7 @@ card spark {
     }
     {
         outof shell
+
         {
             into .variables
             outof variables
