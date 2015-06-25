@@ -1,6 +1,6 @@
 card spark {
 
-    alternatives kerckhove shared
+    alternatives primus shared
     into ~
 
     vimrc -> .vimrc
