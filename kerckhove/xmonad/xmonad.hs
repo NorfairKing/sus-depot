@@ -111,7 +111,7 @@ dmenu               = spawn $ "dmenu_run -b -i -l 5 -nb '" ++ "#000000" ++ "' -n
 internet_classes    = ["Firefox"]
 
 internet            :: X ()
-internet            = spawn "google-chrome"
+internet            = spawn "google-chrome --disable-gpu"
 
 -- Mail application
 mailClasses         = ["mutt"]

@@ -39,6 +39,7 @@
   ; Next action list
   (setq org-agenda-custom-commands '(("n" todo "NEXT")))
   )
+
 ;;
 ;; Often the body of an initialize function uses `use-package'
 ;; For more info on `use-package', see readme:
