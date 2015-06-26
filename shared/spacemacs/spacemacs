@@ -154,7 +154,7 @@ layers configuration."
  '(ahs-idle-interval 0.25)
  '(ahs-idle-timer 0 t)
  '(ahs-inhibit-face-list nil)
- '(org-agenda-files (quote ("~/workflow/personal.org" "~/workflow/work.org")))
+ '(org-agenda-files (quote ("~/workflow/")))
  '(ring-bell-function (quote ignore) t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
