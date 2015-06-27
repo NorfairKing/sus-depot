@@ -1,0 +1,8 @@
+card git {
+    alternatives primus shared
+    into ~
+    outof git
+
+    gitconfig -> .gitconfig
+    gitignore -> .gitignore_global
+}

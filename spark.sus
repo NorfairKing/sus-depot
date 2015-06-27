@@ -15,12 +15,8 @@ card spark {
         Xresources -> .Xresources
     }
 
-    {
-        outof git
-        
-        gitconfig -> .gitconfig
-        gitignore -> .gitignore_global
-    }
+    spark file git.sus
+
     {
         outof shell
 
