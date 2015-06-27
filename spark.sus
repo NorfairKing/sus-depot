@@ -7,6 +7,7 @@ card spark {
     vim -> .vim
     fonts -> .fonts
     screen -> .screen
+    zathurarc -> .config/zathura/zathurarc
 
     {
         outof xorg
