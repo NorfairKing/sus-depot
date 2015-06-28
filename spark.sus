@@ -1,19 +1,20 @@
 card spark {
 
-    alternatives primus shared
+    # First look in the hosts specific file, otherwise look in the shared directory
+    alternatives $(HOST) shared
     into ~
 
-    vimrc -> .vimrc
-    vim -> .vim
-    fonts -> .fonts
-    screen -> .screen
-    zathurarc -> .config/zathura/zathurarc
+    vimrc       -> .vimrc
+    vim         -> .vim
+    fonts       -> .fonts
+    screen      -> .screen
+    zathurarc   -> .config/zathura/zathurarc
 
     {
         outof xorg
 
-        xinitrc -> .xinitrc
-        Xresources -> .Xresources
+        xinitrc     -> .xinitrc
+        Xresources  -> .Xresources
     }
 
     spark file git.sus
