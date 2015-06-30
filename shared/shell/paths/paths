@@ -1,9 +1,15 @@
 add () {
     export PATH="$PATH:$1"
 }
-
+OLD=$PATH
+export PATH=""
 
 add "$HOME/scripts"
+add "$HOME/.cabal/bin"
+add "$HOME/.gem/ruby/2.2.0/bin"
+
+add "$OLD"
+
 add "/usr/lib/lightdm/lightdm"
 add "/usr/local/sbin"
 add "/usr/local/bin"
@@ -14,9 +20,7 @@ add "/sbin"
 add "/bin"
 add "/usr/games"
 add "/usr/local/games"
-add "$HOME/.cabal/bin"
 add "/usr/lib"
-add "$HOME/.gem/ruby/2.2.0/bin"
 
 
 source ~/.paths/specific
