@@ -1,2 +1,4 @@
 # Journaling
 alias j='chronicle enter'
+
+alias z='zathura'
