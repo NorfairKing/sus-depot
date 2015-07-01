@@ -87,8 +87,6 @@
 (defun private-org/init-agenda-commands ()
   ; Next action list
   (setq org-agenda-custom-commands '(("n" todo "STARTED|NEXT")))
-
-
   )
 
 ;;
