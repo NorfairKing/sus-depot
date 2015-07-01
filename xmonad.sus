@@ -1,0 +1,20 @@
+card xmonad {
+    alternatives $(HOST) shared
+    into ~/.xmonad
+
+    outof xmonad
+
+    xmonad.hs -> xmonad.hs
+    makefile  -> makefile
+
+    {
+        into lib
+
+        Constants.hs    -> Constants.hs
+        Workspaces.hs   -> Workspaces.hs
+        Keys.hs         -> Keys.hs
+        Layout.hs       -> Layout.hs
+        Actions.hs      -> Actions.hs
+    }
+
+}

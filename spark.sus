@@ -10,14 +10,9 @@ card spark {
     screen      -> .screen
     zathurarc   -> .config/zathura/zathurarc
 
-    {
-        outof xorg
-
-        xinitrc     -> .xinitrc
-        Xresources  -> .Xresources
-    }
-
+    spark file xorg.sus
     spark file git.sus
+    spark file xmonad.sus
 
     {
         outof shell
@@ -105,24 +100,6 @@ card spark {
         into .config
 
         redshift.conf -> redshift.conf
-    }
-
-    {
-        into .xmonad
-        outof xmonad
-
-        xmonad.hs -> xmonad.hs
-        makefile  -> makefile
-
-        {
-            into lib
-
-            Constants.hs    -> Constants.hs
-            Workspaces.hs   -> Workspaces.hs
-            Keys.hs         -> Keys.hs
-            Layout.hs       -> Layout.hs
-            Actions.hs      -> Actions.hs
-        }
     }
 
     {
