@@ -29,7 +29,7 @@ import qualified XMonad.Prompt            as P
 
 import           Constants
 import           Layout
-import Workspaces
+import           Workspaces
 
 {- APPEARANCE -}
 
@@ -239,17 +239,16 @@ myKeys conf = M.fromList $
 
         -- [{+(= *)!}]
         ((myModMask                                 , xK_bracketleft    ),  nothing                 ),
-        ((myModMask                                 , xK_braceleft      ),  nothing                 ),
+        ((myModMask                                 , xK_braceleft      ),  focusWindowDown         ),
         ((myModMask                                 , xK_plus           ),  lessWindows             ),
         ((myModMask                                 , xK_parenleft      ),  focusWindowDown         ),
         ((myModMask .|. shiftMask                   , xK_parenleft      ),  swapWindowDown          ),
         ((myModMask                                 , xK_equal          ),  shrinkWindow            ),
-        ((myModMask                                 , xK_Insert         ),  selectedSearch          ),
         ((myModMask                                 , xK_asterisk       ),  expandWindow            ),
         ((myModMask                                 , xK_parenright     ),  focusWindowUp           ),
         ((myModMask .|. shiftMask                   , xK_parenright     ),  swapWindowUp            ),
         ((myModMask                                 , xK_exclam         ),  moreWindows             ),
-        ((myModMask                                 , xK_braceright     ),  nothing                 ),
+        ((myModMask                                 , xK_braceright     ),  focusWindowUp           ),
         ((myModMask                                 , xK_bracketright   ),  nothing                 ),
 
         ((myModMask                                 , xK_Return ),  promptedSearch                  ),

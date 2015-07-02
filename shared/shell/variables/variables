@@ -1,2 +1,4 @@
 #!/bin/bash
-source ~/.variables/workflow_variables
+source ~/.variables/workflow
+source ~/.variables/host
+source ~/.variables/specific

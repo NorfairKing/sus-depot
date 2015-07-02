@@ -1,7 +1,7 @@
 card spark {
 
     # First look in the hosts specific file, otherwise look in the shared directory
-    alternatives $(HOST) shared
+    alternatives $(HOSTNAME) $(HOST) shared
     into ~
 
     vimrc       -> .vimrc
@@ -21,8 +21,10 @@ card spark {
             into .variables
             outof variables
 
-            variables ->        variables
-            workflow_variables -> workflow_variables 
+            variables -> variables
+            workflow  -> workflow 
+            specific  -> specific
+            host      -> host
         }
         {
             into .paths

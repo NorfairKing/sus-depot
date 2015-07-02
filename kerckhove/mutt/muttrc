@@ -7,7 +7,7 @@ set header_cache     = ~/.mutt/cache/headers # where to store headers
 set message_cachedir = ~/.mutt/cache/bodies  # where to store bodies
 set certificate_file = ~/.mutt/certificates  # where to store certs
 set mailcap_path     = ~/.mutt/mailcap       # entries for filetypes
-set tmpdir           = ~/.mutt/temp          # where to keep temp files
+set tmpdir           = ~/.mutt/tmp           # where to keep temp files
 set signature        = ~/.mutt/sig           # my signature file
 
 ## Basic ----------------------------------------------------------------------
@@ -15,7 +15,6 @@ set wait_key = no        # shut up, mutt
 set mbox_type = Maildir  # mailbox type
 set timeout = 3          # idle time before scanning
 set mail_check = 0       # minimum time between scans
-#unset move               # gmail does that
 set delete               # don't ask, just do
 unset confirmappend      # don't ask, just do!
 set quit                 # don't ask, just do!!
@@ -79,8 +78,7 @@ set query_command="abook --mutt-query '%s'"
 
 ## Compose --------------------------------------------------------------------
 # Compose View
-set from                = "syd.kerckhove@student.kuleuven.be"
-alternates              "(syd.kerckhove@hotmail.com)|(syd\.kerckhove@gmail\.be)(tom\.kerckhove@telenet.be)|(PAULA\.noreply@gmail\.com)|(syd\.kerckhove@student\.kuleuven\.be)"
+set from                = "kerckhove@google.com"
 set use_from
 set sendmail            = "msmtp"
 set sendmail_wait       = 0
@@ -106,25 +104,19 @@ set forward_quote                       # include message in forwards
 
 ## Account --------------------------------------------------------------------
 # Default inbox.
-set spoolfile = "+kul/INBOX"
-mailboxes   +kul/INBOX \
-            +eth/INBOX \
-            +skgmail/INBOX \
+set spoolfile = "+corp/INBOX"
+mailboxes   +corp/INBOX \
             +organizing/rnr \
             +organizing/reply \
             +organizing/wait \
             +organizing/ref \
-            +skgmail/archive
+            +corp/archive
 
 # Other special folders.
 set copy
-set mbox      = +skgmail/archive
-set postponed = +skgmail/drafts
-set record    = +skgmail/archive
-
-
-## Mailing List ---------------------------------------------------------------
-subscribe microblx@lists.mech.kuleuven.be
+set mbox      = +corp/archive
+set postponed = +corp/drafts
+set record    = +corp/archive
 
 
 ## Colors ---------------------------------------------------------------------
@@ -133,4 +125,3 @@ source "~/.mutt/colors"
 
 ## Keybindings ----------------------------------------------------------------
 source "~/.mutt/keys"
-macro index q '<change-folder> =skgmail/archive<enter><tag-pattern>~N<enter><tag-prefix><toggle-new><quit>'

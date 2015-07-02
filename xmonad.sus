@@ -1,5 +1,5 @@
 card xmonad {
-    alternatives $(HOST) shared
+    alternatives $(HOSTNAME) $(HOST) shared
     into ~/.xmonad
 
     outof xmonad
