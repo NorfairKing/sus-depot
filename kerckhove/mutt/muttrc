@@ -125,3 +125,5 @@ source "~/.mutt/colors"
 
 ## Keybindings ----------------------------------------------------------------
 source "~/.mutt/keys"
+
+set resolve=no
