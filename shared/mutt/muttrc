@@ -134,3 +134,6 @@ source "~/.mutt/colors"
 ## Keybindings ----------------------------------------------------------------
 source "~/.mutt/keys"
 macro index q '<change-folder> =skgmail/archive<enter><tag-pattern>~N<enter><tag-prefix><toggle-new><quit>'
+
+# Speed up folder switching
+set sleep_time = 0
