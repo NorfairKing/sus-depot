@@ -22,21 +22,6 @@ import           Keys
 import           Layout
 import           Workspaces
 
-
--- Color of focussed border
-myFocusedBorderColor    ::  String
-myFocusedBorderColor    =   colorMain
-
--- Color of inactive border
-myNormalBorderColor     ::  String
-myNormalBorderColor     =   colorSecondary
-
-
-
-
-{- Xmonad Functionality -}
-
-
 {- STARTUP -}
 myStartupHook :: X ()
 myStartupHook = do

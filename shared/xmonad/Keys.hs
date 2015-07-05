@@ -12,10 +12,8 @@ import           Graphics.X11.Types
 
 import           XMonad                   (X, XConfig (..))
 import           XMonad                   ((.|.))
-import           XMonad                   (ChangeLayout (..), IncMasterN (..),
-                                           Layout (..), Resize (..), focus, io,
-                                           kill, refresh, sendMessage, spawn,
-                                           windows, withFocused)
+import           XMonad                   (Layout (..), focus, refresh, spawn,
+                                           windows)
 import           XMonad                   (mouseMoveWindow, mouseResizeWindow)
 import           XMonad                   (setLayout)
 import           XMonad.Actions.Plane     (Limits (Finite), Lines (..),
@@ -26,7 +24,6 @@ import           XMonad.Hooks.UrgencyHook (focusUrgent)
 import           XMonad.Prompt            (XPConfig (..), defaultXPConfig)
 import qualified XMonad.StackSet          as W
 
-import           System.Exit              (exitSuccess)
 
 import           XMonad.Prompt.Shell      (shellPrompt)
 
@@ -72,42 +69,42 @@ keyboardMap = M.fromList
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf = M.fromList $
     [
-        ((mod .|. shiftMask                   , xK_Return ),  spawnTerminal                       ) -- Spawn my terminal.
-    ,   ((mod .|. controlMask .|. shiftMask   , xK_Return ),  SM.submap keyboardMap               )
-    ,   ((mod                                 , xK_space  ),  sendMessage NextLayout              ) -- Select the next layout.
-    ,   ((mod .|. shiftMask                   , xK_space  ),  setLayout $ layoutHook conf  ) -- Select the first layout.
-    ,   ((mod                                 , xK_Tab    ),  windows W.focusDown                 ) -- Select the next window.
-    ,   ((mod .|. shiftMask                   , xK_Tab    ),  windows W.focusUp                   ) -- Select the previous window.
-    ,   ((mod .|. shiftMask                   , xK_c      ),  kill                                ) -- Close the selected window.
-    ,   ((mod                                 , xK_d      ),  dmenu                               ) -- Show my dmenu.
-    ,   ((mod                                 , xK_f      ),  files                               ) -- Open my file explorer.
-    ,   ((mod                                 , xK_h      ),  sendMessage Shrink                  ) -- Shrink the master window.
-    ,   ((mod                                 , xK_i      ),  internet                            ) -- Open my internet browser.
-    ,   ((mod                                 , xK_j      ),  windows W.focusDown                 ) -- Select the previous window.
-    ,   ((mod .|. shiftMask                  , xK_j       ),  windows W.swapDown                  ) -- Swap the selected window with the previous window.
-    ,   ((mod                                 , xK_l      ),  sendMessage Expand                  ) -- Expand the master window.
-    ,   ((mod                                 , xK_m      ),  windows W.focusMaster               ) -- Select the master window.
-    ,   ((mod .|. shiftMask                   , xK_m      ),  windows W.swapMaster                ) -- Swap the selected window with the master window.
-    ,   ((mod                                 , xK_n      ),  refresh                             ) -- Resize viewed windows to the correct size
-    ,   ((mod                                 , xK_q      ),  restart_xmonad                      ) -- Recompile and restart Xmonad.
-    ,   ((mod .|. shiftMask                   , xK_q      ),  io exitSuccess                      ) -- Log out.
-    ,   ((mod .|. controlMask                 , xK_q      ),  suspend                             ) -- Suspend.
-    ,   ((mod .|. controlMask .|. shiftMask   , xK_q      ),  shutdown                            ) -- Shut down
-    ,   ((mod                                 , xK_s      ),  searchEntered                       )
-    ,   ((mod .|. shiftMask                   , xK_s      ),  searchSelected                      )
-    ,   ((mod                                 , xK_t      ),  withFocused $ windows . W.sink      ) -- Push selected window back into tiling
-    ,   ((mod                                 , xK_u      ),  focusUrgent                         ) -- Select the most recently urgent window
-    ,   ((mod                                 , xK_x      ),  screenshot                          ) -- Take a screenshot
-    ,   ((mod .|. controlMask                 , xK_x      ),  shellPrompt myXPConfig              )
-    ,   ((mod                                 , xK_comma  ),  sendMessage (IncMasterN 1)          ) -- Increment the number of windows in the master area.
-    ,   ((mod .|. shiftMask                   , xK_comma  ),  sendMessage (IncMasterN (-1))       ) -- Decrement the number of windows in the master area.
-    ,   ((mod                                 , xK_F3     ),  workflow                            ) -- Open my workflow with my editor.
-    ,   ((mod                                 , xK_F4     ),  mail                                ) -- Open my mail client.
-    ,   ((mod                                 , xK_F5     ),  lightDown                           ) -- Decrease the brightness of the screen.
-    ,   ((mod                                 , xK_F6     ),  lightUp                             ) -- Increase the brightness of the screen.
-    ,   ((mod                                 , xK_F10    ),  mute                                ) -- Mute the volume.
-    ,   ((mod                                 , xK_F11    ),  volumeDown                          ) -- Decrease the volume.
-    ,   ((mod                                 , xK_F12    ),  volumeUp                            ) -- Increase the volume.
+        ((mod .|. shiftMask                   , xK_Return ),  spawnTerminal                 )
+    ,   ((mod .|. controlMask .|. shiftMask   , xK_Return ),  SM.submap keyboardMap         )
+    ,   ((mod                                 , xK_space  ),  nextLayout                    )
+    ,   ((mod .|. shiftMask                   , xK_space  ),  setLayout $ layoutHook conf   )
+    ,   ((mod                                 , xK_Tab    ),  focusWindowDown               )
+    ,   ((mod .|. shiftMask                   , xK_Tab    ),  focusWindowUp                 )
+    ,   ((mod .|. shiftMask                   , xK_c      ),  closeWindow                   )
+    ,   ((mod                                 , xK_d      ),  dmenu                         )
+    ,   ((mod                                 , xK_f      ),  files                         )
+    ,   ((mod                                 , xK_h      ),  shrinkWindow                  )
+    ,   ((mod                                 , xK_i      ),  internet                      )
+    ,   ((mod                                 , xK_j      ),  focusWindowDown               )
+    ,   ((mod .|. shiftMask                  , xK_j       ),  swapWindowDown                )
+    ,   ((mod                                 , xK_l      ),  expandWindow                  )
+    ,   ((mod                                 , xK_m      ),  focusMaster                   )
+    ,   ((mod .|. shiftMask                   , xK_m      ),  swapMaster                    )
+    ,   ((mod                                 , xK_n      ),  refresh                       )
+    ,   ((mod                                 , xK_q      ),  restart_xmonad                )
+    ,   ((mod .|. shiftMask                   , xK_q      ),  logOut                        )
+    ,   ((mod .|. controlMask                 , xK_q      ),  suspend                       )
+    ,   ((mod .|. controlMask .|. shiftMask   , xK_q      ),  shutdown                      )
+    ,   ((mod                                 , xK_s      ),  searchEntered                 )
+    ,   ((mod .|. shiftMask                   , xK_s      ),  searchSelected                )
+    ,   ((mod                                 , xK_t      ),  tileAgain                     )
+    ,   ((mod                                 , xK_u      ),  focusUrgent                   )
+    ,   ((mod                                 , xK_x      ),  screenshot                    )
+    ,   ((mod .|. controlMask                 , xK_x      ),  shellPrompt myXPConfig        )
+    ,   ((mod                                 , xK_comma  ),  moreWindows                   )
+    ,   ((mod .|. shiftMask                   , xK_comma  ),  lessWindows                   )
+    ,   ((mod                                 , xK_F3     ),  workflow                      )
+    ,   ((mod                                 , xK_F4     ),  mail                          )
+    ,   ((mod                                 , xK_F5     ),  lightDown                     )
+    ,   ((mod                                 , xK_F6     ),  lightUp                       )
+    ,   ((mod                                 , xK_F10    ),  mute                          )
+    ,   ((mod                                 , xK_F11    ),  volumeDown                    )
+    ,   ((mod                                 , xK_F12    ),  volumeUp                      )
     ]
     ++ workspaceNavigation
 

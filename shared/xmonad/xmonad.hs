@@ -19,17 +19,6 @@ import           Layout
 import           Workspaces
 
 
--- | Color of focussed border
-myFocusedBorderColor        ::  String
-myFocusedBorderColor        =   colorMain
-
--- | Color of inactive border
-myNormalBorderColor         ::  String
-myNormalBorderColor         =   colorSecondary
-
-
-
-
 {-
     I define where xmonad should send certain applications
 -}
@@ -66,8 +55,8 @@ myManageHook = manageHook azertyConfig <+> composeAll myManagementHooks <+> mana
 main :: IO ()
 main =
   xmonad $ withUrgencyHook NoUrgencyHook $ azertyConfig {
-    focusedBorderColor = myFocusedBorderColor
-  , normalBorderColor = myNormalBorderColor
+    focusedBorderColor = colorMain
+  , normalBorderColor = colorSecondary
   , borderWidth = myBorderWidth
   , terminal = myTerminal
   , workspaces = myWorkspaces

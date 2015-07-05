@@ -108,6 +108,7 @@ closeWindow     = kill
 shrinkWindow    :: X ()
 shrinkWindow    = sendMessage Shrink
 
+-- Expand the master window.
 expandWindow    :: X ()
 expandWindow    = sendMessage Expand
 
@@ -117,11 +118,21 @@ focusWindowUp   = windows W.focusUp
 swapWindowUp    :: X ()
 swapWindowUp    = windows W.swapUp
 
+-- Select the previous window.
 focusWindowDown :: X ()
 focusWindowDown = windows W.focusDown
 
+-- Swap the selected window with the previous window.
 swapWindowDown  :: X ()
 swapWindowDown  = windows W.swapDown
+
+-- Select the master window
+focusMaster :: X ()
+focusMaster = windows W.focusMaster
+
+-- Swap the slected window with the master window
+swapMaster :: X ()
+swapMaster = windows W.swapMaster
 
 -- Push selected window back into tiling
 tileAgain       :: X ()
@@ -134,4 +145,6 @@ moreWindows     = sendMessage (IncMasterN 1)
 -- Decrement the number of windows in the master area.
 lessWindows     :: X ()
 lessWindows     = sendMessage (IncMasterN (-1))
+
+
 
