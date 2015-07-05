@@ -1,7 +1,7 @@
 module Workspaces where
 
-import XMonad (WorkspaceId, KeySym)
-import Graphics.X11.Types -- For key identifiers like xK_a .. xK_z
+import           Graphics.X11.Types
+import           XMonad             (WorkspaceId)
 
 alphabet :: [Char]
 alphabet =  'a':'b':'c':'d':'e':{-'f':-}'g':'h':'i':'j':'k':'l':'m':'n':'o':'p':'q':'r':'s':'t':'u':'v':'w':'x':{-'y':-}'z':[]

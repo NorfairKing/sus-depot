@@ -6,8 +6,12 @@ module Actions
     where
 
 import           System.Exit     (exitSuccess)
-import           XMonad          (X, io, spawn)
+import           XMonad          (ChangeLayout (..), IncMasterN (..),
+                                  Resize (..), X, io, kill, sendMessage, spawn,
+                                  windows, withFocused)
+import qualified XMonad.StackSet as W
 import           XMonad.Util.Run (unsafeSpawn)
+
 
 
 import           Constants
@@ -83,4 +87,51 @@ dmenu               = spawn $ "dmenu_run -b -i -l 5 -nb '" ++ "#000000" ++ "' -n
 nothing             :: X ()
 nothing             = return ()
 
+
+-- Select the next layout.
+nextLayout      :: X ()
+nextLayout      = sendMessage NextLayout
+
+-- Select the next window.
+nextWindow      :: X()
+nextWindow      = windows W.focusDown
+
+-- Select the previous window.
+previousWindow  :: X ()
+previousWindow  = windows W.focusUp
+
+-- Close the selected window
+closeWindow     :: X ()
+closeWindow     = kill
+
+-- Shrink the master window.
+shrinkWindow    :: X ()
+shrinkWindow    = sendMessage Shrink
+
+expandWindow    :: X ()
+expandWindow    = sendMessage Expand
+
+focusWindowUp   :: X ()
+focusWindowUp   = windows W.focusUp
+
+swapWindowUp    :: X ()
+swapWindowUp    = windows W.swapUp
+
+focusWindowDown :: X ()
+focusWindowDown = windows W.focusDown
+
+swapWindowDown  :: X ()
+swapWindowDown  = windows W.swapDown
+
+-- Push selected window back into tiling
+tileAgain       :: X ()
+tileAgain       = withFocused $ windows . W.sink
+
+-- Increment the number of windows in the master area.
+moreWindows     :: X ()
+moreWindows     = sendMessage (IncMasterN 1)
+
+-- Decrement the number of windows in the master area.
+lessWindows     :: X ()
+lessWindows     = sendMessage (IncMasterN (-1))
 
