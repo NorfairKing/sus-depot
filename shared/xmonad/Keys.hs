@@ -21,7 +21,6 @@ import           XMonad.Actions.Plane     (Limits (Finite), Lines (..),
 import qualified XMonad.Actions.Search    as S
 import qualified XMonad.Actions.Submap    as SM
 import           XMonad.Hooks.UrgencyHook (focusUrgent)
-import           XMonad.Prompt            (XPConfig (..), defaultXPConfig)
 import qualified XMonad.StackSet          as W
 
 
@@ -34,11 +33,8 @@ import           Modifier
 import           Workspaces
 
 
-myXPConfig :: XPConfig
-myXPConfig = defaultXPConfig {font="-*-lucida-medium-r-*-*-14-*-*-*-*-*-*-*", height=22}
-
 searchEntered :: X ()
-searchEntered = SM.submap (searchEngineMap $ S.promptSearch defaultXPConfig)
+searchEntered = SM.submap (searchEngineMap $ S.promptSearch myXPConfig)
 
 searchSelected :: X ()
 searchSelected = SM.submap (searchEngineMap S.selectSearch)
@@ -81,15 +77,17 @@ myKeys conf = M.fromList $
     ,   ((mod                                 , xK_h      ),  shrinkWindow                  )
     ,   ((mod                                 , xK_i      ),  internet                      )
     ,   ((mod                                 , xK_j      ),  focusWindowDown               )
-    ,   ((mod .|. shiftMask                  , xK_j       ),  swapWindowDown                )
+    ,   ((mod .|. shiftMask                   , xK_j      ),  swapWindowDown                )
     ,   ((mod                                 , xK_l      ),  expandWindow                  )
     ,   ((mod                                 , xK_m      ),  focusMaster                   )
     ,   ((mod .|. shiftMask                   , xK_m      ),  swapMaster                    )
     ,   ((mod                                 , xK_n      ),  refresh                       )
+    ,   ((mod                                 , xK_p      ),  inPrompt                      )
     ,   ((mod                                 , xK_q      ),  restart_xmonad                )
     ,   ((mod .|. shiftMask                   , xK_q      ),  logOut                        )
     ,   ((mod .|. controlMask                 , xK_q      ),  suspend                       )
     ,   ((mod .|. controlMask .|. shiftMask   , xK_q      ),  shutdown                      )
+    ,   ((mod                                 , xK_r      ),  rndPrompt                     )
     ,   ((mod                                 , xK_s      ),  searchEntered                 )
     ,   ((mod .|. shiftMask                   , xK_s      ),  searchSelected                )
     ,   ((mod                                 , xK_t      ),  tileAgain                     )

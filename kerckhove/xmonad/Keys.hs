@@ -29,9 +29,6 @@ import           Actions
 import           Modifier
 import           Workspaces
 
-myXPConfig          :: XPConfig
-myXPConfig          = defaultXPConfig {   font="-*-lucida-medium-r-*-*-14-*-*-*-*-*-*-*"
-                                        , height=22}
 
 -- Perform search on prompted input.
 promptedSearch      :: X ()

@@ -2,3 +2,5 @@
 alias j='chronicle enter'
 
 alias z='zathura'
+
+alias inbox="e $INBOX"

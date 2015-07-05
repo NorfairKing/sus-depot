@@ -17,5 +17,6 @@ card xmonad {
         Layout.hs       -> Layout.hs
         Workspaces.hs   -> Workspaces.hs
         Modifier.hs     -> Modifier.hs
+        Solarized.hs    -> Solarized.hs
     }
 }

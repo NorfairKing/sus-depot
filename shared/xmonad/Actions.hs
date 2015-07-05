@@ -5,17 +5,19 @@ module Actions
     )
     where
 
-import           System.Exit     (exitSuccess)
-import           XMonad          (ChangeLayout (..), IncMasterN (..),
-                                  Resize (..), X, io, kill, sendMessage, spawn,
-                                  windows, withFocused)
-import qualified XMonad.StackSet as W
-import           XMonad.Util.Run (unsafeSpawn)
+import           System.Exit         (exitSuccess)
+import           XMonad              (ChangeLayout (..), IncMasterN (..),
+                                      Resize (..), X, io, kill, sendMessage,
+                                      spawn, windows, withFocused)
+import qualified XMonad.StackSet     as W
 
-
+import           XMonad.Prompt       (XPConfig (..), defaultXPConfig)
+import           XMonad.Prompt.Input
+import           XMonad.Util.Run     (unsafeSpawn)
 
 import           Constants
 import           Internet
+import           Solarized
 
 
 -- Editors
@@ -26,105 +28,106 @@ internet_classes   = ["Firefox","Google-chrome","Chromium"]
 
 -- Mail application
 mailClasses        = ["mutt"]
+
 mail :: X ()
-mail               = spawn "urxvt -e zsh -c \"mutt\""
+mail = spawn "urxvt -e zsh -c \"mutt\""
 
 -- Files application
-files   :: X()
-files              = spawn "nautilus --no-desktop"
+files :: X ()
+files = spawn "nautilus --no-desktop"
 
 
 -- Restart xmonad after recompiling it.
 restart_xmonad :: X ()
-restart_xmonad      = spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi"
+restart_xmonad = spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi"
 
 suspend :: X ()
-suspend             = spawn "pm-suspend"
+suspend = spawn "pm-suspend"
 
 shutdown :: X ()
-shutdown            = spawn "shutdown now"
+shutdown = spawn "shutdown now"
 
 
-logOut              :: X ()
-logOut              = io exitSuccess
+logOut :: X ()
+logOut = io exitSuccess
 
 
 term :: String
-term                = myTerminal
+term = myTerminal
 
-spawnTerminal       :: X ()
-spawnTerminal       = spawn term
+spawnTerminal :: X ()
+spawnTerminal = spawn term
 
 
 -- Workflow
 workflow :: X ()
-workflow            = unsafeSpawn $ "emacsclient -c $HOME/workflow/workflow.org"
+workflow = unsafeSpawn $ "emacsclient -c $HOME/workflow/workflow.org"
 
 
 -- Volume
 mute, volumeUp, volumeDown :: X ()
-mute                = spawn "amixer -q set Master 0%"
-volumeDown          = spawn "amixer -q set Master 4%-"
-volumeUp            = spawn "amixer -q set Master 4%+"
+mute       = spawn "amixer -q set Master 0%"
+volumeDown = spawn "amixer -q set Master 4%-"
+volumeUp   = spawn "amixer -q set Master 4%+"
 
 
 -- Brightness
 lightDown, lightUp :: X ()
-lightDown           = spawn "xbacklight -dec 10 -steps 1"
-lightUp             = spawn "xbacklight -inc 10 -steps 1"
+lightDown = spawn "xbacklight -dec 10 -steps 1"
+lightUp   = spawn "xbacklight -inc 10 -steps 1"
 
 
 -- Screenshots
 screenshot :: X ()
-screenshot          = spawn "scrot"
+screenshot = spawn "scrot"
 
 -- Dmenu with custom settings
-dmenu               :: X ()
-dmenu               = spawn $ "dmenu_run -b -i -l 5 -nb '" ++ "#000000" ++ "' -nf '" ++ colorSecondary ++ "' -sb '" ++ "#000000" ++ "' -sf '" ++ colorMain ++ "'"
+dmenu :: X ()
+dmenu = spawn $ "dmenu_run -b -i -l 5 -nb '" ++ "#000000" ++ "' -nf '" ++ colorSecondary ++ "' -sb '" ++ "#000000" ++ "' -sf '" ++ colorMain ++ "'"
 
 
 -- to define placeholders
-nothing             :: X ()
-nothing             = return ()
+nothing :: X ()
+nothing = return ()
 
 
 -- Select the next layout.
-nextLayout      :: X ()
-nextLayout      = sendMessage NextLayout
+nextLayout :: X ()
+nextLayout = sendMessage NextLayout
 
 -- Select the next window.
-nextWindow      :: X()
-nextWindow      = windows W.focusDown
+nextWindow :: X ()
+nextWindow = windows W.focusDown
 
 -- Select the previous window.
-previousWindow  :: X ()
-previousWindow  = windows W.focusUp
+previousWindow :: X ()
+previousWindow = windows W.focusUp
 
 -- Close the selected window
-closeWindow     :: X ()
-closeWindow     = kill
+closeWindow :: X ()
+closeWindow = kill
 
 -- Shrink the master window.
-shrinkWindow    :: X ()
-shrinkWindow    = sendMessage Shrink
+shrinkWindow :: X ()
+shrinkWindow = sendMessage Shrink
 
 -- Expand the master window.
-expandWindow    :: X ()
-expandWindow    = sendMessage Expand
+expandWindow :: X ()
+expandWindow = sendMessage Expand
 
-focusWindowUp   :: X ()
-focusWindowUp   = windows W.focusUp
+focusWindowUp :: X ()
+focusWindowUp = windows W.focusUp
 
-swapWindowUp    :: X ()
-swapWindowUp    = windows W.swapUp
+swapWindowUp :: X ()
+swapWindowUp = windows W.swapUp
 
 -- Select the previous window.
 focusWindowDown :: X ()
 focusWindowDown = windows W.focusDown
 
 -- Swap the selected window with the previous window.
-swapWindowDown  :: X ()
-swapWindowDown  = windows W.swapDown
+swapWindowDown :: X ()
+swapWindowDown = windows W.swapDown
 
 -- Select the master window
 focusMaster :: X ()
@@ -135,16 +138,31 @@ swapMaster :: X ()
 swapMaster = windows W.swapMaster
 
 -- Push selected window back into tiling
-tileAgain       :: X ()
-tileAgain       = withFocused $ windows . W.sink
+tileAgain :: X ()
+tileAgain = withFocused $ windows . W.sink
 
 -- Increment the number of windows in the master area.
-moreWindows     :: X ()
-moreWindows     = sendMessage (IncMasterN 1)
+moreWindows :: X ()
+moreWindows = sendMessage (IncMasterN 1)
 
 -- Decrement the number of windows in the master area.
-lessWindows     :: X ()
-lessWindows     = sendMessage (IncMasterN (-1))
+lessWindows :: X ()
+lessWindows = sendMessage (IncMasterN (-1))
 
 
+myXPConfig :: XPConfig
+myXPConfig = defaultXPConfig {
+                font="-*-lucida-medium-r-*-*-14-*-*-*-*-*-*-*"
+              , height      = 22
+              , bgColor     = solarizedBase03
+              , fgColor     = solarizedBase1
+              , bgHLight    = solarizedYellow
+              , fgHLight    = solarizedBase02
+              , borderColor = solarizedYellow
+            }
 
+inPrompt :: X ()
+inPrompt = inputPrompt myXPConfig "in" ?+ (\s -> unsafeSpawn $ "echo \"* " ++ s ++ "\" >> $INBOX")
+
+rndPrompt :: X ()
+rndPrompt = inputPrompt myXPConfig "rnd" ?+ (\s -> unsafeSpawn $ "echo \"* " ++ s ++ "\" >> $INBOX")
