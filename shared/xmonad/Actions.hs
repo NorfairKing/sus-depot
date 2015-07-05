@@ -1,8 +1,33 @@
-module Actions where
+module Actions
+    (
+    module Actions,
+    module Internet
+    )
+    where
 
-import           XMonad    (X (..), spawn)
+import           System.Exit     (exitSuccess)
+import           XMonad          (X, io, spawn)
+import           XMonad.Util.Run (unsafeSpawn)
+
 
 import           Constants
+import           Internet
+
+
+-- Editors
+editor              = "emacsclient -c"
+
+-- Internet application
+internet_classes   = ["Firefox","Google-chrome","Chromium"]
+
+-- Mail application
+mailClasses        = ["mutt"]
+mail :: X ()
+mail               = spawn "urxvt -e zsh -c \"mutt\""
+
+-- Files application
+files   :: X()
+files              = spawn "nautilus --no-desktop"
 
 
 -- Restart xmonad after recompiling it.
@@ -16,12 +41,20 @@ shutdown :: X ()
 shutdown            = spawn "shutdown now"
 
 
-term :: X ()
-term                = spawn myTerminal
+logOut              :: X ()
+logOut              = io exitSuccess
+
+
+term :: String
+term                = myTerminal
+
+spawnTerminal       :: X ()
+spawnTerminal       = spawn term
+
 
 -- Workflow
 workflow :: X ()
-workflow            = spawn $ "emacsclient -c /home/syd/workflow/workflow.org"
+workflow            = unsafeSpawn $ "emacsclient -c $HOME/workflow/workflow.org"
 
 
 -- Volume
@@ -40,4 +73,14 @@ lightUp             = spawn "xbacklight -inc 10 -steps 1"
 -- Screenshots
 screenshot :: X ()
 screenshot          = spawn "scrot"
+
+-- Dmenu with custom settings
+dmenu               :: X ()
+dmenu               = spawn $ "dmenu_run -b -i -l 5 -nb '" ++ "#000000" ++ "' -nf '" ++ colorSecondary ++ "' -sb '" ++ "#000000" ++ "' -sf '" ++ colorMain ++ "'"
+
+
+-- to define placeholders
+nothing             :: X ()
+nothing             = return ()
+
 

@@ -27,7 +27,9 @@ import qualified XMonad.Actions.Search    as S
 import qualified XMonad.Actions.Submap    as SM
 import qualified XMonad.Prompt            as P
 
+import           Actions
 import           Constants
+
 import           Layout
 import           Workspaces
 
@@ -50,81 +52,7 @@ myNormalBorderColor     =   colorSecondary
 myModMask               ::  KeyMask
 myModMask               =   mod4Mask
 
-
-
-
-
-
-{- APPLICATIONS -}
-
--- Restart Xmonad
-restartXmonad       :: X ()
-restartXmonad       = spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi"
-
--- System States
-suspend, shutdown   :: X ()
-suspend             = spawn "pm-suspend"
-shutdown            = spawn "shutdown now"
-
-logOut              :: X ()
-logOut              = io exitSuccess
-
--- Terminals
-term                :: String
-term                = "urxvt"
-
-spawnTerminal       :: X ()
-spawnTerminal       = spawn term
-
-terminalWTitle          :: String -> String
-terminalWTitle title    = term ++ "-title " ++ title ++ " "
-
--- Editors
-editor              = "emacsclient -c"
-
--- Workflow TODO
-workflow            = unsafeSpawn $ "emacsclient -c $HOME/workflow/work.org"
-
--- Dmenu with custom settings
-dmenu               :: X ()
-dmenu               = spawn $ "dmenu_run -b -i -l 5 -nb '" ++ "#000000" ++ "' -nf '" ++ colorSecondary ++ "' -sb '" ++ "#000000" ++ "' -sf '" ++ colorMain ++ "'"
-
--- Internet application
-internet_classes    = ["Firefox"]
-
-internet            :: X ()
-internet            = spawn "google-chrome --disable-gpu"
-
 -- Mail application
-mailClasses         = ["mutt"]
-mail                = "urxvt -e zsh -c \"mutt\""
-
-lock                = spawn "cinnamon-screensaver-command -l"
-
--- Files application
-files               :: X ()
-files               = spawn "nautilus --no-desktop"
-
--- Scanner
-scanner             :: X ()
-scanner             = spawn "scangearmp"
-
--- Brightness
-lightDown, lightUp  :: X ()
-lightDown           = spawn "xbacklight -dec 10 -steps 1"
-lightUp             = spawn "xbacklight -inc 10 -steps 1"
-
--- Volume
-mute                :: X ()
-mute                = spawn "amixer -q set Master 0%"
-
-volumeDown,volumeUp :: X ()
-volumeDown          = spawn "amixer -q set Master 4%-"
-volumeUp            = spawn "amixer -q set Master 4%+"
-
--- to define placeholders
-nothing             :: X ()
-nothing             = return ()
 
 
 myXPConfig          :: XPConfig
@@ -258,7 +186,6 @@ myKeys conf = M.fromList $
         ((myModMask                                 , xK_space  ),  nextLayout                      ),
         ((myModMask                                 , xK_Tab    ),  nextWindow                      ),
         ((myModMask .|. shiftMask                   , xK_Tab    ),  previousWindow                  ),
-        ((myModMask .|. controlMask .|. shiftMask   , xK_l      ),  lock                            ),
         ((myModMask .|. controlMask                 , xK_q      ),  suspend                         ),
         ((myModMask .|. controlMask .|. shiftMask   , xK_q      ),  shutdown                        ),
         ((myModMask .|. controlMask                 , xK_x      ),  shellPrompt myXPConfig          ),

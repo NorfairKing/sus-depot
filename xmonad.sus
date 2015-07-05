@@ -10,11 +10,12 @@ card xmonad {
     {
         into lib
 
+        Actions.hs      -> Actions.hs
         Constants.hs    -> Constants.hs
-        Workspaces.hs   -> Workspaces.hs
+        Internet.hs     -> Internet.hs
         Keys.hs         -> Keys.hs
         Layout.hs       -> Layout.hs
-        Actions.hs      -> Actions.hs
+        Workspaces.hs   -> Workspaces.hs
+        Modifier.hs     -> Modifier.hs
     }
-
 }
