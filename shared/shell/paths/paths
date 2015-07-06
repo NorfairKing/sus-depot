@@ -1,5 +1,12 @@
 add () {
-    export PATH="$PATH:$1"
+    dir="$*"
+    if [ -d "$dir" ]
+    then
+        if [ "$(ls --almost-all $dir)" ]
+        then
+            export PATH="$PATH:$dir"
+        fi
+    fi
 }
 
 add "$HOME/scripts"
