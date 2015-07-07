@@ -8,59 +8,21 @@ card "sus depot" {
     vim       -> .vim
     fonts     -> .fonts
     screen    -> .screen
-    zathurarc -> .config/zathura/zathurarc
 
     spark file xorg.sus
     spark file git.sus
     spark file xmonad.sus
     spark file shell.sus
-
-    {
-        outof spacemacs
-
-        spacemacs -> .spacemacs
-
-        {
-            into .emacs.d/private
-
-            private-org -> private-org
-        }
-    }
-
-    {
-        into .keyboards
-        outof keyboards
-
-        azerty           -> azerty
-        qwerty           -> qwerty
-        dvorak           -> dvorak
-        dvorak.kinesis   -> dvorak.kinesis
-    }
-
-    {
-        into .newsbeuter
-        outof newsbeuter
-
-        config           -> config
-        urls             -> urls
-    }
+    spark file spacemacs.sus
+    spark file keyboards.sus
+    spark file newsbeuter.sus
+    spark file mutt.sus
 
     {
         into .config
 
-        redshift.conf    -> redshift.conf
+        zathurarc     -> zathura/zathurarc
+        redshift.conf -> redshift.conf
     }
 
-    {
-        into .mutt
-        outof mutt
-
-        sig              -> sig
-        mailcap          -> mailcap
-        keys             -> keys
-        colors           -> colors
-        alias            -> alias
-        muttrc           -> muttrc
-        specific         -> specific
-    }
 }
