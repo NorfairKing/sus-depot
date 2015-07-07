@@ -60,8 +60,31 @@ spawnTerminal = spawn term
 
 
 -- Workflow
-workflow :: X ()
-workflow = unsafeSpawn $ "emacsclient -c $HOME/workflow/workflow.org"
+org :: FilePath -> X ()
+org fp = unsafeSpawn $ "emacsclient -c " ++ fp
+
+orgInbox :: X ()
+orgInbox = org "$ORG_INBOX"
+
+orgWork :: X ()
+orgWork = org "$ORG_WORK"
+
+orgPersonal :: X ()
+orgPersonal = org "$ORG_PERSONAL"
+
+orgProject :: X ()
+orgProject = org "$ORG_PROJECT"
+
+orgWeeklyReview :: X ()
+orgWeeklyReview = org "$ORG_WEEKLY_REVIEW"
+
+orgSomedayMaybe :: X ()
+orgSomedayMaybe = org "$ORG_SOMEDAY_MAYBE"
+
+orgBlog :: X ()
+orgBlog = org "$ORG_BLOG"
+
+
 
 
 -- Volume

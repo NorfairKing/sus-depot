@@ -69,8 +69,8 @@ myManagementHooks =
 main :: IO()
 main =
   xmonad $ withUrgencyHook NoUrgencyHook $ azertyConfig {
-    focusedBorderColor = myFocusedBorderColor
-  , normalBorderColor = myNormalBorderColor
+    focusedBorderColor = colorMain
+  , normalBorderColor = colorSecondary
   , borderWidth = myBorderWidth
   , terminal = myTerminal
   , workspaces = myWorkspaces

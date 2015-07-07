@@ -16,7 +16,6 @@ import           XMonad                (Layout (..), X, XConfig (..), focus,
                                         spawn, windows, (.|.))
 import qualified XMonad.Actions.Search as S
 import qualified XMonad.Actions.Submap as SM
-import           XMonad.Prompt         (XPConfig (..), defaultXPConfig)
 import qualified XMonad.StackSet       as W
 
 
@@ -71,6 +70,16 @@ keyboardMap = M.fromList
         , ((0, xK_F12), spawn "xset r rate 250 30")
     ]
 
+orgMap :: M.Map (KeyMask, KeySym) (X ())
+orgMap = M.fromList
+    [
+          ((0, xK_w), orgWork)
+        , ((0, xK_p), orgPersonal)
+        , ((0, xK_r), orgProject)
+        , ((0, xK_b), orgBlog)
+        , ((0, xK_i), orgInbox)
+    ]
+
 
 {- KEYBINDINGS -}
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
@@ -103,9 +112,9 @@ myKeys _ = M.fromList $
         ((mod .|. controlMask                 , xK_q      ),  suspend                         ),
         ((mod .|. controlMask .|. shiftMask   , xK_q      ),  shutdown                        ),
         ((mod .|. controlMask                 , xK_x      ),  shellPrompt myXPConfig          ),
-        ((mod                                 , xK_comma  ),  workflow                        ),
+        ((mod                                 , xK_comma  ),  SM.submap orgMap                ),
         ((mod                                 , xK_period ),  internet                        ),
-        ((mod                                 , xK_F4     ),  mail                      ),
+        ((mod                                 , xK_F4     ),  mail                            ),
         ((mod                                 , xK_F5     ),  lightDown                       ),
         ((mod                                 , xK_F6     ),  lightUp                         ),
         ((mod                                 , xK_F10    ),  mute                            ),
