@@ -3,6 +3,6 @@ card xorg {
     into ~
     outof xorg
 
-    xinitrc     -> .xinitrc
-    Xresources  -> .Xresources
+    xinitrc    -> .xinitrc
+    Xresources -> .Xresources
 }

@@ -4,69 +4,16 @@ card "sus depot" {
     alternatives $(HOSTNAME) $(HOST) shared
     into ~
 
-    vimrc       -> .vimrc
-    vim         -> .vim
-    fonts       -> .fonts
-    screen      -> .screen
-    zathurarc   -> .config/zathura/zathurarc
+    vimrc     -> .vimrc
+    vim       -> .vim
+    fonts     -> .fonts
+    screen    -> .screen
+    zathurarc -> .config/zathura/zathurarc
 
     spark file xorg.sus
     spark file git.sus
     spark file xmonad.sus
-
-    {
-        outof shell
-
-        {
-            into .variables
-            outof variables
-
-            variables -> variables
-            workflow  -> workflow 
-            specific  -> specific
-            host      -> host
-        }
-        {
-            into .paths
-            outof paths
-    
-            paths -> paths
-            specific -> specific
-        }
-        {
-            into .aliases
-            outof aliases
-
-            aliases ->           aliases
-            bash_aliases ->      bash_aliases 
-            color_aliases ->     color_aliases 
-            dotfile_aliases ->   dotfile_aliases
-            editor_aliases ->    editor_aliases
-            git_aliases ->       git_aliases
-            ls_aliases ->        ls_aliases
-            navigation_aliases -> navigation_aliases
-            network_aliases ->   network_aliases
-            package_aliases ->   package_aliases
-            workflow_aliases ->  workflow_aliases
-            xmonad_aliases ->    xmonad_aliases
-        }
-        {
-            outof bash
-            
-            bash_login -> .bash_login
-            bash_logout -> .bash_logout
-            bashrc -> .bashrc
-        }
-        {
-            outof zsh
-        
-            zlogin ->                .zlogin
-            zlogout ->               .zlogout
-            zprofile ->              .zprofile
-            zshenv ->                .zshenv
-            zshrc ->                 .zshrc
-        }
-    }
+    spark file shell.sus
 
     {
         outof spacemacs
@@ -83,37 +30,37 @@ card "sus depot" {
     {
         into .keyboards
         outof keyboards
-    
-        azerty -> azerty
-        qwerty -> qwerty
-        dvorak -> dvorak
-        dvorak.kinesis -> dvorak.kinesis
+
+        azerty           -> azerty
+        qwerty           -> qwerty
+        dvorak           -> dvorak
+        dvorak.kinesis   -> dvorak.kinesis
     }
 
     {
         into .newsbeuter
         outof newsbeuter
-        
-        config -> config
-        urls -> urls
+
+        config           -> config
+        urls             -> urls
     }
 
-    {   
+    {
         into .config
 
-        redshift.conf -> redshift.conf
+        redshift.conf    -> redshift.conf
     }
 
     {
         into .mutt
         outof mutt
 
-        sig -> sig
-        mailcap -> mailcap
-        keys -> keys
-        colors -> colors
-        alias -> alias
-        muttrc -> muttrc
-        specific -> specific
+        sig              -> sig
+        mailcap          -> mailcap
+        keys             -> keys
+        colors           -> colors
+        alias            -> alias
+        muttrc           -> muttrc
+        specific         -> specific
     }
 }
