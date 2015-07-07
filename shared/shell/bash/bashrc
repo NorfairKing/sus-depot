@@ -24,7 +24,6 @@ HISTSIZE=1000
 HISTFILESIZE=2000
 
 
-# Alias definitions.
 source ~/.functions/functions
 safe_source ~/.aliases/aliases
 safe_source ~/.paths/paths
