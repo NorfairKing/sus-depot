@@ -3,42 +3,26 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Set to this to use case-sensitive completion
-CASE_SENSITIVE="true"
 
 # Plugins
 plugins=(git wd)
+
+# Use case-sensitive completion
+CASE_SENSITIVE="true"
+
+# No autocorrection
+unsetopt correct_all 
 
 PROMPT_COMMAND="$PROMPT_COMMAND; pwd >> $HOME/.latest_dirs"
 precmd() { eval "$PROMPT_COMMAND" }
 
 source $ZSH/oh-my-zsh.sh
 
-# TODO make safer source
 source ~/.functions/functions
 safe_source ~/.aliases/aliases
 safe_source ~/.paths/paths
 safe_source ~/.variables/variables
 
 
-# No autocorrection
-unsetopt correct_all 
 
-# Makes sure the emacs server starts when needed
-export ALTERNATE_EDITOR=""
-
-c="/etc/bash_completion.d/g4d"
-if [ -f "$c" ]
-then
-    source $c
-fi

@@ -49,7 +49,6 @@ card shell {
         bash_login         -> .bash_login
         bash_logout        -> .bash_logout
         bashrc             -> .bashrc
-        profile            -> .profile
     }
     {
         outof zsh
