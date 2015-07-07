@@ -25,12 +25,13 @@ precmd() { eval "$PROMPT_COMMAND" }
 source $ZSH/oh-my-zsh.sh
 
 # TODO make safer source
-source ~/.aliases/aliases
-source ~/.paths/paths
-source ~/.variables/variables
+source ~/.functions/functions
+safe_source ~/.aliases/aliases
+safe_source ~/.paths/paths
+safe_source ~/.variables/variables
 
 
-# TODO explain this?
+# No autocorrection
 unsetopt correct_all 
 
 # Makes sure the emacs server starts when needed

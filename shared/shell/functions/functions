@@ -1,0 +1,21 @@
+#!/bin/bash
+
+debug () {
+    txt="$*"
+    if [ "$DEBUG" != "" ]
+    then 
+        echo "$txt"
+    fi
+}
+
+safe_source () {
+    file="$*"
+    if [ -f "$file" ]
+    then
+        debug "Sourcing $file"
+        . "$file"
+    else
+        debug "File $file not found, not sourcing it"
+    fi
+}
+

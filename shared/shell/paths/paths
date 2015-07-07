@@ -4,8 +4,14 @@ add () {
     then
         if [ "$(ls --almost-all $dir)" ]
         then
+            debug "adding $dir to PATH"
             export PATH="$PATH:$dir"
+            return
+        else
+            debug "not adding $dir to PATH, it does exist but it's empty."
         fi
+    else
+        debug "not adding $dir to PATH, it doesn't exist."
     fi
 }
 
@@ -24,4 +30,4 @@ add "/usr/local/lib"
 add "/usr/lib"
 add "/lib"
 
-source ~/.paths/specific
+safe_source ~/.paths/specific
