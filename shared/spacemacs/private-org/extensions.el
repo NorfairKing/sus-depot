@@ -12,6 +12,7 @@
 
 (setq private-org-pre-extensions
       '(
+        appearance
         todo-keywords
         capture
         refile
@@ -22,6 +23,10 @@
       '(
         ;; post extension private-orgs go here
         ))
+
+(defun private-org/init-appearance ()
+  (setq org-bullets-bullet-list '("▶" "►" "▸" "·"))
+  )
 
 ;; For each extension, define a function private-org/init-<extension-private-org>
 ;;
