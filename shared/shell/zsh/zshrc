@@ -20,3 +20,5 @@ precmd() { eval "$PROMPT_COMMAND" }
 source $ZSH/oh-my-zsh.sh
 
 safe_source /etc/bash_completion.d/g4d
+
+safe_source ~/.aliases/aliases
