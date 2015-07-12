@@ -1,20 +1,3 @@
-add () {
-    dir="$*"
-    if [ -d "$dir" ]
-    then
-        if [ "$(ls --almost-all $dir)" ]
-        then
-            debug "adding $dir to PATH"
-            export PATH="$PATH:$dir"
-            return
-        else
-            debug "not adding $dir to PATH, it does exist but it's empty."
-        fi
-    else
-        debug "not adding $dir to PATH, it doesn't exist."
-    fi
-}
-
 add "$HOME/scripts"
 add "$HOME/.cabal/bin"
 add "$HOME/.gem/ruby/2.2.0/bin"
