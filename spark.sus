@@ -1,13 +1,11 @@
-card "sus" {
+card sus {
 
     # First look in the hosts specific file, otherwise look in the shared directory
     alternatives $(HOSTNAME) $(HOST) shared
     into ~
 
-    vimrc     -> .vimrc
-    vim       -> .vim
-    fonts     -> .fonts
     screen    -> .screen
+    fonts     -> .fonts
 
     spark file xorg.sus
     spark file git.sus
@@ -18,6 +16,7 @@ card "sus" {
     spark file newsbeuter.sus
     spark file mutt.sus
 
+    # Not sure where these go yet.
     {
         into .config
 

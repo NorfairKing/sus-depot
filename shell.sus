@@ -30,18 +30,17 @@ card shell {
         into .aliases
         outof aliases
 
-        aliases            -> aliases
-        bash_aliases       -> bash_aliases
-        color_aliases      -> color_aliases
-        dotfile_aliases    -> dotfile_aliases
-        editor_aliases     -> editor_aliases
-        git_aliases        -> git_aliases
-        ls_aliases         -> ls_aliases
-        navigation_aliases -> navigation_aliases
-        network_aliases    -> network_aliases
-        package_aliases    -> package_aliases
-        workflow_aliases   -> workflow_aliases
-        xmonad_aliases     -> xmonad_aliases
+        aliases    -> aliases
+        color      -> color
+        dotfile    -> dotfile
+        editor     -> editor
+        git        -> git
+        ls         -> ls
+        navigation -> navigation
+        network    -> network
+        package    -> package
+        workflow   -> workflow
+        xmonad     -> xmonad
     }
     {
         outof bash
