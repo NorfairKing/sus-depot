@@ -1,0 +1,61 @@
+card shell {
+    alternatives $(HOSTNAME) $(HOST) shared
+
+    into ~
+    outof shell
+
+    {
+        into .variables
+        outof variables
+
+        variables          -> variables
+        workflow           -> workflow
+        specific           -> specific
+        host               -> host
+    }
+    {
+        into .functions
+        outof functions
+
+        functions          -> functions
+    }
+    {
+        into .paths
+        outof paths
+
+        paths              -> paths
+        specific           -> specific
+    }
+    {
+        into .aliases
+        outof aliases
+
+        aliases    -> aliases
+        color      -> color
+        dotfile    -> dotfile
+        editor     -> editor
+        git        -> git
+        ls         -> ls
+        navigation -> navigation
+        network    -> network
+        package    -> package
+        workflow   -> workflow
+        xmonad     -> xmonad
+    }
+    {
+        outof bash
+
+        bash_login         -> .bash_login
+        bash_logout        -> .bash_logout
+        bashrc             -> .bashrc
+    }
+    {
+        outof zsh
+
+        zlogin             -> .zlogin
+        zlogout            -> .zlogout
+        zprofile           -> .zprofile
+        zshenv             -> .zshenv
+        zshrc              -> .zshrc
+    }
+}

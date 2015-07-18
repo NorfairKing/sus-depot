@@ -1,0 +1,5 @@
+# Left, main screen
+xrandr --output DVI-I-1 --mode 1920x1200
+
+# Right, secondary screen
+xrandr --output DP-1 --rotate left --mode 1920x1200

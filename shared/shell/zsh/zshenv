@@ -1,0 +1,6 @@
+# This file is sourced for any zsh shell
+
+source ~/.functions/functions
+
+safe_source ~/.paths/paths
+safe_source ~/.variables/variables

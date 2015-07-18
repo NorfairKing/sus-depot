@@ -1,0 +1,23 @@
+# Bin
+add "$HOME/scripts"
+add "$HOME/.cabal/bin"
+
+add "/usr/local/sbin"
+add "/usr/local/bin"
+add "/usr/sbin"
+add "/usr/bin"
+add "/sbin"
+add "/bin"
+
+# Lib
+add "/usr/local/lib"
+add "/usr/lib"
+add "/lib"
+
+# Go
+export GOPATH="$HOME/.gopath"
+add "$GOPATH"
+add "$GOPATH/bin"
+
+# Specific to system
+safe_source ~/.paths/specific

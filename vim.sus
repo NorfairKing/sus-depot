@@ -1,0 +1,8 @@
+card vim {
+    alternatives $(HOSTNAME) $(HOST) shared
+    into ~
+    outof vim
+
+    dotvim -> .vim
+    vimrc  -> .vimrc
+}

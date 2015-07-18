@@ -10,10 +10,6 @@ set mailcap_path     = ~/.mutt/mailcap       # entries for filetypes
 set tmpdir           = ~/.mutt/temp          # where to keep temp files
 set signature        = ~/.mutt/sig           # my signature file
 
-# TODO why this?
-source ~/.mutt/alias
-
-
 ## Basic ----------------------------------------------------------------------
 set wait_key = no        # shut up, mutt
 set mbox_type = Maildir  # mailbox type
@@ -112,12 +108,13 @@ set forward_quote                       # include message in forwards
 # Default inbox.
 set spoolfile = "+kul/INBOX"
 mailboxes   +kul/INBOX \
+            +eth/INBOX \
             +skgmail/INBOX \
-            +skgmail/archive \
             +organizing/rnr \
             +organizing/reply \
             +organizing/wait \
-            +organizing/ref
+            +organizing/ref \
+            +skgmail/archive
 
 # Other special folders.
 set copy
@@ -137,3 +134,6 @@ source "~/.mutt/colors"
 ## Keybindings ----------------------------------------------------------------
 source "~/.mutt/keys"
 macro index q '<change-folder> =skgmail/archive<enter><tag-pattern>~N<enter><tag-prefix><toggle-new><quit>'
+
+# Speed up folder switching
+set sleep_time = 0

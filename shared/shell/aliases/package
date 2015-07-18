@@ -1,0 +1,4 @@
+alias install='packer -S'
+alias search='packer -Ss'
+alias update='sudo pacman -Syu'
+alias remove='sudo pacman -R'

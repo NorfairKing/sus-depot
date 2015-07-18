@@ -1,0 +1,27 @@
+card sus {
+
+    # First look in the hosts specific file, otherwise look in the shared directory
+    alternatives $(HOSTNAME) $(HOST) shared
+    into ~
+
+    screen    -> .screen
+    fonts     -> .fonts
+
+    spark file xorg.sus
+    spark file git.sus
+    spark file xmonad.sus
+    spark file shell.sus
+    spark file spacemacs.sus
+    spark file keyboards.sus
+    spark file newsbeuter.sus
+    spark file mutt.sus
+
+    # Not sure where these go yet.
+    {
+        into .config
+
+        zathurarc     -> zathura/zathurarc
+        redshift.conf -> redshift.conf
+    }
+
+}

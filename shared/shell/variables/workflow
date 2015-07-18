@@ -1,0 +1,14 @@
+#!/bin/bash
+
+export WORKFLOW="$HOME/workflow"
+export ORG_INBOX="$WORKFLOW/inbox.org"
+export ORG_WORK="$WORKFLOW/work.org"
+export ORG_PERSONAL="$WORKFLOW/personal.org"
+export ORG_PROJECT="$WORKFLOW/current-project.org"
+export ORG_WEEKLY_REVIEW="$WORKFLOW/weekly-review.org"
+export ORG_SOMEDAY_MAYBE="$WORKFLOW/someday-maybe.org"
+export ORG_BLOG="$WORKFLOW/blog.org"
+
+# Makes sure the emacs server starts when you ask for a client and it hasn't been started yet
+export ALTERNATE_EDITOR=""
+

@@ -1,0 +1,2 @@
+alias e='emacsclient -c'
+alias v='vim'

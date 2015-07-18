@@ -1,0 +1,24 @@
+# Refresh these aliases 
+alias refresh='source ~/.aliases/aliases'
+
+safe_source ~/.aliases/color
+safe_source ~/.aliases/dotfile
+safe_source ~/.aliases/editor
+safe_source ~/.aliases/git
+safe_source ~/.aliases/ls
+safe_source ~/.aliases/navigation
+safe_source ~/.aliases/network
+safe_source ~/.aliases/package
+safe_source ~/.aliases/tmp
+safe_source ~/.aliases/workflow
+safe_source ~/.aliases/xmonad
+
+# State of computer
+alias sus='sudo pm-suspend'
+
+# Terminal aliases 
+alias h='history'
+alias x='exit'
+
+# Open files easily.
+alias open='xdg-open'
