@@ -1,3 +1,0 @@
-alias ping1='ping -c 4 google.com'
-alias ping2='ping -c 4 192.168.0.1'
-alias ping3='ping -c 4 192.168.1.1'

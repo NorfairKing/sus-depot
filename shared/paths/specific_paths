@@ -1,6 +1,0 @@
-add () {
-    export PATH="$PATH:$1"
-}
-
-
-

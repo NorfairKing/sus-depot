@@ -1,0 +1,10 @@
+card keyboards {
+    alternatives $(HOSTNAME) $(HOST) shared
+    into ~/.keyboards
+    outof keyboards
+
+    azerty         -> azerty
+    qwerty         -> qwerty
+    dvorak         -> dvorak
+    dvorak.kinesis -> dvorak.kinesis
+}

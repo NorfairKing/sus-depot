@@ -1,0 +1,25 @@
+# This file is sourced at any zsh interavtive shell
+
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
+
+ZSH_THEME="agnoster"
+
+# Plugins
+plugins=(wd)
+
+# Use case-sensitive completion
+CASE_SENSITIVE="true"
+
+# No autocorrection
+unsetopt correct_all 
+
+PROMPT_COMMAND="$PROMPT_COMMAND; pwd >> $HOME/.latest_dirs"
+precmd() { eval "$PROMPT_COMMAND" }
+
+source $ZSH/oh-my-zsh.sh
+
+safe_source /etc/bash_completion.d/g4d
+
+safe_source ~/.aliases/aliases
+

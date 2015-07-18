@@ -1,0 +1,44 @@
+#!/bin/bash
+
+debug () {
+    txt="$*"
+    if [ "$DEBUG" != "" ]
+    then 
+        echo "$txt"
+    fi
+}
+
+safe_source () {
+    file="$*"
+    if [ -f "$file" ]
+    then
+        debug "Sourcing $file"
+        . "$file"
+    else
+        debug "File $file not found, not sourcing it"
+    fi
+}
+
+add () {
+    dir="$*"
+    if [ `echo ":$PATH:" | grep --fixed-strings ":$dir:"` ]
+    then
+        debug "not adding $dir to PATH, it's already in there."
+    else
+        if [ -d "$dir" ]
+        then
+            if [ "$(ls --almost-all $dir)" ]
+            then
+                debug "adding $dir to PATH"
+                debug "path is now $PATH"
+                export PATH="$PATH:$dir"
+                return
+            else
+                debug "not adding $dir to PATH, it does exist but it's empty."
+            fi
+        else
+            debug "not adding $dir to PATH, it doesn't exist."
+        fi
+    fi
+}
+

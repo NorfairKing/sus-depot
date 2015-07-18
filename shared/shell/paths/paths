@@ -1,0 +1,16 @@
+add "$HOME/scripts"
+add "$HOME/.cabal/bin"
+add "$HOME/.gem/ruby/2.2.0/bin"
+
+add "/usr/local/sbin"
+add "/usr/local/bin"
+add "/usr/sbin"
+add "/usr/bin"
+add "/sbin"
+add "/bin"
+
+add "/usr/local/lib"
+add "/usr/lib"
+add "/lib"
+
+safe_source ~/.paths/specific

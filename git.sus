@@ -1,0 +1,8 @@
+card git {
+    alternatives $(HOSTNAME) $(HOST) shared
+    into ~
+    outof git
+
+    gitconfig -> .gitconfig
+    gitignore -> .gitignore_global
+}

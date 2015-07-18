@@ -1,0 +1,6 @@
+# Journaling
+alias j='chronicle enter'
+
+alias z='zathura'
+
+alias inbox="e $ORG_INBOX"
