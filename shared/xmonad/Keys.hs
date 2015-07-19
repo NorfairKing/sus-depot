@@ -96,7 +96,6 @@ myKeys conf = M.fromList $
     ,   ((mod .|. controlMask                 , xK_x      ),  shellPrompt myXPConfig        )
     ,   ((mod                                 , xK_comma  ),  moreWindows                   )
     ,   ((mod .|. shiftMask                   , xK_comma  ),  lessWindows                   )
-    ,   ((mod                                 , xK_F3     ),  workflow                      )
     ,   ((mod                                 , xK_F4     ),  mail                          )
     ,   ((mod                                 , xK_F5     ),  lightDown                     )
     ,   ((mod                                 , xK_F6     ),  lightUp                       )

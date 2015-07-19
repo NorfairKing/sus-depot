@@ -4,7 +4,13 @@ import           Graphics.X11.Types
 import           XMonad             (WorkspaceId)
 
 alphabet :: [Char]
-alphabet =  'a':'b':'c':'d':'e':{-'f':-}'g':'h':'i':'j':'k':'l':'m':'n':'o':'p':'q':'r':'s':'t':'u':'v':'w':'x':{-'y':-}'z':[]
+alphabet =
+    [
+                             'p', {-'y',-} {-'f',-} 'g',   'c',   'r',   'l',
+        'a',   'o',   'e',   'u',   'i',     'd',   'h',   't',   'n',   's',
+               'q',   'j',   'k',   'x',     'b',   'm',   'w',   'v',   'z'
+    ]
+
 
 workspacePrefix :: String
 workspacePrefix = "w_"
@@ -16,7 +22,12 @@ myWorkspaces :: [WorkspaceId]
 myWorkspaces = map (\x -> workspace [x]) alphabet
 
 workspaceKeys :: [KeySym]
-workspaceKeys = [ xK_a, xK_b, xK_c, xK_d, xK_e, {- xK_f,-} xK_g, xK_h, xK_i, xK_j, xK_k, xK_l, xK_m, xK_n, xK_o, xK_p, xK_q, xK_r, xK_s, xK_t, xK_u, xK_v, xK_w, xK_x, {- xK_y,-} xK_z ]
+workspaceKeys =
+    [
+                                xK_p, {-xK_y,-} {-xK_f,-} xK_g,   xK_c,   xK_r,   xK_l,
+        xK_a,   xK_o,   xK_e,   xK_u,   xK_i,     xK_d,   xK_h,   xK_t,   xK_n,   xK_s,
+                xK_q,   xK_j,   xK_k,   xK_x,     xK_b,   xK_m,   xK_w,   xK_v,   xK_z
+    ]
 
 workspaceMapping :: [(WorkspaceId, KeySym)]
 workspaceMapping = zip myWorkspaces workspaceKeys
