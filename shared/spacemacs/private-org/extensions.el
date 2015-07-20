@@ -17,11 +17,11 @@
         capture
         refile
         agenda-commands
+        custom-keys
         ))
 
 (setq private-org-post-extensions
       '(
-        ;; post extension private-orgs go here
         ))
 
 (defun private-org/init-appearance ()
@@ -100,6 +100,23 @@
            ("n" todo "STARTED|NEXT")
           )
         )
+  )
+
+(defun new-people-entry ()
+  "Insert new entry"
+  (interactive)
+  (insert "\n")
+  (insert "** ")
+  (org-insert-time-stamp (current-time))
+  (insert "\n")
+  (insert "- "))
+
+(defun private-org/init-custom-keys ()
+
+  (evil-leader/set-key
+    "oe" 'new-people-entry
+    )
+  (print "Test")
   )
 
 ;;
