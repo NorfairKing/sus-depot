@@ -80,6 +80,13 @@ orgMap = M.fromList
         , ((0, xK_i), orgInbox)
     ]
 
+spaceMap :: M.Map (KeyMask, KeySym) (X ())
+spaceMap = M.fromList
+    [
+          ((0, xK_r), rndPrompt)
+        , ((0, xK_i), inPrompt)
+    ]
+
 
 {- KEYBINDINGS -}
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
@@ -107,6 +114,7 @@ myKeys _ = M.fromList $
         ((mod .|. controlMask                 , xK_Return ),  logOut                          ),
         ((mod .|. controlMask .|. shiftMask   , xK_Return ),  nothing                         ),
         ((mod                                 , xK_space  ),  nextLayout                      ),
+        ((mod .|. shiftMask                   , xK_space  ),  SM.submap spaceMap              ),
         ((mod                                 , xK_Tab    ),  nextWindow                      ),
         ((mod .|. shiftMask                   , xK_Tab    ),  previousWindow                  ),
         ((mod .|. controlMask                 , xK_q      ),  suspend                         ),

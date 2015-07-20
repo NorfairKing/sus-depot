@@ -14,7 +14,6 @@
 ;; which require an initialization must be listed explicitly in the list.
 (setq private-org-packages
     '(
-      ;; package private-orgs go here
       ))
 
 ;; List of packages to exclude.
