@@ -91,15 +91,19 @@
 
 (defun private-org/init-agenda-commands ()
   ; Next action list
-  (setq org-agenda-custom-commands 
+  (setq org-agenda-custom-commands
          '(
-           ("w" todo "STARTED|NEXT"
-            ((org-agenda-files '("~/workflow/work.org"))
-             (org-agenda-text-search-extra-files nil))
-            )
-           ("n" todo "STARTED|NEXT")
-          )
-        )
+           ("w" "Next actions and work agenda"
+            (
+             (org-agenda-files '("~/workflow/work.org"))
+             (todo "STARTED|NEXT" ((org-agenda-files '("~/workflow/work.org")) (org-agenda-text-search-extra-files nil)))
+             )
+           )
+           ("n" "All next actions and agenda"
+            ((todo "STARTED|NEXT")
+             (agenda "")))
+           )
+     )
   )
 
 (defun new-people-entry ()
