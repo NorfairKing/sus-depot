@@ -2,3 +2,4 @@
 safe_source ~/.variables/workflow
 safe_source ~/.variables/host
 safe_source ~/.variables/specific
+safe_source ~/.variables/mail

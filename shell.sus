@@ -12,6 +12,7 @@ card shell {
         workflow           -> workflow
         specific           -> specific
         host               -> host
+        mail               -> mail
     }
     {
         into .functions
