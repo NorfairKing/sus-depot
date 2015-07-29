@@ -4,3 +4,6 @@
 [submodule "shared/vim/dotvim/bundle/vim-stylish-haskell"]
 	path = shared/vim/dotvim/bundle/vim-stylish-haskell
 	url = git@github.com:nbouscal/vim-stylish-haskell.git
+[submodule "shared/vim/dotvim/bundle/vim-clang-format"]
+	path = shared/vim/dotvim/bundle/vim-clang-format
+	url = git@github.com:rhysd/vim-clang-format.git
