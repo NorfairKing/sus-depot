@@ -81,4 +81,5 @@ main =
   , startupHook = myStartupHook
   , manageHook = myManageHook
   , layoutHook = myLayoutHook
+  , focusFollowsMouse = False
   }

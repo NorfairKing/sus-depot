@@ -97,6 +97,7 @@
             (
              (org-agenda-files '("~/workflow/work.org"))
              (todo "STARTED|NEXT" ((org-agenda-files '("~/workflow/work.org")) (org-agenda-text-search-extra-files nil)))
+             (agenda "")
              )
            )
            ("n" "All next actions and agenda"

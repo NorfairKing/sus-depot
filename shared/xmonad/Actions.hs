@@ -14,6 +14,7 @@ import qualified XMonad.StackSet     as W
 import           XMonad.Prompt       (XPConfig (..), defaultXPConfig)
 import           XMonad.Prompt.Input
 import           XMonad.Util.Run     (unsafeSpawn)
+import XMonad.Actions.PhysicalScreens -- For screen switching
 
 import           Constants
 import           Internet
@@ -143,6 +144,18 @@ focusWindowUp = windows W.focusUp
 
 swapWindowUp :: X ()
 swapWindowUp = windows W.swapUp
+
+focusNextScreen :: X ()
+focusNextScreen = onNextNeighbour W.view
+
+focusPrevScreen :: X ()
+focusPrevScreen = onPrevNeighbour W.view
+
+shiftNextScreen :: X ()
+shiftNextScreen = onNextNeighbour W.shift
+
+shiftPrevScreen :: X ()
+shiftPrevScreen = onPrevNeighbour W.shift
 
 -- Select the previous window.
 focusWindowDown :: X ()
