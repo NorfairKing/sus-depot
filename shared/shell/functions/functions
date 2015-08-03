@@ -42,3 +42,14 @@ add () {
     fi
 }
 
+maybe_variable_default () {
+    variable="$1"
+    default="$2"
+
+    if [[ "$variable" == "" ]]
+    then
+        echo "$default"
+    else
+        echo "$variable"
+    fi
+}

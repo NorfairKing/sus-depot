@@ -52,7 +52,9 @@
           ("i" "Inbox" entry (file "~/workflow/inbox.org" )
            "* In: %^{Stuff}")
           ("p" "Project" entry (file "~/workflow/inbox.org")
-           "* %^{Project name}\n** NEXT %^{Next action}\n" :prepend t)))
+           "* %^{Project name}\n** NEXT %^{Next action}\n" :prepend t)
+          ("t" "Tickler" entry (file+headline "~/workflow/tickler.org" "Near future")
+           "** %^{Tickle item}\n SCHEDULED: %^t")))
   )
 
 (defun private-org/init-refile ()

@@ -15,7 +15,7 @@
 !         <$       -@
 !
 !               <super>  <alt>  <alt>  <super>
-!                      <empty>  <empty>
+!                    <compose>  <compose>
 !   <backspace> <tab> <delete>  <esc>  <enter> <space>
 ! 
 !
@@ -61,6 +61,7 @@ keycode  127  =  Pause                  Break           Pause                 Br
 ! Keypad is not sent to computer
 ! Program is not sent to computer
 
+
 !! first row
 keycode  21   =  ampersand              percent         ampersand             percent
 keycode  10   =  bracketleft            7               bracketleft           7            currency         NoSymbol          currency
@@ -75,6 +76,7 @@ keycode  17   =  exclam                 4               exclam                4 
 keycode  18   =  braceright             6               braceright            6
 keycode  19   =  bracketright           8               bracketright          8            bracketright     U2E18             bracketright
 keycode  20   =  numbersign             grave           numbersign            grave        dead_grave       NoSymbol          dead_grave
+
 
 !! second row
 keycode  23   =  backslash              bar             backslash             bar
@@ -91,6 +93,7 @@ keycode  32   =  r                      R               r                     R 
 keycode  33   =  l                      L               l                     L
 keycode  51  =  slash                  question        slash                 question     questiondown     U203D             questiondown
 
+
 !! third row
 keycode  66   =  Shift_L                NoSymbol        Shift_L
 keycode  38   =  a                      A               a                     A            aring            Aring             aring
@@ -105,6 +108,7 @@ keycode  45   =  t                      T               t                     T 
 keycode  46   =  n                      N               n                     N            ntilde           Ntilde            ntilde
 keycode  47   =  s                      S               s                     S            ssharp           NoSymbol          ssharp
 keycode  48   =  Shift_R                NoSymbol        Shift_R
+
 
 !! fourth row
 keycode  50   =  Control_L              NoSymbol        Control_L
@@ -121,11 +125,13 @@ keycode  60   =  v                      V               v                     V
 keycode  61   =  z                      Z               z                     Z
 keycode  62   =  Control_R              NoSymbol        Control_R
 
+
 !! fifth row
 keycode  94   =  dollar                 asciitilde      dollar                asciitilde   dead_tilde       dead_tilde        dead_tilde
 keycode  49   =  less                   greater         less                  greater      bar              brokenbar         bar
 keycode  113  =  Left                   Home            Left
 keycode  114  =  Right                  End             Right
+
 
 ! One spare key!!
 keycode  111  =  Up                     Prior           Up
@@ -133,12 +139,14 @@ keycode  116  =  Down                   Next            Down
 keycode  34   =  minus                  underscore      minus                 underscore   hyphen           endash            hyphen
 keycode  35   =  at                     asciicircum     at                    asciicircum  dead_circumflex  dead_caron        dead_circumflex
 
+
 !! Left thumb keys
 keycode  37   =  Super_L                NoSymbol        Super_L
 keycode  64   =  Alt_L                  Meta_L          Alt_L                 Meta_L
+
 keycode  22   =  BackSpace              BackSpace       BackSpace             BackSpace
 keycode  119  =  Tab                    ISO_Left_Tab    Tab                   ISO_Left_Tab
-keycode  110  =  Multi_key 
+keycode  110  =  Multi_key
 keycode  115  =  Delete                 NoSymbol        Delete
 
 !! Right thumb keys
@@ -149,6 +157,7 @@ keycode  112  =  Multi_key
 keycode  117  =  Escape                 NoSymbol        Escape
 keycode  36   =  Return                 NoSymbol        Return
 keycode  65   =  space                  NoSymbol        space
+
 
 ! Set all modifier keys again
 add shift   = Shift_L Shift_R
