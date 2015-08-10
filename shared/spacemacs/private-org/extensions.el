@@ -54,7 +54,10 @@
           ("p" "Project" entry (file "~/workflow/inbox.org")
            "* %^{Project name}\n** NEXT %^{Next action}\n" :prepend t)
           ("t" "Tickler" entry (file+headline "~/workflow/tickler.org" "Near future")
-           "** %^{Tickle item}\n SCHEDULED: %^t")))
+           "** %^{Tickle item}\n SCHEDULED: %^t")
+          ("e" "Euler problem" entry (file+headline "~/workflow/current-project.org" "Projects")
+           "** Euler Problem %^{problem}\n*** TODO Solve problem %\\1 in a naive way.\n*** TODO Write up on the naive solution of problem %\\1\n*** TODO Solve problem %\\1 in a better way.\n*** TODO Write the tests for problem %\\1\n*** TODO write up on the better solution of problem %\\1")
+          ))
   )
 
 (defun private-org/init-refile ()
