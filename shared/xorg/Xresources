@@ -39,7 +39,7 @@ URxvt.matcher.button:       1
 URxvt.urlLauncher:          firefox
  
 ! Cursor
-URxvt.cursorBlink:          true
+URxvt.cursorBlink:          false
 URxvt.cursorColor:          #657b83
 URxvt.cursorUnderline:      false
  

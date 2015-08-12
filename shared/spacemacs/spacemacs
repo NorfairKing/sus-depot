@@ -15,6 +15,7 @@
      emacs-lisp
      org
      private-org
+     latex
      )
    ;; List of additional packages that will be installed wihout being
    ;; wrapped in a layer. If you need some configuration for these
@@ -139,7 +140,7 @@ layers configuration."
 
     ; Browsers
     (setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "firefox")
+      browse-url-generic-program "google-chrome")
  )
 
 ;; Do not write anything past this comment. This is where Emacs will

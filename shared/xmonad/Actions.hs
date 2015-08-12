@@ -5,16 +5,17 @@ module Actions
     )
     where
 
-import           System.Exit         (exitSuccess)
-import           XMonad              (ChangeLayout (..), IncMasterN (..),
-                                      Resize (..), X, io, kill, sendMessage,
-                                      spawn, windows, withFocused)
-import qualified XMonad.StackSet     as W
+import           System.Exit                    (exitSuccess)
+import           XMonad                         (ChangeLayout (..),
+                                                 IncMasterN (..), Resize (..),
+                                                 X, io, kill, sendMessage,
+                                                 spawn, windows, withFocused)
+import qualified XMonad.StackSet                as W
 
-import           XMonad.Prompt       (XPConfig (..), defaultXPConfig)
+import           XMonad.Actions.PhysicalScreens
+import           XMonad.Prompt                  (XPConfig (..), defaultXPConfig)
 import           XMonad.Prompt.Input
-import           XMonad.Util.Run     (unsafeSpawn)
-import XMonad.Actions.PhysicalScreens -- For screen switching
+import           XMonad.Util.Run                (unsafeSpawn)
 
 import           Constants
 import           Internet
@@ -25,17 +26,17 @@ import           Solarized
 editor              = "emacsclient -c"
 
 -- Internet application
-internet_classes   = ["Firefox","Google-chrome","Chromium"]
+internet_classes    = ["Firefox","Google-chrome","Chromium"]
 
 -- Mail application
-mailClasses        = ["mutt"]
+mailClasses         = ["mutt"]
 
 mail :: X ()
-mail = spawn "urxvt -e zsh -c \"mutt\""
+mail                = spawn "urxvt -e zsh -c \"mutt\""
 
 -- Files application
 files :: X ()
-files = spawn "nautilus --no-desktop"
+files               = spawn "nautilus --no-desktop"
 
 
 -- Restart xmonad after recompiling it.
