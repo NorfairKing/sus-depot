@@ -22,7 +22,7 @@ card sus {
         into .config
 
         zathurarc     -> zathura/zathurarc
-        redshift.conf -> redshift.conf
+        redshift.conf
     }
 
 }
