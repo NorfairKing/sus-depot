@@ -3,11 +3,11 @@ card mutt {
     into ~/.mutt
     outof mutt
 
-    sig      -> sig
-    mailcap  -> mailcap
-    keys     -> keys
-    colors   -> colors
-    alias    -> alias
-    muttrc   -> muttrc
-    specific -> specific
+    sig
+    mailcap
+    keys
+    colors
+    alias
+    muttrc
+    specific
 }

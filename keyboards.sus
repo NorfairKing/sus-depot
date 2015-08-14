@@ -3,8 +3,8 @@ card keyboards {
     into ~/.keyboards
     outof keyboards
 
-    azerty         -> azerty
-    qwerty         -> qwerty
-    dvorak         -> dvorak
-    dvorak.kinesis -> dvorak.kinesis
+    azerty
+    qwerty
+    dvorak
+    dvorak.kinesis
 }

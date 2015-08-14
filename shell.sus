@@ -8,40 +8,40 @@ card shell {
         into .variables
         outof variables
 
-        variables          -> variables
-        workflow           -> workflow
-        specific           -> specific
-        host               -> host
-        mail               -> mail
+        variables
+        workflow
+        specific
+        host
+        mail
     }
     {
         into .functions
         outof functions
 
-        functions          -> functions
+        functions
     }
     {
         into .paths
         outof paths
 
-        paths              -> paths
-        specific           -> specific
+        paths
+        specific
     }
     {
         into .aliases
         outof aliases
 
-        aliases    -> aliases
-        color      -> color
-        dotfile    -> dotfile
-        editor     -> editor
-        git        -> git
-        ls         -> ls
-        navigation -> navigation
-        network    -> network
-        package    -> package
-        workflow   -> workflow
-        xmonad     -> xmonad
+        aliases
+        color
+        dotfile
+        editor
+        git
+        ls
+        navigation
+        network
+        package
+        workflow
+        xmonad
     }
     {
         outof bash

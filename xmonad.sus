@@ -4,19 +4,19 @@ card xmonad {
 
     outof xmonad
 
-    xmonad.hs -> xmonad.hs
-    makefile  -> makefile
+    xmonad.hs
+    makefile
 
     {
         into lib
 
-        Actions.hs    -> Actions.hs
-        Constants.hs  -> Constants.hs
-        Internet.hs   -> Internet.hs
-        Keys.hs       -> Keys.hs
-        Layout.hs     -> Layout.hs
-        Workspaces.hs -> Workspaces.hs
-        Modifier.hs   -> Modifier.hs
-        Solarized.hs  -> Solarized.hs
+        Actions.hs
+        Constants.hs
+        Internet.hs
+        Keys.hs
+        Layout.hs
+        Workspaces.hs
+        Modifier.hs
+        Solarized.hs
     }
 }

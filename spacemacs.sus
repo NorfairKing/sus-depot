@@ -8,6 +8,6 @@ card spacemacs {
     {
         into .emacs.d/private
     
-        private-org -> private-org
+        private-org
     }
 }

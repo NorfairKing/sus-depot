@@ -3,6 +3,6 @@ card newsbeuter {
     into ~/.newsbeuter
     outof newsbeuter
 
-    config -> config
-    urls   -> urls
+    config
+    urls
 }
