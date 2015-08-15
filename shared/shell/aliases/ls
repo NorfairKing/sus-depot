@@ -3,7 +3,7 @@ alias la='l --almost-all'
 alias lr='l -R'
 
 # Perform 'ls' after 'cd' if successful.
-cdls() {
+cdls () {
   builtin cd "$*"
   RESULT=$?
   if [ "$RESULT" -eq 0 ]; then
