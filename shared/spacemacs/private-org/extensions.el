@@ -13,6 +13,7 @@
 (setq private-org-pre-extensions
       '(
         appearance
+        archive
         todo-keywords
         capture
         refile
@@ -28,17 +29,22 @@
   (setq org-bullets-bullet-list '("▶" "►" "▸" "·"))
   )
 
+(defun private-org/init-archive ()
+  (setq org-archive-location "archive/%s::")
+  )
+
 ;; For each extension, define a function private-org/init-<extension-private-org>
 ;;
 (defun private-org/init-todo-keywords ()
   ; The @ means that there's going to need to be a note attached to the change.
   (setq org-todo-keywords
-        '((sequence "TODO(t)" "NEXT(n)" "STARTED(s)" "WAITING(w@)" "|" "DONE(d)" "CANCELLED(c)")))
+        '((sequence "TODO(t)" "NEXT(n)" "STARTED(s)" "WAITING(w@)" "READY(r)" "|" "DONE(d)" "CANCELLED(c)")))
   (setq org-todo-keyword-faces
         '(("TODO" . "red")
           ("NEXT" . "yellow")
           ("STARTED" . "yellow")
           ("WAITING" . "blue")
+          ("READY" . "brown")
           ("DONE" . "green")
           ("CANCELLED" . "green")))
   )
@@ -100,15 +106,17 @@
          '(
            ("w" "Next actions and work agenda"
             (
-             (org-agenda-files '("~/workflow/work.org"))
-             (todo "STARTED|NEXT" ((org-agenda-files '("~/workflow/work.org")) (org-agenda-text-search-extra-files nil)))
+             (tags-todo "work/STARTED|NEXT")
              (agenda "")
              )
            )
            ("n" "All next actions and agenda"
-            ((todo "STARTED|NEXT")
-             (agenda "")))
+            (
+             (todo "STARTED|NEXT")
+             (agenda "")
+            )
            )
+          )
      )
   )
 
