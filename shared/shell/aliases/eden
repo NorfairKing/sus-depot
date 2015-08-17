@@ -1,0 +1,22 @@
+alias eg='eden generate'
+
+alias eb='eden build'
+alias eba='eden build all'
+alias ebp='eden build problem'
+alias ebs='eden build solution'
+
+alias er='eden run'
+alias era='eden run all'
+alias erp='eden run problem'
+alias ers='eden run solution'
+
+alias et='eden test'
+alias eta='eden test all'
+alias etp='eden test problem'
+alias ets='eden test solution'
+
+alias ep='eden publish'
+alias epa='eden publish all'
+alias epp='eden publish problem'
+alias eppa='eden publish part'
+alias epl='eden publish library'
