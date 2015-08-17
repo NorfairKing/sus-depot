@@ -42,6 +42,7 @@ card shell {
         package
         workflow
         xmonad
+        eden
     }
     {
         outof bash
