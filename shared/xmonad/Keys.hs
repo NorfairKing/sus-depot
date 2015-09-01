@@ -78,6 +78,8 @@ myKeys conf = M.fromList $
     ,   ((mod                                 , xK_i      ),  internet                      )
     ,   ((mod                                 , xK_j      ),  focusWindowDown               )
     ,   ((mod .|. shiftMask                   , xK_j      ),  swapWindowDown                )
+    ,   ((mod                                 , xK_k      ),  focusWindowUp                 )
+    ,   ((mod .|. shiftMask                   , xK_k      ),  swapWindowUp                  )
     ,   ((mod                                 , xK_l      ),  expandWindow                  )
     ,   ((mod                                 , xK_m      ),  focusMaster                   )
     ,   ((mod .|. shiftMask                   , xK_m      ),  swapMaster                    )
