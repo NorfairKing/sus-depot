@@ -23,3 +23,5 @@ alias x='exit'
 
 # Open files easily.
 alias open='xdg-open'
+
+safe_source ~/.aliases/tmp_aliases
