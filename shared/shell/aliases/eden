@@ -1,7 +1,9 @@
 alias eg='eden generate'
+alias egs='eden generate solution'
 
 alias eb='eden build'
 alias eba='eden build all'
+alias ebl='eden build library'
 alias ebp='eden build problem'
 alias ebs='eden build solution'
 
@@ -12,6 +14,7 @@ alias ers='eden run solution'
 
 alias et='eden test'
 alias eta='eden test all'
+alias etl='eden test library'
 alias etp='eden test problem'
 alias ets='eden test solution'
 
