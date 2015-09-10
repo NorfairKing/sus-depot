@@ -18,22 +18,6 @@ import           Keys
 import           Layout
 import           Workspaces
 
-
-{-
-    I define where xmonad should send certain applications
--}
-myManagementHooks :: [ManageHook]
-myManagementHooks =
-                    [   className   =?  m           -->     move_to_mail    |   m   <-  mailClasses         ]   ++
-                    [   className   =?  i           -->     move_to_web     |   i   <-  internet_classes    ]   ++
-                    [
-                        (title =? "Workflow")       -->     move_to_workflow
-                    ]
-                    where
-                        move_to_mail        =   doF $ W.shift mail_ws
-                        move_to_web         =   doF $ W.shift web_ws
-                        move_to_workflow    =   doF $ W.shift workflow_ws
-
 -- | Startup
 myStartupHook :: X ()
 myStartupHook = do
@@ -49,6 +33,17 @@ myStartupHook = do
 myManageHook :: ManageHook
 myManageHook = manageHook azertyConfig <+> composeAll myManagementHooks <+> manageDocks
 
+myManagementHooks :: [ManageHook]
+myManagementHooks =
+                    [   className   =?  m           -->     move_to_mail    |   m   <-  mailClasses         ]   ++
+                    [   className   =?  i           -->     move_to_web     |   i   <-  internet_classes    ]   ++
+                    [
+                        (title =? "Workflow")       -->     move_to_workflow
+                    ]
+                    where
+                        move_to_mail        =   doF $ W.shift mail_ws
+                        move_to_web         =   doF $ W.shift web_ws
+                        move_to_workflow    =   doF $ W.shift workflow_ws
 
 
 -- Stiching together all the settings
