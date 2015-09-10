@@ -27,7 +27,7 @@ set sort = threads       # Thread view
 
 
 ## HTML -----------------------------------------------------------------------
-alternative_order text/enriched text/plain text/html
+alternative_order text/plain text/enriched text/html
 auto_view text/html
 
 
