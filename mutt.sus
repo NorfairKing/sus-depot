@@ -1,5 +1,5 @@
 card mutt {
-    alternatives $(HOSTNAME) $(HOST) shared
+    alternatives $(HOST) shared
     into ~/.mutt
     outof mutt
 

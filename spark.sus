@@ -1,7 +1,7 @@
 card sus {
 
     # First look in the hosts specific file, otherwise look in the shared directory
-    alternatives $(HOSTNAME) $(HOST) shared
+    alternatives $(HOST) shared
     into ~
 
     screen    -> .screen

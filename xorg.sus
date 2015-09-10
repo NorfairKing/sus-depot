@@ -1,5 +1,5 @@
 card xorg {
-    alternatives $(HOSTNAME) $(HOST) shared
+    alternatives $(HOST) shared
     into ~
     outof xorg
 

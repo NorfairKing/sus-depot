@@ -1,5 +1,5 @@
 card vim {
-    alternatives $(HOSTNAME) $(HOST) shared
+    alternatives $(HOST) shared
     into ~
     outof vim
 

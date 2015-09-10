@@ -1,5 +1,5 @@
 card spacemacs {
-    alternatives $(HOSTNAME) $(HOST) shared
+    alternatives $(HOST) shared
     into ~
     outof spacemacs
 

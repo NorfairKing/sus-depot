@@ -1,5 +1,5 @@
 card newsbeuter {
-    alternatives $(HOSTNAME) $(HOST) shared
+    alternatives $(HOST) shared
     into ~/.newsbeuter
     outof newsbeuter
 

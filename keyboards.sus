@@ -1,5 +1,5 @@
 card keyboards {
-    alternatives $(HOSTNAME) $(HOST) shared
+    alternatives $(HOST) shared
     into ~/.keyboards
     outof keyboards
 
