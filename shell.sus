@@ -1,5 +1,5 @@
 card shell {
-    alternatives $(HOSTNAME) $(HOST) shared
+    alternatives $(HOST) shared
 
     into ~
     outof shell

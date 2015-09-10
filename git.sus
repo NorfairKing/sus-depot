@@ -1,5 +1,5 @@
 card git {
-    alternatives $(HOSTNAME) $(HOST) shared
+    alternatives $(HOST) shared
     into ~
     outof git
 
