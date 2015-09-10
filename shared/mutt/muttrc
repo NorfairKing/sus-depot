@@ -7,7 +7,7 @@ set header_cache     = ~/.mutt/cache/headers # where to store headers
 set message_cachedir = ~/.mutt/cache/bodies  # where to store bodies
 set certificate_file = ~/.mutt/certificates  # where to store certs
 set mailcap_path     = ~/.mutt/mailcap       # entries for filetypes
-set tmpdir           = ~/.mutt/temp          # where to keep temp files
+set tmpdir           = ~/.mutt/tmp           # where to keep temp files
 set signature        = ~/.mutt/sig           # my signature file
 
 ## Basic ----------------------------------------------------------------------
@@ -121,10 +121,6 @@ set copy
 set mbox      = +skgmail/archive
 set postponed = +skgmail/drafts
 set record    = +skgmail/archive
-
-
-## Mailing List ---------------------------------------------------------------
-subscribe microblx@lists.mech.kuleuven.be
 
 
 ## Colors ---------------------------------------------------------------------
