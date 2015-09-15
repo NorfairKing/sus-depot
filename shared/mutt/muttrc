@@ -126,6 +126,9 @@ set record    = +skgmail/archive
 ## Colors ---------------------------------------------------------------------
 source "~/.mutt/colors"
 
+## Mailinglists ---------------------------------------------------------------
+subscribe jobs-join@lists.vis.ethz.ch
+
 
 ## Keybindings ----------------------------------------------------------------
 source "~/.mutt/keys"
