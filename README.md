@@ -1,5 +1,6 @@
 # SUS depot
-My personal SUS depot
+My personal SUS depot.
+For an explanation of how this is deployed, see [Super User Spark](https://github.com/NorfairKing/super-user-spark) and [the Spark language](https://github.com/NorfairKing/super-user-spark/blob/master/doc/language.md).
 
 ## Contents
 Have a look at `spark.sus` to see how these are deployed.
