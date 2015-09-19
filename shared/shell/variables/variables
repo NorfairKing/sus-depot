@@ -2,3 +2,5 @@
 safe_source ~/.variables/workflow
 safe_source ~/.variables/specific
 safe_source ~/.variables/mail
+safe_source ~/.variables/java
+safe_source ~/.variables/keyboard
