@@ -1,8 +1,8 @@
 card xorg {
-    alternatives $(HOST) shared
-    into ~
-    outof xorg
+  alternatives $(HOST) shared
+  into ~
+  outof xorg
 
-    xinitrc    -> .xinitrc
-    Xresources -> .Xresources
+  .xinitrc
+  .Xresources
 }

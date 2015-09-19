@@ -1,8 +1,8 @@
 card newsbeuter {
-    alternatives $(HOST) shared
-    into ~/.newsbeuter
-    outof newsbeuter
+  alternatives $(HOST) shared
+  into ~/.newsbeuter
+  outof newsbeuter
 
-    config
-    urls
+  config
+  urls
 }

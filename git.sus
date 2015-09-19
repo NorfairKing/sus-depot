@@ -1,8 +1,8 @@
 card git {
-    alternatives $(HOST) shared
-    into ~
-    outof git
+  alternatives $(HOST) shared
+  into ~
+  outof git
 
-    gitconfig -> .gitconfig
-    gitignore -> .gitignore_global
+  .gitconfig
+  gitignore -> .gitignore_global
 }

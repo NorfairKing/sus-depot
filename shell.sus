@@ -1,64 +1,64 @@
 card shell {
-    alternatives $(HOST) shared
+  alternatives $(HOST) shared
 
-    into ~
-    outof shell
+  into ~
+  outof shell
 
-    {
-        into .variables
-        outof variables
+  {
+    into .variables
+    outof variables
 
-        variables
-        workflow
-        specific
-        host
-        mail
-        java
-    }
-    {
-        into .functions
-        outof functions
+    variables
+    workflow
+    specific
+    host
+    mail
+    java
+  }
+  {
+    into .functions
+    outof functions
 
-        functions
-    }
-    {
-        into .paths
-        outof paths
+    functions
+  }
+  {
+    into .paths
+    outof paths
 
-        paths
-        specific
-    }
-    {
-        into .aliases
-        outof aliases
+    paths
+    specific
+  }
+  {
+    into .aliases
+    outof aliases
 
-        aliases
-        color
-        dotfile
-        editor
-        git
-        ls
-        navigation
-        network
-        package
-        workflow
-        xmonad
-        eden
-    }
-    {
-        outof bash
+    aliases
+    color
+    dotfile
+    editor
+    git
+    ls
+    navigation
+    network
+    package
+    workflow
+    xmonad
+    eden
+  }
+  {
+    outof bash
 
-        bash_login         -> .bash_login
-        bash_logout        -> .bash_logout
-        bashrc             -> .bashrc
-    }
-    {
-        outof zsh
+    .bash_login
+    .bash_logout
+    .bashrc
+  }
+  {
+    outof zsh
 
-        zlogin             -> .zlogin
-        zlogout            -> .zlogout
-        zprofile           -> .zprofile
-        zshenv             -> .zshenv
-        zshrc              -> .zshrc
-    }
+    .zlogin
+    .zlogout
+    .zprofile
+    .zshenv
+    .zshrc
+  }
 }

@@ -1,13 +1,13 @@
 card spacemacs {
-    alternatives $(HOST) shared
-    into ~
-    outof spacemacs
+  alternatives $(HOST) shared
+  into ~
+  outof spacemacs
 
-    spacemacs -> .spacemacs
+  .spacemacs
 
-    {
-        into .emacs.d/private
-    
-        private-org
-    }
+  {
+    into .emacs.d/private
+
+    private-org
+  }
 }
