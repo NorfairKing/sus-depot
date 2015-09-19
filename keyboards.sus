@@ -1,10 +1,14 @@
 card keyboards {
-    alternatives $(HOST) shared
-    into ~/.keyboards
+  alternatives $(HOST) shared
+  into ~/.keyboards
+
+  {
     outof keyboards
 
     azerty
     qwerty
     dvorak
     dvorak.kinesis
+    $(KEYBOARD)  -> current
+  }
 }
