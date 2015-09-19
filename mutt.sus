@@ -1,13 +1,13 @@
 card mutt {
-    alternatives $(HOST) shared
-    into ~/.mutt
-    outof mutt
+  alternatives $(HOST) shared
+  into ~/.mutt
+  outof mutt
 
-    sig
-    mailcap
-    keys
-    colors
-    alias
-    muttrc
-    specific
+  sig
+  mailcap
+  keys
+  colors
+  alias
+  muttrc
+  specific
 }
