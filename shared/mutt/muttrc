@@ -79,8 +79,7 @@ set query_command="abook --mutt-query '%s'"
 
 ## Compose --------------------------------------------------------------------
 # Compose View
-set from                = "syd.kerckhove@student.kuleuven.be"
-alternates              "(syd.kerckhove@hotmail.com)|(syd\.kerckhove@gmail\.be)(tom\.kerckhove@telenet.be)|(PAULA\.noreply@gmail\.com)|(syd\.kerckhove@student\.kuleuven\.be)"
+set from                = "syd.kerckhove@gmail.com"
 set use_from
 set sendmail            = "msmtp"
 set sendmail_wait       = 0
@@ -106,14 +105,12 @@ set forward_quote                       # include message in forwards
 
 ## Account --------------------------------------------------------------------
 # Default inbox.
-set spoolfile = "+kul/INBOX"
-mailboxes   +kul/INBOX \
-            +eth/INBOX \
-            +skgmail/INBOX \
-            +organizing/rnr \
-            +organizing/reply \
-            +organizing/wait \
-            +organizing/ref \
+set spoolfile = "+skgmail/INBOX"
+mailboxes   +skgmail/INBOX \
+            +skgmail/rnr \
+            +skgmail/reply \
+            +skgmail/wait \
+            +skgmail/ref \
             +skgmail/archive
 
 # Other special folders.
@@ -128,6 +125,7 @@ source "~/.mutt/colors"
 
 ## Mailinglists ---------------------------------------------------------------
 subscribe jobs-join@lists.vis.ethz.ch
+subscribe ir-f15@googlegroups.com
 
 
 ## Keybindings ----------------------------------------------------------------
