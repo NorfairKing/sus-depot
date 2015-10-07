@@ -4,10 +4,6 @@ Config {
        , fgColor = "grey"
        , position = TopW L 200
        , commands = [ 
-                        Run Com "get_volume" 
-                            [] 
-                        "volume" 10
-                    ,
                         Run Date 
                         "%A %Y-%m-%d %H:%M:%S" 
                         "date" 
@@ -27,7 +23,7 @@ Config {
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ Volume: %volume% | %battery% | <fc=#268BD2>%date%</fc> "
+       , template = "%StdinReader% }{ %battery% | <fc=#268BD2>%date%</fc> "
 }
 
 
