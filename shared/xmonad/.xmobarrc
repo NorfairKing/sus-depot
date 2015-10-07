@@ -5,9 +5,9 @@ Config {
        , position = TopW L 200
        , commands = [ 
                         Run Date 
-                        "%A %Y-%m-%d %H:%M:%S" 
+                        "%A %Y-%m-%d %H:%M" 
                         "date" 
-                        1
+                        60
                     ,
                         Run Battery 
                             [
