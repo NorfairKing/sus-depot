@@ -6,11 +6,13 @@
 import           Prelude                  hiding (mod)
 import           XMonad
 import           XMonad.Config.Azerty
+import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.SetWMName
 import           XMonad.Hooks.UrgencyHook
 import           XMonad.Layout.Fullscreen
 import qualified XMonad.StackSet          as W
+import           XMonad.Util.Run          (hPutStrLn, spawnPipe)
 
 import           Actions
 import           Constants
@@ -46,9 +48,36 @@ myManagementHooks =
                         move_to_workflow    =   doF $ W.shift workflow_ws
 
 
+
+myTitleColor         =      colorMain           -- color of window title
+myTitleLength        =      80                 -- truncate window title to this length
+myCurrentWSColor     =      colorMain           -- color of active workspace
+myVisibleWSColor     =      colorSecondary      -- color of inactive workspace
+myUrgentWSColor      =      "#0000ff"           -- color of workspace with 'urgent' window
+myCurrentWSLeft      =      "["                 -- wrap active workspace with these
+myCurrentWSRight     =      "]"
+myVisibleWSLeft      =      "("                 -- wrap inactive workspace with these
+myVisibleWSRight     =      ")"
+myUrgentWSLeft       =      "{"                 -- wrap urgent workspace with these
+myUrgentWSRight      =      "}"
+
+
+
+myLogHook xmproc = dynamicLogWithPP $ xmobarPP {
+      ppOutput = hPutStrLn xmproc
+    , ppTitle = xmobarColor myTitleColor "" . shorten myTitleLength
+    , ppCurrent = xmobarColor myCurrentWSColor "" . wrap myCurrentWSLeft myCurrentWSRight
+    , ppVisible = xmobarColor myVisibleWSColor "" . wrap myVisibleWSLeft myVisibleWSRight
+    , ppUrgent = xmobarColor myUrgentWSColor "" . wrap myUrgentWSLeft myUrgentWSRight
+  }
+
+
+
+
 -- Stiching together all the settings
 main :: IO ()
-main =
+main = do
+  xmproc <- spawnPipe "xmobar"
   xmonad $ withUrgencyHook NoUrgencyHook $ azertyConfig {
     focusedBorderColor = colorMain
   , normalBorderColor = colorSecondary
@@ -62,4 +91,5 @@ main =
   , startupHook = myStartupHook
   , manageHook = myManageHook
   , layoutHook = myLayoutHook
+  , logHook = myLogHook xmproc
   }

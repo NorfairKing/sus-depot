@@ -1,0 +1,33 @@
+Config {
+        font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = TopW L 200
+       , commands = [ 
+                        Run Com "get_volume" 
+                            [] 
+                        "volume" 10
+                    ,
+                        Run Date 
+                        "%A %Y-%m-%d %H:%M:%S" 
+                        "date" 
+                        1
+                    ,
+                        Run Battery 
+                            [
+                                  "-t","<left>% - <timeleft>"
+                                , "-L", "10", "-H", "80"
+                                , "-l", "#FF0000", "-n", "#FFFF00", "-h", "#00FF00"
+                                , "--"
+                                , "-O", "<fc=green>+</fc>", "-o", "<fc=red>-</fc>"
+                                , "-f", "status"
+                            ] 600
+                    ,
+                        Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ Volume: %volume% | %battery% | <fc=#268BD2>%date%</fc> "
+}
+
+

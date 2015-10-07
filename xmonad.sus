@@ -1,22 +1,28 @@
 card xmonad {
   alternatives $(HOST) shared
-  into ~/.xmonad
 
+  into ~
   outof xmonad
-
-  xmonad.hs
-  makefile
+  
+  .xmobarrc
 
   {
-    into lib
+    into .xmonad
 
-    Actions.hs
-    Constants.hs
-    Internet.hs
-    Keys.hs
-    Layout.hs
-    Workspaces.hs
-    Modifier.hs
-    Solarized.hs
+    xmonad.hs
+    makefile
+
+    {
+      into lib
+
+      Actions.hs
+      Constants.hs
+      Internet.hs
+      Keys.hs
+      Layout.hs
+      Workspaces.hs
+      Modifier.hs
+      Solarized.hs
+    }
   }
 }
