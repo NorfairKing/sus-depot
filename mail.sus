@@ -1,0 +1,24 @@
+card mail {
+  alternatives $(HOST) shared
+  into ~
+  outof mail
+
+  {
+    into .mutt
+    outof mutt
+
+    sig
+    mailcap
+    keys
+    colors
+    alias
+    muttrc
+    specific
+  }
+  {
+    into .imapfilter
+    outof imapfilter
+
+    config.lua
+  }
+}

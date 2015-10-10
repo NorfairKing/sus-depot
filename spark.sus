@@ -14,7 +14,7 @@ card sus {
   spark file spacemacs.sus
   spark file keyboards.sus
   spark file newsbeuter.sus
-  spark file mutt.sus
+  spark file mail.sus
   spark file vim.sus
 
   # Not sure where these go yet.
