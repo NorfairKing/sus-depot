@@ -1,6 +1,9 @@
 # This file is sourced for any zsh shell
-
 source ~/.functions/functions
+debug "sourcing .zshenv"
+indent
 
 safe_source ~/.paths/paths
 safe_source ~/.variables/variables
+ 
+outdent

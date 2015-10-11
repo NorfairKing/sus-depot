@@ -3,6 +3,7 @@ card xorg {
   into ~
   outof xorg
 
+  .screen
   .xinitrc
   .Xresources
 }

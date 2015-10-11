@@ -9,7 +9,6 @@ safe_source ~/.aliases/ls
 safe_source ~/.aliases/navigation
 safe_source ~/.aliases/network
 safe_source ~/.aliases/package
-safe_source ~/.aliases/tmp
 safe_source ~/.aliases/workflow
 safe_source ~/.aliases/xmonad
 safe_source ~/.aliases/eden
@@ -23,5 +22,3 @@ alias x='exit'
 
 # Open files easily.
 alias open='xdg-open'
-
-safe_source ~/.aliases/tmp_aliases

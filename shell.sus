@@ -14,6 +14,8 @@ card shell {
     host
     mail
     java
+    keyboard
+    ls_colors
   }
   {
     into .functions

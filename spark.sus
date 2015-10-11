@@ -4,8 +4,7 @@ card sus {
   alternatives $(HOST) shared
   into ~
 
-  screen    -> .screen
-  fonts     -> .fonts
+  .fonts
 
   spark file xorg.sus
   spark file git.sus

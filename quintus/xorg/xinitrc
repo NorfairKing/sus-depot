@@ -13,5 +13,8 @@ xset r rate 250 30
 # add resources
 xrdb -merge ~/.Xresources
 
+# screen settings
+source ~/.screen
+
 # start xmonad
-xmonad
+~/.cabal/bin/xmonad
