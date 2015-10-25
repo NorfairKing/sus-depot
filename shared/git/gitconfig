@@ -13,3 +13,5 @@
 [core]
 	editor = vim
     excludesfile = ~/.gitignore_global
+[include]
+  path = ~/.git-ghc-config

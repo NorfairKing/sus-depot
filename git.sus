@@ -3,6 +3,8 @@ card git {
   into ~
   outof git
 
-  .gitconfig
   gitignore -> .gitignore_global
+
+  .gitconfig
+  .git-ghc-config
 }

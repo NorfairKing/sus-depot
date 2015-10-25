@@ -1,0 +1,3 @@
+[url "git://github.com/ghc/packages-"]
+  insteadOf = git://github.com/ghc/packages/
+
