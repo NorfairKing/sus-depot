@@ -49,24 +49,28 @@ let g:airline_powerline_fonts = 1
 
 colorscheme wombat
 
-" Renaming
-" For local replace
-nnoremap gr gd[{V%:s/<C-R>///gc<left><left><left>
-
-" For global replace
-nnoremap gR gD:%s/<C-R>///gc<left><left><left>
-
-
 " For YouCompleteMe
 set completeopt=menuone
 
 
 
+map ,. :w<CR>:!make --directory=~/the-notes generate <CR><CR>
+map ,p :w<CR>:!make --directory=~/the-notes generate <CR>
+
+map ms :%s/\.\(\s\+\|$\)/.\r\r/g
 
 
+" cross product
+digraph cp 10799 
 
 
+" delete trailing whitespace on save
+fun! <SID>StripTrailingWhitespaces()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
+endfun
 
-
-
+autocmd FileType c,cpp,java,php,ruby,python,haskell autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
