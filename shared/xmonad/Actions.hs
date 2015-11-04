@@ -199,7 +199,7 @@ myXPConfig = defaultXPConfig {
             }
 
 inPrompt :: X ()
-inPrompt = inputPrompt myXPConfig "in" ?+ (\s -> unsafeSpawn $ "echo \"* " ++ s ++ "\" >> $INBOX")
+inPrompt = inputPrompt myXPConfig "in" ?+ (\s -> unsafeSpawn $ "echo \"* " ++ s ++ "\" >> $ORG_INBOX")
 
 rndPrompt :: X ()
-rndPrompt = inputPrompt myXPConfig "rnd" ?+ (\s -> unsafeSpawn $ "echo \"* " ++ s ++ "\" >> $INBOX")
+rndPrompt = inputPrompt myXPConfig "rnd" ?+ (\s -> unsafeSpawn $ "echo \"* " ++ s ++ "\" >> $ORG_INBOX")
