@@ -11,11 +11,11 @@
 !        &[{+(= *)!}]#
 !        \;,.py fgcrl/
 !  <shift>aoeui dhtns<shift>
-!   <ctrl>'qjkx bmwvz<ctrl>
+!<compose>'qjkx bmwvz<compose>
 !         <$       -@
 !
 !               <super>  <alt>  <alt>  <super>
-!                    <compose>  <compose>
+!                       <ctrl>  <ctrl>
 !   <backspace> <tab> <delete>  <esc>  <enter> <space>
 ! 
 !
@@ -24,7 +24,7 @@
 !        %75319 02468`
 !        |:<>PY FGCRL?
 !  <shift>AOEUI DHTNS<shift>
-!   <ctrl>"QJKX BMWVZ<ctrl>
+!<compose>"QJKX BMWVZ<compose>
 !         >~       _^
 ! 
 !
@@ -111,7 +111,7 @@ keycode  48   =  Shift_R                NoSymbol        Shift_R
 
 
 !! fourth row
-keycode  50   =  Control_L              NoSymbol        Control_L
+keycode  50   =  Multi_key              NoSymbol        Multi_key
 keycode  52   =  apostrophe             quotedbl        apostrophe            quotedbl     dead_acute       dead_doubleacute  dead_acute
 keycode  53   =  q                      Q               q                     Q
 keycode  54   =  j                      J               j                     J
@@ -123,7 +123,7 @@ keycode  58   =  m                      M               m                     M 
 keycode  59   =  w                      W               w                     W
 keycode  60   =  v                      V               v                     V
 keycode  61   =  z                      Z               z                     Z
-keycode  62   =  Control_R              NoSymbol        Control_R
+keycode  62   =  Multi_key              NoSymbol        Multi_key
 
 
 !! fifth row
@@ -146,14 +146,14 @@ keycode  64   =  Alt_L                  Meta_L          Alt_L                 Me
 
 keycode  22   =  BackSpace              BackSpace       BackSpace             BackSpace
 keycode  119  =  Tab                    ISO_Left_Tab    Tab                   ISO_Left_Tab
-keycode  110  =  Multi_key
+keycode  110  =  Control_L
 keycode  115  =  Delete                 NoSymbol        Delete
 
 !! Right thumb keys
 keycode  134  =  Alt_R                  Meta_R          Alt_R                 Meta_R
 keycode  105  =  Super_R                NoSymbol        Super_R
 
-keycode  112  =  Multi_key
+keycode  112  =  Control_R
 keycode  117  =  Escape                 NoSymbol        Escape
 keycode  36   =  Return                 NoSymbol        Return
 keycode  65   =  space                  NoSymbol        space
