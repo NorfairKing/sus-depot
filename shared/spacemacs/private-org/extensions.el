@@ -12,6 +12,7 @@
 
 (setq private-org-pre-extensions
       '(
+        clockers
         appearance
         archive
         todo-keywords
@@ -24,6 +25,13 @@
 (setq private-org-post-extensions
       '(
         ))
+
+
+(defun private-org/init-clockers ()
+  (global-set-key (kbd "<f5>") 'org-clock-in)
+  (global-set-key (kbd "<f6>") 'org-clock-out)
+  (global-set-key (kbd ">") 'org-clock-out)
+  )
 
 (defun private-org/init-appearance ()
   (setq org-bullets-bullet-list '("▶" "►" "▸" "·"))
@@ -129,11 +137,18 @@
   (insert "\n")
   (insert "- "))
 
+(defun new-header ()
+  (interactive)
+  (org-insert-heading-after-current)
+  (evil-insert-state)
+  )
+
 (defun private-org/init-custom-keys ()
 
   (evil-leader/set-key
-    "oe" 'new-people-entry
-    )
+    "oe" 'new-people-entry)
+  (evil-leader/set-key
+    "hh" 'new-header)
   (print "Test")
   )
 

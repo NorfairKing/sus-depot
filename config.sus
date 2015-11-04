@@ -1,0 +1,11 @@
+card config {
+  alternatives $(HOST) shared
+  into ~/.config
+  outof config
+
+  {
+    outof xdg
+    user-dirs.locale
+    user-dirs.dirs
+  }
+}

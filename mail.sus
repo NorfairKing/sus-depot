@@ -15,10 +15,4 @@ card mail {
     muttrc
     specific
   }
-  {
-    into .imapfilter
-    outof imapfilter
-
-    config.lua
-  }
 }
