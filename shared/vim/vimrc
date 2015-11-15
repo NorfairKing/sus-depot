@@ -22,6 +22,9 @@ set smarttab
 " always uses spaces instead of tab characters
 set expandtab
 
+
+autocmd FileType haskell setlocal shiftwidth=4 tabstop=4 softtabstop=4
+
 " No more arrow keys
 map <Left> <Nop>
 map <Right> <Nop>
@@ -62,6 +65,9 @@ map ms :%s/\.\(\s\+\|$\)/.\r\r/g
 
 " cross product
 digraph cp 10799 
+
+digraph ub 8851
+digraph lb 8852
 
 
 " delete trailing whitespace on save
