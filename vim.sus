@@ -4,5 +4,7 @@ card vim {
   outof vim
 
   dotvim -> .vim
-  .vimrc
+  dotvim -> .nvim
+  vimrc -> .vimrc
+  vimrc -> .nvimrc
 }
