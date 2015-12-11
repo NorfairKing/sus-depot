@@ -24,6 +24,7 @@ set expandtab
 
 
 autocmd FileType haskell setlocal shiftwidth=4 tabstop=4 softtabstop=4
+let g:ycm_semantic_triggers = {'haskell' : ['.']}
 
 " No more arrow keys
 map <Left> <Nop>
@@ -57,8 +58,8 @@ set completeopt=menuone
 
 
 " For the notes, compile, generate tex and compile tex in one command
-map ,. :w<CR>:!make --directory=~/the-notes generate <CR><CR>
-map ,p :w<CR>:!make --directory=~/the-notes generate <CR>
+map ,. :w<CR>:!make -B --directory=~/the-notes bin && cd ~/the-notes && ./current <CR><CR>
+map ,p :w<CR>:!make -B --directory=~/the-notes bin && cd ~/the-notes && ./current <CR>
 
 map ms :%s/\.\(\s\+\|$\)/.\r\r/g
 
@@ -66,8 +67,8 @@ map ms :%s/\.\(\s\+\|$\)/.\r\r/g
 " cross product
 digraph cp 10799 
 
-digraph ub 8851
-digraph lb 8852
+digraph lb 8851
+digraph ub 8852
 
 
 " delete trailing whitespace on save
