@@ -51,89 +51,43 @@ searchEngineMap method = M.fromList
        ]
 
 
-
-{- Keyboard Layout -}
-
--- Change keyboard layout.
-changeKeyboardLayout :: X ()
-changeKeyboardLayout = SM.submap keyboardMap
-
--- Keys to change keyboard layout
-keyboardMap :: M.Map (KeyMask, KeySym) (X ())
-keyboardMap = M.fromList
-    [
-          ((0, xK_F1), spawn "setxkbmap us")
-        , ((0, xK_F2), spawn "setxkbmap be")
-        , ((0, xK_F3), spawn "setxkbmap dvorak")
-        , ((0, xK_F4), spawn "setxkbmap us -variant dvp")
-        , ((0, xK_F5), spawn "xmodmap ~/.keyboards/dvorak.kinesis")
-        , ((0, xK_F12), spawn "xset r rate 250 30")
-    ]
-
-orgMap :: M.Map (KeyMask, KeySym) (X ())
-orgMap = M.fromList
-    [
-          ((0, xK_w), orgWork)
-        , ((0, xK_p), orgPersonal)
-        , ((0, xK_r), orgProject)
-        , ((0, xK_b), orgBlog)
-        , ((0, xK_i), orgInbox)
-    ]
-
-spaceMap :: M.Map (KeyMask, KeySym) (X ())
-spaceMap = M.fromList
-    [
-          ((0, xK_r), rndPrompt)
-        , ((0, xK_i), inPrompt)
-    ]
-
-
 {- KEYBINDINGS -}
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys _ = M.fromList $
     [
-        ((mod                                 , xK_f      ),  spawnTerminal                   ),
-        ((mod                                 , xK_y      ),  closeWindow                     ),
+        ((mod                                 , xK_f            ),  spawnTerminal       ),
+        ((mod                                 , xK_y            ),  closeWindow         ),
 
-        -- [{+(= *)!}]
-        ((mod                                 , xK_bracketleft    ),  nothing                 ),
-        ((mod                                 , xK_braceleft      ),  focusPrevScreen         ),
-        ((mod .|. shiftMask                   , xK_braceleft      ),  shiftPrevScreen         ),
-        ((mod                                 , xK_parenleft      ),  lessWindows             ),
-        ((mod                                 , xK_plus           ),  focusWindowDown         ),
-        ((mod .|. shiftMask                   , xK_plus           ),  swapWindowDown          ),
-        ((mod                                 , xK_equal          ),  shrinkWindow            ),
-        ((mod                                 , xK_asterisk       ),  expandWindow            ),
-        ((mod                                 , xK_exclam         ),  focusWindowUp           ),
-        ((mod                                 , xK_parenright     ),  moreWindows             ),
-        ((mod .|. shiftMask                   , xK_exclam         ),  swapWindowUp            ),
-        ((mod                                 , xK_braceright     ),  focusNextScreen         ),
-        ((mod .|. shiftMask                   , xK_braceright     ),  shiftNextScreen         ),
-        ((mod                                 , xK_bracketright   ),  nothing                 ),
+        -- Top row layout: [{+(= *)!}]
+        ((mod                                 , xK_bracketleft  ),  nothing             ),
+        ((mod                                 , xK_braceleft    ),  focusPrevScreen     ),
+        ((mod .|. shiftMask                   , xK_braceleft    ),  shiftPrevScreen     ),
+        ((mod                                 , xK_parenleft    ),  lessWindows         ),
+        ((mod                                 , xK_plus         ),  focusWindowDown     ),
+        ((mod .|. shiftMask                   , xK_plus         ),  swapWindowDown      ),
+        ((mod                                 , xK_equal        ),  shrinkWindow        ),
+        ((mod                                 , xK_asterisk     ),  expandWindow        ),
+        ((mod                                 , xK_exclam       ),  focusWindowUp       ),
+        ((mod                                 , xK_parenright   ),  moreWindows         ),
+        ((mod .|. shiftMask                   , xK_exclam       ),  swapWindowUp        ),
+        ((mod                                 , xK_braceright   ),  focusNextScreen     ),
+        ((mod .|. shiftMask                   , xK_braceright   ),  shiftNextScreen     ),
+        ((mod                                 , xK_bracketright ),  nothing             ),
 
-        ((mod                                 , xK_Return     ),  promptedSearch              ),
-        ((mod .|. shiftMask                   , xK_Return     ),  changeKeyboardLayout        ),
-        ((mod .|. controlMask                 , xK_Return     ),  logOut                      ),
-        ((mod .|. controlMask .|. shiftMask   , xK_Return     ),  nothing                     ),
-        ((mod                                 , xK_space      ),  nextLayout                  ),
-        ((mod .|. shiftMask                   , xK_space      ),  SM.submap spaceMap          ),
-        ((mod                                 , xK_Tab        ),  nextWindow                  ),
-        ((mod .|. shiftMask                   , xK_Tab        ),  previousWindow              ),
-        ((mod .|. controlMask                 , xK_q          ),  suspend                     ),
-        ((mod .|. controlMask .|. shiftMask   , xK_q          ),  shutdown                    ),
-        ((mod .|. controlMask                 , xK_x          ),  shellPrompt myXPConfig      ),
-        ((mod                                 , xK_semicolon  ),  inPrompt                    ),
-        ((mod                                 , xK_comma      ),  SM.submap orgMap            ),
-        ((mod                                 , xK_period     ),  internet                    ),
-        ((mod                                 , xK_F4         ),  mail                        ),
-        ((mod                                 , xK_F5         ),  lightDown                   ),
-        ((mod                                 , xK_F6         ),  lightUp                     ),
-        ((mod                                 , xK_F10        ),  mute                        ),
-        ((mod                                 , xK_F11        ),  volumeDown                  ),
-        ((mod .|. shiftMask                   , xK_F11        ),  lightDown                   ),
-        ((mod                                 , xK_F12        ),  volumeUp                    ),
-        ((mod .|. shiftMask                   , xK_F12        ),  lightUp                     ),
-        ((mod                                 , xK_BackSpace  ),  tileAgain                   )
+        ((mod                                 , xK_space        ),  nextLayout          ),
+        ((mod                                 , xK_Tab          ),  nextWindow          ),
+        ((mod .|. shiftMask                   , xK_Tab          ),  previousWindow      ),
+        ((mod                                 , xK_comma        ),  inPrompt            ),
+        ((mod                                 , xK_period       ),  internet            ),
+        ((mod                                 , xK_F4           ),  mail                ),
+        ((mod                                 , xK_F5           ),  lightDown           ),
+        ((mod                                 , xK_F6           ),  lightUp             ),
+        ((mod                                 , xK_F10          ),  mute                ),
+        ((mod                                 , xK_F11          ),  volumeDown          ),
+        ((mod .|. shiftMask                   , xK_F11          ),  lightDown           ),
+        ((mod                                 , xK_F12          ),  volumeUp            ),
+        ((mod .|. shiftMask                   , xK_F12          ),  lightUp             ),
+        ((mod                                 , xK_BackSpace    ),  tileAgain           )
     ]
     ++
     navigationKeys
