@@ -11,13 +11,14 @@ Config {
                     ,
                         Run Battery 
                             [
-                                  "-t","<left>% - <timeleft>"
+                                  "-t","<left>% <acstatus> <timeleft> "
                                 , "-L", "10", "-H", "80"
                                 , "-l", "#FF0000", "-n", "#FFFF00", "-h", "#00FF00"
                                 , "--"
-                                , "-O", "<fc=green>+</fc>", "-o", "<fc=red>-</fc>"
-                                , "-f", "status"
-                            ] 600
+                                , "-o", "<fc=red>-</fc>"
+                                , "-O", "<fc=green>+</fc>"
+                                , "-i", "<fc=green>=</fc>"
+                            ] 60
                     ,
                         Run StdinReader
                     ]
