@@ -51,6 +51,10 @@ searchEngineMap method = M.fromList
        , ((0, xK_y), method S.youtube)
        ]
 
+-- Change keyboard layout.
+changeKeyboardLayout :: X ()
+changeKeyboardLayout = SM.submap keyboardMap
+
 keyboardMap :: M.Map (KeyMask, KeySym) (X ())
 keyboardMap = M.fromList
     [
@@ -58,8 +62,10 @@ keyboardMap = M.fromList
         , ((0, xK_F2), spawn "setxkbmap be")
         , ((0, xK_F3), spawn "setxkbmap dvorak")
         , ((0, xK_F4), spawn "setxkbmap us -variant dvp")
-        , ((0, xK_F4), spawn "xmodmap ~/.keyboards/dvorak.primus")
+        , ((0, xK_F5), spawn "xmodmap ~/.keyboards/dvorak.kinesis")
+        , ((0, xK_F12), spawn "xset r rate 250 30")
     ]
+
 
 -- custom keybindings
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())

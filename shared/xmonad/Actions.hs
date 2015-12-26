@@ -203,5 +203,3 @@ inPrompt = inputPrompt myXPConfig "in" ?+ (\s -> unsafeSpawn $ "echo \"* " ++ s 
 
 rndPrompt :: X ()
 rndPrompt = inputPrompt myXPConfig "rnd" ?+ (\s -> unsafeSpawn $ "echo \"* " ++ s ++ "\" >> $ORG_INBOX")
-
-
