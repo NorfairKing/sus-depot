@@ -6,10 +6,10 @@ card sus {
 
   .fonts
 
+  spark file shell.sus
   spark file xorg.sus
   spark file git.sus
   spark file xmonad.sus
-  spark file shell.sus
   spark file spacemacs.sus
   spark file keyboards.sus
   spark file newsbeuter.sus

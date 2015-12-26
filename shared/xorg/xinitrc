@@ -4,8 +4,8 @@ xset s off
 # set the cursor
 xsetroot -cursor_name left_ptr
 
-# set belgian keyboard layout
-setxkbmap -layout be -option ctrl:nocaps
+# Set the appropriate keyboard layout
+xmodmap ~/.keyboards/current
 
 # set retype speed
 xset r rate 250 30
