@@ -16,14 +16,11 @@ workflow_ws = workspace 'a'
 mail_ws     = workspace 'z'
 web_ws      = workspace 'i'
 
-workspacePrefix :: String
-workspacePrefix = "w_"
-
 workspace :: Char -> WorkspaceId
-workspace s = workspacePrefix ++ [s]
+workspace s = [s]
 
 myWorkspaces :: [WorkspaceId]
-myWorkspaces = map (\x -> workspace [x]) alphabet
+myWorkspaces = map workspace alphabet
 
 workspaceKeys :: [KeySym]
 workspaceKeys =
