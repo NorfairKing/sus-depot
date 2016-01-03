@@ -37,15 +37,18 @@ card shell {
     aliases
     color
     dotfile
+    eden
     editor
     git
+    gpg
+    task
     ls
     navigation
     network
     package
+    task
     workflow
     xmonad
-    eden
   }
   {
     outof bash

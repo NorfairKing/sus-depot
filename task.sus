@@ -1,0 +1,14 @@
+card task {
+  alternatives $(HOST) shared
+
+  into ~
+  outof task
+
+  .taskrc
+
+  {
+    into .task
+
+    specific
+  }
+}

@@ -1,0 +1,108 @@
+alias t='task'
+
+alias tm='t modify'
+alias ti='t info'
+
+## Add task
+alias ta='t add'
+
+task_add_project () {
+  project="$1"
+  shift
+  ta pro:"$project" $@
+}
+alias tp=task_add_project
+
+## List task
+task_list_project () {
+  project="$1"
+  shift
+  task pro:"$project"
+}
+alias tpl=task_list_project
+
+## Task done
+task_done () {
+  id="$1"
+  shift
+  task "$id" done
+}
+alias td=task_done
+
+## Make notes about a task
+note_ () {
+  local id="$1"
+  local dir="$HOME/.task/notes"
+  mkdir -p $dir
+  if [[ "$id" =~ ^[0-9]+$ ]]
+  then
+    # It's a number
+    uuid="$(task $id _uuids)"
+    if [[ "$uuid" == "" ]]
+    then
+      return -1
+    fi
+    tm "$id" +hasnote
+    dir="$dir/tasks/"
+    mkdir -p $dir
+    file="$dir/$uuid"
+  else
+    # It's not a number
+    dir="$HOME/workflow/projects"
+    mkdir -p $dir
+    file="$dir/$id.org"
+    if ! [[ -f "$file" ]]
+    then
+      echo "$id" | awk '{print toupper ($0)}' >> "* $file"
+    fi
+  fi
+  # echo "$dir"
+  # echo "$file"
+  # vim + +startinsert "$file"
+  e "$file"
+}
+
+alias n=note_
+
+## Inbox
+alias inb='ta +inbox'
+alias in='inb +in'
+alias rnd='inb +rnd +@computer +@online'
+
+tickle () {
+    deadline=$1
+    shift
+    inb +tickle wait:$deadline $@
+}
+alias tick=tickle
+alias think='inb wait:+1d +think'
+
+alias inbox='t inbox'
+
+alias repay='ta +repay'
+
+## Waiting
+alias taw='ta +waiting'
+alias waiting='task wait'
+
+
+## Blog
+alias tab='ta +blog'
+
+
+## Read and review
+webpage_title (){
+    wget -qO- "$*" | hxselect -s '\n' -c  'title' 2>/dev/null
+}
+
+read_and_review (){
+    link="$1"
+    title=$(webpage_title $link)
+    echo $title
+    descr="\"Read and review: $title\""
+    id=$(inb +rnr "$descr" | sed -n 's/Created task \(.*\)./\1/p')
+    task "$id" annotate "$link"
+}
+
+alias rnr=read_and_review
+
