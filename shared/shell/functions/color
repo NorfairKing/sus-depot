@@ -1,0 +1,18 @@
+#!/bin/bash
+print_colored_text () {
+  local ESC_SEQ="\x1b["
+  local COL_RESET="${ESC_SEQ}39;49;00m"
+  local COL_RED="${ESC_SEQ}31;11m"
+  local COL_GREEN="${ESC_SEQ}32;11m"
+  local COL_YELLOW="${ESC_SEQ}33;11m"
+  local COL_BLUE="${ESC_SEQ}34;11m"
+  local COL_MAGENTA="${ESC_SEQ}35;11m"
+  local COL_CYAN="${ESC_SEQ}36;11m"
+
+  local color="$1"
+  local text="$2"
+  local color_code="COL_$color"
+  local actual_color=$(eval echo \${$color_code})
+  local actual="${actual_color}${text}${COL_RESET}"
+  echo -n "$actual"
+}
