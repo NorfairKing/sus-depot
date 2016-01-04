@@ -68,3 +68,5 @@ maybe_variable_default () {
     echo "$variable"
   fi
 }
+
+safe_source ~/.functions/color

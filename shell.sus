@@ -65,5 +65,10 @@ card shell {
     .zprofile
     .zshenv
     .zshrc
+
+    {
+      into .oh-my-zsh/themes
+      agnoster.zsh-theme
+    }
   }
 }

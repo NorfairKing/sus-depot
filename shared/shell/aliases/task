@@ -78,6 +78,7 @@ alias tick=tickle
 alias think='inb wait:+1d +think'
 
 alias inbox='t inbox'
+alias i='inbox'
 
 alias repay='ta +repay'
 

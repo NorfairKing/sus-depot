@@ -24,3 +24,13 @@ safe_source $ZSH/oh-my-zsh.sh
 safe_source ~/.aliases/aliases
 
 outdent
+
+
+
+
+projects=$(projects_without_next_action.sh)
+if [ "$projects" != "" ]
+then
+  print_colored_text RED "Attention: The following projects don't currently have a next action:\n"
+  echo $projects
+fi
