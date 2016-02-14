@@ -8,9 +8,7 @@ card shell {
     into .variables
     outof variables
 
-    variables
     workflow
-    specific
     host
     mail
     java

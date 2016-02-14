@@ -46,7 +46,9 @@ Have a look at `spark.sus` to see how these are deployed.
       - `variables`
       - `host`
       - `workflow`
-      - `specific`
+      - `mail`
+      - `java`
+      - `ls_colors`
     - Bash
       - `.bash_login`
       - `.bash_logout`

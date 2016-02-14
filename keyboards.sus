@@ -9,6 +9,6 @@ card keyboards {
     qwerty
     dvorak
     dvorak.kinesis
-    $(KEYBOARD)  -> current
+    $(KEYBOARD) -> current
   }
 }

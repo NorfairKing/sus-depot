@@ -15,12 +15,4 @@ card sus {
   spark file newsbeuter.sus
   spark file mail.sus
   spark file vim.sus
-
-  # Not sure where these go yet.
-  {
-    into .config
-
-    zathurarc     -> zathura/zathurarc
-    redshift.conf
-  }
 }
