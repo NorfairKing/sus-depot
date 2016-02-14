@@ -27,8 +27,6 @@ myStartupHook = do
     -- Make Java GUI's work
     setWMName "LG3D"
 
-    spawn "redshift -l 50:0"
-
     -- Set the current workspace to the startup workspace
     windows $ W.greedyView startupWorkspace
 
