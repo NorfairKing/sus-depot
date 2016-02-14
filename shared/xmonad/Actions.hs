@@ -13,7 +13,8 @@ import           XMonad                         (ChangeLayout (..),
 import qualified XMonad.StackSet                as W
 
 import           XMonad.Actions.PhysicalScreens
-import           XMonad.Prompt                  (XPConfig (..), defaultXPConfig)
+import           XMonad.Prompt                  (XPConfig (..), def,
+                                                 defaultXPConfig)
 import           XMonad.Prompt.Input
 import           XMonad.Util.Run                (unsafeSpawn)
 
@@ -188,7 +189,7 @@ lessWindows = sendMessage (IncMasterN (-1))
 
 
 myXPConfig :: XPConfig
-myXPConfig = defaultXPConfig {
+myXPConfig = def {
                 font="-*-lucida-medium-r-*-*-14-*-*-*-*-*-*-*"
               , height      = 22
               , bgColor     = solarizedBase03
@@ -199,7 +200,7 @@ myXPConfig = defaultXPConfig {
             }
 
 inPrompt :: X ()
-inPrompt = inputPrompt myXPConfig "in" ?+ (\s -> unsafeSpawn $ "echo \"* " ++ s ++ "\" >> $ORG_INBOX")
+inPrompt = inputPrompt myXPConfig "in" ?+ (\s -> unsafeSpawn $ "in " ++ s)
 
 rndPrompt :: X ()
-rndPrompt = inputPrompt myXPConfig "rnd" ?+ (\s -> unsafeSpawn $ "echo \"* " ++ s ++ "\" >> $ORG_INBOX")
+rndPrompt = inputPrompt myXPConfig "rnd" ?+ (\s -> unsafeSpawn $ "rnd " ++ s)
