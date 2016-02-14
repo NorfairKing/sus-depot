@@ -10,7 +10,8 @@ card xmonad {
     into .xmonad
 
     xmonad.hs
-    makefile
+    my-xmonad.cabal
+    stack.yaml
 
     {
       into lib
