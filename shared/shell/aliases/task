@@ -56,7 +56,6 @@ alias tmn=task_make_next
 ## Make notes about a task
 note_ () {
   local id="$1"
-  local dir="$HOME/.task/notes"
   mkdir -p $dir
   if [[ "$id" =~ ^[0-9]+$ ]]
   then

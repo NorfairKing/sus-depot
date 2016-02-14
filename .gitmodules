@@ -13,12 +13,3 @@
 [submodule "shared/vim/dotvim/bundle/vim-wakatime"]
 	path = shared/vim/dotvim/bundle/vim-wakatime
 	url = git://github.com/wakatime/vim-wakatime.git
-[submodule "shared/vim/dotvim/bundle/tabular"]
-	path = shared/vim/dotvim/bundle/tabular
-	url = git@github.com:godlygeek/tabular.git
-[submodule "shared/vim/dotvim/bundle/vim-hsimport"]
-	path = shared/vim/dotvim/bundle/vim-hsimport
-	url = git@github.com:dan-t/vim-hsimport.git
-[submodule "shared/vim/dotvim/bundle/vim-taskwarrior"]
-	path = shared/vim/dotvim/bundle/vim-taskwarrior
-	url = git@github.com:blindFS/vim-taskwarrior.git
