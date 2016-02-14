@@ -1,5 +1,6 @@
 # Bin
 add "$HOME/scripts"
+add "$HOME/.local/bin"
 add "$HOME/.cabal/bin"
 add "/usr/lib/python3.4/site-packages"
 

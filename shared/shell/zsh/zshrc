@@ -33,4 +33,12 @@ if [ "$projects" != "" ]
 then
   print_colored_text RED "Attention: The following projects don't currently have a next action:\n"
   echo $projects
+  echo
+fi
+
+waiting=$(task +waiting +PENDING count)
+if [ "$waiting" != "0" ]
+then
+  print_colored_text BLUE "Any progress on these waiting-fors?\n"
+  task +waiting +PENDING ls
 fi

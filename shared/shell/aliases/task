@@ -1,7 +1,9 @@
 alias t='task'
 
+alias tn='task +next'
 alias tm='t modify'
 alias ti='t info'
+
 
 ## Add task
 alias ta='t add'
@@ -28,6 +30,28 @@ task_done () {
   task "$id" done
 }
 alias td=task_done
+
+## Cancel Task
+cancel_task () {
+  id="$1"
+  tm "$id" +cancelled
+  td "$id"
+}
+alias tc=cancel_task
+
+## Make a task +waiting
+task_make_waiting () {
+  id="$1"
+  tm "$id" +waiting
+}
+alias tmw=task_make_waiting
+
+## Make a task +next
+task_make_next () {
+  id="$1"
+  tm "$id" +next
+}
+alias tmn=task_make_next
 
 ## Make notes about a task
 note_ () {
@@ -78,7 +102,7 @@ alias tick=tickle
 alias think='inb wait:+1d +think'
 
 alias inbox='t inbox'
-alias i='inbox'
+alias i='inbox limit:1'
 
 alias repay='ta +repay'
 
@@ -106,4 +130,5 @@ read_and_review (){
 }
 
 alias rnr=read_and_review
+
 

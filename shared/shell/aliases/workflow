@@ -6,3 +6,5 @@ alias z='zathura'
 # alias vim="nvim" # Use neovim
 
 alias make="make -j8"
+alias someday="e ~/workflow/someday-maybe.org"
+alias review="e ~/workflow/review.org"

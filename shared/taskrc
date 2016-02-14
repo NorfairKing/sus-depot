@@ -15,14 +15,14 @@ taskd.ca=\/home\/syd\/.task\/freecinc_52bbebed.ca.pem
 # Next
 report.next.columns           = id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.remaining,until.remaining,description,urgency
 report.next.description       = Most urgent tasks
-report.next.filter            = status:pending limit:page (-waiting -repay -inbox)
+report.next.filter            = status:pending limit:page -waiting -inbox
 report.next.labels            = ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg
 report.next.sort              = urgency-
 
 # Inbox
 report.inbox.columns          = id,description
 report.inbox.description      = Inbox
-report.inbox.filter           = status:pending limit:page (+inbox)
+report.inbox.filter           = status:pending limit:page (+inbox -waiting)
 report.inbox.labels           = ID,Description
 
 # Waiting

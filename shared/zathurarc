@@ -1,8 +1,8 @@
-set smooth-scroll true
+set smooth-scroll false
 set scroll-step 80
 
-set recolor-darkcolor "#839496"
-set recolor-lightcolor "#002b36"
+set recolor-darkcolor "#a5b6b8"
+set recolor-lightcolor "#224d58"
 set recolor true
 set completion-fg "#839496"
 set completion-bg "#002b36"

@@ -190,7 +190,7 @@ prompt_status() {
 
 prompt_in() {
   # amount=$(wc -l $ORG_INBOX | tr -s ' ' '\n' | head -n 1)
-  amount=$(task +inbox +PENDING count)
+  amount=$(task +inbox -waiting +PENDING count)
   if [ "0" != "$amount" ]
   then
     prompt_segment red black "$amount"
