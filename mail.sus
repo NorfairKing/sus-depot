@@ -13,6 +13,5 @@ card mail {
     colors
     alias
     muttrc
-    specific
   }
 }

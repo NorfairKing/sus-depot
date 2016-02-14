@@ -20,7 +20,6 @@ Have a look at `spark.sus` to see how these are deployed.
     - `mailcap`
     - `muttrc`
     - `sig`
-    - `specific`
 - Newsbeuter (`newsbeuter.sus`)
     - `config`
     - `urls`
@@ -29,8 +28,10 @@ Have a look at `spark.sus` to see how these are deployed.
       - `aliases`
       - `color`
       - `dotfile`
+      - `eden`
       - `editor`
       - `git`
+      - `gpg`
       - `ls`
       - `navigation`
       - `network`
@@ -39,7 +40,6 @@ Have a look at `spark.sus` to see how these are deployed.
       - `xmonad`
     - Paths
       - `paths`
-      - `specific`
     - Functions
       - `functions`
     - Variables
@@ -59,6 +59,7 @@ Have a look at `spark.sus` to see how these are deployed.
       - `.zprofile`
       - `.zshenv`
       - `.zshrc`
+      - `.oh-my-zsh/themes/agnoster.zsh-theme`
 - Spacemacs (`spacemacs.sus`)
   - `.spacemacs`
   - Private org mode configuration
@@ -71,8 +72,16 @@ Have a look at `spark.sus` to see how these are deployed.
 - Xorg (`xorg.sus`)
     - `.xinitrc`
     - `.Xresources`
+    - Monitor setup config: `.screen`
 - Redshift
     - `redshift.conf`
+- Zathura
+    - `zathurarc`
+- Xdg
+    - `user-dirs.locale`
+    - `user-dirs.dirs`
+- Taskwarrior
+    - `.taskrc`
 
 ## Not included (on purpose)
 

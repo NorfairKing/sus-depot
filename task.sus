@@ -5,10 +5,4 @@ card task {
   outof task
 
   .taskrc
-
-  {
-    into .task
-
-    specific
-  }
 }

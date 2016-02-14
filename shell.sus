@@ -27,7 +27,6 @@ card shell {
     outof paths
 
     paths
-    specific
   }
   {
     into .aliases
