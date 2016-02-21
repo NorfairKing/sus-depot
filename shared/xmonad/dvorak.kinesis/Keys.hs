@@ -92,7 +92,6 @@ myKeys _ = M.fromList $
         ((mod                                 , xK_space        ),  nextLayout          ),
         ((mod                                 , xK_Tab          ),  nextWindow          ),
         ((mod .|. shiftMask                   , xK_Tab          ),  previousWindow      ),
-        ((mod                                 , xK_comma        ),  inPrompt            ),
         ((mod                                 , xK_period       ),  internet            ),
         ((mod                                 , xK_semicolon    ),  inPrompt            ),
         ((mod                                 , xK_F4           ),  mail                ),

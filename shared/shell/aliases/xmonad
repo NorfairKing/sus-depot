@@ -1,5 +1,5 @@
 alias xmd='vim $HOME/.xmonad/xmonad.hs'
-alias xmrc='cd ~/.xmonad && stack install'
+alias xmrc='xmonad --recompile'
 alias xmrs='xmonad --restart'
 
 alias xmb='vim $HOME/.xmobarrc'

@@ -39,11 +39,6 @@ mail                = spawn "urxvt -e zsh -c \"mutt\""
 files :: X ()
 files               = spawn "nautilus --no-desktop"
 
-
--- Restart xmonad after recompiling it.
-restart_xmonad :: X ()
-restart_xmonad = spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi"
-
 suspend :: X ()
 suspend = spawn "pm-suspend"
 
@@ -200,7 +195,7 @@ myXPConfig = def {
             }
 
 inPrompt :: X ()
-inPrompt = inputPrompt myXPConfig "in" ?+ (\s -> unsafeSpawn $ "in " ++ s)
+inPrompt = inputPrompt myXPConfig "in" ?+ (\s -> unsafeSpawn $ "task add +inbox +in " ++ s)
 
 rndPrompt :: X ()
-rndPrompt = inputPrompt myXPConfig "rnd" ?+ (\s -> unsafeSpawn $ "rnd " ++ s)
+rndPrompt = inputPrompt myXPConfig "in" ?+ (\s -> unsafeSpawn $ "task add +inbox +rnd " ++ s)

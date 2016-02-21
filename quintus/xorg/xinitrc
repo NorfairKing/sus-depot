@@ -16,5 +16,8 @@ xrdb -merge ~/.Xresources
 # screen settings
 source ~/.screen
 
+# Redshift
+redshift -l 50:0 &
+
 # start xmonad
-~/.cabal/bin/xmonad
+xmonad

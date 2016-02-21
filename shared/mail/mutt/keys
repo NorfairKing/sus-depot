@@ -33,6 +33,3 @@ macro index,pager <f2> "<copy-message>+skgmail/archive<enter><save-message>+skgm
 macro index,pager <f3> "<copy-message>+skgmail/archive<enter><save-message>+skgmail/wait<enter><enter>" "Waiting for"
 macro index,pager <f4> "<copy-message>+skgmail/archive<enter><save-message>+skgmail/ref<enter><enter>" "Refference"
 
-
-## System-specific Keybindings ------------------------------------------------
-source "~/.mutt/specific"

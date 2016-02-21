@@ -11,9 +11,15 @@ Config {
                     ,
                         Run Battery 
                             [
-                                  "-t","<left>% <acstatus> <timeleft> "
-                                , "-L", "10", "-H", "80"
-                                , "-l", "#FF0000", "-n", "#FFFF00", "-h", "#00FF00"
+                                  "-t", "<left>% <acstatus> <timeleft> "
+
+                                , "-L", "10"
+                                , "-H", "80"
+
+                                , "-l", "#FF0000"
+                                , "-n", "#FFFF00"
+                                , "-h", "#00FF00"
+
                                 , "--"
                                 , "-o", "<fc=red>-</fc>"
                                 , "-O", "<fc=green>+</fc>"
@@ -23,7 +29,6 @@ Config {
                         Run StdinReader
                     ]
        , sepChar = "%"
-       , alignSep = "}{"
        , template = "%StdinReader% }{ %battery% | <fc=#268BD2>%date%</fc> "
 }
 
