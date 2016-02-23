@@ -26,8 +26,6 @@ safe_source ~/.aliases/aliases
 outdent
 
 
-
-
 projects=$(projects_without_next_action.sh)
 if [ "$projects" != "" ]
 then
@@ -42,3 +40,5 @@ then
   print_colored_text BLUE "Any progress on these waiting-fors?\n"
   task +waiting +PENDING ls
 fi
+
+print_colored_text BLUE "Are you sure you're in the right context? Make sure to try @offline and @campus if that's where you are.\n"

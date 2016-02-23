@@ -14,7 +14,7 @@ xset r rate 250 30
 xrdb -merge ~/.Xresources
 
 # Start redshift
-redshift -l 50:0
+redshift -l 50:0 &
 
 # start xmonad
-~/.xmonad/xmonad
+xmonad

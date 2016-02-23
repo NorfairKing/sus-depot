@@ -56,7 +56,6 @@ alias tmn=task_make_next
 ## Make notes about a task
 note_ () {
   local id="$1"
-  mkdir -p $dir
   if [[ "$id" =~ ^[0-9]+$ ]]
   then
     # It's a number
@@ -79,9 +78,6 @@ note_ () {
       echo "$id" | awk '{print toupper ($0)}' >> "* $file"
     fi
   fi
-  # echo "$dir"
-  # echo "$file"
-  # vim + +startinsert "$file"
   e "$file"
 }
 
