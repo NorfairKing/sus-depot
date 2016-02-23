@@ -105,13 +105,15 @@ set forward_quote                       # include message in forwards
 
 ## Account --------------------------------------------------------------------
 # Default inbox.
-set spoolfile = "+skgmail/INBOX"
-mailboxes   +skgmail/INBOX \
-            +skgmail/rnr \
+set spoolfile = "+skgmail/rd"
+mailboxes   +skgmail/rd \
+            +skgmail/review \
             +skgmail/reply \
             +skgmail/wait \
             +skgmail/ref \
-            +skgmail/archive
+            +skgmail/archive \
+            +skgmail/bad \
+            +skgmail/INBOX
 
 # Other special folders.
 set copy

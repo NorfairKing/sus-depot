@@ -28,7 +28,7 @@ bind index p recall-message
 ## Macro's --------------------------------------------------------------------
 
 macro index,pager d "<save-message>+skgmail/archive<enter><enter>" "Archive"
-macro index,pager <f1> "<copy-message>+skgmail/archive<enter><save-message>+skgmail/rnr<enter><enter>" "Read and Review"
+macro index,pager <f1> "<copy-message>+skgmail/archive<enter><save-message>+skgmail/review<enter><enter>" "Review"
 macro index,pager <f2> "<copy-message>+skgmail/archive<enter><save-message>+skgmail/reply<enter><enter>" "Reply to"
 macro index,pager <f3> "<copy-message>+skgmail/archive<enter><save-message>+skgmail/wait<enter><enter>" "Waiting for"
 macro index,pager <f4> "<copy-message>+skgmail/archive<enter><save-message>+skgmail/ref<enter><enter>" "Refference"
