@@ -125,14 +125,11 @@ set record    = +skgmail/archive
 ## Colors ---------------------------------------------------------------------
 source "~/.mutt/colors"
 
-## Mailinglists ---------------------------------------------------------------
-subscribe jobs-join@lists.vis.ethz.ch
-subscribe ir-f15@googlegroups.com
-
-
 ## Keybindings ----------------------------------------------------------------
 source "~/.mutt/keys"
 macro index q '<change-folder> =skgmail/archive<enter><tag-pattern>~N<enter><tag-prefix><toggle-new><quit>'
 
 # Speed up folder switching
 set sleep_time = 0
+
+source "~/.mutt/gpg"

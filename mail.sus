@@ -10,6 +10,7 @@ card mail {
     sig
     mailcap
     keys
+    gpg
     colors
     alias
     muttrc
