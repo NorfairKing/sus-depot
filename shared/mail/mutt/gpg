@@ -24,3 +24,6 @@ set pgp_verify_key_command="gpg --no-verbose --batch --fingerprint --check-sigs 
 set pgp_list_pubring_command="gpg --no-verbose --batch --with-colons --list-keys %r" 
 set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secret-keys %r" 
 
+
+bind compose p  pgp-menu
+macro compose Y pfy "send mail without GPG"

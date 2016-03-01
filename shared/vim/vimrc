@@ -73,6 +73,9 @@ digraph cp 10799
 digraph lb 8851
 digraph ub 8852
 
+" Xor
+digraph xo 8853
+
 
 " delete trailing whitespace on save
 fun! <SID>StripTrailingWhitespaces()
