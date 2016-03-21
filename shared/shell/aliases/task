@@ -3,6 +3,7 @@ alias t='task'
 alias tn='task +next'
 alias tm='t modify'
 alias ti='t info'
+alias ts='t start'
 
 
 ## Add task
