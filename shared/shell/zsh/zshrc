@@ -42,3 +42,6 @@ then
 fi
 
 print_colored_text BLUE "Are you sure you're in the right context? Make sure to try @offline and @campus if that's where you are.\n"
+
+
+print_colored_text YELLOW "Anything to journal?\n"
