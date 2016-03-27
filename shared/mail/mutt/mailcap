@@ -20,3 +20,4 @@ text/html;  firefox %s; nametemplate=%s.html;
 
 # Text
 text/plain; vim %s
+application/x-tex; vim %s
