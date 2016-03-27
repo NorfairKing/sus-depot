@@ -26,4 +26,4 @@ set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secr
 
 
 bind compose p  pgp-menu
-macro compose Y pfy "send mail without GPG"
+macro compose Y psy "send mail without only a signature"
