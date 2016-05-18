@@ -1,4 +1,4 @@
-set crypt_autoencrypt=yes
+set crypt_autoencrypt=no
 set crypt_autopgp=yes
 set crypt_autosign=yes
 set crypt_replyencrypt = yes
@@ -24,6 +24,7 @@ set pgp_verify_key_command="gpg --no-verbose --batch --fingerprint --check-sigs 
 set pgp_list_pubring_command="gpg --no-verbose --batch --with-colons --list-keys %r" 
 set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secret-keys %r" 
 
+send-hook . 'reset pgp_autoencrypt'
+send-hook "!~l ~t xavier.goas@gmail.com" "set crypt_autoencrypt"
 
 bind compose p  pgp-menu
-macro compose Y psy "send mail without only a signature"
