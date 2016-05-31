@@ -32,5 +32,7 @@ report.wait.filter            = status:pending limit:page (+waiting)
 report.wait.labels            = ID,Description
 
 # Coefficients
-urgency.age.coefficient       = 4
+urgency.age.coefficient               = 4
+urgency.user.tag.maybe.coefficient    = -2
+urgency.user.tag.someday.coefficient  = -1
 

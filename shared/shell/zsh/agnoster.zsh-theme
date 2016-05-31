@@ -189,11 +189,18 @@ prompt_status() {
 }
 
 prompt_in() {
-  # amount=$(wc -l $ORG_INBOX | tr -s ' ' '\n' | head -n 1)
   amount=$(task +inbox -waiting +PENDING count)
+  local inbfile="$HOME/.lastinboxemptydate"
   if [ "0" != "$amount" ]
   then
     prompt_segment red black "$amount"
+    if [[ "$(cat $inbfile)" != "$(date --iso-8601)" ]]
+    then
+      prompt_segment black red "INBOX"
+    fi
+
+  else
+    date --iso-8601 > "${inbfile}"
   fi
 }
 

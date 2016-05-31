@@ -4,6 +4,7 @@ alias tn='task +next'
 alias tm='t modify'
 alias ti='t info'
 alias ts='t start'
+alias s='t summary'
 
 
 ## Add task
@@ -46,6 +47,14 @@ task_make_waiting () {
   tm "$id" +waiting
 }
 alias tmw=task_make_waiting
+
+## Make a task +someday
+task_make_someday () {
+  id="$1"
+  tm "$id" +someday -next
+}
+alias tms=task_make_someday
+
 
 ## Make a task +next
 task_make_next () {

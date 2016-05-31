@@ -1,4 +1,4 @@
-alias g='git add --all . && git commit -a'
+alias g='git add --all . && gc --all'
 
 alias gs='git status'
 alias gd='git diff'
@@ -6,8 +6,8 @@ alias gd='git diff'
 alias ga='git add'
 alias gaf='git add -f'
 
-alias gam='git commit --amend'
 alias gc='git commit'
+alias gam='gc --amend'
 
 alias gp='git push'
 alias gpl='git pull --rebase'

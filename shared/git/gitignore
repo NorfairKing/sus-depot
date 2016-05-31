@@ -9,6 +9,10 @@
 \#*\#
 .\#*
 
+# Accidentally created files:
+\$
+:w
+
 
 # Compiled source #
 ###################

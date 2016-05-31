@@ -8,7 +8,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="agnoster"
 
 # Plugins
-plugins=(taskwarrior)
+plugins=(taskwarrior wd)
 
 # Use case-sensitive completion
 CASE_SENSITIVE="true"
@@ -40,8 +40,3 @@ then
   print_colored_text BLUE "Any progress on these waiting-fors?\n"
   task +waiting +PENDING ls
 fi
-
-print_colored_text BLUE "Are you sure you're in the right context? Make sure to try @offline and @campus if that's where you are.\n"
-
-
-print_colored_text YELLOW "Anything to journal?\n"
