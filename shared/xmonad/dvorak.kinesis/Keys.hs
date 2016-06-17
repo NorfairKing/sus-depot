@@ -1,9 +1,7 @@
 module Keys
-    (
-    module Keys,
-    module Modifier
-    )
-    where
+    ( module Keys
+    , module Modifier
+    ) where
 
 
 import qualified Data.Map              as M

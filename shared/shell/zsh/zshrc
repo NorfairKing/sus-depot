@@ -16,8 +16,16 @@ CASE_SENSITIVE="true"
 # No autocorrection
 unsetopt correct_all 
 
-PROMPT_COMMAND="$PROMPT_COMMAND; pwd >> $HOME/.latest_dirs"
-precmd() { eval "$PROMPT_COMMAND" }
+precmd() {
+  eval "$PROMPT_COMMAND"
+  pwd >> $HOME/.latest_dirs
+
+  if [[ "$(id -u)" -ne "0" ]]
+  then
+    mkdir -p ~/.logs
+    echo "$(date +%Y-%m-%d.%H:%M:%S) $(pwd) $(history | tail --lines=1)" >> "$HOME/.logs/shell-history-$(date +%Y-%m-%d).log"
+  fi
+}
 
 
 safe_source $ZSH/oh-my-zsh.sh

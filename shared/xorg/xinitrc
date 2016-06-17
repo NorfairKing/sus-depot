@@ -13,8 +13,11 @@ xset r rate 250 30
 # add resources
 xrdb -merge ~/.Xresources
 
+# Screen settings
+source ~/.screen
+
 # Start redshift
 redshift -l 50:0 &
 
 # start xmonad
-xmonad
+exec xmonad

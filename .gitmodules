@@ -16,3 +16,9 @@
 [submodule "shared/vim/dotvim/bundle/tabular"]
 	path = shared/vim/dotvim/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
+[submodule "shared/vim/dotvim/bundle/rainbow_parentheses.vim"]
+	path = shared/vim/dotvim/bundle/rainbow_parentheses.vim
+	url = git@github.com:kien/rainbow_parentheses.vim.git
+[submodule "shared/vim/dotvim/bundle/presenting.vim"]
+	path = shared/vim/dotvim/bundle/presenting.vim
+	url = git@github.com:sotte/presenting.vim.git

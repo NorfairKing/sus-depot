@@ -5,7 +5,9 @@
 	helper = cache
 	halper = cache --timeout=86400
 [merge]
-    tool = meld
+  tool = meld
+[mergetool]
+  keepBackup = false
 [push]
 	default = simple
 [color]
