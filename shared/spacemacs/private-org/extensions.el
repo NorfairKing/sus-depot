@@ -34,7 +34,9 @@
   )
 
 (defun private-org/init-appearance ()
-  (setq org-bullets-bullet-list '("▶" "►" "▸" "·"))
+  (setq org-bullets-bullet-list '("*" "**" "***" "****"))
+  ; Turn off org-indent-mode
+  (with-eval-after-load 'org (setq org-startup-indented nil))
   )
 
 (defun private-org/init-archive ()
