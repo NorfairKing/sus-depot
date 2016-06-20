@@ -8,6 +8,7 @@ card sus {
 
   spark file shell.sus
   spark file xorg.sus
+  spark file config.sus
   spark file git.sus
   spark file xmonad.sus
   spark file spacemacs.sus
