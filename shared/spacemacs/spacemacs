@@ -140,6 +140,7 @@ layers configuration."
     ; Browsers
     (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "firefox")
+    (setq org-require-final-newline t)
  )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -154,7 +155,6 @@ layers configuration."
  '(ahs-idle-interval 0.25)
  '(ahs-idle-timer 0 t)
  '(ahs-inhibit-face-list nil)
- '(org-agenda-files (quote ("~/workflow/")))
  '(ring-bell-function (quote ignore) t)
  '(safe-local-variable-values (quote ((TeX-master . t)))))
 (custom-set-faces

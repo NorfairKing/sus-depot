@@ -20,6 +20,7 @@
         refile
         agenda-commands
         custom-keys
+        files
         ))
 
 (setq private-org-post-extensions
@@ -30,7 +31,6 @@
 (defun private-org/init-clockers ()
   (global-set-key (kbd "<f5>") 'org-clock-in)
   (global-set-key (kbd "<f6>") 'org-clock-out)
-  (global-set-key (kbd ">") 'org-clock-out)
   )
 
 (defun private-org/init-appearance ()
@@ -48,7 +48,7 @@
 (defun private-org/init-todo-keywords ()
   ; The @ means that there's going to need to be a note attached to the change.
   (setq org-todo-keywords
-        '((sequence "TODO(t)" "NEXT(n)" "STARTED(s)" "WAITING(w@)" "READY(r)" "|" "DONE(d)" "CANCELLED(c)")))
+        '((sequence "TODO(t)" "NEXT(n)" "STARTED(s)" "WAITING(w)" "READY(r)" "|" "DONE(d)" "CANCELLED(c)")))
   (setq org-todo-keyword-faces
         '(("TODO" . "red")
           ("NEXT" . "yellow")
@@ -122,7 +122,7 @@
            )
            ("n" "All next actions and agenda"
             (
-             (todo "STARTED|NEXT")
+             (todo "STARTED|NEXT|READY")
              (agenda "")
             )
            )
@@ -153,6 +153,11 @@
     "hh" 'new-header)
   (print "Test")
   )
+
+(defun private-org/init-files ()
+  (setq org-agenda-files '("~/workflow" "~/workflow/projects"))
+  )
+
 
 ;;
 ;; Often the body of an initialize function uses `use-package'
