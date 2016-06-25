@@ -7,10 +7,18 @@ cabal-version:       >=1.10
 
 executable xmonad
   main-is:             xmonad.hs
-  other-modules:       Workspaces
-                       Keys
-  build-depends:       base >=4.8 && <4.9
-                     , containers >=0.5 && <0.6
+  other-modules:
+    Workspaces
+    Keys
+    Actions
+    Constants
+    Internet
+    Layout
+    Modifier
+    Solarized
+
+  build-depends:       base         >= 4.8 && < 4.9
+                     , containers   >= 0.5 && < 0.6
                      , xmonad
                      , xmonad-contrib
                      , X11
