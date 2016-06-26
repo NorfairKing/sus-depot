@@ -114,15 +114,15 @@
   ; Next action list
   (setq org-agenda-custom-commands
          '(
-           ("w" "Next actions and work agenda"
+           ("w" "WAITING actions"
             (
-             (tags-todo "work/STARTED|NEXT")
+             (todo "WAITING")
              (agenda "")
              )
            )
            ("n" "All next actions and agenda"
             (
-             (todo "STARTED|NEXT|READY")
+             (todo "STARTED|NEXT")
              (agenda "")
             )
            )
