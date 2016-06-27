@@ -11,6 +11,7 @@ card xmonad {
 
     xmonad.hs
     my-xmonad.cabal
+    stack.yaml
 
     {
       into lib
