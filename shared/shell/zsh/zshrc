@@ -31,4 +31,18 @@ precmd() {
 safe_source $ZSH/oh-my-zsh.sh
 safe_source ~/.aliases/aliases
 
+autoload bashcompinit
+bashcompinit
+
+make_completion() {
+  local bin=$1
+  source <($bin --bash-completion-script `which $bin`)
+}
+make_completion note-client
+make_completion note-server
+make_completion note-automation
+make_completion asl
+. <(azure --completion)
+
 outdent
+

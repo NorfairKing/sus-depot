@@ -51,8 +51,8 @@
         '((sequence "TODO(t)" "NEXT(n)" "STARTED(s)" "WAITING(w)" "READY(r)" "|" "DONE(d)" "CANCELLED(c)")))
   (setq org-todo-keyword-faces
         '(("TODO" . "red")
-          ("NEXT" . "yellow")
-          ("STARTED" . "yellow")
+          ("NEXT" . "orange")
+          ("STARTED" . "orange")
           ("WAITING" . "blue")
           ("READY" . "brown")
           ("DONE" . "green")

@@ -189,7 +189,7 @@ prompt_status() {
 }
 
 prompt_in() {
-  amount=$(task +inbox -waiting +PENDING count)
+  amount=$(wc -l $HOME/workflow/inbox.org | awk '{print $1}') 
   local inbfile="$HOME/.lastinboxemptydate"
   if [ "0" != "$amount" ]
   then

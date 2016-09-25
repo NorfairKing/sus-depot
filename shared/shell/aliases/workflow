@@ -9,3 +9,25 @@ alias make="make -j8"
 alias someday="e ~/workflow/someday-maybe.org"
 alias review="e ~/workflow/review.org"
 
+
+alias a='note-automation'
+alias i='a process-in'
+alias in='a in'
+alias d='a in-done'
+
+
+# Make notes about a task
+note_ () {
+  local id="$1"
+  # It's not a number
+  dir="$HOME/workflow/projects"
+  mkdir -p $dir
+  file="$dir/$id.org"
+  if ! [[ -f "$file" ]]
+  then
+    echo "$id" | awk '{print toupper ($0)}' >> "* $file"
+  fi
+  e "$file"
+}
+alias n=note_
+
