@@ -41,7 +41,7 @@ make_completion() {
 make_completion note-client
 make_completion note-server
 make_completion note-automation
-make_completion asl
+make_completion orc
 . <(azure --completion)
 
 outdent
