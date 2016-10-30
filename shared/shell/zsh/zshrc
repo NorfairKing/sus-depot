@@ -42,6 +42,7 @@ make_completion note-client
 make_completion note-server
 make_completion note-automation
 make_completion orc
+make_completion pe
 . <(azure --completion)
 
 outdent
