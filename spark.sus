@@ -16,4 +16,5 @@ card sus {
   spark file newsbeuter.sus
   spark file mail.sus
   spark file vim.sus
+  spark file haskell.sus
 }

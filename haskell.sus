@@ -1,0 +1,15 @@
+card haskell {
+  alternatives $(HOST) shared
+  
+  into ~/.stack
+  outof haskell
+
+  config.yaml
+  global-stack.yaml -> global-project/stack.yaml
+
+  {
+    into templates
+    outof stack-templates
+    cssyd.hsfiles
+  }
+}
