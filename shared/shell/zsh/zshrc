@@ -38,11 +38,14 @@ make_completion() {
   local bin=$1
   source <($bin --bash-completion-script `which $bin`)
 }
+make_completion stack
 make_completion note-client
 make_completion note-server
 make_completion note-automation
 make_completion orc
 make_completion pe
+make_completion bob
+make_completion noah
 . <(azure --completion)
 
 outdent

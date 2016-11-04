@@ -9,5 +9,7 @@
 flags: {}
 extra-package-dbs: []
 packages: []
-extra-deps: []
+extra-deps: 
+  [ "hindent-5.0.1"
+  ]
 resolver: lts-7.5

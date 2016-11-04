@@ -26,6 +26,7 @@ autocmd FileType haskell nmap <silent> ,i :silent update <bar> HsimportModule<CR
 autocmd FileType haskell nmap <silent> ,y :silent update <bar> HsimportSymbol<CR>
 
 autocmd FileType haskell setlocal shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType cabal setlocal shiftwidth=4 tabstop=4 softtabstop=4
 let g:ycm_semantic_triggers = {'haskell' : ['.']}
 
 " No more arrow keys
