@@ -2,7 +2,6 @@
 add "$HOME/scripts"
 add "$HOME/.local/bin"
 add "$HOME/.cabal/bin"
-add "/usr/lib/python3.4/site-packages"
 
 add "/usr/local/sbin"
 add "/usr/local/bin"
@@ -15,8 +14,3 @@ add "/bin"
 add "/usr/local/lib"
 add "/usr/lib"
 add "/lib"
-
-# Go
-export GOPATH="$HOME/.gopath"
-add "$GOPATH"
-add "$GOPATH/bin"
