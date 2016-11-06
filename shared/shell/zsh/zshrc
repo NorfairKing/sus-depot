@@ -36,6 +36,10 @@ bashcompinit
 
 make_completion() {
   local bin=$1
+  if [[ ! $(which ${bin} 2>&1 > /dev/null) ]]
+  then
+    return 0
+  fi
   source <($bin --bash-completion-script `which $bin`)
 }
 make_completion stack
@@ -46,7 +50,11 @@ make_completion orc
 make_completion pe
 make_completion bob
 make_completion noah
-. <(azure --completion)
+
+if [[ $(which azure 2>&1 > /dev/null) ]]
+then
+  . <(azure --completion)
+fi
 
 outdent
 

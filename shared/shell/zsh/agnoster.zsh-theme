@@ -189,9 +189,15 @@ prompt_status() {
 }
 
 prompt_in() {
-  amount=$(wc -l $HOME/workflow/inbox.org | awk '{print $1}') 
+  local inbox="$HOME/workflow/inbox.org"
+  if [[ ! -f ${inbox} ]]
+  then
+    return 0
+  fi
+
+  amount=$(wc -l ${inbox} | awk '{print $1}') 
   local inbfile="$HOME/.lastinboxemptydate"
-  if [ "0" != "$amount" ]
+  if [[ "0" != "$amount" ]]
   then
     prompt_segment red black "$amount"
     if [[ "$(cat $inbfile)" != "$(date --iso-8601)" ]]
@@ -204,7 +210,6 @@ prompt_in() {
   fi
 }
 
-## Main prompt
 build_prompt() {
   RETVAL=$?
   prompt_status
