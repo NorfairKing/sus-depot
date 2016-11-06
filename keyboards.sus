@@ -9,6 +9,7 @@ card keyboards {
     qwerty
     dvorak
     dvorak.kinesis
+    dvorak.lenovo
     $(KEYBOARD) -> current
   }
 }

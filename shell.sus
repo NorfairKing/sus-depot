@@ -8,6 +8,8 @@ card shell {
     into .variables
     outof variables
 
+    variables
+
     workflow
     host
     mail

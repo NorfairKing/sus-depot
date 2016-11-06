@@ -163,8 +163,8 @@ keycode 62   =  Shift_R       NoSymbol      Shift_R       NoSymbol
 ! ends with: Right Ctrl
 
 ! Fn key
-keycode 151  =  XF86WakeUp        NoSymbol          XF86WakeUp        NoSymbol      
 keycode 37   =  Control_L         NoSymbol          Control_L         NoSymbol
+keycode 151  =  XF86WakeUp        NoSymbol          XF86WakeUp        NoSymbol      
 keycode 133  =  Super_L           NoSymbol          Super_L           NoSymbol
 keycode 64   =  Alt_L             Meta_L            Alt_L             Meta_L
 keycode 65   =  space             NoSymbol          space             NoSymbol

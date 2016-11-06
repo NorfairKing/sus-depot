@@ -1,0 +1,2 @@
+# Initialisation of your monitors
+xrandr --auto
