@@ -12,7 +12,12 @@ alias review="e ~/workflow/review.org"
 
 alias a='note-automation'
 alias i='a process-in'
-alias in='a in'
+in_ () {
+  local content="$*"
+  echo "${content}" > "$HOME/workflow/inbox.org"
+}
+alias in=in_
+alias inbox='e "$HOME/workflow/inbox.org"'
 alias d='a in-done'
 
 
