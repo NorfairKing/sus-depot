@@ -14,7 +14,7 @@ alias a='note-automation'
 alias i='a process-in'
 in_ () {
   local content="$*"
-  echo "${content}" > "$HOME/workflow/inbox.org"
+  echo "${content}" >> "$HOME/workflow/inbox.org"
 }
 alias in=in_
 alias inbox='e "$HOME/workflow/inbox.org"'
