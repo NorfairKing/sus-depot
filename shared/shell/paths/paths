@@ -1,16 +1,18 @@
-# Bin
-add "$HOME/scripts"
-add "$HOME/.local/bin"
-add "$HOME/.cabal/bin"
-
-add "/usr/local/sbin"
-add "/usr/local/bin"
-add "/usr/sbin"
-add "/usr/bin"
-add "/sbin"
-add "/bin"
+# Everything that may be useful on the path, from general to specific.
 
 # Lib
 add "/usr/local/lib"
 add "/usr/lib"
 add "/lib"
+
+# Bin
+add "/bin"
+add "/sbin"
+add "/usr/bin"
+add "/usr/local/bin"
+add "/usr/local/sbin"
+add "/usr/sbin"
+
+add "$HOME/scripts"
+add "$HOME/.local/bin"
+add "$HOME/.cabal/bin"

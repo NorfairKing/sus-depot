@@ -46,7 +46,7 @@ add () {
       if [ "$(ls --almost-all $dir)" ]
       then
         debug "adding $dir to PATH"
-        export PATH="$PATH:$dir"
+        export PATH="$dir:$PATH"
       else
         debug "not adding $dir to PATH, it does exist but it's empty."
       fi
