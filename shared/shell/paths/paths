@@ -1,18 +1,16 @@
-# Everything that may be useful on the path, from general to specific.
+add_tmppath "$HOME/scripts"
+add_tmppath "$HOME/.local/bin"
+add_tmppath "$HOME/.cabal/bin"
 
-# Lib
-add "/usr/local/lib"
-add "/usr/lib"
-add "/lib"
+add_tmppath "/usr/local/sbin"
+add_tmppath "/usr/local/bin"
+add_tmppath "/usr/sbin"
+add_tmppath "/usr/bin"
+add_tmppath "/sbin"
+add_tmppath "/bin"
 
-# Bin
-add "/bin"
-add "/sbin"
-add "/usr/bin"
-add "/usr/local/bin"
-add "/usr/local/sbin"
-add "/usr/sbin"
+add_tmppath "/usr/local/lib"
+add_tmppath "/usr/lib"
+add_tmppath "/lib"
 
-add "$HOME/scripts"
-add "$HOME/.local/bin"
-add "$HOME/.cabal/bin"
+finalize_path

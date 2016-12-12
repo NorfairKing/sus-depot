@@ -35,26 +35,30 @@ safe_source () {
   fi
 }
 
-add () {
+add_tmppath () {
   dir="$*"
-  if [ `echo ":$PATH:" | grep --fixed-strings ":$dir:"` ]
+  if [ `echo ":$TMPPATH:" | grep --fixed-strings ":$dir:"` ]
   then
-    debug "not adding $dir to PATH, it's already in there."
+    debug "not adding $dir to TMPPATH, it's already in there."
   else
     if [ -d "$dir" ]
     then
       if [ "$(ls --almost-all $dir)" ]
       then
-        debug "adding $dir to PATH"
-        export PATH="$dir:$PATH"
+        debug "adding $dir to TMPPATH"
+        export TMPPATH="$TMPPATH:$dir"
       else
-        debug "not adding $dir to PATH, it does exist but it's empty."
+        debug "not adding $dir to TMPPATH, it does exist but it's empty."
       fi
     else
-      debug "not adding $dir to PATH, it doesn't exist."
+      debug "not adding $dir to TMPPATH, it doesn't exist."
     fi
   fi
-  debug "path is now $PATH"
+  debug "path is now $TMPPATH"
+}
+
+finalize_path () {
+  export PATH="${TMPPATH}"
 }
 
 maybe_variable_default () {
