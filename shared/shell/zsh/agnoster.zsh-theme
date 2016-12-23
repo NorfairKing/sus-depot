@@ -211,6 +211,7 @@ prompt_in() {
 }
 
 build_prompt() {
+  echo $(fc -nl $((HISTCMD - 1))) | hastory gather
   RETVAL=$?
   prompt_status
   prompt_virtualenv
