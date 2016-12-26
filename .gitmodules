@@ -22,3 +22,6 @@
 [submodule "shared/vim/dotvim/bundle/presenting.vim"]
 	path = shared/vim/dotvim/bundle/presenting.vim
 	url = git@github.com:sotte/presenting.vim.git
+[submodule "shared/vim/dotvim/bundle/vim-hindent"]
+	path = shared/vim/dotvim/bundle/vim-hindent
+	url = git@github.com:alx741/vim-hindent.git

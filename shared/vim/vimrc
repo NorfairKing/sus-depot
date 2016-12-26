@@ -29,6 +29,10 @@ autocmd FileType haskell setlocal shiftwidth=4 tabstop=4 softtabstop=4
 autocmd FileType cabal setlocal shiftwidth=4 tabstop=4 softtabstop=4
 let g:ycm_semantic_triggers = {'haskell' : ['.']}
 
+let g:hindent_on_save = 1
+let g:hindent_indent_size = 4
+let g:hindent_line_length = 80
+
 " No more arrow keys
 map <Left> <Nop>
 map <Right> <Nop>
