@@ -8,7 +8,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="agnoster"
 
 # Plugins
-plugins=(taskwarrior wd)
+plugins=()
 
 # Use case-sensitive completion
 CASE_SENSITIVE="true"
@@ -16,45 +16,44 @@ CASE_SENSITIVE="true"
 # No autocorrection
 unsetopt correct_all 
 
-precmd() {
-  eval "$PROMPT_COMMAND"
-  pwd >> $HOME/.latest_dirs
-
-  if [[ "$(id -u)" -ne "0" ]]
-  then
-    mkdir -p ~/.logs
-    echo "$(date +%Y-%m-%d.%H:%M:%S) $(pwd) $(history | tail --lines=1)" >> "$HOME/.logs/shell-history-$(date +%Y-%m-%d).log"
-  fi
-}
-
-
 safe_source $ZSH/oh-my-zsh.sh
 safe_source ~/.aliases/aliases
+
+precmd() {
+}
 
 autoload bashcompinit
 bashcompinit
 
 make_completion() {
   local bin=$1
-  if [[ ! $(which ${bin} 2>&1 > /dev/null) ]]
+
+  if [[ "$(which ${bin})" == "${bin} not found" ]]
   then
     return 0
   fi
-  source <($bin --bash-completion-script `which $bin`)
+
+  local loc="$(which ${bin})"
+  source <(${bin} --bash-completion-script ${loc})
 }
 make_completion stack
 make_completion note-client
 make_completion note-server
 make_completion note-automation
-make_completion orc
 make_completion pe
 make_completion bob
 make_completion noah
+make_completion hastory
 
-if [[ $(which azure 2>&1 > /dev/null) ]]
-then
-  . <(azure --completion)
-fi
+# if [[ $(which azure 2>&1 > /dev/null) ]]
+# then
+#   . <(azure --completion)
+# fi
+
+# make_hastory_completion() {
+#   source <(hastory generate-completion-script)
+# }
+# make_hastory_completion
 
 outdent
 

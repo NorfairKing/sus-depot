@@ -36,3 +36,7 @@ note_ () {
 }
 alias n=note_
 
+alias hl='hledger --file /home/syd/cs-syd/data/finance/personal/summary.hlog'
+
+source <(hastory generate-change-directory-wrapper-script)
+alias f=hastory_change_directory_

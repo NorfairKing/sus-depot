@@ -210,8 +210,10 @@ prompt_in() {
   fi
 }
 
+source <(hastory generate-gather-wrapper-script)
+
 build_prompt() {
-  echo $(fc -nl $((HISTCMD - 1))) | hastory gather
+  hastory_gather_
   RETVAL=$?
   prompt_status
   prompt_virtualenv
