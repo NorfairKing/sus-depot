@@ -92,6 +92,8 @@ endfun
 
 autocmd FileType c,cpp,java,php,ruby,python,haskell autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
+autocmd FileType json autocmd BufWritePre <buffer> %!python -m json.tool
+
 " Close vim entirely
 map :q :qa
 
