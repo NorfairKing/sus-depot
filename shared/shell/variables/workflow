@@ -1,5 +1,6 @@
 #!/bin/bash
 
+export EDITOR="vim"
 export WORKFLOW="$HOME/workflow"
 export ORG_INBOX="$WORKFLOW/inbox.org"
 export ORG_WORK="$WORKFLOW/work.org"
