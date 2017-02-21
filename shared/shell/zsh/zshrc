@@ -44,6 +44,7 @@ make_completion pe
 make_completion bob
 make_completion noah
 make_completion hastory
+make_completion super-user-spark
 
 # if [[ $(which azure 2>&1 > /dev/null) ]]
 # then
