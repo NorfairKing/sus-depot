@@ -48,7 +48,7 @@
 (defun private-org/init-todo-keywords ()
   ; The @ means that there's going to need to be a note attached to the change.
   (setq org-todo-keywords
-        '((sequence "TODO(t)" "NEXT(n)" "STARTED(s)" "WAITING(w!)" "READY(r)" "|" "DONE(d)" "CANCELLED(c)")))
+        '((sequence "TODO(t)" "NEXT(n)" "STARTED(s!)" "WAITING(w!)" "READY(r)" "|" "DONE(d!)" "CANCELLED(c!)")))
   (setq org-todo-keyword-faces
         '(("TODO" . "red")
           ("NEXT" . "orange")
@@ -121,9 +121,9 @@
              (agenda "")
              )
            )
-           ("n" "All next actions and agenda"
+           ("n" "All next actions and agenda and waiting"
             (
-             (todo "STARTED|NEXT")
+             (todo "STARTED|NEXT|WAITING")
              (agenda "")
             )
            )
