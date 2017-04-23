@@ -122,7 +122,7 @@
            )
            ("n" "All next actions and agenda and waiting"
             (
-             (todo "STARTED|NEXT|WAITING")
+             (todo "STARTED|NEXT")
              (agenda "")
             )
            )

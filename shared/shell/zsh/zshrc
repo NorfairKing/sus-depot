@@ -47,16 +47,8 @@ make_completion hastory
 make_completion super-user-spark
 make_completion mushu
 make_completion thesis
-
-# if [[ $(which azure 2>&1 > /dev/null) ]]
-# then
-#   . <(azure --completion)
-# fi
-
-# make_hastory_completion() {
-#   source <(hastory generate-completion-script)
-# }
-# make_hastory_completion
+make_completion easyspec
+make_completion easyspec-evaluate
 
 outdent
 
