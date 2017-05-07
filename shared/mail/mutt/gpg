@@ -28,5 +28,6 @@ send-hook . 'reset pgp_autoencrypt'
 send-hook "!~l ~t xavier.goas@gmail.com" "set crypt_autoencrypt"
 send-hook "!~l ~t henk@hnjs.ch" "set crypt_autoencrypt"
 send-hook "!~l ~t guenther@unix-ag.uni-kl.de" "set crypt_autoencrypt"
+send-hook "!~l ~t michi.schwarz@gmail.com" "set crypt_autoencrypt"
 
 bind compose p  pgp-menu
