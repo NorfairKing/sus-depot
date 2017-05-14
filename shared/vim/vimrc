@@ -129,3 +129,9 @@ let g:rbpt_colorpairs = [
     \ ['red',         'firebrick3'],
     \ ]
 
+
+function! ThankYouForYourTime()
+    call append(".", "Thank you for your time.")
+endfunction
+
+nmap tyfyt :call ThankYouForYourTime()<CR>
