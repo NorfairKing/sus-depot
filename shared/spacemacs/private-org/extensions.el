@@ -126,6 +126,12 @@
              (agenda "")
             )
            )
+           ("d" "Daily agenda"
+            (
+             (todo "STARTED|NEXT")
+             (agenda "" ((org-agenda-ndays 1)))
+            )
+           )
           )
      )
   )
