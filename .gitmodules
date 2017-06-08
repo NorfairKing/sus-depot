@@ -25,3 +25,9 @@
 [submodule "shared/vim/dotvim/bundle/vim-hindent"]
 	path = shared/vim/dotvim/bundle/vim-hindent
 	url = git@github.com:alx741/vim-hindent.git
+[submodule "shared/vim/dotvim/bundle/purescript-vim"]
+	path = shared/vim/dotvim/bundle/purescript-vim
+	url = https://github.com/raichoo/purescript-vim.git
+[submodule "shared/vim/dotvim/bundle/vim-jsbeautify"]
+	path = shared/vim/dotvim/bundle/vim-jsbeautify
+	url = git@github.com:maksimr/vim-jsbeautify.git
