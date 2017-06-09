@@ -49,6 +49,7 @@ make_completion mushu
 make_completion thesis
 make_completion easyspec
 make_completion easyspec-evaluate
+make_completion wolf
 
 outdent
 
