@@ -139,3 +139,8 @@ function! ThankYouForYourTime()
 endfunction
 
 nmap tyfyt :call ThankYouForYourTime()<CR>
+
+" Un-hurting my wrinst
+
+"make jj do esc"
+inoremap jj <Esc>
