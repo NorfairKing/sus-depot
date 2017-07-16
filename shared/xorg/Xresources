@@ -24,6 +24,11 @@ URxvt.saveLines:            10000
 URxvt.internalBorder:       3
 URxvt.lineSpace:            0
  
+! Perl extensions
+URxvt.perl-ext-common:      default,matcher,font-size
+URxvt.matcher.button:       1
+URxvt.urlLauncher:          firefox
+ 
 ! Fonts
 URxvt*font:                 xft:Menlo for Powerline:regular:size=11
 URxvt*imFont:               xft:Menlo for Powerline:regular:size=11                               
@@ -37,15 +42,12 @@ URxvt.keysym.C-S-Up:   font-size:incglobal
 URxvt.keysym.C-S-Down: font-size:decglobal
 URxvt.keysym.C-equal:  font-size:reset
 URxvt.keysym.C-slash:  font-size:show
+URxvt.font-size.step:  1
+
  
 ! Scrollbar
 URxvt.scrollStyle:          rxvt
 URxvt.scrollBar:            false
- 
-! Perl extensions
-URxvt.perl-ext-common:      default,matcher
-URxvt.matcher.button:       1
-URxvt.urlLauncher:          firefox
  
 ! Cursor
 URxvt.cursorBlink:          false
