@@ -30,6 +30,13 @@ URxvt*imFont:               xft:Menlo for Powerline:regular:size=11
 URxvt*boldFont:             xft:Menlo for Powerline:bold:size=11                                  
 URxvt*italicFont:           xft:Menlo for Powerline:italic:size=11                                
 URxvt*boldItalicFont:       xft:Menlo for Powerline:bold:italic:size=11 
+
+URxvt.keysym.C-Up:     font-size:increase
+URxvt.keysym.C-Down:   font-size:decrease
+URxvt.keysym.C-S-Up:   font-size:incglobal
+URxvt.keysym.C-S-Down: font-size:decglobal
+URxvt.keysym.C-equal:  font-size:reset
+URxvt.keysym.C-slash:  font-size:show
  
 ! Scrollbar
 URxvt.scrollStyle:          rxvt
