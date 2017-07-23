@@ -1,0 +1,21 @@
+card config {
+  alternatives $(HOST) shared
+  into ~/.config
+
+  redshift.conf
+
+  {
+    into zathura
+    zathurarc
+  }
+
+  {
+    outof config
+
+    {
+      outof xdg
+      user-dirs.locale
+      user-dirs.dirs
+    }
+  }
+}

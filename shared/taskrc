@@ -1,39 +1,34 @@
-# [Created by task 2.4.0 1/28/2015 17:51:15]
-# Taskwarrior program configuration file.
-# For more documentation, see http://taskwarrior.org or try 'man task', 'man task-color',
-# 'man task-sync' or 'man taskrc'
-
-# Here is an example of entries that use the default, override and blank values
-#   variable=foo   -- By specifying a value, this overrides the default
-#   variable=      -- By specifying no value, this means no default
-#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
-
-# Use the command 'task show' to see all defaults and overrides
-
-# Files
+### Files
 data.location=~/.task
 
-# Color theme (uncomment one to use)
-#include /usr/share/doc/task/rc/light-16.theme
-#include /usr/share/doc/task/rc/light-256.theme
-#include /usr/share/doc/task/rc/dark-16.theme
-#include /usr/share/doc/task/rc/dark-256.theme
-#include /usr/share/doc/task/rc/dark-red-256.theme
-#include /usr/share/doc/task/rc/dark-green-256.theme
-#include /usr/share/doc/task/rc/dark-blue-256.theme
-#include /usr/share/doc/task/rc/dark-violets-256.theme
-include /usr/share/doc/task/rc/dark-yellow-green.theme
-#include /usr/share/doc/task/rc/dark-gray-256.theme
-#include /usr/share/doc/task/rc/dark-gray-blue-256.theme
-#include /usr/share/doc/task/rc/solarized-dark-256.theme
-#include /usr/share/doc/task/rc/solarized-light-256.theme
-#include /usr/share/doc/task/rc/no-color.theme
+### Color scheme
+include /usr/local/share/doc/task/rc/dark-yellow-green.theme
+
+### Task server
+taskd.certificate=\/home\/syd\/.task\/freecinc_52bbebed.cert.pem
+taskd.key=\/home\/syd\/.task\/freecinc_52bbebed.key.pem
+taskd.server=freecinc.com:53589
+taskd.credentials=FreeCinc\/freecinc_52bbebed\/10713543-91e4-40fb-a3cf-a4939bee8f05
+taskd.ca=\/home\/syd\/.task\/freecinc_52bbebed.ca.pem
+
+### Reports
+# Next
+report.next.columns           = id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.remaining,until.remaining,description,urgency
+report.next.description       = Most urgent tasks
+report.next.filter            = status:pending limit:page -waiting -inbox -BLOCKED
+report.next.labels            = ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg
+report.next.sort              = urgency-
+
+# Inbox
+report.inbox.columns          = id,description
+report.inbox.description      = Inbox
+report.inbox.filter           = status:pending limit:page (+inbox -waiting)
+report.inbox.labels           = ID,Description
+
+# Waiting
+report.wait.columns           = id,description
+report.wait.description       = Waiting
+report.wait.filter            = status:pending limit:page (+waiting)
+report.wait.labels            = ID,Description
 
 
-taskd.certificate=\/home\/syd\/.ssh\/tom_sydney_kerckhove.cert.pem
-taskd.key=\/home\/syd\/.ssh\/tom_sydney_kerckhove.key.pem
-taskd.ca=\/home\/syd\/.ssh\/ca.cert.pem
-taskd.server=cs-syd.eu:53589
-taskd.credentials=Public\/Tom Sydney Kerckhove\/3cdc35ac-ed12-47d9-a5d8-3f6e7fe8d857
-
-urgency.user.tag.health.coefficient=5.0

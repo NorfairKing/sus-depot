@@ -1,0 +1,38 @@
+### Files
+data.location=~/.task
+
+### Color scheme
+include /usr/local/share/doc/task/rc/dark-yellow-green.theme
+
+### Task server
+taskd.certificate=\/home\/syd\/.task\/freecinc_52bbebed.cert.pem
+taskd.key=\/home\/syd\/.task\/freecinc_52bbebed.key.pem
+taskd.server=freecinc.com:53589
+taskd.credentials=FreeCinc\/freecinc_52bbebed\/10713543-91e4-40fb-a3cf-a4939bee8f05
+taskd.ca=\/home\/syd\/.task\/freecinc_52bbebed.ca.pem
+
+### Reports
+# Next
+report.next.columns           = id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.remaining,until.remaining,description,urgency
+report.next.description       = Most urgent tasks
+report.next.filter            = status:pending limit:page -inbox
+report.next.labels            = ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg
+report.next.sort              = urgency-
+
+# Inbox
+report.inbox.columns          = id,description
+report.inbox.description      = Inbox
+report.inbox.filter           = status:pending limit:page (+inbox)
+report.inbox.labels           = ID,Description
+
+# Waiting
+report.wait.columns           = id,description
+report.wait.description       = Waiting
+report.wait.filter            = status:pending limit:page (+waiting)
+report.wait.labels            = ID,Description
+
+# Coefficients
+urgency.age.coefficient               = 4
+urgency.user.tag.maybe.coefficient    = -2
+urgency.user.tag.someday.coefficient  = -1
+

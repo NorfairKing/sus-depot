@@ -1,8 +1,18 @@
 # Editor files #
 ################
+
+# Vim
 *~
 .*.sw[op]
+
+# Emacs
 \#*\#
+.\#*
+
+# Accidentally created files:
+\$
+:w
+
 
 # Compiled source #
 ###################

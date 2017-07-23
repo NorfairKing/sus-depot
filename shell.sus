@@ -1,0 +1,74 @@
+card shell {
+  alternatives $(HOST) shared
+
+  into ~
+  outof shell
+
+  {
+    into .variables
+    outof variables
+
+    variables
+
+    workflow
+    host
+    mail
+    java
+    keyboard
+    ls_colors
+  }
+  {
+    into .functions
+    outof functions
+
+    functions
+    color
+  }
+  {
+    into .paths
+    outof paths
+
+    paths
+  }
+  {
+    into .aliases
+    outof aliases
+
+    aliases
+    color
+    dotfile
+    eden
+    editor
+    git
+    gpg
+    task
+    ls
+    navigation
+    network
+    package
+    task
+    workflow
+    xmonad
+  }
+  {
+    outof bash
+
+    .bash_login
+    .bash_logout
+    .bashrc
+  }
+  {
+    outof zsh
+
+    .zlogin
+    .zlogout
+    .zprofile
+    .zshenv
+    .zshrc
+
+    {
+      into .oh-my-zsh/themes
+      agnoster.zsh-theme
+    }
+  }
+}

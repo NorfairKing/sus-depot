@@ -1,0 +1,76 @@
+#!/bin/bash
+
+debug () {
+  txt="$*"
+  if [ "$DEBUG" != "" ]
+  then 
+    if [[ "$INDENT" == "" ]]; then
+      export INDENT="0"
+    fi
+    for i in $(seq $INDENT); do
+      echo -n ' '
+    done
+    echo "$txt"
+  fi
+}
+
+indent () {
+  export INDENT="$(($INDENT + 2))"
+}
+
+outdent () {
+  export INDENT="$(($INDENT - 2))"
+}
+
+safe_source () {
+  file="$*"
+  if [ -f "$file" ]
+  then
+    debug "sourcing $file"
+    indent
+    . "$file"
+    outdent
+  else
+    debug "file $file not found, not sourcing it"
+  fi
+}
+
+add_tmppath () {
+  dir="$*"
+  if [ `echo ":$TMPPATH:" | grep --fixed-strings ":$dir:"` ]
+  then
+    debug "not adding $dir to TMPPATH, it's already in there."
+  else
+    if [ -d "$dir" ]
+    then
+      if [ "$(ls --almost-all $dir)" ]
+      then
+        debug "adding $dir to TMPPATH"
+        export TMPPATH="$TMPPATH:$dir"
+      else
+        debug "not adding $dir to TMPPATH, it does exist but it's empty."
+      fi
+    else
+      debug "not adding $dir to TMPPATH, it doesn't exist."
+    fi
+  fi
+  debug "path is now $TMPPATH"
+}
+
+finalize_path () {
+  export PATH="${TMPPATH}"
+}
+
+maybe_variable_default () {
+  variable="$1"
+  default="$2"
+
+  if [[ "$variable" == "" ]]
+  then
+    echo "$default"
+  else
+    echo "$variable"
+  fi
+}
+
+safe_source ~/.functions/color

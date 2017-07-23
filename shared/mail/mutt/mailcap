@@ -1,0 +1,23 @@
+# MS Word documents
+application/msword; antiword %s;copiousoutput
+ 
+# Images
+image/jpg; xdg-open %s
+image/jpeg; xdg-open %s
+image/pjpeg; xdg-open %s
+image/png; xdg-open %s
+image/gif; xdg-open %s
+ 
+# PDFs
+application/pdf; evince %s
+ 
+# HTML
+#text/html;  links %s; nametemplate=%s.html
+#text/html;  firefox %s; nametemplate=%s.html;
+#text/html;  links -dump %s; nametemplate=%s.html; copiousoutput
+#text/html; more %s;
+text/html;  firefox %s; nametemplate=%s.html;
+
+# Text
+text/plain; vim %s
+application/x-tex; vim %s

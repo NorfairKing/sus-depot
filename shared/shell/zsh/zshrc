@@ -1,0 +1,55 @@
+# This file is sourced at any zsh interavtive shell
+debug "sourcing .zshrc"
+indent
+
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
+
+ZSH_THEME="agnoster"
+
+# Plugins
+plugins=()
+
+# Use case-sensitive completion
+CASE_SENSITIVE="true"
+
+# No autocorrection
+unsetopt correct_all 
+
+safe_source $ZSH/oh-my-zsh.sh
+safe_source ~/.aliases/aliases
+
+precmd() {
+}
+
+autoload bashcompinit
+bashcompinit
+
+make_completion() {
+  local bin=$1
+
+  if [[ "$(which ${bin})" == "${bin} not found" ]]
+  then
+    return 0
+  fi
+
+  local loc="$(which ${bin})"
+  source <(${bin} --bash-completion-script ${loc})
+}
+make_completion stack
+make_completion note-client
+make_completion note-server
+make_completion note-automation
+make_completion pe
+make_completion bob
+make_completion noah
+make_completion hastory
+make_completion super-user-spark
+make_completion mushu
+make_completion thesis
+make_completion easyspec
+make_completion easyspec-evaluate
+make_completion wolf
+
+outdent
+

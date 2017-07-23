@@ -1,0 +1,31 @@
+card xmonad {
+  alternatives $(HOST) shared
+
+  into ~
+  outof xmonad
+  
+  .xmobarrc
+
+  {
+    into .xmonad
+
+    xmonad.hs
+    my-xmonad.cabal
+    stack.yaml
+
+    {
+      into lib
+
+      alternatives $(KEYBOARD) .
+
+      Actions.hs
+      Constants.hs
+      Internet.hs
+      Keys.hs
+      Layout.hs
+      Workspaces.hs
+      Modifier.hs
+      Solarized.hs
+    }
+  }
+}

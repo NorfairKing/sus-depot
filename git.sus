@@ -1,0 +1,10 @@
+card git {
+  alternatives $(HOST) shared
+  into ~
+  outof git
+
+  gitignore -> .gitignore_global
+
+  .gitconfig
+  .git-ghc-config
+}

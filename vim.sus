@@ -1,0 +1,10 @@
+card vim {
+  alternatives $(HOST) shared
+  into ~
+  outof vim
+
+  dotvim -> .vim
+  dotvim -> .nvim
+  vimrc -> .vimrc
+  vimrc -> .nvimrc
+}

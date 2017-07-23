@@ -1,0 +1,35 @@
+Config {
+        font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = TopW L 200
+       , commands = [ 
+                        Run Date 
+                        "%A %Y-%m-%d %H:%M" 
+                        "date" 
+                        60
+                    ,
+                        Run Battery 
+                            [
+                                  "-t", "<left>% <acstatus> <timeleft> "
+
+                                , "-L", "10"
+                                , "-H", "80"
+
+                                , "-l", "#FF0000"
+                                , "-n", "#FFFF00"
+                                , "-h", "#00FF00"
+
+                                , "--"
+                                , "-o", "<fc=red>-</fc>"
+                                , "-O", "<fc=green>+</fc>"
+                                , "-i", "<fc=green>=</fc>"
+                            ] 60
+                    ,
+                        Run StdinReader
+                    ]
+       , sepChar = "%"
+       , template = "%StdinReader% }{ %battery% | <fc=#268BD2>%date%</fc> "
+}
+
+

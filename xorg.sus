@@ -1,0 +1,9 @@
+card xorg {
+  alternatives $(HOST) shared
+  into ~
+  outof xorg
+
+  .screen
+  .xinitrc
+  .Xresources
+}

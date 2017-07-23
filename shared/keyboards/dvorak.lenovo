@@ -1,0 +1,201 @@
+!! GUIDE to editing this file
+!
+!
+!
+! The keys in this file are in the order that you can find them on your keyboard
+! You can only remap the right side of the config sensibly.
+!
+! This file will configure your keyboard to look like this:
+!
+! ▯ denotes unassigned, <▯> mean unassigned special
+! symbols not assigned to keys:
+!
+!
+! Normal:
+!                                &[{+(=*)!}]#$<backspace>
+!                            <tab>;,.pyfgcrl/\~
+!                           <ctrl>aoeuidhtns-<enter>
+!                          <shift>'qjkxbmwvz<shift>
+!           <fn><ctrl><super><alt><space><altgr><▯><ctrl>
+!
+!                                                             <pgup><up><pgdn>
+!                                                            <left><down><right>
+!
+!
+! With shift:
+!
+!                                %7531902468`@<▯>        
+!                              <▯>:<>PYFGCRL?|^
+!                              <▯>AOEUIDHTNS_<▯>    
+!                          <shift>"QJKXBMWVZ<shift>
+!           <fn><ctrl><super><alt><space><altgr><▯><ctrl>
+!                                                             <pgup><up><pgdn>
+!                                                            <left><down><right>
+!
+! With alt:
+!
+!                                ▯▯▯▯▯▯▯▯▯▯▯▯<backspace>
+!                            <tab>▯▯▯▯▯▯▯▯▯▯▯▯
+!                           <ctrl>▯▯▯▯▯▯▯▯▯▯<enter>
+!                          <shift>▯▯▯▯▯▯▯▯▯▯<shift>
+!           <fn><ctrl><super><alt><space><altgr><▯><ctrl>
+!                                                             <pgup><up><pgdn>
+!                                                            <left><down><right>
+!
+!
+
+! clear all modifier keys (we'll set them later)
+clear shift
+clear lock
+clear control
+clear mod1
+clear mod2
+clear mod3
+clear mod4
+clear mod5
+
+! In what follows each keycode will be mapped to at most 6 keysyms
+!      Key
+!      Shift+Key
+!      mode_switch+Key
+!      mode_switch+Shift+Key
+!      AltGr+Key
+!      AltGr+Shift+Key
+
+! Top row
+! starts with: Escape
+! ends with Delete
+
+keycode 9    =  Escape        NoSymbol      Escape        NoSymbol      Escape        NoSymbol
+keycode 67   =  F1            NoSymbol      F1            NoSymbol      F1            NoSymbol        XF86Switch_VT_1
+keycode 68   =  F2            NoSymbol      F2            NoSymbol      F2            NoSymbol        XF86Switch_VT_2
+keycode 69   =  F3            NoSymbol      F3            NoSymbol      F3            NoSymbol        XF86Switch_VT_3
+keycode 70   =  F4            NoSymbol      F4            NoSymbol      F4            NoSymbol        XF86Switch_VT_4
+keycode 71   =  F5            NoSymbol      F5            NoSymbol      F5            NoSymbol        XF86Switch_VT_5
+keycode 72   =  F6            NoSymbol      F6            NoSymbol      F6            NoSymbol        XF86Switch_VT_6
+keycode 73   =  F7            NoSymbol      F7            NoSymbol      F7            NoSymbol        XF86Switch_VT_7
+keycode 74   =  F8            NoSymbol      F8            NoSymbol      F8            NoSymbol        XF86Switch_VT_8
+keycode 75   =  F9            NoSymbol      F9            NoSymbol      F9            NoSymbol        XF86Switch_VT_9
+keycode 76   =  F10           NoSymbol      F10           NoSymbol      F10           NoSymbol        XF86Switch_VT_10
+keycode 95   =  F11           NoSymbol      F11           NoSymbol      F11           NoSymbol        XF86Switch_VT_11
+keycode 96   =  F12           NoSymbol      F12           NoSymbol      F12           NoSymbol        XF86Switch_VT_12
+keycode 110  =  Home          NoSymbol      Home          NoSymbol      Home          NoSymbol
+keycode 115  =  End           NoSymbol      End           NoSymbol      End           NoSymbol       
+keycode 118  =  Insert        NoSymbol      Insert        NoSymbol      Insert        NoSymbol               
+keycode 119  =  Delete        NoSymbol      Delete        NoSymbol      Delete        NoSymbol
+
+! Second row
+! start with: ~'
+! ens with: Backspace
+
+keycode 49   =  ampersand     percent       ampersand     percent
+keycode 10   =  bracketleft   7             bracketleft   7         
+keycode 11   =  braceleft     5             braceleft     5           
+keycode 12   =  plus          3             plus          3           
+keycode 13   =  parenleft     1             parenleft     1           
+keycode 14   =  equal         9             equal         9           
+keycode 15   =  asterisk      0             asterisk      0           
+keycode 16   =  parenright    2             parenright    2           
+keycode 17   =  exclam        4             exclam        4           
+keycode 18   =  braceright    6             braceright    6           
+keycode 19   =  bracketright  8             bracketright  8           
+keycode 20   =  numbersign    grave         numbersign    grave       
+keycode 21   =  dollar        at            dollar        at
+keycode 22   =  BackSpace     BackSpace     BackSpace     BackSpace   
+
+! Third row
+! starts with: Tab
+! Ends with: |\
+
+keycode 23   =  Tab           ISO_Left_Tab  Tab           ISO_Left_Tab
+keycode 24   =  semicolon     colon         semicolon     colon        
+keycode 25   =  comma         less          comma         less         
+keycode 26   =  period        greater       period        greater      
+keycode 27   =  p             P             p             P            
+keycode 28   =  y             Y             y             Y            
+keycode 29   =  f             F             f             F
+keycode 30   =  g             G             g             G
+keycode 31   =  c             C             c             C            
+keycode 32   =  r             R             r             R            
+keycode 33   =  l             L             l             L
+keycode 34   =  slash         question      slash         question     
+keycode 35   =  backslash     bar           backslash     bar
+keycode 51   =  asciitilde    asciicircum   asciitilde    asciicircum
+! UNUSED KEY ^
+
+! Fourth row
+! starts with: CapsLock
+! ends with: Enter
+
+keycode 66   =  Control_L     Control_L     Control_L     Control_L
+keycode 38   =  a             A             a             A                  
+keycode 39   =  o             O             o             O                  
+keycode 40   =  e             E             e             E                  
+keycode 41   =  u             U             u             U                  
+keycode 42   =  i             I             i             I
+keycode 43   =  d             D             d             D                  
+keycode 44   =  h             H             h             H                  
+keycode 45   =  t             T             t             T                  
+keycode 46   =  n             N             n             N                  
+keycode 47   =  s             S             s             S                  
+keycode 48   =  minus         underscore    minus         underscore
+keycode 36   =  Return        NoSymbol      Return        NoSymbol     
+
+! Fifth row
+! starts with: Left Shift
+! ends wiht: Right Shift
+
+keycode 50   =  Shift_L       NoSymbol      Shift_L       NoSymbol
+keycode 52   =  apostrophe    quotedbl      apostrophe    quotedbl    
+keycode 53   =  q             Q             q             Q
+keycode 54   =  j             J             j             J
+keycode 55   =  k             K             k             K
+keycode 56   =  x             X             x             X
+keycode 57   =  b             B             b             B
+keycode 58   =  m             M             m             M           
+keycode 59   =  w             W             w             W
+keycode 60   =  v             V             v             V
+keycode 61   =  z             Z             z             Z
+keycode 62   =  Shift_R       NoSymbol      Shift_R       NoSymbol
+
+!! Sixth row
+! starts with: Fn
+! ends with: Right Ctrl
+
+! Fn key
+keycode 37   =  Control_L         NoSymbol          Control_L         NoSymbol
+keycode 151  =  XF86WakeUp        NoSymbol          XF86WakeUp        NoSymbol      
+keycode 133  =  Super_L           NoSymbol          Super_L           NoSymbol
+keycode 64   =  Alt_L             Meta_L            Alt_L             Meta_L
+keycode 65   =  space             NoSymbol          space             NoSymbol
+keycode 108  =  ISO_Level3_Shift  NoSymbol          ISO_Level3_Shift  NoSymbol
+! UNUSED KEY v
+keycode 107  =  NoSymbol
+! UNUSED KEY ^
+keycode 105  =  Control_R         NoSymbol          Control_R         NoSymbol
+
+!! Arrow pad:
+!! PgUp Up PgDn
+
+keycode 112  =  Prior         NoSymbol       Prior        NoSymbol
+keycode 111  =  Up            NoSymbol       Up           NoSymbol
+keycode 117  =  Next          NoSymbol       Next         NoSymbol
+
+!! Arrow pad:
+!! Left Down Right
+
+keycode  113  =  Left         NoSymbol       Left         NoSymbol
+keycode  116  =  Down         NoSymbol       Down         NoSymbol
+keycode  114  =  Right        NoSymbol       Right        NoSymbol
+
+! Set all modifier keys again
+add shift   = Shift_L Shift_R
+!add lock    = no lock, because i don't like it!
+add control = Control_L Control_R
+add mod1    = Alt_L  Meta_L Alt_R Meta_R
+add mod2    = Num_Lock
+!add mod3    =
+add mod4    = Super_L Super_R
+add mod5    = Mode_switch
+
+
