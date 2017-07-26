@@ -151,14 +151,14 @@ layers configuration."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ahs-case-fold-search nil)
- '(ahs-default-range (quote ahs-range-whole-buffer))
- '(ahs-idle-interval 0.25)
+ '(ahs-case-fold-search nil t)
+ '(ahs-default-range (quote ahs-range-whole-buffer) t)
+ '(ahs-idle-interval 0.25 t)
  '(ahs-idle-timer 0 t)
- '(ahs-inhibit-face-list nil)
+ '(ahs-inhibit-face-list nil t)
  '(package-selected-packages
    (quote
-    (intero flycheck hlint-refactor hindent helm-hoogle haskell-snippets yasnippet company-ghci company-ghc ghc company haskell-mode cmm-mode zenburn-theme window-numbering which-key volatile-highlights vi-tilde-fringe use-package toc-org spray spacemacs-theme smooth-scrolling rainbow-delimiters quelpa powerline popwin popup pcre2el paradox page-break-lines org-repo-todo org-present org-pomodoro org-plus-contrib open-junk-file neotree move-text macrostep linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete htmlize highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-descbinds helm-ag google-translate golden-ratio gnuplot flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-org evil-numbers evil-nerd-commenter evil-matchit evil-lisp-state evil-jumper evil-indent-textobject evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word clean-aindent-mode buffer-move auto-highlight-symbol auto-dictionary auctex aggressive-indent adaptive-wrap ace-window ace-link)))
+    (shm intero flycheck hlint-refactor hindent helm-hoogle haskell-snippets yasnippet company-ghci company-ghc ghc company haskell-mode cmm-mode zenburn-theme window-numbering which-key volatile-highlights vi-tilde-fringe use-package toc-org spray spacemacs-theme smooth-scrolling rainbow-delimiters quelpa powerline popwin popup pcre2el paradox page-break-lines org-repo-todo org-present org-pomodoro org-plus-contrib open-junk-file neotree move-text macrostep linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete htmlize highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-descbinds helm-ag google-translate golden-ratio gnuplot flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-org evil-numbers evil-nerd-commenter evil-matchit evil-lisp-state evil-jumper evil-indent-textobject evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word clean-aindent-mode buffer-move auto-highlight-symbol auto-dictionary auctex aggressive-indent adaptive-wrap ace-window ace-link)))
  '(ring-bell-function (quote ignore))
  '(safe-local-variable-values (quote ((TeX-master . t)))))
 (custom-set-faces
