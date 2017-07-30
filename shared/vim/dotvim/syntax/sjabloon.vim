@@ -7,9 +7,13 @@ if exists("b:current_syntax")
   finish
 endif
 
-syntax match FooKey   /^[^=]\+/
-syntax match FooValue /[^=]\+$/
+syntax match SjabVar /${[^\ }]*}/
+syntax match SjabIf   /${if\ [^\ }]*}/
+syntax match SjabElse /${else}/
+syntax match SjabEndif /${endif}/
 
-highlight FooKey   ctermfg=cyan guifg=#00ffff
-highlight FooValue ctermfg=red  guifg=#ff0000
+highlight SjabVar   ctermfg=blue  guifg=#ff0000
+highlight SjabIf    ctermfg=red  guifg=#ff0000
+highlight SjabElse  ctermfg=red  guifg=#ff0000
+highlight SjabEndif ctermfg=red  guifg=#ff0000
 
