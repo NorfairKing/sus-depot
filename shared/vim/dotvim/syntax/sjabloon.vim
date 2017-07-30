@@ -7,12 +7,9 @@ if exists("b:current_syntax")
   finish
 endif
 
-" Keywords
-syn keyword syntaxElementKeyword keyword1 keyword2 nextgroup=syntaxElement2
+syntax match FooKey   /^[^=]\+/
+syntax match FooValue /[^=]\+$/
 
-" Matches
-syn match syntaxElementMatch 'regexp' contains=syntaxElement1 nextgroup=syntaxElement2 skipwhite
-
-" Regions
-syn region syntaxElementRegion start='x' end='y'
+highlight FooKey   ctermfg=cyan guifg=#00ffff
+highlight FooValue ctermfg=red  guifg=#ff0000
 

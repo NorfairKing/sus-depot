@@ -144,3 +144,4 @@ nmap tyfyt :call ThankYouForYourTime()<CR>
 
 "make jj do esc"
 inoremap jj <Esc>
+
