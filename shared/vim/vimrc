@@ -99,6 +99,7 @@ autocmd FileType c,cpp,java,php,ruby,python,haskell autocmd BufWritePre <buffer>
 autocmd FileType json autocmd BufWritePre <buffer> %!python -m json.tool
 
 autocmd FileType css autocmd BufWritePre <buffer> :call CSSBeautify()
+autocmd FileType scss autocmd BufWritePre <buffer> :call CSSBeautify()
 autocmd FileType javascript autocmd BufWritePre <buffer> :call JsBeautify()
 
 " Close vim entirely
