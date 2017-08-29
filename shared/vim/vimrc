@@ -140,6 +140,12 @@ endfunction
 
 nmap tyfyt :call ThankYouForYourTime()<CR>
 
+function! BedanktVoorUwTijd()
+    call append(".", "Bedankt voor uw tijd.")
+endfunction
+
+nmap bvut :call BedanktVoorUwTijd()<CR>
+
 " Un-hurting my wrinst
 
 "make jj do esc"
