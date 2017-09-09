@@ -36,6 +36,13 @@ note_ () {
 }
 alias n=note_
 
+reference_ () {
+  local id="$1"
+  file="$HOME/workflow/reference/$id.org"
+  e "$file"
+}
+alias r=reference_
+
 alias hl='hledger --file /home/syd/cs-syd/data/finance/personal/summary.hlog'
 
 source <(hastory generate-change-directory-wrapper-script)
