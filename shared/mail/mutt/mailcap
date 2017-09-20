@@ -1,12 +1,9 @@
-# MS Word documents
-application/msword; antiword %s;copiousoutput
- 
 # Images
-image/jpg; xdg-open %s
-image/jpeg; xdg-open %s
-image/pjpeg; xdg-open %s
-image/png; xdg-open %s
-image/gif; xdg-open %s
+image/jpg;   mirage %s
+image/jpeg;  mirage %s
+image/pjpeg; mirage %s
+image/png;   mirage %s
+image/gif;   mirage %s
  
 # PDFs
 application/pdf; evince %s
