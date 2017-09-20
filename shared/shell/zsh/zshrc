@@ -53,5 +53,5 @@ make_completion wolf
 
 source /home/syd/.nix-profile/etc/profile.d/nix.sh
 
-
+DISABLE_UPDATE_PROMPT=true
 outdent
