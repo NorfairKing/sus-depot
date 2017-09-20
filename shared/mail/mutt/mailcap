@@ -16,7 +16,7 @@ application/pdf; evince %s
 #text/html;  firefox %s; nametemplate=%s.html;
 #text/html;  links -dump %s; nametemplate=%s.html; copiousoutput
 #text/html; more %s;
-text/html;  firefox %s; nametemplate=%s.html;
+text/html;  firefox %s;
 
 # Text
 text/plain; vim %s
