@@ -25,9 +25,7 @@ alias d='a in-done'
 note_ () {
   local id="$1"
   # It's not a number
-  dir="$HOME/workflow/projects"
-  mkdir -p $dir
-  file="$dir/$id.org"
+  file="$HOME/workflow/projects/$id.org"
   if ! [[ -f "$file" ]]
   then
     echo "$id" | awk '{print toupper ($0)}' >> "* $file"
@@ -42,6 +40,19 @@ reference_ () {
   e "$file"
 }
 alias r=reference_
+
+# Make notes about a work project
+proj_ () {
+  local id="$1"
+  # It's not a number
+  file="$HOME/workflow/projects/work/$id.org"
+  if ! [[ -f "$file" ]]
+  then
+    echo "$id" | awk '{print toupper ($0)}' >> "* $file"
+  fi
+  e "$file"
+}
+alias p=proj_
 
 alias hl='hledger --file /home/syd/cs-syd/data/finance/personal/summary.hlog'
 
