@@ -45,5 +45,8 @@ alias r=reference_
 
 alias hl='hledger --file /home/syd/cs-syd/data/finance/personal/summary.hlog'
 
-source <(hastory generate-change-directory-wrapper-script)
-alias f=hastory_change_directory_
+if [[ "$(which ${bin})" != "${bin} not found" ]]
+then
+  source <(hastory generate-change-directory-wrapper-script)
+  alias f=hastory_change_directory_
+fi

@@ -215,7 +215,6 @@ then
   source <(hastory generate-gather-wrapper-script)
 fi
 
-
 build_prompt() {
   hastory_gather_
   RETVAL=$?
