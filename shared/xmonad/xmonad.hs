@@ -76,7 +76,7 @@ myLogHook xmproc = dynamicLogWithPP $ xmobarPP {
 main :: IO ()
 main = do
   xmproc <- spawnPipe "xmobar"
-  xmonad $ withUrgencyHook NoUrgencyHook $ azertyConfig {
+  launch $ withUrgencyHook NoUrgencyHook $ azertyConfig {
     focusedBorderColor = colorMain
   , normalBorderColor = colorSecondary
   , borderWidth = myBorderWidth
