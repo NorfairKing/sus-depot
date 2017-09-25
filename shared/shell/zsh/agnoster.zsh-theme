@@ -210,7 +210,11 @@ prompt_in() {
   fi
 }
 
-source <(hastory generate-gather-wrapper-script)
+if [[ "$(which ${bin})" != "${bin} not found" ]]
+then
+  source <(hastory generate-gather-wrapper-script)
+fi
+
 
 build_prompt() {
   hastory_gather_
