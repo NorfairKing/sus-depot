@@ -31,6 +31,7 @@
 (defun private-org/init-clockers ()
   (global-set-key (kbd "<f5>") 'org-clock-in)
   (global-set-key (kbd "<f6>") 'org-clock-out)
+  (setq org-log-done 'time)
   )
 
 (defun private-org/init-appearance ()
