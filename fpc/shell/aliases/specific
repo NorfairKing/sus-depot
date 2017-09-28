@@ -1,1 +1,1 @@
-fpass='export PASSWORD_STORE_DIR=/home/fpc/password-store && pass'
+alias fpass='export PASSWORD_STORE_DIR=/home/fpc/password-store && pass'

@@ -14,6 +14,7 @@ safe_source ~/.aliases/package
 safe_source ~/.aliases/task
 safe_source ~/.aliases/workflow
 safe_source ~/.aliases/xmonad
+safe_source ~/.aliases/specific
 
 # State of computer
 alias sus='sudo pm-suspend'
