@@ -49,6 +49,7 @@ card shell {
     task
     workflow
     xmonad
+    specific
   }
   {
     outof bash
