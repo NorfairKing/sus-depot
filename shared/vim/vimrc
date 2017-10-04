@@ -36,6 +36,8 @@ let g:hindent_on_save = 1
 let g:hindent_indent_size = 4
 let g:hindent_line_length = 80
 
+let g:terraform_fmt_on_save = 1
+
 " Clang-format options
 autocmd FileType c ClangFormatAutoEnable
 
@@ -104,7 +106,6 @@ autocmd FileType css autocmd BufWritePre <buffer> :call CSSBeautify()
 autocmd FileType scss autocmd BufWritePre <buffer> :call CSSBeautify()
 autocmd FileType javascript autocmd BufWritePre <buffer> :call JsBeautify()
 
-g:terraform_fmt_on_save = 1
 
 " Close vim entirely
 map :q :qa
