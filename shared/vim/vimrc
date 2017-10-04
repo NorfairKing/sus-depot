@@ -103,7 +103,8 @@ autocmd FileType json autocmd BufWritePre <buffer> %!python -m json.tool
 autocmd FileType css autocmd BufWritePre <buffer> :call CSSBeautify()
 autocmd FileType scss autocmd BufWritePre <buffer> :call CSSBeautify()
 autocmd FileType javascript autocmd BufWritePre <buffer> :call JsBeautify()
-autocmd FileType terraform autocmd BufWritePre <buffer> :call TerraformFmt()
+
+g:terraform_fmt_on_save = 1
 
 " Close vim entirely
 map :q :qa
