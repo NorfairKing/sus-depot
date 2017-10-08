@@ -1,5 +1,6 @@
 card shell {
   alternatives $(HOST) shared
+  alternatives $(USER) shared
 
   into ~
   outof shell
@@ -41,7 +42,6 @@ card shell {
     editor
     git
     gpg
-    task
     ls
     navigation
     network

@@ -1,11 +1,4 @@
 card sus {
-
-  # First look in the hosts specific file, otherwise look in the shared directory
-  alternatives $(HOST) shared
-  into ~
-
-  .fonts
-
   spark file shell.sus
   spark file xorg.sus
   spark file config.sus
@@ -17,4 +10,5 @@ card sus {
   spark file mail.sus
   spark file vim.sus
   spark file haskell.sus
+  spark file fonts.sus
 }

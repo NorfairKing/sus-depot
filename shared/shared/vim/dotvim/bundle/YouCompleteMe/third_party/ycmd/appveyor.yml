@@ -1,0 +1,31 @@
+version: '{build}'
+branches:
+  # Since Homu does not support AppVeyor, we ignore the branch it uses.
+  except:
+    - auto
+environment:
+  USE_CLANG_COMPLETER: true
+  matrix:
+  - msvc: 11
+    arch: 32
+  - msvc: 11
+    arch: 64
+  - msvc: 12
+    arch: 32
+  - msvc: 12
+    arch: 64
+  - msvc: 14
+    arch: 32
+  - msvc: 14
+    arch: 64
+install:
+  - ci\appveyor\appveyor_install.bat
+build_script:
+  - python run_tests.py --msvc %MSVC%
+# Disable automatic tests
+test: off
+cache:
+  - '%USERPROFILE%\.cargo -> third_party\racerd'
+  - 'third_party\racerd\target -> third_party\racerd'
+  - '%LOCALAPPDATA%\pip\cache'
+  - '%APPDATA%\npm-cache'
