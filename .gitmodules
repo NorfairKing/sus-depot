@@ -30,4 +30,8 @@
 	url = https://github.com/raichoo/purescript-vim.git
 [submodule "shared/vim/dotvim/bundle/vim-jsbeautify"]
 	path = shared/vim/dotvim/bundle/vim-jsbeautify
-	url = git@github.com:maksimr/vim-jsbeautify.git
+  url = git@github.com:maksimr/vim-jsbeautify.git
+[submodule "shared/vim/dotvim/bundle/vim-terraform"]
+  path = shared/vim/dotvim/bundle/vim-terraform
+  url = git@github.com:hashivim/vim-terraform.git
+
