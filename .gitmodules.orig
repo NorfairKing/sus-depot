@@ -1,0 +1,44 @@
+[submodule "shared/vim/dotvim/bundle/YouCompleteMe"]
+	path = shared/vim/dotvim/bundle/YouCompleteMe
+	url = git@github.com:Valloric/YouCompleteMe.git
+[submodule "shared/vim/dotvim/bundle/vim-stylish-haskell"]
+	path = shared/vim/dotvim/bundle/vim-stylish-haskell
+	url = git@github.com:nbouscal/vim-stylish-haskell.git
+[submodule "shared/vim/dotvim/bundle/vim-clang-format"]
+	path = shared/vim/dotvim/bundle/vim-clang-format
+	url = git@github.com:rhysd/vim-clang-format.git
+[submodule "shared/vim/dotvim/bundle/nerdtree"]
+	path = shared/vim/dotvim/bundle/nerdtree
+	url = git@github.com:scrooloose/nerdtree.git
+[submodule "shared/vim/dotvim/bundle/vim-wakatime"]
+	path = shared/vim/dotvim/bundle/vim-wakatime
+	url = git://github.com/wakatime/vim-wakatime.git
+[submodule "shared/vim/dotvim/bundle/tabular"]
+	path = shared/vim/dotvim/bundle/tabular
+	url = git://github.com/godlygeek/tabular.git
+[submodule "shared/vim/dotvim/bundle/rainbow_parentheses.vim"]
+	path = shared/vim/dotvim/bundle/rainbow_parentheses.vim
+	url = git@github.com:kien/rainbow_parentheses.vim.git
+[submodule "shared/vim/dotvim/bundle/presenting.vim"]
+	path = shared/vim/dotvim/bundle/presenting.vim
+	url = git@github.com:sotte/presenting.vim.git
+[submodule "shared/vim/dotvim/bundle/vim-hindent"]
+	path = shared/vim/dotvim/bundle/vim-hindent
+	url = git@github.com:alx741/vim-hindent.git
+[submodule "shared/vim/dotvim/bundle/purescript-vim"]
+	path = shared/vim/dotvim/bundle/purescript-vim
+	url = https://github.com/raichoo/purescript-vim.git
+[submodule "shared/vim/dotvim/bundle/vim-jsbeautify"]
+	path = shared/vim/dotvim/bundle/vim-jsbeautify
+<<<<<<< HEAD
+	url = git@github.com:maksimr/vim-jsbeautify.git
+[submodule "shared/vim/dotvim/bundle/vim-terraform"]
+	path = shared/vim/dotvim/bundle/vim-terraform
+	url = git@github.com:hashivim/vim-terraform.git
+=======
+  url = git@github.com:maksimr/vim-jsbeautify.git
+[submodule "shared/vim/dotvim/bundle/vim-terraform"]
+  path = shared/vim/dotvim/bundle/vim-terraform
+  url = git@github.com:hashivim/vim-terraform.git
+
+>>>>>>> origin/development

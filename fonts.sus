@@ -1,0 +1,7 @@
+card fonts {
+  alternatives $(HOST) shared
+  alternatives $(USER) shared
+
+  into ~
+  .fonts
+}
