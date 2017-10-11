@@ -34,3 +34,9 @@
 [submodule "shared/vim/dotvim/bundle/vim-terraform"]
 	path = shared/vim/dotvim/bundle/vim-terraform
 	url = git@github.com:hashivim/vim-terraform.git
+[submodule "shared/shared/vim/dotvim/bundle/vim-terraform"]
+	path = shared/shared/vim/dotvim/bundle/vim-terraform
+	url = git@github.com:hashivim/vim-terraform.git
+[submodule "shared/shared/spacemacs/spacemacs-repo"]
+	path = shared/shared/spacemacs/spacemacs-repo
+	url = git@github.com:syl20bnr/spacemacs.git

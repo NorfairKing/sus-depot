@@ -6,6 +6,7 @@ card spacemacs {
 
   .spacemacs
 
+  spacemacs-repo -> .emacs.d
   {
     into .emacs.d/private
 
