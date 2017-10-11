@@ -1,2 +1,0 @@
-# Initialisation of your monitors
-xrandr --output HDMI-0 --mode 1920x1080 --output DVI-D-0 --mode 1920x1080 --right-of HDMI-0
