@@ -1,5 +1,6 @@
 card spacemacs {
   alternatives $(HOST) shared
+  alternatives $(USER) shared
   into ~
   outof spacemacs
 

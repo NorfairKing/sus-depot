@@ -1,0 +1,5 @@
+alias fpass='export PASSWORD_STORE_DIR=/home/fpc/password-store && pass'
+alias tf="~/devops-helpers/aws/aws-env.sh terraform"
+alias tfa='tf apply'
+alias tfp='tf plan'
+

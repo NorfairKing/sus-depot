@@ -1,5 +1,6 @@
 card keyboards {
   alternatives $(HOST) shared
+  alternatives $(USER) shared
   into ~/.keyboards
 
   {

@@ -1,0 +1,139 @@
+*presenting.vim* *presenting.vim.txt* *presenting.txt* *presenting*
+A simple tool for presenting slides in Vim based on text files.
+
+                                   o                     o
+   _   ,_    _   ,   _   _  _  _|_     _  _    __,           _  _  _
+ |/ \_/  |  |/  / \_|/  / |/ |  |  |  / |/ |  /  |  |  |_|  / |/ |/ |
+ |__/    |_/|__/ \/ |__/  |  |_/|_/|_/  |  |_/\_/|/o \/  |_/  |  |  |_/
+/|                                              /|
+\|                                              \|
+
+
+Version: 0.1.0
+
+==============================================================================
+CONTENTS                                                 *presenting-contents*
+
+  1. Introduction..........................|presenting_introduction|
+  2. Usage.................................|presenting-usage|
+  3. Mappings..............................|presenting-mappings|
+  4. Configuration.........................|presenting-configuration|
+  5. Issues................................|presenting-issues|
+  6. License...............................|presenting-license|
+
+==============================================================================
+INTRODUCTION                                         *presenting-introduction*
+
+presenting.vim is a simple tool for presenting slides in Vim based on text files.
+It is a clone of https://github.com/pct/present.vim
+which is a clone of https://github.com/sorah/presen.vim
+
+In contrast to its predecessors presenting.vim has support for a number of
+markup languages, can be extended, and is documented. Great, hey?
+
+==============================================================================
+USAGE                                                       *presenting-usage*
+
+You write you presentation in your favorite markup language.
+Every slide is separated by a markup language specific marker:
+>
+ FILETYPE       |  SLIDE SEPARATOR
+ ---------------+-----------------
+ markdown       |  # heading
+ rst            |  ~~~~
+ orgmode        |  #----
+ GoLang slide   |  * heading
+<
+
+When you want to start presenting execute: >
+  :PresentingStart
+<
+
+You can navigate to the next slide (n), the previous slide (p) or quit (q)
+the presentation.
+
+Also, take a look at the presenting.vim examples:
+ * PresentingExample.markdown
+ * PresentingExample.rst
+ * PresentingExample.org
+ * PresentingExample.slide
+
+------------------------------------------------------------------------------
+INLINE CODE BLOCKS~
+
+You can use the syntax highlighting for inline code blocks of your preferred
+markup language.
+
+RST supports python by default:
+>
+  .. code:: python
+      def main():
+          return False
+<
+
+==============================================================================
+MAPPINGS                                                 *presenting-mappings*
+
+In the presentation mode there are the following mapping:
+
+  q - quit presentation
+  n - next slide
+  p - previous slide
+
+==============================================================================
+CONFIGURATION                                       *presenting-configuration*
+
+                                                 *presenting_slide_separators*
+This option defines the 'filetype-->slide separator' mapping and allows you
+to edit the current ones and add new ones.
+List the existing ones: >
+  :echo g:presenting_slide_separators
+<
+Add your own/customize the current ones: >
+  :let g:presenting_slide_separators['my_filetype']='----'
+<
+where '----' is the separator.
+
+------------------------------------------------------------------------------
+                                                       *presenting_statusline*
+This option allows you to customize the format of the statusline for the
+presentation buffer. See |statusline| for available fields.
+
+The following variables are available for use in this option:
+
+variable                         meaning~
+`b:presenting_page_current`        The current page number (starting from 1)
+`b:presenting_page_total`          Total number of pages in the slide
+
+Default: >
+  :let g:presenting_statusline =
+    \ '%{b:presenting_page_current}/%{b:presenting_page_total}'
+<
+Set the statusline to display cursor position: >
+  :let g:presenting_statusline = '%l, %c'
+<
+==============================================================================
+ISSUES                                                     *presenting-issues*
+
+Having issues?
+ * goto https://github.com/sotte/presenting.vim/issues
+ * or, better, goto |presentingcontribute|
+
+Wanna contribute?                                      *presentingcontribute*
+ * https://github.com/sotte/presenting.vim
+
+presenting.vim only uses vim-script.
+
+==============================================================================
+LICENSE                                                   *presenting-license*
+
+presenting.vim is under the BEER-WARE LICENSE.
+
+THE BEER-WARE LICENSE
+
+"As long as you retain this notice you can do whatever you want with this
+stuff. If we meet some day, and you think this stuff is worth it, you can buy
+me a beer in return."
+
+==============================================================================
+vim:tw=78:ts=2:sw=2:expandtab:ft=help:norl:cole=0

@@ -1,0 +1,48 @@
+* presenting.vim
+
+            *presenting.vim*
+
+          a presentation tool
+
+                for vim
+#----
+* Usage
+
+Separate slides by '#----'
+
+Start presenting:
+
+  :PresentingStart
+
+Navigation:
+
+ * n - next slide
+ * p - previous slide
+ * q - quit
+
+#----
+* Inline Code
+org automatically supports syntax hl
+for many languagues!
+
+#+BEGIN_SRC python
+if __name__ == '__main__':
+      import sys
+      sys.exit()
+#+END_SRC
+
+
+#----
+* The End
+
+
+
+              *Thanks :D*
+
+#----
+* After the End
+
+    "nothing to see here,
+    move along..."
+
+# vim:tw=40

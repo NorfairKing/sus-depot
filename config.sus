@@ -1,5 +1,6 @@
 card config {
   alternatives $(HOST) shared
+  alternatives $(USER) shared
   into ~/.config
 
   redshift.conf

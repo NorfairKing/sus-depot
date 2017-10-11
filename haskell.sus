@@ -1,5 +1,6 @@
 card haskell {
   alternatives $(HOST) shared
+  alternatives $(USER) shared
   
   into ~/.stack
   outof haskell
