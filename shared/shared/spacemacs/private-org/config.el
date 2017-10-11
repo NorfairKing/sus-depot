@@ -3,7 +3,7 @@
 (with-eval-after-load 'org (setq org-startup-indented nil))
 
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "NEXT(n)" "STARTED(s)" "WAITING(w)" "READY(r)" "|" "DONE(d)" "CANCELLED(c)")))
+      '((sequence "TODO(t!)" "NEXT(n!)" "STARTED(s!)" "WAITING(w!)" "READY(r!)" "|" "DONE(d!)" "CANCELLED(c!)")))
 (setq org-todo-keyword-faces
       '(("TODO" . "red")
         ("NEXT" . "orange")
@@ -38,4 +38,5 @@
         )
    )
 
-(setq org-agenda-files '("~/workflow" "~/workflow/projects"))
+(load-library "find-lisp")
+(setq org-agenda-files (find-lisp-find-files "~/workflow" "\.org$"))
