@@ -38,5 +38,11 @@
         )
    )
 
-(load-library "find-lisp")
-(setq org-agenda-files (find-lisp-find-files "~/workflow" "\.org$"))
+(setq org-agenda-files 
+    '("~/workflow"
+      "~/workflow/projects"
+      "~/workflow/projects/archive"
+      "~/workflow/someday"
+      "~/workflow/reference"))
+
+(setq org-duration-format 'h:mm)
