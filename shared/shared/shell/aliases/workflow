@@ -2,6 +2,7 @@
 alias j='chronicle enter'
 
 alias z='zathura'
+alias s='smos'
 
 # alias vim="nvim" # Use neovim
 
