@@ -9,50 +9,30 @@ alias make="make -j8"
 alias someday="e ~/workflow/someday-maybe.org"
 alias review="e ~/workflow/review.org"
 
-
-alias a='note-automation'
-alias i='a process-in'
 in_ () {
   local content="$*"
   echo "${content}" >> "$HOME/workflow/inbox.org"
 }
 alias in=in_
 alias inbox='e "$HOME/workflow/inbox.org"'
-alias d='a in-done'
 
 
 # Make notes about a task
 note_ () {
-  local id="$1"
+  local dir="$1"
+  local id="$2"
   # It's not a number
-  file="$HOME/workflow/projects/$id.org"
+  file="$HOME/workflow/$dir/$id.org"
   if ! [[ -f "$file" ]]
   then
     echo "$id" | awk '{print toupper ($0)}' >> "* $file"
   fi
   e "$file"
 }
-alias n=note_
-
-reference_ () {
-  local id="$1"
-  file="$HOME/workflow/reference/$id.org"
-  e "$file"
-}
-alias r=reference_
-
-# Make notes about a work project
-proj_ () {
-  local id="$1"
-  # It's not a number
-  file="$HOME/workflow/projects/work/$id.org"
-  if ! [[ -f "$file" ]]
-  then
-    echo "$id" | awk '{print toupper ($0)}' >> "* $file"
-  fi
-  e "$file"
-}
-alias p=proj_
+alias n='note_ projects'
+alias b='note_ batch'
+alias r='note_ reference'
+alias s='note_ someday'
 
 alias hl='hledger --file /home/syd/cs-syd/data/finance/personal/summary.hlog'
 

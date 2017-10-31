@@ -40,6 +40,7 @@
 
 (setq org-agenda-files 
     '("~/workflow"
+      "~/workflow/batch"
       "~/workflow/projects"
       "~/workflow/projects/archive"
       "~/workflow/someday"
