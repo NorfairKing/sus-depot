@@ -22,7 +22,6 @@ alias inbox='e "$HOME/workflow/inbox.org"'
 note_ () {
   local dir="$1"
   local id="$2"
-  # It's not a number
   file="$HOME/workflow/$dir/$id.org"
   if ! [[ -f "$file" ]]
   then
