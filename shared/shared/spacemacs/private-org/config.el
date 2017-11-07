@@ -19,7 +19,7 @@
        '(
          ("f" "Work actions"
           (
-           (tags-todo "work/STARTED|NEXT|READY|WAITING")
+           (tags-todo "work/STARTED|NEXT|WAITING")
            (agenda "")
            )
          )

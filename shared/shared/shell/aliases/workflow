@@ -41,3 +41,5 @@ then
   source <(hastory generate-change-directory-wrapper-script)
   alias f=hastory_change_directory_
 fi
+
+alias yt='youtube-dl --extract-audio --audio-format mp3'
