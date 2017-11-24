@@ -37,18 +37,11 @@ make_completion() {
   source <(${bin} --bash-completion-script ${loc})
 }
 make_completion stack
-make_completion note-client
-make_completion note-server
-make_completion note-automation
-make_completion pe
 make_completion bob
 make_completion noah
 make_completion hastory
 make_completion super-user-spark
 make_completion mushu
-make_completion thesis
-make_completion easyspec
-make_completion easyspec-evaluate
 make_completion wolf
 
 DISABLE_UPDATE_PROMPT=true

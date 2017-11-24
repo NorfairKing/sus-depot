@@ -129,13 +129,13 @@ keycode  62   =  Control_R              NoSymbol        Control_R
 !! fifth row
 keycode  94   =  dollar                 asciitilde      dollar                asciitilde   dead_tilde       dead_tilde        dead_tilde
 keycode  49   =  less                   greater         less                  greater      bar              brokenbar         bar
-keycode  113  =  Left                   Home            Left
-keycode  114  =  Right                  End             Right
+keycode  113  =  Left                   Left            Left                  Left         Left
+keycode  114  =  Right                  Right           Right                 Right        Right
 
 
 ! One spare key!!
-keycode  111  =  Up                     Prior           Up
-keycode  116  =  Down                   Next            Down
+keycode  111  =  Up                     Up              Up                    Up           Up
+keycode  116  =  Down                   Down            Down                  Down         Down
 keycode  34   =  minus                  underscore      minus                 underscore   hyphen           endash            hyphen
 keycode  35   =  at                     asciicircum     at                    asciicircum  dead_circumflex  dead_caron        dead_circumflex
 

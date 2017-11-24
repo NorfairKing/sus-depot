@@ -2,6 +2,7 @@ add_tmppath "$HOME/scripts"
 add_tmppath "$HOME/.local/bin"
 add_tmppath "$HOME/.cabal/bin"
 add_tmppath "$HOME/arcanist/bin"
+add_tmppath "/usr/bin/core_perl"
 
 add_tmppath "/usr/local/sbin"
 add_tmppath "/usr/local/bin"
@@ -11,6 +12,7 @@ add_tmppath "/sbin"
 add_tmppath "/bin"
 
 add_tmppath "/usr/local/lib"
+add_tmppath "/usr/lib32"
 add_tmppath "/usr/lib"
 add_tmppath "/lib"
 
