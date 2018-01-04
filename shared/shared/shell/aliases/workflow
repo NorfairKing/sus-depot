@@ -11,7 +11,7 @@ alias someday="e ~/workflow/someday-maybe.org"
 alias review="e ~/workflow/review.org"
 
 in_ () {
-  local content="$*"
+  local content="$(date): $*"
   echo "${content}" >> "$HOME/workflow/inbox.org"
 }
 alias in=in_
@@ -36,10 +36,12 @@ alias s='note_ someday'
 
 alias hl='hledger --file /home/syd/cs-syd/data/finance/personal/summary.hlog'
 
-if [[ "$(which ${bin})" != "${bin} not found" ]]
+if [[ "$(which hastory)" != "hastory not found" ]]
 then
   source <(hastory generate-change-directory-wrapper-script)
   alias f=hastory_change_directory_
 fi
 
 alias yt='youtube-dl --extract-audio --audio-format mp3'
+
+alias fail='vim ~/workflow/failures.txt'
