@@ -27,6 +27,7 @@ URxvt.keysym.C-equal:  font-size:reset
 URxvt.keysym.C-slash:  font-size:show
 URxvt.font-size.step:  1
 
+
 ! To make S-Up and S-Down do what you think it does
 URxvt.keysym.S-Up: \033[1;2A
 URxvt.keysym.S-Down: \033[1;2B

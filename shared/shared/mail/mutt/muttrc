@@ -15,6 +15,8 @@ set wait_key = no        # shut up, mutt
 set mbox_type = Maildir  # mailbox type
 set timeout = 3          # idle time before scanning
 set mail_check = 0       # minimum time between scans
+set mail_check_stats = no # Speeding up mailbox checks
+set mail_check_stats_interval = 0
 #unset move               # gmail does that
 set delete               # don't ask, just do
 unset confirmappend      # don't ask, just do!

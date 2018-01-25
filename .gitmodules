@@ -40,3 +40,6 @@
 [submodule "shared/shared/spacemacs/spacemacs-repo"]
 	path = shared/shared/spacemacs/spacemacs-repo
 	url = git@github.com:syl20bnr/spacemacs.git
+[submodule "shared/shared/vim/dotvim/bundle/vim-yaml-format"]
+	path = shared/shared/vim/dotvim/bundle/vim-yaml-format
+	url = git@github.com:tarekbecker/vim-yaml-formatter.git
