@@ -120,7 +120,13 @@ mailboxes   +skgmail/rd \
             +skgmail/ref \
             +skgmail/archive \
             +skgmail/bad \
-            +skgmail/INBOX
+            +skgmail/INBOX \
+            +fastmail/Archive \
+            +fastmail/Drafts \
+            +fastmail/INBOX \
+            +fastmail/Sent \
+            +fastmail/Spam \
+            +fastmail/Trash
 
 # Other special folders.
 set copy
