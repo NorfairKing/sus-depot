@@ -10,13 +10,10 @@ alias make="make -j8"
 alias someday="e ~/workflow/someday-maybe.org"
 alias review="e ~/workflow/review.org"
 
-in_ () {
-  local content="$(date): $*"
-  echo "${content}" >> "$HOME/workflow/inbox.org"
-}
-alias in=in_
-alias inbox='e "$HOME/workflow/inbox.org"'
-
+alias i='intray'
+alias in='i add'
+alias is='i show'
+alias d='i done'
 
 # Make notes about a task
 note_ () {

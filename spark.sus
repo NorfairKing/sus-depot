@@ -10,5 +10,6 @@ card sus {
   spark file mail.sus
   spark file vim.sus
   spark file haskell.sus
+  spark file intray.sus
   spark file fonts.sus
 }

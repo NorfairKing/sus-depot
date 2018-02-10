@@ -86,7 +86,7 @@ set query_command="abook --mutt-query '%s'"
 
 ## Compose --------------------------------------------------------------------
 # Compose View
-set from                = "syd.kerckhove@gmail.com"
+set from                = "syd@cs-syd.eu"
 set use_from
 set sendmail            = "/usr/share/doc/msmtp/msmtpqueue/msmtp-enqueue.sh"
 set sendmail_wait       = 0

@@ -195,7 +195,7 @@ prompt_in() {
     return 0
   fi
 
-  amount=$(wc -l ${inbox} | awk '{print $1}') 
+  local amount=$(intray size --no-sync) 
   local inbfile="$HOME/.lastinboxemptydate"
   if [[ "0" != "$amount" ]]
   then

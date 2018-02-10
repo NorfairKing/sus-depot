@@ -12,17 +12,10 @@ alias gam='gc --amend'
 alias gp='git push'
 alias gpl='git pull --rebase'
 
-function gr() {
-    git tag -a $1 -m $2
-}
-alias gr=gr
-alias gpr='git push origin --tags'
-
 alias gm='git merge --no-ff'
 alias gmd='gm development'
 alias gmm='git merge master'
 alias gri='git rebase -i'
-
 
 alias go='git checkout'
 alias gb='git branch'
