@@ -43,6 +43,7 @@
       "~/workflow/batch"
       "~/workflow/projects"
       "~/workflow/projects/archive"
+      "~/workflow/projects/conf"
       "~/workflow/someday"
       "~/workflow/reference"))
 
