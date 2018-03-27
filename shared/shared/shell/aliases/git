@@ -14,6 +14,7 @@ alias gpl='git pull --rebase'
 
 alias gm='git merge --no-ff'
 alias gmd='gm development'
+alias gmod='gm origin/development'
 alias gmm='git merge master'
 alias gri='git rebase -i'
 
