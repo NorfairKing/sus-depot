@@ -42,7 +42,7 @@
     '("~/workflow"
       "~/workflow/batch"
       "~/workflow/projects"
-      "~/workflow/projects/bounties"
+      "~/workflow/projects/reports"
       "~/workflow/projects/conf"
       "~/workflow/projects/fpco"
       "~/workflow/someday"
