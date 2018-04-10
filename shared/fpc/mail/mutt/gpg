@@ -26,5 +26,8 @@ set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secr
 
 send-hook . 'reset pgp_autoencrypt'
 
+send-hook "!~l ~t steve.wagendorp@cardanofoundation.org" "set crypt_autoencrypt"
+send-hook "!~l ~t bruce.milligan@cardanofoundation.org" "set crypt_autoencrypt"
+
 bind compose p  pgp-menu
 

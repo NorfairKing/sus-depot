@@ -42,6 +42,8 @@
     '("~/workflow"
       "~/workflow/batch"
       "~/workflow/projects"
+      "~/workflow/projects/archive"
+      "~/workflow/projects/bounties"
       "~/workflow/projects/reports"
       "~/workflow/projects/conf"
       "~/workflow/projects/fpco"

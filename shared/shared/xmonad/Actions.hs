@@ -195,7 +195,4 @@ myXPConfig = def {
             }
 
 inPrompt :: X ()
-inPrompt = inputPrompt myXPConfig "in" ?+ (\s -> unsafeSpawn $ "task add +inbox +in " ++ s)
-
-rndPrompt :: X ()
-rndPrompt = inputPrompt myXPConfig "in" ?+ (\s -> unsafeSpawn $ "task add +inbox +rnd " ++ s)
+inPrompt = inputPrompt myXPConfig "in" ?+ (\s -> unsafeSpawn $ "inray add " ++ s)
