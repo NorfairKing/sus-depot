@@ -31,7 +31,7 @@
          )
          ("n" "All next actions and agenda"
           (
-           (todo "STARTED|NEXT")
+           (todo "STARTED|NEXT|WAITING")
            (agenda "")
           )
          )
