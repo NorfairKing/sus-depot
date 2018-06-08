@@ -189,12 +189,6 @@ prompt_status() {
 }
 
 prompt_in() {
-  local inbox="$HOME/workflow/inbox.org"
-  if [[ ! -f ${inbox} ]]
-  then
-    return 0
-  fi
-
   local amount=$(intray size --no-sync) 
   local inbfile="$HOME/.lastinboxemptydate"
   if [[ "0" != "$amount" ]]

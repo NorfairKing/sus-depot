@@ -90,7 +90,6 @@ myKeys conf = M.fromList $
     ,   ((mod                                 , xK_m      ),  focusMaster                   )
     ,   ((mod .|. shiftMask                   , xK_m      ),  swapMaster                    )
     ,   ((mod                                 , xK_n      ),  refresh                       )
-    ,   ((mod                                 , xK_q      ),  restart_xmonad                )
     ,   ((mod .|. shiftMask                   , xK_q      ),  logOut                        )
     ,   ((mod .|. controlMask                 , xK_q      ),  suspend                       )
     ,   ((mod .|. controlMask .|. shiftMask   , xK_q      ),  shutdown                      )
