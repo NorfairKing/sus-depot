@@ -43,3 +43,6 @@
 [submodule "shared/shared/vim/dotvim/bundle/vim-yaml-format"]
 	path = shared/shared/vim/dotvim/bundle/vim-yaml-format
 	url = git@github.com:tarekbecker/vim-yaml-formatter.git
+[submodule "shared/shared/vim/dotvim/bundle/vim-nix"]
+	path = shared/shared/vim/dotvim/bundle/vim-nix
+	url = git@github.com:LnL7/vim-nix.git
