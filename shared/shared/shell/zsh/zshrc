@@ -46,10 +46,11 @@ make_completion wolf
 
 DISABLE_UPDATE_PROMPT=true
 
-if [[ "$IN_NIX_SHELL" == "" ]]; then
-  if [ -e "/etc/nix/nix-profile.sh" ]; then
-    source /etc/nix/nix-profile.sh
-  fi
+if [[ -d /nix ]]
+then
+  source /etc/profile.d/nix.sh
+  source /etc/profile.d/nix-daemon.sh
 fi
+
 
 outdent

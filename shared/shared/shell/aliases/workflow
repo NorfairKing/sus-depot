@@ -11,6 +11,7 @@ alias someday="e ~/workflow/someday-maybe.org"
 alias review="e ~/workflow/review/week-$(date +%Y-%V).org"
 
 alias i='intray'
+alias t='tickler'
 alias in='i add'
 alias is='i show'
 alias d='i done'
