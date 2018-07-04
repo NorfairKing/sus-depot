@@ -17,3 +17,5 @@
   excludesfile = ~/.gitignore_global
 [include]
   path = ~/.git-ghc-config
+[pager]
+  branch = false
