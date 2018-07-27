@@ -1,6 +1,6 @@
 [user]
 	name = Tom Sydney Kerckhove
-	email = syd.kerckhove@gmail.com
+	email = syd@cs-syd.eu
 [credential]
 	helper = cache
 	halper = cache --timeout=86400

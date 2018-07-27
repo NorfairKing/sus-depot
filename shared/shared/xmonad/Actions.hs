@@ -87,9 +87,9 @@ orgBlog = org "$ORG_BLOG"
 
 -- Volume
 mute, volumeUp, volumeDown :: X ()
-mute       = spawn "amixer -q set Master 0%"
-volumeDown = spawn "amixer -q set Master 4%-"
-volumeUp   = spawn "amixer -q set Master 4%+"
+mute       = spawn "amixer -q set PCM 0%"
+volumeDown = spawn "amixer -q set PCM 4%-"
+volumeUp   = spawn "amixer -q set PCM 4%+"
 
 
 -- Brightness

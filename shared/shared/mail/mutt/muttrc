@@ -113,15 +113,15 @@ set forward_quote                       # include message in forwards
 
 ## Account --------------------------------------------------------------------
 # Default inbox.
-set spoolfile = "+fastmail/rd"
-mailboxes   +fastmail/rd \
+set spoolfile = "+fastmail/INBOX"
+mailboxes   +fastmail/INBOX \
+            +fastmail/rd \
             +fastmail/review \
             +fastmail/reply \
             +fastmail/wait \
             +fastmail/ref \
             +fastmail/archive \
-            +fastmail/bad \
-            +fastmail/INBOX
+            +fastmail/bad
 
 # Other special folders.
 set copy
