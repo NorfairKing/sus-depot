@@ -1,0 +1,21 @@
+[user]
+  name = Tom Sydney Kerckhove
+  email = syd@fpcomplete.com
+[credential]
+  helper = cache
+  halper = cache --timeout=86400
+[merge]
+  tool = meld
+[mergetool]
+  keepBackup = false
+[push]
+  default = simple
+[color]
+  ui = true
+[core]
+  editor = /usr/bin/vim
+  excludesfile = ~/.gitignore_global
+[include]
+  path = ~/.git-ghc-config
+[pager]
+  branch = false

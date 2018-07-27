@@ -1,0 +1,9 @@
+card intray {
+  alternatives $(HOST) shared
+  alternatives $(USER) shared
+
+  into ~/.intray
+  outof intray
+
+  config.yaml
+}

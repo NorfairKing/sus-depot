@@ -1,9 +1,26 @@
 card xorg {
   alternatives $(HOST) shared
+  alternatives $(USER) shared
   into ~
   outof xorg
 
   .screen
   .xinitrc
   .Xresources
+  
+  {
+    into .Xresources.d
+
+    ssh-askpass
+    urxvt
+    xcursor
+    xft
+    xterm
+  }
+  
+  {
+    into .urxvt/ext
+
+    font-size
+  }
 }

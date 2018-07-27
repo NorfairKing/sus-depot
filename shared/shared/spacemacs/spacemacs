@@ -1,0 +1,162 @@
+;; -*- mode: emacs-lisp -*-
+;; This file is loaded by Spacemacs at startup.
+;; It must be stored in your home directory.
+
+(defun dotspacemacs/layers ()
+  "Configuration Layers declaration."
+  (setq-default
+   ;; List of additional paths where to look for configuration layers.
+   ;; Paths must have a trailing slash (ie. `~/.mycontribs/')
+   dotspacemacs-configuration-layer-path '()
+   ;; List of configuration layers to load. If it is the symbol `all' instead
+   ;; of a list then all discovered layers will be installed.
+   dotspacemacs-configuration-layers
+   '(
+     haskell
+     emacs-lisp
+     org
+     private-org
+     )
+   ;; List of additional packages that will be installed wihout being
+   ;; wrapped in a layer. If you need some configuration for these
+   ;; packages then consider to create a layer, you can also put the
+   ;; configuration in `dotspacemacs/config'.
+   dotspacemacs-additional-packages '()
+   ;; A list of packages and/or extensions that will not be install and loaded.
+   dotspacemacs-excluded-packages '(org-bullets)
+   ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
+   ;; are declared in a layer which is not a member of
+   ;; the list `dotspacemacs-configuration-layers'
+   dotspacemacs-delete-orphan-packages t))
+
+(defun dotspacemacs/init ()
+  "Initialization function.
+This function is called at the very startup of Spacemacs initialization
+before layers configuration."
+  ;; This setq-default sexp is an exhaustive list of all the supported
+  ;; spacemacs settings.
+  (setq-default
+   ;; Either `vim' or `emacs'. Evil is always enabled but if the variable
+   ;; is `emacs' then the `holy-mode' is enabled at startup.
+   dotspacemacs-editing-style 'vim
+   ;; If non nil output loading progress in `*Messages*' buffer.
+   dotspacemacs-verbose-loading nil
+   ;; Specify the startup banner. Default value is `official', it displays
+   ;; the official spacemacs logo. An integer value is the index of text
+   ;; banner, `random' chooses a random text banner in `core/banners'
+   ;; directory. A string value must be a path to an image format supported
+   ;; by your Emacs build.
+   ;; If the value is nil then no banner is displayed.
+   dotspacemacs-startup-banner 'official
+   ;; List of items to show in the startup buffer. If nil it is disabled.
+   ;; Possible values are: `recents' `bookmarks' `projects'."
+   dotspacemacs-startup-lists '(recents projects)
+   ;; List of themes, the first of the list is loaded when spacemacs starts.
+   ;; Press <SPC> T n to cycle to the next theme in the list (works great
+   ;; with 2 themes variants, one dark and one light)
+   dotspacemacs-themes '(zenburn)
+   ;; If non nil the cursor color matches the state color.
+   dotspacemacs-colorize-cursor-according-to-state t
+   ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
+   ;; size to make separators look not too crappy.
+   dotspacemacs-default-font '("Source Code Pro"
+                               :size 13
+                               :weight normal
+                               :width normal
+                               :powerline-scale 1.1)
+   ;; The leader key
+   dotspacemacs-leader-key "SPC"
+   ;; The leader key accessible in `emacs state' and `insert state'
+   dotspacemacs-emacs-leader-key "M-m"
+   ;; Major mode leader key is a shortcut key which is the equivalent of
+   ;; pressing `<leader> m`. Set it to `nil` to disable it.
+   dotspacemacs-major-mode-leader-key ","
+   ;; Major mode leader key accessible in `emacs state' and `insert state'
+   dotspacemacs-major-mode-emacs-leader-key "C-M-m"
+   ;; The command key used for Evil commands (ex-commands) and
+   ;; Emacs commands (M-x).
+   ;; By default the command key is `:' so ex-commands are executed like in Vim
+   ;; with `:' and Emacs commands are executed with `<leader> :'.
+   dotspacemacs-command-key ":"
+   ;; If non nil then `ido' replaces `helm' for some commands. For now only
+   ;; `find-files' (SPC f f) is replaced.
+   dotspacemacs-use-ido nil
+   ;; If non nil the paste micro-state is enabled. When enabled pressing `p`
+   ;; several times cycle between the kill ring content.
+   dotspacemacs-enable-paste-micro-state nil
+   ;; Guide-key delay in seconds. The Guide-key is the popup buffer listing
+   ;; the commands bound to the current keystrokes.
+   dotspacemacs-guide-key-delay 0.4
+   ;; If non nil a progress bar is displayed when spacemacs is loading. This
+   ;; may increase the boot time on some systems and emacs builds, set it to
+   ;; nil ;; to boost the loading time.
+   dotspacemacs-loading-progress-bar t
+   ;; If non nil the frame is fullscreen when Emacs starts up.
+   ;; (Emacs 24.4+ only)
+   dotspacemacs-fullscreen-at-startup nil
+   ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
+   ;; Use to disable fullscreen animations in OSX."
+   dotspacemacs-fullscreen-use-non-native nil
+   ;; If non nil the frame is maximized when Emacs starts up.
+   ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
+   ;; (Emacs 24.4+ only)
+   dotspacemacs-maximized-at-startup nil
+   ;; A value from the range (0..100), in increasing opacity, which describes
+   ;; the transparency level of a frame when it's active or selected.
+   ;; Transparency can be toggled through `toggle-transparency'.
+   dotspacemacs-active-transparency 90
+   ;; A value from the range (0..100), in increasing opacity, which describes
+   ;; the transparency level of a frame when it's inactive or deselected.
+   ;; Transparency can be toggled through `toggle-transparency'.
+   dotspacemacs-inactive-transparency 90
+   ;; If non nil unicode symbols are displayed in the mode line.
+   dotspacemacs-mode-line-unicode-symbols t
+   ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
+   ;; scrolling overrides the default behavior of Emacs which recenters the
+   ;; point when it reaches the top or bottom of the screen.
+   dotspacemacs-smooth-scrolling t
+   ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
+   dotspacemacs-smartparens-strict-mode nil
+   ;; Select a scope to highlight delimiters. Possible value is `all',
+   ;; `current' or `nil'. Default is `all'
+   dotspacemacs-highlight-delimiters 'all
+   ;; If non nil advises quit functions to keep server open when quitting.
+   dotspacemacs-persistent-server nil
+   ;; List of search tool executable names. Spacemacs uses the first installed
+   ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
+   dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
+   ;; The default package repository used if no explicit repository has been
+   ;; specified with an installed package.
+   ;; Not used for now.
+   dotspacemacs-default-package-repository nil
+   )
+  ;; User initialization goes here
+  )
+
+(defun dotspacemacs/config ()
+  "Configuration function.
+ This function is called at the very end of Spacemacs initialization after
+layers configuration."
+
+    ; Browsers
+    (setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "firefox")
+    (setq org-require-final-newline t)
+ )
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-agenda-files
+   (quote
+    ("/home/syd/workflow/control-pannel.org" "/home/syd/workflow/monthly-review.org" "/home/syd/workflow/periodicals.org" "/home/syd/workflow/review.org" "/home/syd/workflow/someday-maybe.org" "/home/syd/workflow/batch/bills.org" "/home/syd/workflow/projects/accounting.org" "/home/syd/workflow/projects/bp.org" "/home/syd/workflow/projects/claims.org" "/home/syd/workflow/projects/cleaning.org" "/home/syd/workflow/projects/compensation.org" "/home/syd/workflow/projects/cs-syd.org" "/home/syd/workflow/projects/cursor.org" "/home/syd/workflow/projects/cursors.org" "/home/syd/workflow/projects/desktop.org" "/home/syd/workflow/projects/doctor.org" "/home/syd/workflow/projects/german.org" "/home/syd/workflow/projects/hairdresser.org" "/home/syd/workflow/projects/internet.org" "/home/syd/workflow/projects/intray-app.org" "/home/syd/workflow/projects/kitchen.org" "/home/syd/workflow/projects/masterdoc.org" "/home/syd/workflow/projects/money.org" "/home/syd/workflow/projects/paesmol-bus.org" "/home/syd/workflow/projects/scott.org" "/home/syd/workflow/projects/sign.org" "/home/syd/workflow/projects/subrent.org" "/home/syd/workflow/projects/suits.org" "/home/syd/workflow/projects/tav.org" "/home/syd/workflow/projects/taxes.org" "/home/syd/workflow/projects/reports/decroos.org" "/home/syd/workflow/projects/conf/deliveryofthings.org" "/home/syd/workflow/projects/conf/haskell-exchange.org" "/home/syd/workflow/projects/conf/hsr.org" "/home/syd/workflow/projects/conf/lambdadays.org" "/home/syd/workflow/projects/conf/lambdaworld.org" "/home/syd/workflow/projects/conf/partial.org" "/home/syd/workflow/projects/fpco/2018-07.org" "/home/syd/workflow/projects/fpco/2018-08.org" "/home/syd/workflow/projects/fpco/audit.org" "/home/syd/workflow/projects/fpco/cardano.org" "/home/syd/workflow/projects/fpco/gitlab.org" "/home/syd/workflow/projects/fpco/hashing.org" "/home/syd/workflow/projects/fpco/hydra.org" "/home/syd/workflow/projects/fpco/j-hs.org" "/home/syd/workflow/projects/fpco/mini.org" "/home/syd/workflow/projects/fpco/sift.org" "/home/syd/workflow/projects/fpco/work.org" "/home/syd/workflow/projects/fpco/workflow.org" "/home/syd/workflow/someday/arxiv.org" "/home/syd/workflow/someday/ass.org" "/home/syd/workflow/someday/bp-gitlab.org" "/home/syd/workflow/someday/bp_automation-is-not-just-about-speed.org" "/home/syd/workflow/someday/bp_compatibility.org" "/home/syd/workflow/someday/bp_csfh.org" "/home/syd/workflow/someday/bp_food.org" "/home/syd/workflow/someday/bp_languages.org" "/home/syd/workflow/someday/bp_research-as-a-buildsystem.org" "/home/syd/workflow/someday/bp_slow.org" "/home/syd/workflow/someday/brick.org" "/home/syd/workflow/someday/business.org" "/home/syd/workflow/someday/company.org" "/home/syd/workflow/someday/defaults.org" "/home/syd/workflow/someday/easyspec.org" "/home/syd/workflow/someday/eu.org" "/home/syd/workflow/someday/eulogies.org" "/home/syd/workflow/someday/facturator.org" "/home/syd/workflow/someday/funnel.org" "/home/syd/workflow/someday/genfile.org" "/home/syd/workflow/someday/halarm.org" "/home/syd/workflow/someday/hastory.org" "/home/syd/workflow/someday/info-diet.org" "/home/syd/workflow/someday/intray.org" "/home/syd/workflow/someday/investing.org" "/home/syd/workflow/someday/laptop.org" "/home/syd/workflow/someday/life-dashboard.org" "/home/syd/workflow/someday/life-tutorial.org" "/home/syd/workflow/someday/mergeless.org" "/home/syd/workflow/someday/merkel.org" "/home/syd/workflow/someday/mushu.org" "/home/syd/workflow/someday/nap.org" "/home/syd/workflow/someday/niklas.org" "/home/syd/workflow/someday/ocean.org" "/home/syd/workflow/someday/personal-life-guide.org" "/home/syd/workflow/someday/pesc.org" "/home/syd/workflow/someday/piechart.org" "/home/syd/workflow/someday/poster.org" "/home/syd/workflow/someday/pretty-relative-time.org" "/home/syd/workflow/someday/pretty-time.org" "/home/syd/workflow/someday/rejection.org" "/home/syd/workflow/someday/science-slam.org" "/home/syd/workflow/someday/security.org" "/home/syd/workflow/someday/selling.org" "/home/syd/workflow/someday/sextus.org" "/home/syd/workflow/someday/sjabloon.org" "/home/syd/workflow/someday/smos.org" "/home/syd/workflow/someday/sus.org" "/home/syd/workflow/someday/syds.org" "/home/syd/workflow/someday/thanks.org" "/home/syd/workflow/someday/tickler.org" "/home/syd/workflow/someday/timetrainer.org" "/home/syd/workflow/someday/toastmaster.org" "/home/syd/workflow/someday/truth.org" "/home/syd/workflow/someday/validity.org" "/home/syd/workflow/someday/vision.org" "/home/syd/workflow/someday/wolf.org" "/home/syd/workflow/someday/workflow.org" "/home/syd/workflow/someday/zifter.org" "/home/syd/workflow/reference/ali-feedback.org" "/home/syd/workflow/reference/australia.org" "/home/syd/workflow/reference/belgium.org" "/home/syd/workflow/reference/bio.org" "/home/syd/workflow/reference/blog.org" "/home/syd/workflow/reference/bounties.org" "/home/syd/workflow/reference/changelist.org" "/home/syd/workflow/reference/control-pannel.org" "/home/syd/workflow/reference/date.org" "/home/syd/workflow/reference/exercise.org" "/home/syd/workflow/reference/extra.org" "/home/syd/workflow/reference/facebook-feedback.org" "/home/syd/workflow/reference/financial-independence.org" "/home/syd/workflow/reference/fire.org" "/home/syd/workflow/reference/food.org" "/home/syd/workflow/reference/fp.org" "/home/syd/workflow/reference/fpc.org" "/home/syd/workflow/reference/funnel.org" "/home/syd/workflow/reference/german.org" "/home/syd/workflow/reference/google-interview.org" "/home/syd/workflow/reference/habits.org" "/home/syd/workflow/reference/interview_problems.org" "/home/syd/workflow/reference/interviews.org" "/home/syd/workflow/reference/jobhunt.org" "/home/syd/workflow/reference/knees.org" "/home/syd/workflow/reference/list.org" "/home/syd/workflow/reference/london.org" "/home/syd/workflow/reference/money.org" "/home/syd/workflow/reference/monthly-review-template.org" "/home/syd/workflow/reference/my-own-programming-language.org" "/home/syd/workflow/reference/ocean.org" "/home/syd/workflow/reference/opinions.org" "/home/syd/workflow/reference/paesmol-archive.org" "/home/syd/workflow/reference/paesmol.org" "/home/syd/workflow/reference/parents.org" "/home/syd/workflow/reference/presentation.org" "/home/syd/workflow/reference/programming_achievements.org" "/home/syd/workflow/reference/quarterly-review-template.org" "/home/syd/workflow/reference/referrals.org" "/home/syd/workflow/reference/rejection.org" "/home/syd/workflow/reference/salsa.org" "/home/syd/workflow/reference/sleep.org" "/home/syd/workflow/reference/talk.org" "/home/syd/workflow/reference/tattack.org" "/home/syd/workflow/reference/time-travel.org" "/home/syd/workflow/reference/time.org" "/home/syd/workflow/reference/to-not-do.org" "/home/syd/workflow/reference/travel.org" "/home/syd/workflow/reference/us.org" "/home/syd/workflow/reference/weekly-review-template.org" "/home/syd/workflow/reference/wishlist.org" "/home/syd/workflow/reference/work-advice.org" "/home/syd/workflow/reference/yearly-review-template.org" "/home/syd/workflow/reference/zurich.org")))
+ '(package-selected-packages
+   (quote
+    (intero flycheck hlint-refactor hindent helm-hoogle haskell-snippets yasnippet company-ghci company-ghc ghc company haskell-mode cmm-mode powerline spinner hydra parent-mode projectile pkg-info epl flx smartparens iedit anzu evil goto-chg undo-tree highlight f dash s diminish bind-map bind-key packed helm avy helm-core popup async org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot capture zenburn-theme ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

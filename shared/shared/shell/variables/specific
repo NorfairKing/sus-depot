@@ -1,0 +1,2 @@
+export MAUDE_LIB=/usr/share/maude
+export KUBECONFIG=/home/fpc/fpco-prod-us-east-1/kubeconfig:/home/fpc/fpco-ci-us-east-1/kubeconfig

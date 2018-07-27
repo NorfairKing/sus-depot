@@ -1,8 +1,0 @@
-# Executed by bash for login shells
-
-source ~/.functions/functions
-safe_source ~/.aliases/aliases
-safe_source ~/.paths/paths
-safe_source ~/.variables/variables
-
-if [ -e /home/syd/.nix-profile/etc/profile.d/nix.sh ]; then . /home/syd/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

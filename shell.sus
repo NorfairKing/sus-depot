@@ -1,5 +1,6 @@
 card shell {
   alternatives $(HOST) shared
+  alternatives $(USER) shared
 
   into ~
   outof shell
@@ -16,6 +17,7 @@ card shell {
     java
     keyboard
     ls_colors
+    specific
   }
   {
     into .functions
@@ -41,7 +43,6 @@ card shell {
     editor
     git
     gpg
-    task
     ls
     navigation
     network
@@ -49,6 +50,7 @@ card shell {
     task
     workflow
     xmonad
+    specific
   }
   {
     outof bash

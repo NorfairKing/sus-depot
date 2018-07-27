@@ -1,0 +1,158 @@
+" TODO, this all needs info
+call pathogen#infect()
+
+" Enable syntax highlighting
+syntax on 
+
+filetype plugin indent on
+
+" size of a hard tabstop
+set tabstop=2
+
+" size of an "indent"
+set shiftwidth=2
+
+" a combination of spaces and tabs are used to simulate tab stops at a width
+" other than the (hard)tabstop
+set softtabstop=2
+
+" make "tab" insert indents instead of tabs at the beginning of a line
+set smarttab
+
+" always uses spaces instead of tab characters
+set expandtab
+
+autocmd FileType haskell nmap <silent> ,i :silent update <bar> HsimportModule<CR>
+autocmd FileType haskell nmap <silent> ,y :silent update <bar> HsimportSymbol<CR>
+
+autocmd FileType haskell setlocal shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType cabal setlocal shiftwidth=4 tabstop=4 softtabstop=4
+
+autocmd FileType nix let b:autoformat_autoindent=0
+let g:ycm_semantic_triggers = {'haskell' : ['.']}
+
+" Hindent options
+let g:hindent_on_save = 1
+let g:hindent_indent_size = 4
+let g:hindent_line_length = 80
+
+let g:terraform_fmt_on_save = 1
+
+" Clang-format options
+autocmd FileType c ClangFormatAutoEnable
+
+" No more arrow keys
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
+imap <Left> <Nop>
+imap <Right> <Nop>
+imap <Up> <Nop>
+imap <Down> <Nop>
+
+set backspace=indent,eol,start
+
+let mapleader=","
+
+set encoding=utf-8
+set t_Co=256
+
+set rtp+=$HOME/.local/lib/python3.3/site-packages/powerline/bindings/vim/
+let g:Powerline_symbols = "fancy"
+set laststatus=2
+
+
+" Powerline fonts in airline
+let g:airline_powerline_fonts = 1
+
+colorscheme wombat
+
+" For YouCompleteMe
+set completeopt=menuone
+
+
+" For the notes, compile, generate tex and compile tex in one command
+map ,. :w<CR>:!cd ~/the-notes && make fast && ./current <CR><CR>
+map ,p :w<CR>:!cd ~/the-notes && make fast && ./current <CR>
+
+map ms :%s/\.\(\s\+\|$\)/.\r\r/g
+
+
+" cross product
+digraph cp 10799 
+
+" Supremum and infimum
+digraph lb 8851
+digraph ub 8852
+
+" Xor
+digraph xo 8853
+
+
+" delete trailing whitespace on save
+fun! <SID>StripTrailingWhitespaces()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
+endfun
+
+autocmd FileType c,cpp,java,php,ruby,python,haskell autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+
+autocmd FileType json autocmd BufWritePre <buffer> %!python -m json.tool
+
+autocmd FileType css autocmd BufWritePre <buffer> :call CSSBeautify()
+autocmd FileType scss autocmd BufWritePre <buffer> :call CSSBeautify()
+autocmd FileType javascript autocmd BufWritePre <buffer> :call JsBeautify()
+
+
+" Close vim entirely
+map :q :qa
+
+" move between buffers with just C-w
+map <C-w> :wincmd p<CR>
+
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+
+
+function! ThankYouForYourTime()
+    call append(".", "Thank you for your time.")
+endfunction
+
+nmap tyfyt :call ThankYouForYourTime()<CR>
+
+function! BedanktVoorUwTijd()
+    call append(".", "Bedankt voor uw tijd.")
+endfunction
+
+nmap bvut :call BedanktVoorUwTijd()<CR>
+
+" Un-hurting my wrinst
+
+"make jj do esc"
+inoremap jj <Esc>
+

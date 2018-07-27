@@ -1,0 +1,8 @@
+#!/bin/bash
+safe_source ~/.variables/workflow
+safe_source ~/.variables/mail
+safe_source ~/.variables/java
+safe_source ~/.variables/host
+safe_source ~/.variables/keyboard
+safe_source ~/.variables/ls_colors
+safe_source ~/.variables/specific

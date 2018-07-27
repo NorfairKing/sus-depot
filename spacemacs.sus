@@ -1,10 +1,12 @@
 card spacemacs {
   alternatives $(HOST) shared
+  alternatives $(USER) shared
   into ~
   outof spacemacs
 
   .spacemacs
 
+  spacemacs-repo -> .emacs.d
   {
     into .emacs.d/private
 

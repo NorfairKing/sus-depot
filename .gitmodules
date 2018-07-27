@@ -31,3 +31,21 @@
 [submodule "shared/vim/dotvim/bundle/vim-jsbeautify"]
 	path = shared/vim/dotvim/bundle/vim-jsbeautify
 	url = git@github.com:maksimr/vim-jsbeautify.git
+[submodule "shared/vim/dotvim/bundle/vim-terraform"]
+	path = shared/vim/dotvim/bundle/vim-terraform
+	url = git@github.com:hashivim/vim-terraform.git
+[submodule "shared/shared/vim/dotvim/bundle/vim-terraform"]
+	path = shared/shared/vim/dotvim/bundle/vim-terraform
+	url = git@github.com:hashivim/vim-terraform.git
+[submodule "shared/shared/spacemacs/spacemacs-repo"]
+	path = shared/shared/spacemacs/spacemacs-repo
+	url = git@github.com:syl20bnr/spacemacs.git
+[submodule "shared/shared/vim/dotvim/bundle/vim-yaml-format"]
+	path = shared/shared/vim/dotvim/bundle/vim-yaml-format
+	url = git@github.com:tarekbecker/vim-yaml-formatter.git
+[submodule "shared/shared/vim/dotvim/bundle/vim-nix"]
+	path = shared/shared/vim/dotvim/bundle/vim-nix
+	url = git@github.com:LnL7/vim-nix.git
+[submodule "shared/shared/vim/dotvim/bundle/vim-syntax-shakespeare"]
+	path = shared/shared/vim/dotvim/bundle/vim-syntax-shakespeare
+	url = git@github.com:pbrisbin/vim-syntax-shakespeare.git

@@ -1,0 +1,21 @@
+[user]
+	name = Tom Sydney Kerckhove
+	email = syd@cs-syd.eu
+[credential]
+	helper = cache
+	halper = cache --timeout=86400
+[merge]
+  tool = meld
+[mergetool]
+  keepBackup = false
+[push]
+	default = simple
+[color]
+	ui = true
+[core]
+	editor = vim
+  excludesfile = ~/.gitignore_global
+[include]
+  path = ~/.git-ghc-config
+[pager]
+  status = false

@@ -1,0 +1,9 @@
+card tickler {
+  alternatives $(HOST) shared
+  alternatives $(USER) shared
+
+  into ~/.tickler
+  outof tickler
+
+  config.yaml
+}

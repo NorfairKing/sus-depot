@@ -1,0 +1,6 @@
+# Executed by bash for login shells
+
+source ~/.functions/functions
+safe_source ~/.aliases/aliases
+safe_source ~/.paths/paths
+safe_source ~/.variables/variables

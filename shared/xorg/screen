@@ -1,3 +1,0 @@
-# Initialisation of your monitors
-xrandr --auto #  && xrandr --output VGA1 --right-of LVDS1 --mode 1920x1200
-
