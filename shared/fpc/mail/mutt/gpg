@@ -10,6 +10,7 @@ set pgp_autosign=yes
 set pgp_sign_as=B36D3D8A2176BA0C112A91180B773D4C6BFA08E4
 set pgp_timeout = 3600
 set pgp_use_gpg_agent = yes
+set crypt_use_gpgme = yes
 
 set pgp_decode_command="gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
 set pgp_verify_command="gpg --no-verbose --batch --output - --verify %s %f"
