@@ -43,3 +43,7 @@ fi
 alias yt='youtube-dl --extract-audio --audio-format mp3'
 
 alias fail='vim ~/workflow/failures.txt'
+
+alias tf='terraform'
+alias tfp='terraform plan'
+alias tfa='terraform apply'

@@ -41,11 +41,11 @@
 (setq org-agenda-files 
     '("~/workflow/batch"
       "~/workflow/projects"
-      "~/workflow/projects/archive"
       "~/workflow/projects/bounties"
-      "~/workflow/projects/reports"
       "~/workflow/projects/conf"
       "~/workflow/projects/fpco"
+      "~/workflow/projects/interview"
+      "~/workflow/projects/reports"
       "~/workflow/someday"
       "~/workflow/reference"))
 
