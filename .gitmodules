@@ -49,3 +49,6 @@
 [submodule "shared/shared/vim/dotvim/bundle/vim-syntax-shakespeare"]
 	path = shared/shared/vim/dotvim/bundle/vim-syntax-shakespeare
 	url = git@github.com:pbrisbin/vim-syntax-shakespeare.git
+[submodule "shared/shared/vim/dotvim/bundle/elm-vim"]
+	path = shared/shared/vim/dotvim/bundle/elm-vim
+	url = git@github.com:ElmCast/elm-vim.git

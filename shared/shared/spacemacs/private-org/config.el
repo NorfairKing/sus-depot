@@ -31,7 +31,7 @@
          )
          ("n" "All next actions and agenda"
           (
-           (todo "STARTED|NEXT|WAITING")
+           (todo "STARTED|NEXT")
            (agenda "")
           )
          )
@@ -39,8 +39,7 @@
    )
 
 (setq org-agenda-files 
-    '("~/workflow"
-      "~/workflow/batch"
+    '("~/workflow/batch"
       "~/workflow/projects"
       "~/workflow/projects/archive"
       "~/workflow/projects/bounties"

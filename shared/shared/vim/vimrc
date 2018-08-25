@@ -31,6 +31,9 @@ autocmd FileType cabal setlocal shiftwidth=4 tabstop=4 softtabstop=4
 autocmd FileType nix let b:autoformat_autoindent=0
 let g:ycm_semantic_triggers = {'haskell' : ['.']}
 
+
+let g:elm_format_autosave = 1
+
 " Hindent options
 let g:hindent_on_save = 1
 let g:hindent_indent_size = 4
