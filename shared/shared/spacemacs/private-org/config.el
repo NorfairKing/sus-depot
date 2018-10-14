@@ -39,14 +39,14 @@
    )
 
 (setq org-agenda-files 
-    '("~/workflow/batch"
-      "~/workflow/projects"
-      "~/workflow/projects/bounties"
-      "~/workflow/projects/conf"
-      "~/workflow/projects/fpco"
-      "~/workflow/projects/interview"
-      "~/workflow/projects/reports"
-      "~/workflow/someday"
-      "~/workflow/reference"))
+    '("~/workflow-old/batch"
+      "~/workflow-old/projects"
+      "~/workflow-old/projects/bounties"
+      "~/workflow-old/projects/conf"
+      "~/workflow-old/projects/fpco"
+      "~/workflow-old/projects/interview"
+      "~/workflow-old/projects/reports"
+      "~/workflow-old/someday"
+      "~/workflow-old/reference"))
 
 (setq org-duration-format 'h:mm)
