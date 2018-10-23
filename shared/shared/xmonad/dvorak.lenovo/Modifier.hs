@@ -1,8 +1,8 @@
 module Modifier where
 
-import           XMonad (KeyMask, mod1Mask)
+import           XMonad (KeyMask, mod4Mask)
 
 -- | Mod mask
 mod                         ::  KeyMask
-mod                         =   mod1Mask
+mod                         =   mod4Mask
 
