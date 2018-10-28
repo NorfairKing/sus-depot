@@ -8,7 +8,7 @@ alias sm='smos'
 
 alias make="make -j8"
 alias someday="sm ~/workflow/someday-maybe.smos"
-alias review="sm ~/workflow/review/week-$(date +%Y-%V).smos"
+alias review="sm ~/workflow/review/week/$(date +%Y-%V).smos"
 
 alias i='intray'
 alias t='tickler'
