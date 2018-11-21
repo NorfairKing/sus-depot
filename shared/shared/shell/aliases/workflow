@@ -36,12 +36,14 @@ alias wait='sq waiting'
 alias agenda='sq agenda'
 alias clock='sq clock'
 alias sa='smos-archive'
+alias projects='sq projects'
 
 archive_ () {
   local file="$HOME/workflow/projects/$1.smos"
   smos-archive "$file"
 }
 
+alias cal='cal -w'
 alias hl='hledger --file /home/syd/cs-syd/data/finance/personal/summary.hlog'
 
 if [[ "$(which hastory)" != "hastory not found" ]]
