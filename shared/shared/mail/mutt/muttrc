@@ -72,7 +72,7 @@ alternative_order text/plain text/enriched text/html
 
 
 ## Index ----------------------------------------------------------------------
-set date_format = "%m/%d"
+set date_format = "%F"
 set index_format = "[%Z]  %D  %-20.20F  %s"
 set sort = threads                         # like gmail
 set sort_aux = reverse-last-date-received  # like gmail
@@ -91,7 +91,7 @@ set from                = "syd@cs-syd.eu"
 set use_from
 set sendmail            = "/usr/share/doc/msmtp/msmtpqueue/msmtp-enqueue.sh"
 set sendmail_wait       = 0
-set date_format         = "%d-%m-%y %T"
+set date_format         = "%F %T"
 
 set realname = "Tom Sydney Kerckhove"   # who am i?
 set envelope_from                       # which from?

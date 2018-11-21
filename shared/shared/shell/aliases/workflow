@@ -9,12 +9,14 @@ alias sm='smos'
 alias make="make -j8"
 alias someday="sm ~/workflow/someday-maybe.smos"
 alias review="sm ~/workflow/review/week/$(date +%Y-%V).smos"
+alias stack="nice -n 15 stack"
 
 alias i='intray'
 alias t='tickler'
 alias in='i add'
 alias is='i show'
 alias d='i done'
+alias a=archive_
 
 # Make notes about a task
 note_ () {
@@ -33,6 +35,12 @@ alias next='sq next'
 alias wait='sq waiting'
 alias agenda='sq agenda'
 alias clock='sq clock'
+alias sa='smos-archive'
+
+archive_ () {
+  local file="$HOME/workflow/projects/$1.smos"
+  smos-archive "$file"
+}
 
 alias hl='hledger --file /home/syd/cs-syd/data/finance/personal/summary.hlog'
 
