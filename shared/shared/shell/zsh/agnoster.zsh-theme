@@ -204,17 +204,8 @@ prompt_in() {
   fi
 }
 
-if [[ "$(which hastory)" != "hastory not found" ]]
-then
-  source <(hastory generate-gather-wrapper-script)
-fi
-
 build_prompt() {
   RETVAL=$?
-  if [[ "$(which hastory)" != "hastory not found" ]]
-  then
-    hastory_gather_
-  fi
   prompt_status
   prompt_virtualenv
   prompt_context

@@ -19,7 +19,13 @@ unsetopt correct_all
 safe_source $ZSH/oh-my-zsh.sh
 safe_source ~/.aliases/aliases
 
+if [[ "$(which hastory)" != "hastory not found" ]]
+then
+  source <(hastory generate-gather-wrapper-script)
+fi
+
 precmd() {
+  hastory_gather_
 }
 
 autoload bashcompinit
@@ -37,11 +43,8 @@ make_completion() {
   source <(${bin} --bash-completion-script ${loc})
 }
 make_completion stack
-make_completion bob
-make_completion noah
 make_completion hastory
 make_completion super-user-spark
-make_completion mushu
 make_completion wolf
 
 DISABLE_UPDATE_PROMPT=true
