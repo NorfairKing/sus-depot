@@ -54,4 +54,4 @@
 	url = git@github.com:ElmCast/elm-vim.git
 [submodule "shared/shared/vim/dotvim/bundle/rainbow_parentheses.vim"]
 	path = shared/shared/vim/dotvim/bundle/rainbow_parentheses.vim
-	url = https://github.com/kien/rainbow_parentheses.vim.git
+	url = git@github.com:kien/rainbow_parentheses.vim.git
