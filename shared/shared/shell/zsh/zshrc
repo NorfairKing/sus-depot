@@ -32,15 +32,14 @@ autoload bashcompinit
 bashcompinit
 
 make_completion() {
-  local bin=$1
+  local bin=~/.local/bin/$1
 
   if [[ "$(which ${bin})" == "${bin} not found" ]]
   then
     return 0
   fi
 
-  local loc="$(which ${bin})"
-  source <(${bin} --bash-completion-script ${loc})
+  source <(${bin} --bash-completion-script ${bin})
 }
 make_completion stack
 make_completion hastory

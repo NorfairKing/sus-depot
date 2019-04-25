@@ -1,14 +1,6 @@
 #!/bin/bash
 
 export EDITOR="vim"
-export WORKFLOW="$HOME/workflow"
-export ORG_INBOX="$WORKFLOW/inbox.org"
-export ORG_WORK="$WORKFLOW/work.org"
-export ORG_PERSONAL="$WORKFLOW/personal.org"
-export ORG_PROJECT="$WORKFLOW/current-project.org"
-export ORG_WEEKLY_REVIEW="$WORKFLOW/weekly-review.org"
-export ORG_SOMEDAY_MAYBE="$WORKFLOW/someday-maybe.org"
-export ORG_BLOG="$WORKFLOW/blog.org"
 
 # source /usr/share/nvm/init-nvm.sh
 

@@ -10,7 +10,7 @@ URxvt.lineSpace:            0
 ! Perl extensions
 URxvt.perl-ext-common:      default,matcher,font-size
 URxvt.matcher.button:       1
-URxvt.urlLauncher:          firefox
+URxvt.urlLauncher:          /usr/sbin/xdg-open
 
 ! Fonts
 URxvt*font:                 xft:Menlo for Powerline:regular:size=11
