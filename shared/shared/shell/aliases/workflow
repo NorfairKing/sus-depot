@@ -9,6 +9,11 @@ alias sm='smos'
 alias make="make -j8"
 alias someday="sm ~/workflow/someday-maybe.smos"
 alias review="sm ~/workflow/review/week/$(date +%Y-%V).smos"
+alias mreview="sm ~/workflow/review/month/$(date +%Y-%m).smos"
+alias qreview="sm ~/workflow/review/year/$(date +%Y-Q%q).smos"
+alias yreview="sm ~/workflow/review/year/$(date +%Y).smos"
+alias lreview="sm ~/workflow/review/decade/2015-2020.org"
+alias dreview="sm ~/workflow/review/decade/20-30.org"
 alias stack="nice -n 15 stack"
 
 alias i='intray'
@@ -31,17 +36,20 @@ alias r='note_ reference'
 alias s='note_ someday'
 
 alias sq='smos-query'
+alias sa='smos-archive'
+archive_ () {
+  local dir="$1"
+  local id="$2"
+  file="$HOME/workflow/$dir/$id.smos"
+  sa "$file"
+}
+alias a='archive_ projects'
 alias next='sq next'
 alias wait='sq waiting'
 alias agenda='sq agenda'
 alias clock='sq clock'
 alias sa='smos-archive'
 alias projects='sq projects'
-
-archive_ () {
-  local file="$HOME/workflow/projects/$1.smos"
-  smos-archive "$file"
-}
 
 alias cal='cal -w'
 alias hl='hledger --file /home/syd/cs-syd/data/finance/personal/summary.hlog'

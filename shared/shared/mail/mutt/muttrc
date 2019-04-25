@@ -93,7 +93,7 @@ set sendmail            = "/usr/share/doc/msmtp/msmtpqueue/msmtp-enqueue.sh"
 set sendmail_wait       = 0
 set date_format         = "%F %T"
 
-set realname = "Tom Sydney Kerckhove"   # who am i?
+set realname = "Mr T. S. Kerckhove"     # who am i?
 set envelope_from                       # which from?
 set sig_dashes                          # dashes before sig
 set edit_headers                        # show headers when composing
