@@ -48,6 +48,7 @@ alias next='sq next'
 alias wait='sq waiting'
 alias agenda='sq agenda'
 alias clock='sq clock'
+alias toast='sq entry "(not:(state:DONE or state:CANCELLED) and tag:toast)"'
 alias sa='smos-archive'
 alias projects='sq projects'
 

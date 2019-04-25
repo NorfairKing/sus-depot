@@ -1,1 +1,1 @@
-xrandr --output HDMI-1 --mode 1920x1080 --left-of DP-1 --output DP-1 --mode 1920x1080 --rotate left --left-of DP-2 --output DP-2 --mode 1920x1080 --rotate left --left-of DVI-D-1 --output DVI-D-1 --mode 1920x1080
+xrandr --output HDMI-0 --mode 1920x1080 --left-of DP-4 --output DP-4 --mode 1920x1080 --rotate left --left-of DP-2 --output DP-2 --mode 1920x1080 --rotate left --left-of DVI-D-0 --output DVI-D-0 --mode 1920x1080
