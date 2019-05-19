@@ -25,8 +25,8 @@ set expandtab
 autocmd FileType haskell nmap <silent> ,i :silent update <bar> HsimportModule<CR>
 autocmd FileType haskell nmap <silent> ,y :silent update <bar> HsimportSymbol<CR>
 
-autocmd FileType haskell setlocal shiftwidth=4 tabstop=4 softtabstop=4
-autocmd FileType cabal setlocal shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType haskell setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType cabal setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 autocmd FileType nix let b:autoformat_autoindent=0
 let g:ycm_semantic_triggers = {'haskell' : ['.']}
