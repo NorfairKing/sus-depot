@@ -100,7 +100,7 @@ set edit_headers                        # show headers when composing
 set fast_reply                          # skip to compose when replying
 set askcc                               # ask for CC:
 set fcc_attach                          # save attachments with the body
-set mime_forward = no                   # forward attachments
+set mime_forward = yes                  # forward attachments
 set mime_forward_rest = yes             # also forward non-text attachements
 set forward_format = "Fwd: %s"          # format of subject when forwarding
 set forward_decode                      # decode when forwarding
