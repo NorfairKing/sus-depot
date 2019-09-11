@@ -72,7 +72,7 @@ myKeys _ = M.fromList $
         ((mod                                 , xK_y            ),  closeWindow         ),
 
         -- Top row layout: [{+(= *)!}]
-        ((mod                                 , xK_bracketleft  ),  nothing             ),
+        ((mod                                 , xK_bracketleft  ),  spawn "killall xinit"             ),
         ((mod                                 , xK_braceleft    ),  focusPrevScreen     ),
         ((mod .|. shiftMask                   , xK_braceleft    ),  shiftPrevScreen     ),
         ((mod                                 , xK_parenleft    ),  lessWindows         ),

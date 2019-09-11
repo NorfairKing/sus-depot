@@ -44,6 +44,7 @@ make_completion() {
 make_completion stack
 make_completion hastory
 make_completion super-user-spark
+make_completion donna
 make_completion wolf
 make_completion smos-query
 
