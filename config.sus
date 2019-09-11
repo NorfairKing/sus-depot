@@ -11,6 +11,12 @@ card config {
   }
 
   {
+    into smos
+    outof smos
+    config.yaml
+  }
+
+  {
     outof config
 
     {

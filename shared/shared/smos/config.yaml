@@ -1,0 +1,15 @@
+contexts:
+  home: 'ancestor:(tag:home or (tag:online or tag:offline))'
+  transport: '(not:ancestor:tag:home and ancestor:(tag:transport or tag:offline))'
+  airplane: '(not:ancestor:(tag:online or tag:home) and ancestor:tag:offline)'
+  toast: 'ancestor:tag:toast'
+
+work:
+  checks:
+    - has-property:timewindow
+  columns:
+    - file
+    - state
+    - header
+    - property:timewindow
+  sorter: property-as-time:timewindow
