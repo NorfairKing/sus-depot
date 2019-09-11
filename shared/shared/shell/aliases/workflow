@@ -8,7 +8,7 @@ alias sm='smos'
 
 alias make="make -j8"
 alias someday="sm ~/workflow/someday-maybe.smos"
-alias review="sm ~/workflow/review/week/$(date +%Y-%V).smos"
+alias review="sm ~/workflow/review/week/$(date +%Y)/$(date +%Y-%V).smos"
 alias mreview="sm ~/workflow/review/month/$(date +%Y-%m).smos"
 alias qreview="sm ~/workflow/review/year/$(date +%Y-Q%q).smos"
 alias yreview="sm ~/workflow/review/year/$(date +%Y).smos"
@@ -23,34 +23,6 @@ alias is='i show'
 alias d='i done'
 alias a=archive_
 
-# Make notes about a task
-note_ () {
-  local dir="$1"
-  local id="$2"
-  file="$HOME/workflow/$dir/$id.smos"
-  sm "$file"
-}
-alias n='note_ projects'
-alias b='note_ batch'
-alias r='note_ reference'
-alias s='note_ someday'
-
-alias sq='smos-query'
-alias sa='smos-archive'
-archive_ () {
-  local dir="$1"
-  local id="$2"
-  file="$HOME/workflow/$dir/$id.smos"
-  sa "$file"
-}
-alias a='archive_ projects'
-alias next='sq next'
-alias wait='sq waiting'
-alias agenda='sq agenda'
-alias clock='sq clock'
-alias toast='sq entry "(not:(state:DONE or state:CANCELLED) and tag:toast)"'
-alias sa='smos-archive'
-alias projects='sq projects'
 
 alias cal='cal -w'
 
@@ -67,4 +39,46 @@ alias fail='vim ~/workflow/failures.txt'
 alias tf='terraform'
 alias tfp='terraform plan'
 alias tfa='terraform apply'
+
+# Open with smos
+note_ () {
+  local dir="$1"
+  local id="$2"
+  file="$HOME/workflow/$dir/$id.smos"
+  sm "$file"
+}
+alias n='note_ projects'
+alias b='note_ batch'
+alias r='note_ reference'
+alias s='note_ someday'
+
+# Open with vim
+note_vim_ () {
+  local dir="$1"
+  local id="$2"
+  file="$HOME/workflow/$dir/$id.smos"
+  v "$file"
+}
+alias nv='note_vim_ projects'
+alias bv='note_vim_ batch'
+alias rv='note_vim_ reference'
+alias sv='note_vim_ someday'
+
+alias sq='smos-query'
+alias sa='smos-archive'
+archive_ () {
+  local dir="$1"
+  local id="$2"
+  file="$HOME/workflow/$dir/$id.smos"
+  sa "$file"
+}
+alias a='archive_ projects'
+alias next='sq next'
+alias wait='sq waiting'
+alias agenda='sq agenda'
+alias clock='sq clock'
+alias sa='smos-archive'
+alias projects='sq projects'
+alias sw='smos-query work'
+alias wh='sw home'
 

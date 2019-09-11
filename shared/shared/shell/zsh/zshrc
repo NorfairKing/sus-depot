@@ -46,6 +46,7 @@ make_completion hastory
 make_completion super-user-spark
 make_completion donna
 make_completion wolf
+make_completion donna
 make_completion smos-query
 
 DISABLE_UPDATE_PROMPT=true

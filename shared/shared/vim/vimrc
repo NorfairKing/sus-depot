@@ -151,9 +151,3 @@ function! BedanktVoorUwTijd()
 endfunction
 
 nmap bvut :call BedanktVoorUwTijd()<CR>
-
-" Un-hurting my wrinst
-
-"make jj do esc"
-inoremap jj <Esc>
-
