@@ -36,6 +36,7 @@ let g:elm_format_autosave = 1
 
 " Hindent options
 let g:hindent_on_save = 1
+let g:hindent_line_length = 100
 
 let g:terraform_fmt_on_save = 1
 
