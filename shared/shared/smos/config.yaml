@@ -1,15 +1,28 @@
 contexts:
-  home: 'ancestor:(tag:home or (tag:online or tag:offline))'
-  transport: '(not:ancestor:tag:home and ancestor:(tag:transport or tag:offline))'
-  airplane: '(not:ancestor:(tag:online or tag:home) and ancestor:tag:offline)'
+  home: 'ancestor:tag:(home or (online or offline))'
+  transport: '(not:ancestor:tag:home and ancestor:tag:(transport or offline))'
+  airplane: '(not:ancestor:tag:(online or home) and ancestor:tag:offline)'
   toast: 'ancestor:tag:toast'
 
 work:
+  time-filter: timewindow
   checks:
-    - has-property:timewindow
+    - property:timewindow
   columns:
     - file
     - state
     - header
     - property:timewindow
-  sorter: property-as-time:timewindow
+  sorter: '(reverse:property-as-time:timewindow then file)'
+
+sync:
+  server-url: "api.staging.smos.cs-syd.eu"
+  username: syd
+  password: smos-password-test
+
+scheduler:
+  schedule:
+  - template: templates/fpco-weekly.smos
+    destination: projects/fpco/work-%V.smos
+    schedule: "0 10 * * 0" # “At 10:00 on Sunday.”
+

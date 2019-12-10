@@ -1,2 +1,6 @@
 alias e='emacsclient -t'
 alias v='vim'
+function vim_line {
+  $(echo "$1" | awk -F: '{printf "vim +%s %s",$2,$1}')
+}
+alias vv=vim_line
