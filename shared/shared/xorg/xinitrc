@@ -20,4 +20,4 @@ source ~/.screen
 redshift -l 50:0 &
 
 # start xmonad
-exec xmonad
+exec xmonad --keyboard kinesis.dvorak
