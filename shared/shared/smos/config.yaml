@@ -4,6 +4,9 @@ contexts:
   airplane: '(not:ancestor:tag:(online or home) and ancestor:tag:offline)'
   toast: 'ancestor:tag:toast'
 
+waiting:
+  threshold: 7
+
 work:
   time-filter: timewindow
   checks:
