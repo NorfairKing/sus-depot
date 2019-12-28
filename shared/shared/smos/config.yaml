@@ -1,6 +1,6 @@
 contexts:
   home: 'ancestor:tag:(home or (online or offline))'
-  transport: '(not:ancestor:tag:home and ancestor:tag:(transport or offline))'
+  transport: '(not:ancestor:tag:home and ancestor:tag:(transport or (offline or online)))'
   airplane: '(not:ancestor:tag:(online or home) and ancestor:tag:offline)'
   toast: 'ancestor:tag:toast'
 

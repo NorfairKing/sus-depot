@@ -28,6 +28,8 @@ autocmd FileType haskell nmap <silent> ,y :silent update <bar> HsimportSymbol<CR
 autocmd FileType haskell setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType cabal setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
+au BufNewFile, BufRead *.md set spell
+
 autocmd FileType nix let b:autoformat_autoindent=0
 let g:ycm_semantic_triggers = {'haskell' : ['.']}
 
